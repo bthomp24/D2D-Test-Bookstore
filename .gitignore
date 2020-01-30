@@ -1,5 +1,6 @@
 
 .vscode/settings.json
+venv/
 venv/Lib/site-packages/__pycache__/easy_install.cpython-37.pyc
 venv/Lib/site-packages/asgiref-3.2.3.dist-info/INSTALLER
 venv/Lib/site-packages/asgiref-3.2.3.dist-info/LICENSE
