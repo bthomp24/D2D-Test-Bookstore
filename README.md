@@ -9,6 +9,8 @@ When creating your virtual environment, the .gitignore file has been customized 
 ``` 
 py -m venv venv
 
+(CHANGE YOUR INTERPRETER TO THE VIRTUAL ENVIRONMENT)
+
 pip install -r pip_requirements.txt 
 ```
 
