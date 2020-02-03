@@ -4,7 +4,8 @@ from django.db import models
 class Book(models.Model):
     ISBN = models.CharField(max_length=13, primary_key=True)
     title = models.CharField(max_length=200)
-    author = models.CharField(max_length=200)
+    primary_author = models.CharField(max_length=100)
+    secondary_authors = models.CharField(max_length=200)
     description = models.TextField()
     publisher = models.CharField(max_length=200)
     release_date = models.CharField(max_length=200)
@@ -13,4 +14,4 @@ class Book(models.Model):
     volume_number = models.CharField(max_length=10)
 
     def __str__(self):
-        return f' {self.ISBN}, {self.title}, {self.author}'
+        return f' {self.ISBN}, {self.title}, {self.author}, {self.secondary_authors}'
