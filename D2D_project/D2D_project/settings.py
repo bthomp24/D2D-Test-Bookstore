@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'test_bookstore.apps.TestBookstoreConfig',
     'rest_framework',
+    'd2dapi.apps.D2DapiConfig',
 ]
 
 MIDDLEWARE = [
