@@ -1,13 +1,22 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
 <!-- This is the start of the search page. -->
+<!-- Draft to digital's colors are Blue and Orange. Build the design around that.-->
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'test_bookstore/search_page_style.css' %}">
+</head>
 
+<body>
+<div class="icon">
+<img src="d2d-logo-light.png" alt="Company Icon">
+</div>
 
-
-
-
-
-
-
+<div class="center">
+<input type="text" id="searchBar">
+<input type="submit" value="Search" id="searchButton">
+</div>
+</body>
 
 </html>
