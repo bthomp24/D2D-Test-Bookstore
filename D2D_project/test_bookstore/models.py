@@ -14,3 +14,9 @@ class Book(models.Model):
 
     def __str__(self):
         return f' {self.ISBN}, {self.title}, {self.author}'
+
+
+class File(models.Model):
+    f = models.FileField(blank=False, null=False)
+    #remark = models.CharField(max_length=20)
+    timestamp = models.DateTimeField(auto_now_add=True)
