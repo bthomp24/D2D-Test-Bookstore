@@ -12,6 +12,7 @@ class Book(models.Model):
     price = models.CharField(max_length=50)
     series = models.CharField(max_length=200, default=None, blank=True, null=True)
     volume_number = models.CharField(max_length=10, default=None, blank=True, null=True)
+    is_available = models.BooleanField(default=False)
 
     def __str__(self):
         return f' {self.ISBN}, {self.title}, {self.author}, {self.secondary_authors}'
