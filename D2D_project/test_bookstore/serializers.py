@@ -5,9 +5,9 @@ from .models import File
 class BookSerializer (serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Book
-        fields = ('ISBN', 'title', 'author', 'description', 
+        fields = ('ISBN', 'title', 'author', 'secondary_authors', 'description', 
                 'publisher', 'release_date', 'price', 'series', 
-                'volume_number',)
+                'volume_number', 'is_available',)
 
 
 class FileSerializer(serializers.ModelSerializer):
