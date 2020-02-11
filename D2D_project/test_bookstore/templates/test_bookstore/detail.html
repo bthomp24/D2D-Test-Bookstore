@@ -4,10 +4,72 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="{% static 'test_bookstore/detail_page_style.css' %}">
+    <style>
+        .right{
+            position: absolute;
+            right: 70px;
+            top: 130px;
+            width: 400px;
+ 
+        }
+        .left{
+            position: absolute;
+            left: 280px;
+            width: 400px;
+        }
+        #dataTable{
+            font-size: 27px; 
+        }
+        #About{
+            font-size: 27px;
+        }
+        td {
+            height: 50px;
+        }
+
+    </style>
     </head>
 
     <body>
         <h1><b>Put the Title Here!</b></h1>
+        <div class="right">
+            <p id="About">About Book:</p>
+            <p style="width: 80%">This is a paragraph about fish. Fish are the fishiest and tend to be very fishy when it comes to demeanor. Fish can be quite the fishy customer when you think about it, in a fishy way.</p>
+        </div>
+        <div class="left">
+        <table id="dataTable">
+            <tr>
+                <td>Author:</td>
+                <td>Some person</td>
+            </tr>
+            <tr>
+                <td>ISBN 13#:</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Publisher:</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Release Date:  </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Series:</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Volume#:</td>
+                <td></td>
+            </tr>
+
+        </table>
+        </div>
+        
 
     </body>
 
