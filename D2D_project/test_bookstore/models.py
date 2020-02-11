@@ -1,4 +1,5 @@
 from django.db import models
+import os
 
 # Create your models here.
 class Book(models.Model):
@@ -19,6 +20,9 @@ class Book(models.Model):
 
 def user_directory_path(instance, filename): 
     path = 'media/'
+    if os.path.exists('media/onix3.xml'):
+        os.remove('media/onix3.xml')
+    
     filename = "onix3.xml"
     
     return "onix3.xml"
