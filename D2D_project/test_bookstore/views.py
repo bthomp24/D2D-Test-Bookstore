@@ -13,6 +13,9 @@ from rest_framework import status
 from .serializers import FileSerializer
 from .onix_parse import parseXML
 
+from .models import File
+import os
+
 
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all().order_by('title')

@@ -14,6 +14,12 @@ py -m venv venv
 pip install -r pip_requirements.txt 
 ```
 
+## Updating Pip Requirements
+
+```
+pip freeze > pip_requirements.txt
+```
+
 ## Acknowledgements
 
 * Brendan Van Tuyle
