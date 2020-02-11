@@ -17,7 +17,12 @@ class Book(models.Model):
     def __str__(self):
         return f' {self.ISBN}, {self.title}, {self.author}'
 
-
+def user_directory_path(instance, filename): 
+    path = 'media/'
+    filename = "onix3.xml"
+    
+    return "onix3.xml"
+  
 class File(models.Model):
-    f = models.FileField(blank=False, null=False)
+    f = models.FileField(blank=False, null=False, upload_to = user_directory_path)
     timestamp = models.DateTimeField(auto_now_add=True)
