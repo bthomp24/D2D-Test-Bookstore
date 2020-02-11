@@ -11,6 +11,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import FileSerializer
+from .onix_parse import parseXML
 
 
 class BookViewSet(viewsets.ModelViewSet):
@@ -29,3 +30,10 @@ class FileView(APIView):
             return Response(file_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ProcessXML(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+    
+    def post(self, request, *args, **kwargs):
+        parseXML(../media/kobo_onix3_01.xml);
