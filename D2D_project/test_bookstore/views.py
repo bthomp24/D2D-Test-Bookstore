@@ -28,7 +28,6 @@ class FileView(APIView):
     def post(self, request, *args, **kwargs):
         file_serializer = FileSerializer(data=request.data)
         if file_serializer.is_valid():
-            #os.rename(file_serializer.get_value, 'onix3.xml')
             file_serializer.save()
             return Response(file_serializer.data, status=status.HTTP_201_CREATED)
         else:
