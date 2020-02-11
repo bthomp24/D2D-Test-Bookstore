@@ -21,7 +21,7 @@ def parseXML(xmlFile):
         bookPublisher=[]
         bookReleaseDate=[]
         bookPrice =[]
-        book_dict = {}
+      
 
         for book in bookList:
             #parse ISBN 13 of the current book 
@@ -104,8 +104,7 @@ def parseXML(xmlFile):
                  releaseDate = bookReleaseDate[i],
                  price = bookPrice[i]
                  )
-
-            book_dict[bookIsbn[i]]= (bookIsbn[i], bookTitle[i], bookPrimaryAuthor[i])
+                 
             i= i+1
 
         
@@ -124,8 +123,6 @@ def parseXML(xmlFile):
             print("Release Date:", bookReleaseDate[n])
             print("Price:", bookPrice[n])
            
-
-        print (book_dict)
 
 if __name__ == "__main__":
     parseXML("kobo.xml")

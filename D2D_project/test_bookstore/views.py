@@ -36,4 +36,10 @@ class ProcessXML(APIView):
     parser_classes = (MultiPartParser, FormParser)
     
     def post(self, request, *args, **kwargs):
-        parseXML(../media/kobo_onix3_01.xml);
+        book_serializer = BookSerializer(data=request.data)
+        if book_serializer.is_valid():
+            book_serializer.save()
+            parseXML(media/kobo_onix3_01.xml);
+            return Reponse(book_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(book_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
