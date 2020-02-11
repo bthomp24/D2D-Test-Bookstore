@@ -15,4 +15,4 @@ class Book(models.Model):
     is_available = models.BooleanField(default=False)
 
     def __str__(self):
-        return f' {self.ISBN}, {self.title}, {self.author}, {self.secondary_authors}'
+        return f' {self.ISBN}, {self.title}, {self.primary_author}, {self.secondary_authors}'
