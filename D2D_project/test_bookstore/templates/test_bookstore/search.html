@@ -9,13 +9,23 @@
 </head>
 
 <body>
+
 <div class="icon">
 <img src="d2d-logo-light.png" alt="Company Icon">
 </div>
 
 <div class="center">
-<input type="text" id="searchBar">
-<input type="submit" value="Search" id="searchButton">
+    <form action="{% url 'test_bookstore:search' %}">
+        <input type="text" id="searchBar">
+        <input type="submit" value="Search" id="searchButton">
+    </form>
+</div>
+
+<div>
+    {% if results %}
+
+    <!-- This will be where you'll display the list of books in a form format. -->
+    {% endif %} 
 </div>
 </body>
 
