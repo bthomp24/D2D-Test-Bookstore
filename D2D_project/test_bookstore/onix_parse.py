@@ -1,5 +1,6 @@
 from lxml import etree
 from .models import Book
+from bs4 import BeautifulSoup
 
 
 def parseXML(xmlFile):
@@ -21,6 +22,7 @@ def parseXML(xmlFile):
         bookPublisher=[]
         bookReleaseDate=[]
         bookPrice =[]
+        bookIsAvailable=[]
       
 
         for book in bookList:
@@ -68,7 +70,9 @@ def parseXML(xmlFile):
             #parse the description of the book if it exist
             description = book.xpath(".//ns:CollateralDetail/ns:TextContent[ns:TextType='03']/ns:Text", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
             if (len(description)>0):
-                bookDescription.insert(i, description[0].text)
+                buffer = BeautifulSoup(description[0].text)
+                formatDescription = buffer.get_text()
+                bookDescription.insert(i, formatDescription)
             else:
                 bookDescription.insert(i, "None")
             
@@ -82,18 +86,48 @@ def parseXML(xmlFile):
             #parse the release date of the book
             releaseDate = book.xpath(".//ns:PublishingDetail/ns:PublishingDate[ns:PublishingDateRole = '01']/ns:Date", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
             if (len(releaseDate)>0):
-                bookReleaseDate.insert(i, releaseDate[0].text)
+                date = releaseDate[0].text
+                formattedDate = date[0:4]+"/"+date[4:6]+"/"+date[-2:]
+                bookReleaseDate.insert(i, formattedDate)
             else:
                 bookReleaseDate.insert(i, "None")
 
             #parse the price of the book
             price =  book.xpath(".//ns:Price[ns:PriceType = '01']/ns:PriceAmount", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
             if (len(price)>0):
-                bookPrice.insert(i, price[0].text)
+                formatPrice = "$ " + price[0].text
+                bookPrice.insert(i, formatPrice)
             else:
                 bookPrice.insert(i, "None")
 
-            Book.objects.create(
+            #parse the info on is book is available for sale
+            isAvailable = book.xpath(".//ns:PublishingDetail/ns:PublishingStatus", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
+            if (len(isAvailable)>0):
+                print(isAvailable[0].text)
+                if (isAvailable[0].text== '04'):
+                    bookIsAvailable.insert(i, True)
+                elif(isAvailable[0].text =='07'):
+                    bookIsAvailable.insert(i, False)    
+            else:
+                bookIsAvailable.insert(i, False)
+
+            try:
+                checkBook = Book.objects.get(ISBN=bookIsbn[i])
+                
+                checkBook.ISBN = bookIsbn[i]
+                checkBook.title = bookTitle[i]
+                checkBook.primary_author = bookPrimaryAuthor[i]
+                checkBook.series = bookSeriesTitle[i]
+                checkBook.volume_number = bookVolumeNumber[i]
+                checkBook.secondary_authors = bookSecondaryAuthor[i]
+                checkBook.description = bookDescription[i]
+                checkBook.release_date = bookReleaseDate[i]
+                checkBook.price = bookPrice[i]
+                checkBook.publisher = bookPublisher[i]
+                checkBook.is_available = bookIsAvailable[i]
+                checkBook.save() 
+            except:    
+                Book.objects.create(
                  ISBN = bookIsbn[i],
                  title = bookTitle[i],
                  primary_author = bookPrimaryAuthor[i],
@@ -101,28 +135,19 @@ def parseXML(xmlFile):
                  volume_number = bookVolumeNumber[i],
                  secondary_authors = bookSecondaryAuthor[i],
                  description = bookDescription[i],
-                 releaseDate = bookReleaseDate[i],
-                 price = bookPrice[i]
+                 release_date = bookReleaseDate[i],
+                 price = bookPrice[i],
+                 publisher = bookPublisher[i],
+                 is_available = bookIsAvailable[i]
                  )
                  
             i= i+1
 
-        
-        for n in range(i):
-            print("\n")
-            print("\n")
-            print("Book #", n)
-            print("ISBN:13:", bookIsbn[n])
-            print("Title:", bookTitle[n])
-            print("Series Title:", bookSeriesTitle[n])
-            print("Volume #:",bookVolumeNumber[n])
-            print("Author:", bookPrimaryAuthor[n])
-            print("Co-Authors:", bookSecondaryAuthor[n])
-            print("Descritption:",bookDescription[n])
-            print("Publisher:", bookPublisher[n])
-            print("Release Date:", bookReleaseDate[n])
-            print("Price:", bookPrice[n])
+        if (i)==len(bookList):
+            return 1
+        else:
+            return 0
            
 
 if __name__ == "__main__":
-    parseXML("kobo.xml")
+    parseXML("onix3.xml")

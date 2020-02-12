@@ -16,7 +16,7 @@ class Book(models.Model):
     is_available = models.BooleanField(default=False)
 
     def __str__(self):
-        return f' {self.ISBN}, {self.title}, {self.author}'
+        return f' {self.ISBN}, {self.title}, {self.primary_author}'
 
 def user_directory_path(instance, filename): 
     path = 'media/'
