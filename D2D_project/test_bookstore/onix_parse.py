@@ -28,7 +28,10 @@ def parseXML(xmlFile):
         for book in bookList:
             #parse ISBN 13 of the current book 
             isbn =  book.xpath(".//ns:ProductIdentifier[ns:ProductIDType = '15']/ns:IDValue", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
-            bookIsbn.insert(i,isbn[0].text)
+            isbnBuffer = isbn[0].text
+            if (len(isbnBuffer)<13):
+                isbnBuffer = '978'+ isbnBuffer
+            bookIsbn.insert(i,isbnBuffer)
 
             #parse title of the current book
             title =  book.xpath(".//ns:TitleElement[ns:SequenceNumber = '1']/ns:TitleText", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
