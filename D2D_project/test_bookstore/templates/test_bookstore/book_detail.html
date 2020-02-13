@@ -10,7 +10,6 @@
             right: 70px;
             top: 130px;
             width: 400px;
- 
         }
         .left{
             position: fixed;
@@ -39,15 +38,21 @@
             left: 90px
 
         }
-
+        .icon {
+            position: relative;
+            width: 30%;
+          }
     </style>
-    </head>
+    <div class="icon" style="position:relative">
+        <p style="font-size: 2.4em; color:orangered; top: -30px; left: 25px; position:absolute "><img src="{% static 'test_bookstore/logo.png' %}" alt="Company Icon" align="left">Test Bookstore</p>
+    </div>
+</head>
 
     <body>
         {% block content %}
         <h1><b>{{ book.title }}</b></h1>
         
-        <a class="button" href="{% url 'test_bookstore:search' %}">Home</a>
+        <a class="button" href="{% url 'test_bookstore:search' %}">Back</a>
         
         <div class="right">
             <p id="About">About Book:</p>
