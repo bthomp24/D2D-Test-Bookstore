@@ -1,0 +1,23 @@
+body {
+    background-image: url("test bookstore search page.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+#searchBar {
+    border-radius: 25px;
+    width: 70%
+}
+#searchButton {
+    width: 15%;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+div.icon {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: right;
+}
