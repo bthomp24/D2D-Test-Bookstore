@@ -2,8 +2,8 @@ body {
     background-image: url("test bookstore search page.png");
     background-repeat: no-repeat;
     background-position: top center;
-    /*background-size: 100%;*/
-  }
+    background-size: 100%;
+}
 #searchBar {
     border-radius: 25px;
     width: 70%
