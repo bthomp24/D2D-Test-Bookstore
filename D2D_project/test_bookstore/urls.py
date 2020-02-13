@@ -1,6 +1,7 @@
 from django.urls import include, path
 from .views import FileView
 from .views import ProcessXML
+from . import views
 from django.conf.urls import url
 
 
