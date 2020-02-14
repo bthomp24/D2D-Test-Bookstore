@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'test_bookstore/search_page_style.css' %}">
+<style>
+table{
+    width: 50%;
+    background-color: #000000;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+tr{
+    background-color: #f7f6f6;
+    padding: 10px;
+
+}
+td {
+    text-align: left;
+    padding: 8px;
+
+}
+.icon {
+  width: 30%;
+  left: 40px;
+}
+</style>    
+</head>
+
+<body>
+{% block content %}
+<div class="icon" style="position:relative">
+  <p style="font-size: 2.4em; color:orangered;" align="left"><img src="{% static 'test_bookstore/logo.png' %}" alt="Company Icon" align="left">Test Bookstore</p>
+</div>
+
+<div class="center">
+    <form action="{% url 'test_bookstore:search' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Search" id="searchButton">
+    </form>
+</div>
+{% if results %}
+<div>
+    <table>
+        {% for book in results %}
+        <tr>
+            <td>{{ book.0.title }}</td>
+            <td>{{ book.0.primary_author }}</td>
+            <td>{{ book.0.ISBN }}</td>
+            <td>rating: {{ book.1 }}</td>
+            <td><a href="{% url 'test_bookstore:book_detail' book.0.ISBN %}">Details</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+ <!-- <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+  </div> -->
+{% endif %} 
+{% endblock %}
+</body>
+
+</html>

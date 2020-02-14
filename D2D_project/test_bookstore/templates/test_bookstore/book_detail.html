@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'test_bookstore/detail_page_style.css' %}">
+    <style>
+        .right{
+            position: fixed;
+            right: 70px;
+            top: 130px;
+            width: 400px;
+        }
+        .left{
+            position: fixed;
+            left: 280px;
+            width: 400px;
+        }
+        #dataTable{
+            font-size: 21px; 
+        }
+        #About{
+            font-size: 21px;
+        }
+        td {
+            height: 50px;
+        }
+        .button {
+            position: absolute;
+            background-color: #fff1d7;
+            border: #ffb253;
+            color: black;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: underline;
+            display: inline-block;
+            font-size: 15px;
+            left: 90px
+
+        }
+        .icon {
+            position: relative;
+            width: 30%;
+          }
+    </style>
+    <div class="icon" style="position:relative">
+        <p style="font-size: 2.4em; color:orangered; top: -30px; left: 25px; position:absolute "><img src="{% static 'test_bookstore/logo.png' %}" alt="Company Icon" align="left">Test Bookstore</p>
+    </div>
+</head>
+
+    <body>
+        {% block content %}
+        <h1><b>{{ book.title }}</b></h1>
+        
+        <a class="button" href="{% url 'test_bookstore:search' %}">Back</a>
+        
+        <div class="right">
+            <p id="About">About Book:</p>
+            <p style="width: 80%">{{ book.description }}</p>
+        </div>
+        <div class="left">
+            <table id="dataTable">
+                <tr>
+                    <td>Author:</td>
+                    <td>{{ book.primary_author }}, {{ book.secondary_authors }}</td>
+                </tr>
+                <tr>
+                    <td>ISBN 13#:</td>
+                    <td>{{ book.ISBN }}</td>
+                </tr>
+                <tr>
+                    <td>Publisher:</td>
+                    <td>{{ book.publisher }}</td>
+                </tr>
+                <tr>
+                    <td>Release Date:  </td>
+                    <td>{{ book.release_date }}</td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td>{{ book.price }}</td>
+                </tr>
+                <tr>
+                    <td>Series:</td>
+                    <td>{{ book.series }}</td>
+                </tr>
+                <tr>
+                    <td>Volume#:</td>
+                    <td>{{ book.volume_number }}</td>
+                </tr>
+
+            </table>
+        </div>
+        {% endblock %}
+    </body>
+
+
+
+
+
+</html>
