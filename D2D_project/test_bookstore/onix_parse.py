@@ -65,8 +65,8 @@ def parseXML(xmlFile):
                 if (len(secondaryAuthor)>1):
                     n = len(secondaryAuthor)-1
                     while n>=1:
-                        bookSecondaryAuthor[i] = bookSecondaryAuthor[i] +" "+ secondaryAuthor[n].text
-                        n=n-1;
+                        bookSecondaryAuthor[i] = secondaryAuthor[n].text+", "+bookSecondaryAuthor[i]
+                        n=n-1
             else:
                 bookSecondaryAuthor.insert(i, "None")
 
