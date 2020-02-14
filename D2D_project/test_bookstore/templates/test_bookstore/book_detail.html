@@ -62,7 +62,7 @@
             <table id="dataTable">
                 <tr>
                     <td>Author:</td>
-                    <td>{{ book.primary_author }}{{ book.secondary_authors }}</td>
+                    <td>{{ book.primary_author }}, {{ book.secondary_authors }}</td>
                 </tr>
                 <tr>
                     <td>ISBN 13#:</td>
@@ -78,7 +78,7 @@
                 </tr>
                 <tr>
                     <td>Price:</td>
-                    <td>${{ book.price }}</td>
+                    <td>{{ book.price }}</td>
                 </tr>
                 <tr>
                     <td>Series:</td>
