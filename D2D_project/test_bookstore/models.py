@@ -30,3 +30,4 @@ def user_directory_path(instance, filename):
 class File(models.Model):
     f = models.FileField(blank=False, null=False, upload_to = user_directory_path)
     timestamp = models.DateTimeField(auto_now_add=True)
+    
