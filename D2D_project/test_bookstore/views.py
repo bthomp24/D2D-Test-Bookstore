@@ -76,7 +76,7 @@ def search(request):
     # empty list that will hold our search display data for
     # the ResultsTable    
     results_display = []
-
+    results = ""
     # POST forcer for our "page" GET request. So we can
     # access our old POST data when we move to the next page.
     if not request.method == 'POST' and 'page' in request.GET:
