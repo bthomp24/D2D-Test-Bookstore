@@ -18,7 +18,7 @@ synopsis:
 class ResultsTable(tables.Table):
 
     title = tables.Column('Search Results')
-    author = tables.Column("Author")
+    author = tables.Column("Author", attrs={"th" :{"align-self": "left"}})
     ISBN = tables.Column("ISBN")
     rating = tables.Column("Rating")
 
@@ -28,6 +28,7 @@ class ResultsTable(tables.Table):
     class Meta:
         attr = {"class" : "search_table"}
         orderable = False
+         
     
         
     # This function's purpose is to display the "Detail" name for the links

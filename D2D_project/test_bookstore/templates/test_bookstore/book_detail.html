@@ -149,14 +149,18 @@ th, td {
   </div>
   
   <div class="left">
-    <a class="button" href="{% url 'test_bookstore:search' %}" style="vertical-align:middle"><span>Back</span></a>  
+    <a class="button" onClick="javascript:history.go(-1);" style="vertical-align:middle"><span>Back</span></a>  
   </div>
   <div class="middle" style="background-color:#bbb;">
     <p class="bookTitle"><b>{{ book.title }}</b></p>
     <table id="dataTable">
         <tr>
             <td class="bookDetailHeading">Author:</td>
-            <td class="bookDetail">{{ book.primary_author }}, {{ book.secondary_authors }}</td>
+            <td class="bookDetail">{{ book.primary_author }}
+              {% if book.secondary_authors != "None" %}
+               , {{ book.secondary_authors }}
+              {%endif%}
+            </td>
         </tr>
         <tr>
             <td class="bookDetailHeading">ISBN 13#:</td>

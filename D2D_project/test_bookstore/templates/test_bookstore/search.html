@@ -14,10 +14,13 @@
             width: 80%;
             font-size: 120%;
             border-bottom: 1px solid black;
+            align-items:left;
         }
         th, td {
              padding: 15px;
              border-bottom: 1px solid black;
+             text-align: left;
+             margin-left: 0%;
         }
 
         .center .form {
@@ -52,6 +55,34 @@
             font-size: 16px;
             padding: 10px 8px;
 
+        }
+        .pagination {
+            display: inline-block;
+            align-items: center;
+            margin-left: 10%;
+        }
+
+        .pagination a {
+            color: whitesmoke;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            align-self: center;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color:#f4511e;
+            border-radius: 5px;
+        }
+        ul li{
+            display: inline;
+            align-items: center;
         }
 
         </style>
