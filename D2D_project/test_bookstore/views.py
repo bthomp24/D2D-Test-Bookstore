@@ -102,12 +102,13 @@ def search(request):
 
             # Loop for constructing the list of dictionaries to build our ResultsTable
             for books in results:
-                dicts = {}
-                dicts["title"] = getattr(books[0], "title")
-                dicts["author"] = getattr(books[0], "primary_author")
-                dicts["ISBN"] = getattr(books[0], "ISBN")
-                dicts["rating"] = books[1]
-                results_display.append(dicts)            
+                if float(books[1])> float(0) and getattr(books[0], "is_available"):
+                    dicts = {}
+                    dicts["title"] = getattr(books[0], "title")
+                    dicts["author"] = getattr(books[0], "primary_author")
+                    dicts["ISBN"] = getattr(books[0], "ISBN")
+                    dicts["rating"] = books[1]
+                    results_display.append(dicts)            
     else:
         # Purposes of hiding the list until a query is made.
         form = searchBar()
