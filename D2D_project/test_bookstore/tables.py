@@ -17,13 +17,17 @@ synopsis:
 """
 class ResultsTable(tables.Table):
 
-    title = tables.Column("Search Results")
-    author = tables.Column("")
-    ISBN = tables.Column("")
-    rating = tables.Column("")
+    title = tables.Column('Search Results')
+    author = tables.Column("Author")
+    ISBN = tables.Column("ISBN")
+    rating = tables.Column("Rating")
 
     # Constructing our links to the book details page in the form of a 5th column
     book_details = tables.LinkColumn('test_bookstore:book_detail', args=[A("ISBN")], orderable=False, empty_values=())
+
+    class Meta:
+        attr = {"class" : "search_table"}
+        orderable = False
     
         
     # This function's purpose is to display the "Detail" name for the links
