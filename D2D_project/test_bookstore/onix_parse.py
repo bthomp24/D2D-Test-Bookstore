@@ -38,14 +38,14 @@ def parseXML(xmlFile):
             bookTitle.insert(i, title[0].text)
 
             #parse the Series title of the book if it exists
-            seriesTitle =  book.xpath(".//ns:TitleElement[ns:SequenceNumber = '2']/ns:TitleText", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
+            seriesTitle =  book.xpath(".//ns:Collection/ns:TitleDetail/ns:TitleElement[ns:SequenceNumber = '2']/ns:TitleText", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
             if (len(seriesTitle)>0):
                 bookSeriesTitle.insert(i, seriesTitle[0].text)
             else:
                 bookSeriesTitle.insert(i, "None")
 
             #parse the volume number of the series if exists
-            volumeNumber =  book.xpath(".//ns:TitleElement[ns:SequenceNumber = '3']/ns:PartNumber", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
+            volumeNumber =  book.xpath(".//ns:Collection/ns:TitleDetail/ns:TitleElement[ns:SequenceNumber = '3']/ns:PartNumber", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
             if(len(volumeNumber)>0):
                 bookVolumeNumber.insert(i, volumeNumber[0].text)
             else:
@@ -73,8 +73,9 @@ def parseXML(xmlFile):
             #parse the description of the book if it exist
             description = book.xpath(".//ns:CollateralDetail/ns:TextContent[ns:TextType='03']/ns:Text", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
             if (len(description)>0):
-                buffer = BeautifulSoup(description[0].text)
-                formatDescription = buffer.get_text()
+                #buffer = BeautifulSoup(description[0].text)
+                #formatDescription = buffer.get_text()
+                formatDescription = description[0].text
                 bookDescription.insert(i, formatDescription)
             else:
                 bookDescription.insert(i, "None")

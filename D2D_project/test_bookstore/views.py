@@ -115,7 +115,7 @@ def search(request):
     # Building our Results Table from the list of dictionary data.
     # and creating the paginator for the results.
     results_table = ResultsTable(results_display)
-    RequestConfig(request, paginate={"per_page": 5}).configure(results_table)
+    RequestConfig(request, paginate={"per_page": 10}).configure(results_table)
 
     context = {
         'table': results_table,

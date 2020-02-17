@@ -49,7 +49,8 @@ def __Total_Checks(Book_Object):
     Total += len(Author_Split)
 
     ISBN_Split = Book_Object.ISBN.split()
-    Total += len(ISBN_Split)
+    #Total += len(ISBN_Split)
+    Total += 1
 
     return Total
 
@@ -70,7 +71,7 @@ synopsis:
 def ____Compare_Book_ISBN(Possible_ISBN, Book_Object):
     try:
         Possible_ISBN = Possible_ISBN.replace("-", "")
-        if len(Possible_ISBN) == Possible_ISBN:
+        if len(Possible_ISBN) == 10:
             Possible_ISBN = "978" + Possible_ISBN
         elif len(Possible_ISBN) == 13:
             pass
@@ -94,11 +95,9 @@ synopsis:
     be used later to check if a word matches within it.
 """
 def __Return_Author_Total(Book_Object):
-    try:
-        Author_String = Book_Object.primary_author + " " + Book_Object.secondary_authors
-
-    except:
-        Author_String = Book_Object.primary_author
+    Author_String = Book_Object.primary_author
+    if Book_Object.secondary_authors != "None":
+        Author_String += " " + Book_Object.secondary_authors
     return Author_String
 
 """
@@ -180,17 +179,18 @@ def __Compare_Book(SplitString, Book_Object):
         if ____Compare_Book_ISBN(Split, Book_Object) == 100:
             return 1
 
+        #Check Title
         if TempScore < ____Compare_Book_Title(Split, Book_Object):
             TempScore = ____Compare_Book_Title(Split, Book_Object)
         
+        #Check Authors
         if TempScore < ____Compare_Book_Authors(Split, Book_Object):
             TempScore = ____Compare_Book_Authors(Split, Book_Object)
         TotalScore += TempScore
     
     TotalPossible = 100 * __Total_Checks(Book_Object)
-
     TotalScore = TotalScore / TotalPossible
-
+    
     return round(TotalScore, 3)
 
 """
