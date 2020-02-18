@@ -107,7 +107,6 @@ def parseXML(xmlFile):
             #parse the info on is book is available for sale
             isAvailable = book.xpath(".//ns:PublishingDetail/ns:PublishingStatus", namespaces={'ns':'http://ns.editeur.org/onix/3.0/reference'})
             if (len(isAvailable)>0):
-                print(isAvailable[0].text)
                 if (isAvailable[0].text== '04'):
                     bookIsAvailable.insert(i, True)
                 elif(isAvailable[0].text =='07'):
