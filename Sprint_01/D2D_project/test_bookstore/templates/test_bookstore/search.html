@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'test_bookstore/search_page_style.css' %}">
         <style>
         table{
-            background-color:whitesmoke;
+            background-color:white;
             margin-left: auto;
             margin-right: auto;
             padding: 10px;
@@ -84,35 +84,73 @@
             align-items: center;
         }
 
+        * {
+             box-sizing: border-box;
+        }
+        /* Style the header */
+        .header {
+            grid-area: header;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        /* The grid container */
+        .grid-container {
+            display: grid;
+            grid-template-areas: 
+                'header header header header header header' 
+                'middle middle middle middle middle middle';
+
+        } 
+        .middle {
+            height: 100%; /* Should be removed. Only for demonstration */
+        }
+        /* Style the middle column */
+        .middle {
+            grid-area: middle;
+        }
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media (max-width: 600px) {
+        .grid-container  {
+            grid-template-areas: 
+                'header header header header header header'  
+                'middle middle middle middle middle middle';
+        }
+        }
+
         </style>
     </head>
     
     <body>
+    <div class="grid-container">
+        <div class="header">
     
-        {% block logo %}
-        <div class="icon" style="position:relative">     
-            <p style="font-size: 2.4em; color:whitesmoke;" align="center"><img src="https://draft2digital-prod-static.s3.amazonaws.com/img/outer/d2d-logo-dark-xs.png" alt="Company Icon" align="center"width="100" height="60">  Test Bookstore</p>
+            {% block logo %}
+            <div class="icon" style="position:relative">     
+                <p style="font-size: 2.4em; color:whitesmoke;" align="center"><img src="https://draft2digital-prod-static.s3.amazonaws.com/img/outer/d2d-logo-dark-xs.png" alt="Company Icon" align="center"width="100" height="60">  Test Bookstore</p>
+            </div>
+            {% endblock logo %}
+
         </div>
-        {% endblock logo %}
-    
-        {% block searcher %}
-        <div class="center">
-            <form action="{% url 'test_bookstore:search' %}" method="post" class="form">
+        <div class="middle">
+            {% block searcher %}
+            <div class="center">
+                <form action="{% url 'test_bookstore:search' %}" method="post" class="form">
                 
-                {{ form }}
-                {% csrf_token %}
-                <input type="submit" value="Search" id="searchButton">
-            </form>
+                    {{ form }}
+                    {% csrf_token %}
+                    <input type="submit" value="Search" id="searchButton">
+                </form>
+            </div>
+            {% endblock searcher %}
+            <div>
+                {% if "" not in results %}
+                    {% block table %}
+                        {% render_table table %}
+                    {% endblock table %}
+                {% endif %}
+            </div>
         </div>
-        {% endblock searcher %}
-        
-        <div>
-            
-            {% if "" not in results %}
-                {% block table %}
-                    {% render_table table %}
-                {% endblock table %}
-            {% endif %}
-        </div>
+    </div>
     </body>
 </html>
