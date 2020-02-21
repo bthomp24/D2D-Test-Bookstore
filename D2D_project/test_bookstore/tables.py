@@ -18,7 +18,7 @@ synopsis:
 class ResultsTable(tables.Table):
 
     title = tables.Column('Search Results')
-    author = tables.Column("Author", attrs={"th" :{"align-self": "left"}})
+    author = tables.Column("Author")
     ISBN = tables.Column("ISBN")
     rating = tables.Column("Rating")
 
