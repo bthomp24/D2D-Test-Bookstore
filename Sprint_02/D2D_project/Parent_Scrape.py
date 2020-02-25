@@ -51,3 +51,17 @@ def parse(content, path):
     tree = etree.parse(io.BytesIO(content), parser)
     root = tree.getroot()
     return root.xpath(path)
+
+"""
+args:
+    parse_list: list of objects to test
+returns:
+    "FULLY_PARSED" if not a single object is None
+    "UNSUCCESSFUL" if there is even one object that is None
+synopsis:
+"""
+def parse_status(parse_list):
+    for parse_content in parse_list:
+        if parse_content == None:
+            return "UNSUCCESSFUL"
+    return "FULLY_PARSED"
