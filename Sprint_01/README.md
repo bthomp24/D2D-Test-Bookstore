@@ -1,6 +1,6 @@
 # D2D-Test-Bookstore
 
-This project is designed to funciton as a test bookstore for which we will test the Checkmate Library project.  It will function as a very basic bookstore, accepting ONIX files in order to add or update books within the database.
+This sprint is designed to funciton as a test bookstore for which we will test the Checkmate Library project.  It will function as a very basic bookstore, accepting ONIX files in order to add or update books within the database.
 
 ### Installing
 
