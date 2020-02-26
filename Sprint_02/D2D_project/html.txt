@@ -1,0 +1,1753 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#"><meta name="language" content="pt-BR" />
+<meta name="country" content="BRA" />
+<meta name="currency" content="R$" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="language" content="pt-br" />
+  <meta name="country" content="BRA" />
+  <meta name="currency" content="R$" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="author" content="livrariacultura" />
+  <meta name="copyright" content="livrariacultura" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="description" content="O Maior Acervo de Livros, Filmes, Games, DVDs e eBooks pelos menores preços, em até 10x sem Juros. Acesse e confira!" />
+  <meta property="og:description" content="O Maior Acervo de Livros, Filmes, Games, DVDs e eBooks pelos menores preços, em até 10x sem Juros. Acesse e confira!" />
+  <meta name="twitter:description" content="O Maior Acervo de Livros, Filmes, Games, DVDs e eBooks pelos menores preços, em até 10x sem Juros. Acesse e confira!" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@livcultura" />
+  <meta name="twitter:creator" content="@livcultura" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="628" />
+  <meta property="og:type" content="website" />
+  <meta name="google-site-verification" content="SafaxNoLcpzaqZc3XmE6PVPQOJJ5-YditYUq5oztgXs" />
+<link rel="shortcut icon" type="image/png" href="/arquivos/favicon.png?v=636828166455730000" /><title>Infantil: HARRY POTTER E O PRISIONEIRO DE AZKABAN | Livraria Cultura - Livraria Cultura</title><script type="text/javascript" language="javascript">var jscheckoutUrl = 'https://www3.livrariacultura.com.br/checkout/#/cart';var jscheckoutAddUrl = 'https://www3.livrariacultura.com.br/checkout/cart/add';var jscheckoutGiftListId = '';var jsnomeSite = 'livrariacultura';var jsnomeLoja = 'livrariacultura';var jssalesChannel = '1';var defaultStoreCurrency = 'R$';var localeInfo = {"CountryCode":"BRA","CultureCode":"pt-BR","CurrencyLocale":{"RegionDisplayName":"Brazil","RegionName":"BR","RegionNativeName":"Brasil","TwoLetterIsoRegionName":"BR","CurrencyEnglishName":"Real","CurrencyNativeName":"Real","CurrencySymbol":"R$","ISOCurrencySymbol":"BRL","Locale":1046,"Format":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","CurrencyGroupSeparator":".","CurrencyGroupSize":3,"StartsWithCurrencySymbol":true},"FlagUrl":"http://www.geonames.org/flags/x/br.gif"}};</script> 
+<script type="text/javascript" language="javascript">vtxctx = {"skus":"10129965","searchTerm":"","categoryId":"2661","categoryName":"Infantil","departmentyId":"1389","departmentName":"eBooks","isOrder":"0","isCheck":"0","isCart":"0","actionType":"","actionValue":"","login":null,"url":"www3.livrariacultura.com.br","transurl":"www3.livrariacultura.com.br"};</script> 
+<script language="javascript" src="https://io.vtex.com.br/front-libs/jquery/1.8.3/jquery-1.8.3.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/swfobject.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.ajax.wait.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.common.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://vtex.vtexassets.com/_v/public/assets/v1/npm/@vtex/render-extension-loader@0.1.6/lib/render-extension-loader.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/rc/rc.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.tagmanager.helper.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/portal-ui/1.13.0/scripts/vtex-events-all.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/portal-ui/1.13.0/scripts/vtex-analytics.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/front-libs/front-i18n/0.7.2/vtex-i18n.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/front-libs/front-utils/3.0.8/underscore-extensions.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/currency-format.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/front-libs/dustjs-linkedin/2.3.5/dust-core-2.3.5.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/portal-plugins/2.9.13/js/catalog-sdk.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/vtex.js/2.10.1/vtex.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/jquery.ui.core.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/autocomplete/jquery.ui.widget.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/autocomplete/jquery.ui.position.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/autocomplete/jquery.ui.autocomplete.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.commerce.search.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.viewpart.fulltextsearchbox.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/portal-plugins/2.9.13/js/portal-minicart-with-template.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/vtex-id-ui/3.18.3/vtexid-jquery.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/jquery.jqzoom-core.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/portal-plugins/2.9.13/js/portal-template-as-modal.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/portal-plugins/2.9.13/js/portal-sku-selector-with-template.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/portal-plugins/2.9.13/js/portal-price-with-template.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/portal-plugins/2.9.13/js/portal-buy-button.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://io.vtex.com.br/portal-plugins/2.9.13/js/portal-notify-me-with-template.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/jquery.maskedinput-1.2.2.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" /><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" /><link href="//livrariacultura.vteximg.com.br/arquivos/lc-global.min.css?v=171726022020" rel="stylesheet" type="text/css" /><link href="https://statics.livrariacultura.net.br/assets/static/css/colorboxHS.css" rel="stylesheet" /><script src="https://livrariacultura.vteximg.com.br/arquivos/lc-lib.min.js?v=162130102019b"></script><script type="text/javascript">
+	$(document).ready(function(){
+		//<![CDATA[
+		var url = window.location.href;
+		if (url.indexOf("v=new") > 0){
+			sessionStorage.setItem("layout", "new");
+			estiloNovo();
+			
+			if (window.location.pathname=="/"){
+				if (sessionStorage.getItem("layout_pop")=='ok'){
+				}else{
+					var head  = document.getElementsByTagName('head')[0];
+					var link  = document.createElement('link');
+					link.rel  = 'stylesheet';
+					link.type = 'text/css';
+					link.href = 'https://statics.livrariacultura.net.br/assets/static/css/colorboxHS.css';
+					head.appendChild(link);
+					
+					var script  = document.createElement('script');
+					script.src = 'https://statics.livrariacultura.net.br/assets/static/js/jquery.colorbox-min.js';
+					head.appendChild(script);
+					
+					var html = '<div style="text-align: center;color:#181717;">';
+					html = html + '<h1 style="color:#181717;font-size: 22px;font-weight: bold;margin-bottom: 40px;">A LIVRARIA CULTURA ESTÁ DE CARA NOVA</h1>';
+					html = html + '<p style="color:#181717;font-size: 18px;">Você é um dos primeiros clientes a conhecer o novo site que faz parte de um conceito mais moderno para ser ainda mais a sua Cultura.</p>';
+					html = html + '<p style="color:#181717;font-size: 18px;">Uma nova marca para a livraria que você já conhece.</p>';
+					html = html + '</div>';
+					
+					setTimeout(function () {
+						$.colorbox({html:html, width:"80%"});
+						sessionStorage.setItem("layout_pop", "ok");
+					}, 1000);
+					
+					
+				}
+			}
+		}
+		
+		if (sessionStorage.getItem("layout")=='new'){
+			estiloNovo();
+		}
+		//]]>
+	});
+
+	function estiloNovo(){
+		var head  = document.getElementsByTagName('head')[0];
+		var link  = document.createElement('link');
+		link.rel  = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'https://statics.livrariacultura.net.br/assets/static/css/estilo_novo.css?v=4';
+		head.appendChild(link);
+	}
+	
+</script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /><meta property="og:type" content="og:product" />
+<meta property="og:title" content="HARRY POTTER E O PRISIONEIRO DE AZKABAN" /><meta property="og:image" content="https://livrariacultura.vteximg.com.br/arquivos/ids/15751104-292-292/2010606463.jpg?v=637110068092870000" /><meta property="og:description" content="As aulas estão de volta a Hogwarts e Harry Potter não vê a hora de embarcar no Expresso a vapor que o levará de volta à escola de bruxaria. Lá ele reencontra Rony e Hermione, seus melhores amigos em Hogwarts e, para sua surpresa, é procurado pelo próprio Ministro da Magia. Sem que Harry saiba, o ministro está preocupado com o garoto, pois fugiu da prisão de Azkaban o perigoso bruxo Sirius Black. Para piorar a situação, os terríveis guardas de Azkaban, conhecidos por dementadores, estão de guarda nos portões da escola, caso Sirius Black tente algo contra Harry. Por fim, Harry tem de enfrentar seu inimigo para salvar Rony e obrigado a escolher entre matar ou não aquele que traiu seus pais." /><meta property="og:url" content="https://www3.livrariacultura.com.br/harry-potter-e-o-prisioneiro-de-azkaban-2010606463/p" /><meta property="product:plural_title" content="HARRY POTTER E O PRISIONEIRO DE AZKABAN" /><meta property="product:price:amount" content="24.90" /><meta property="product:price:currency" content="BRL" /><style>
+	.giftlist-insertsku-wrapper .glis-sku-single{
+		display:none;
+	}
+	
+	.giftlist-insertsku-wrapper {
+		position: absolute;
+		right: 0;
+		background-color: #EFEFEF;
+		padding: 10px 20px;
+	}
+	
+	.giftlist-insertsku-wrapper .giftlist-insertsku-popup a{
+		font-size: 13px;
+		font-weight: 500;
+	}
+	
+	.giftlist-insertsku-wrapper .giftlist-insertsku-popup a:hover{
+		color: #455363;
+		text-decoration:none;
+	}
+	
+	.page-product .meta-wrapper .compartilhar{
+		display:none;
+	}
+	
+	#TB_overlay{
+		background-color:#000;
+		opacity: 0.5;
+	}
+	
+	#TB_window{
+		background-color: #EFEFEF;
+	}
+	
+	#TB_window #TB_closeWindowButton{
+		font-size: 0px;
+	}
+	
+	#TB_window #TB_closeWindowButton::after{
+		content: "X";
+		padding: 4px 8px;
+		font-size: 16px;
+		background-color:#000;
+		color:#FFF;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-title{
+		text-align: center;
+		display: block;
+		color:#03A7A8;
+		font-weight: 500;
+		margin-bottom: 40px;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-selected{
+		display:none;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-create{
+		float:left;
+		width:45%;
+		border:1px solid #999;
+		text-align: center;
+		min-height:120px;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-mylist{
+		float:right;
+		width:45%;
+		border:1px solid #999;
+		text-align: center;
+		min-height:120px;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-create .glis-new-title{
+		margin-top: -10px;
+		display: table;
+		background-color:#EFEFEF;
+		padding: 0px 10px;
+		margin-left: 65px;
+		margin-bottom: 20px;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-mylist .glis-existing-title{
+		margin-top: -10px;
+		display: table;
+		background-color:#EFEFEF;
+		padding: 0px 10px;
+		margin-left: 50px;
+		margin-bottom: 20px;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-create .glis-create-form-type{
+		display:none;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-create .glis-create-form-name label.create{
+		display:none;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-create .glis-create-form-name .glis-form-name-obr{
+		display:none;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-create .glis-create-form-submit{
+		margin-top:20px;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-create .glis-create-form-submit .glis-submit{
+		color:#FFF;
+		background-color:#03A7A8;
+		padding: 5px 10px;
+		font-size: 13px;
+	}
+	
+	#TB_window .giftlist-insertsku .glis-create .glis-new-info{
+		display:none!important;
+	}
+	
+	@media (max-width: 600px) {
+		.page-product #share{
+			display:block;
+		}
+		
+		.giftlist-insertsku-wrapper .giftlist-insertsku-popup a span{
+			display:none;
+		}
+		
+		.giftlist-insertsku-wrapper{
+			width: 60px;
+		}
+		
+		.page-product #TB_window{
+			width:90%!important;
+			left:5%!important;
+			margin-left:0!important;
+		}
+		
+		.page-product #TB_window #TB_ajaxContent{
+			width: 100%!important;
+		}
+		
+		#TB_window .giftlist-insertsku .glis-create{
+			float:unset;
+			width:100%;
+			min-height:auto;
+		}
+		
+		#TB_window .giftlist-insertsku .glis-mylist{
+			margin-top:20px;
+			float:unset;
+			width:100%;
+			min-height:auto;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		setTimeout(function () { 
+			$(".giftlist-insertsku-wrapper .giftlist-insertsku-popup a").html('<img style="width:18px; margin-right:10px;" src="https://statics.livrariacultura.net.br/assets/static/images/ico-coracao.png"><span>ADICIONAR À LISTA DE DESEJOS</span>');
+		}, 1000);
+	});
+</script><!-- ATENÇÃO, esse erro prejudica a performance do seu site, o conteudo de nome html não foi renderizado por nao ser um XDocument válido, erro: - The 'img' start tag on line 163 position 72 does not match the end tag of 'script'. Line 166, position 3.--><script language="javascript">var ___scriptPathTransac = '';</script><script language="javascript">var ___scriptPath = '';</script><script src="https://statics.livrariacultura.net.br/assets/static/js/jquery.colorbox-min.js"></script><!--  Schema Breadcrumbs para mecanismos de busca--><script type="text/javascript">
+    try {
+      const departamento = vtxctx.departmentName.toLowerCase().replace(/\s+/,'-') || '';
+      const categoria = vtxctx.categoryName.toLowerCase().replace(/\s+/,'-') || '';
+      const produto = document.querySelector('meta[property="og:title"]').getAttribute('content') || '';
+
+      const schema = {
+        "@context": "http://schema.org",
+        "@type": "Breadcrumblist",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.livrariacultura.com.br"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": departamento,
+            "item": "https://www.livrariacultura.com.br/" + departamento
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": categoria,
+            "item": "https://www.livrariacultura.com.br/" + departamento + '/' + categoria
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": produto,
+            "item": "https://www.livrariacultura.com.br" + location.pathname
+          }
+        ]
+      }
+      const schemaScriptTag = document.createElement('script')
+      schemaScriptTag.setAttribute('type', 'application/ld+json')
+      schemaScriptTag.innerHTML = JSON.stringify(schema)
+
+      document.querySelector('head').appendChild(schemaScriptTag)
+    } catch(error) {
+      console.warn("erro: ", error)
+    }
+
+
+  </script><!--  Fim de Schema Breadcrumbs para mecanismos de busca --><!--  Schema de Livros e ebooks ou produto--><script type="text/javascript">
+    try {
+      const idDepartamento = vtxctx.departmentId;
+      const descricaoProduto = document.querySelectorAll('meta[property="og:description"]')[1].getAttribute('content') || '';
+      const nomeProduto = document.querySelector('meta[property="og:title"]').getAttribute('content') || '';
+      const imagemProduto = document.querySelector('meta[property="og:image"]').getAttribute('content') || '';
+      const valorProduto = document.querySelector('meta[property="product:price:amount"]').getAttribute('content') || '';
+
+      var schema2 = {}
+
+      if(idDepartamento === "1" || idDepartamento === "1389") {
+        // schema de livros e ebooks
+        schema2 = {
+        "@context": "http://schema.org",
+        "@type": ["Product", "Book"],
+        "about": vtxctx.categoryName,
+        "url": "https://www.livrariacultura.com.br" + location.pathname,
+        "name": nomeProduto,
+        "description": descricaoProduto,
+        "bookFormat": "http://schema.org/Handcover",
+        "image": imagemProduto,
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "price": valorProduto,
+          "priceCurrency": "BRL"
+        }
+      }
+
+      } else {
+        // schema de produtos
+        schema2 = {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "description": descricaoProduto,
+        "name": nomeProduto,
+        "image": imagemProduto,
+        "offers": {
+          "@type": "Offer",
+          "availability": "http://schema.org/InStock",
+          "price": valorProduto,
+          "priceCurrency": "BRL"
+        }
+      }
+
+      }
+
+      const schemaScriptTag2 = document.createElement('script')
+      schemaScriptTag2.setAttribute('type', 'application/ld+json')
+      schemaScriptTag2.innerHTML = JSON.stringify(schema2)
+
+      document.querySelector('head').appendChild(schemaScriptTag2)
+    } catch(error) {
+      console.warn("erro: ", error)
+    }
+  </script><!--  Fim de Schema de Livros e ebooks ou produto--><!--  Meta tags Twitter Card--><script type="text/javascript">
+      try {
+        const twitterTitle = document.querySelector('title').innerText || '';
+        const twitterDescription = document.querySelector('meta[name="description"]').getAttribute('content') || '';
+        const twitterMetaTagTitle = document.createElement('meta')
+        const twitterMetaTagDescription = document.createElement('meta')
+        twitterMetaTagTitle.setAttribute('twitter:title', twitterTitle)
+        twitterMetaTagDescription.setAttribute('twitter:description', twitterDescription)
+
+        document.querySelector('head').appendChild(twitterMetaTagTitle)
+        document.querySelector('head').appendChild(twitterMetaTagDescription)
+      } catch(error) {
+        console.warn("erro: ", error)
+      }
+    </script><!--Fim de Meta tags Twitter Card-->
+<!-- Start - WebAnalyticsViewPart -->
+<script> var defaultUtmFromFolder = '';</script>
+<!-- CommerceContext.Current.VirtualFolder.Name: @Produto@ -->
+
+<script>
+vtex.events.addData({"pageCategory":"Product","pageDepartment":"eBooks","pageUrl":"http://www3.livrariacultura.com.br/harry-potter-e-o-prisioneiro-de-azkaban-2010606463/p","pageTitle":"Infantil: HARRY POTTER E O PRISIONEIRO DE AZKABAN | Livraria Cultura - Livraria Cultura","skuStockOutFromShelf":[],"skuStockOutFromProductDetail":[],"shelfProductIds":[],"accountName":"livrariacultura","pageFacets":[],"productId":"10191386","productReferenceId":"2010606463","productEans":["2020106064636"],"skuStocks":{"10129965":1000000},"productName":"HARRY POTTER E O PRISIONEIRO DE AZKABAN","productBrandId":40034181,"productBrandName":"KOBO EDITIONS","productDepartmentId":1389,"productDepartmentName":"eBooks","productCategoryId":2661,"productCategoryName":"Infantil","productListPriceFrom":"24.9","productListPriceTo":"24.9","productPriceFrom":"24.9","productPriceTo":"24.9","sellerId":"1","sellerIds":"1"});
+</script>
+
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                            })(window,document,'script','dataLayer','GTM-K9KN875');
+</script>
+
+<script>
+var helper = new vtexTagManagerHelper('productView'); helper.init();
+</script>
+
+<!-- End - WebAnalyticsViewPart -->
+<link rel="canonical" href="https://www3.livrariacultura.com.br/harry-potter-e-o-prisioneiro-de-azkaban-2010606463/p" /><script>var skuJson_0 = {"productId":10191386,"name":"HARRY POTTER E O PRISIONEIRO DE AZKABAN","salesChannel":"1","available":true,"displayMode":"especificacao","dimensions":[],"dimensionsInputType":{},"dimensionsMap":{},"skus":[{"sku":10129965,"skuname":"HARRY POTTER E O PRISIONEIRO DE AZKABAN","dimensions":{},"available":true,"availablequantity":99999,"cacheVersionUsedToCallCheckout":"03396fb56502d3e7bcda4ee80c5e5463_","listPriceFormated":"R$ 0,00","listPrice":0,"taxFormated":"R$ 0,00","taxAsInt":0,"bestPriceFormated":"R$ 24,90","bestPrice":2490,"installments":1,"installmentsValue":2490,"installmentsInsterestRate":0,"image":"https://livrariacultura.vteximg.com.br/arquivos/ids/15751104-292-292/2010606463.jpg?v=637110068092870000","sellerId":"1","seller":"Livraria Cultura S/A","measures":{"cubicweight":1000.0000,"height":1.0000,"length":1.0000,"weight":1000.0000,"width":1.0000},"unitMultiplier":1.0000,"rewardValue":0}]};CATALOG_SDK.setProductWithVariationsCache(skuJson_0.productId, skuJson_0); var skuJson = skuJson_0;</script></head>
+  <body class="produto page-product" id="product-page"><div class="ajax-content-loader" rel="/no-cache/callcenter/disclaimer"></div><div itemscope="itemscope" itemtype="http://schema.org/Product">
+<meta itemprop="name" content="HARRY POTTER E O PRISIONEIRO DE AZKABAN" /><meta itemprop="description" content="As aulas estão de volta a Hogwarts e Harry Potter não vê a hora de embarcar no Expresso a vapor que o levará de volta à escola de bruxaria. Lá ele reencontra Rony e Hermione, seus melhores amigos em Hogwarts e, para sua surpresa, é procurado pelo próprio Ministro da Magia. Sem que Harry saiba, o ministro está preocupado com o garoto, pois fugiu da prisão de Azkaban o perigoso bruxo Sirius Black. Para piorar a situação, os terríveis guardas de Azkaban, conhecidos por dementadores, estão de guarda nos portões da escola, caso Sirius Black tente algo contra Harry. Por fim, Harry tem de enfrentar seu inimigo para salvar Rony e obrigado a escolher entre matar ou não aquele que traiu seus pais." /><meta itemprop="url" content="https://www3.livrariacultura.com.br/harry-potter-e-o-prisioneiro-de-azkaban-2010606463/p" /><meta itemprop="productID" content="10191386" /><div itemscope="itemscope" itemprop="brand" itemtype="http://schema.org/brand"><meta itemprop="name" content="KOBO EDITIONS" /></div><meta itemprop="image" content="https://livrariacultura.vteximg.com.br/arquivos/ids/15751104-292-292/2010606463.jpg?v=637110068092870000" /><meta itemprop="gtin13" content="2020106064636" /><meta itemprop="sku" content="10129965" /><div itemtype="http://schema.org/Offer" itemscope="itemscope" itemprop="offers"><link itemprop="availability" href="http://schema.org/InStock" /><meta content="BRL" itemprop="priceCurrency" /><meta itemprop="price" content="24.90" /></div><div itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue"><meta itemprop="name" content="sellers" /><meta itemprop="value" content="Livraria Cultura S/A" /></div> </div>
+<header><section class="header">
+  <div class="menu-mini-header">
+    <div class="container">
+      <ul>
+        <li>
+          <a href="/nossas-lojas" title="Lojas">Lojas</a>
+        </li>
+        <li>
+          <a href="/central-de-ajuda" title="Atendimento e Televendas">Atendimento e Televendas</a>
+        </li>
+        <li>
+          <a href="/vendas-corporativas" title="Vendas corporativas">Vendas corporativas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="container"><div class="row align-items-center" id="menu-header-mobile"><div class="col-0 col-md-0 justify-content-md-center p-md-0 d-lg-none"><button class="menu-toggler js-menu-toggler p-0"><span class="navbar-toggler-icon d-flex"><div class="align-self-center icon-menu"><svg class="open-menu" height="14" viewBox="0 0 20 14" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v2h20V0H0zm0 6v2h20V6H0zm0 6v2h20v-2H0z" fill="#FFF" fill-rule="nonzero" /></svg><svg class="close-menu" height="17" viewBox="0 0 17 17" width="17" xmlns="http://www.w3.org/2000/svg"><path d="M2.08.665L.665 2.08l14.143 14.142 1.414-1.414L2.08.665zM.665 14.808l1.415 1.414L16.222 2.08 14.808.665.665 14.808z" fill="#FFF" fill-rule="nonzero" /></svg></div></span></button></div><div class="col-7 col-md-3 col-lg-3 p-0 justify-content-center"><div class="header-logo"><a href="/"><svg class="logo img-fluid" height="35" viewBox="0 0 250 35" width="250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M.094.284h9.182V34.62H.094z" id="a" /><path d="M.313.284h10.635V34.62H.313z" id="c" /><path d="M.325.267h21.21V21.47H.326z" id="e" /><path d="M0 .294h9.181v34.332H0z" id="g" /><path d="M.254.267H21.46V21.47H.254z" id="i" /></defs><g fill="none" fill-rule="evenodd"><path d="M225.499 13h-2.292C218.68 13 215 16.693 215 21.233l.002 10.26a2.5 2.5 0 1 0 5 0l-.001-10.26a3.216 3.216 0 0 1 3.208-3.218h2.291a2.506 2.506 0 0 0 2.5-2.508A2.503 2.503 0 0 0 225.499 13M140.528 13C134.723 13 130 17.713 130 23.502 130 29.289 134.723 34 140.528 34h4.982a2.47 2.47 0 0 0 2.473-2.466 2.47 2.47 0 0 0-2.473-2.469h-4.982c-3.077 0-5.582-2.496-5.582-5.563 0-3.068 2.505-5.566 5.582-5.566h4.997A2.472 2.472 0 0 0 148 15.468 2.472 2.472 0 0 0 145.525 13h-4.997zM193 15.473v9.219c0 5.134 4.261 9.308 9.5 9.308s9.5-4.174 9.5-9.308v-9.206c0-1.366-1.13-2.47-2.52-2.47-1.393 0-2.523 1.104-2.523 2.47v9.206c0 2.409-2 4.368-4.458 4.368-2.457 0-4.456-1.96-4.456-4.368v-9.219c0-1.366-1.128-2.473-2.521-2.473S193 14.107 193 15.473M151 15.476v9.213c0 5.136 4.263 9.311 9.5 9.311 5.238 0 9.5-4.175 9.5-9.311v-9.218c0-1.366-1.127-2.471-2.52-2.471-1.391 0-2.521 1.105-2.521 2.471v9.218c0 2.41-1.999 4.37-4.458 4.37-2.457 0-4.457-1.96-4.457-4.37v-9.213c0-1.367-1.129-2.475-2.522-2.475-1.392 0-2.522 1.108-2.522 2.475" fill="#FFF" /><g transform="translate(172)"><mask fill="#fff" id="b"><use xlink:href="#a" /></mask><path d="M5.296 2.765c0-1.372-1.165-2.481-2.6-2.481C1.259.284.095 1.394.095 2.765v25.572c0 3.467 2.953 6.283 6.58 6.283 1.438 0 2.602-1.112 2.602-2.484 0-1.37-1.164-2.481-2.602-2.481-.758 0-1.378-.593-1.378-1.318V2.765z" fill="#FFF" mask="url(#b)" /></g><g transform="translate(182)"><mask fill="#fff" id="d"><use xlink:href="#c" /></mask><path d="M8.28 13.159c1.473 0 2.668-1.15 2.668-2.571 0-1.422-1.195-2.571-2.668-2.571H5.463V2.765c0-1.372-1.154-2.481-2.575-2.481C1.466.284.313 1.394.313 2.765v25.572c0 3.467 2.922 6.283 6.516 6.283 1.423 0 2.577-1.112 2.577-2.484 0-1.37-1.154-2.481-2.577-2.481-.755 0-1.366-.593-1.366-1.318V13.16H8.28z" fill="#FFF" mask="url(#d)" /></g><path d="M35.363 13.19c-1.347-.53-2.887.087-3.44 1.373L27.5 24.865l-4.423-10.302c-.553-1.286-2.092-1.902-3.439-1.374-1.347.526-1.993 1.996-1.44 3.283l6.855 15.964c.386.903 1.26 1.473 2.212 1.552.023.003.046.005.07.005.054.002.11.007.165.007.056 0 .111-.005.167-.007.023 0 .045-.002.069-.005.952-.079 1.825-.649 2.212-1.552l6.855-15.964c.55-1.287-.092-2.757-1.44-3.283M16 31.483A2.508 2.508 0 0 1 13.5 34c-1.38 0-2.5-1.127-2.5-2.517V15.518A2.509 2.509 0 0 1 13.5 13c1.381 0 2.5 1.127 2.5 2.518v15.965zM16 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0M95 31.483A2.507 2.507 0 0 1 92.5 34a2.51 2.51 0 0 1-2.5-2.517V15.518A2.51 2.51 0 0 1 92.5 13c1.383 0 2.5 1.127 2.5 2.518v15.965zM95 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0M47.498 13h-2.29C40.683 13 37 16.692 37 21.231l.002 10.263a2.504 2.504 0 0 0 2.5 2.506c1.382 0 2.5-1.122 2.5-2.507L42 21.23a3.218 3.218 0 0 1 3.209-3.218h2.29A2.502 2.502 0 0 0 50 15.507 2.503 2.503 0 0 0 47.498 13M85.5 13h-2.29C78.683 13 75 16.692 75 21.231l.003 10.263a2.503 2.503 0 0 0 2.5 2.506 2.502 2.502 0 0 0 2.499-2.507L80 21.23a3.218 3.218 0 0 1 3.21-3.218h2.29a2.5 2.5 0 0 0 2.5-2.504A2.503 2.503 0 0 0 85.5 13" fill="#FFF" /><g transform="translate(50 13)"><mask fill="#fff" id="f"><use xlink:href="#e" /></mask><path d="M.325 10.867c0 5.847 4.756 10.604 10.607 10.604a2.491 2.491 0 0 0 0-4.984 5.628 5.628 0 0 1-5.624-5.62 5.628 5.628 0 0 1 5.624-5.62c3.1 0 5.62 2.522 5.62 5.62v8.104a2.493 2.493 0 0 0 4.984 0v-8.104c0-5.845-4.759-10.6-10.604-10.6C5.081.267.325 5.022.325 10.867" fill="#FFF" mask="url(#f)" /></g><g><mask fill="#fff" id="h"><use xlink:href="#g" /></mask><path d="M5.2 2.777C5.2 1.405 4.039.294 2.6.294 1.165.294 0 1.405 0 2.777v25.568c0 3.464 2.953 6.281 6.58 6.281 1.436 0 2.601-1.11 2.601-2.482 0-1.37-1.165-2.483-2.6-2.483-.761 0-1.38-.59-1.38-1.316V2.777z" fill="#FFF" mask="url(#h)" /></g><g transform="translate(98 13)"><mask fill="#fff" id="j"><use xlink:href="#i" /></mask><path d="M.254 10.867c0 5.847 4.757 10.604 10.604 10.604a2.491 2.491 0 1 0 0-4.984c-3.1 0-5.621-2.52-5.621-5.62a5.627 5.627 0 0 1 5.62-5.62c3.1 0 5.62 2.522 5.62 5.62v8.104a2.492 2.492 0 0 0 4.983 0v-8.104c0-5.845-4.757-10.6-10.602-10.6C5.01.267.254 5.022.254 10.867" fill="#FFF" mask="url(#j)" /></g><path d="M228 23.5c0 5.79 4.934 10.5 11 10.5 1.427 0 2.584-1.104 2.584-2.467 0-1.361-1.157-2.468-2.584-2.468-3.216 0-5.83-2.496-5.83-5.564s2.614-5.564 5.83-5.564c3.215 0 5.83 2.496 5.83 5.564v8.023c0 1.363 1.158 2.468 2.585 2.468S250 32.887 250 31.524v-8.023C250 17.71 245.064 13 239 13c-6.066 0-11 4.712-11 10.5" fill="#FFF" /></g></svg></a></div></div><div class="col-12 col-md-7 col-lg-6 order-2 order-md-2"><div class="input-group __custom-search"><div class="input-group-prepend"><button aria-expanded="false" aria-haspopup="true" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" type="button">Todo o site
+              </button><div class="dropdown-menu"><a class="dropdown-item" href="#">Todo o site</a><a class="dropdown-item" href="#">Brinquedos</a><a class="dropdown-item" href="#">Cultura em curso</a><a class="dropdown-item" href="#">eBooks</a><a class="dropdown-item" href="#">Filmes</a><a class="dropdown-item" href="#">Games</a><a class="dropdown-item" href="#">Geek</a><a class="dropdown-item" href="#">KOBO</a><a class="dropdown-item" href="#">Livros</a><a class="dropdown-item" href="#">Música</a><a class="dropdown-item" href="#">Papelaria &amp; Etc</a></div></div><input aria-label="Text input with dropdown button" class="form-control" type="text" /><div class="input-group-append  icon-search"><span class="input-group-text icon">Buscar</span></div></div><div class="default-search d-none"><script type="text/javascript" language="javascript"> /*<![CDATA[*/ $(document).ready(function(){currentDept = '0'; enableFullTextSearchBox('ftBox3ec3703a930c44fda5ed6d4ccf425f49', 'ftDept3ec3703a930c44fda5ed6d4ccf425f49', 'ftIdx3ec3703a930c44fda5ed6d4ccf425f49', 'ftBtn3ec3703a930c44fda5ed6d4ccf425f49', '/SEARCHTERM','Digite Aqui' );}); /*]]>*/ </script><fieldset class="busca"><legend>Buscar</legend><label>Buscar</label><select id="ftDept3ec3703a930c44fda5ed6d4ccf425f49"><option value="">Todo o Site</option><option value="3535">Filmes</option><option value="1389">eBooks</option><option value="5389">Revistas</option><option value="2777">Games</option><option value="3093">Música</option><option value="5391">Para Você & Para Casa</option><option value="5421">Tecnologia</option><option value="3717">Papelaria & Etc</option><option value="5449">Café Cultura</option><option value="3787">Brinquedos</option><option value="3906">Geek</option><option value="4435">Kobo</option><option value="5000">cultura em curso</option><option value="5252">Obras de Arte</option><option value="5359">Gourmet</option><option value="5550">TVs</option><option value="5551">Som</option><option value="5552">Smartphones</option><option value="5553">Eletrodomésticos</option><option value="5554">Informática</option><option value="5555">Eletroportáteis</option><option value="5556">Foto</option><option value="5557">Telefonia</option><option value="10563">Vale Presente</option></select><input type="hidden" id=ftIdx3ec3703a930c44fda5ed6d4ccf425f49 value="" /><input id="ftBox3ec3703a930c44fda5ed6d4ccf425f49" class="fulltext-search-box" type="text" size="20" accesskey="b" /><input id="ftBtn3ec3703a930c44fda5ed6d4ccf425f49" type="button" value="Buscar" class="btn-buscar" /></fieldset></div></div><div class="col-1 col-md-1 col-lg-3 p-md-0 d-flex order-md-4 align-items-center"><div class="user-wrapper"><div class="col-lg-3 p-0 icon-user">
+  <div class="icon-user-wrapper">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+      <g fill="none" fill-rule="evenodd">
+        <circle cx="15" cy="15" r="15" fill="#00525D" />
+        <path fill="#FEC838" d="M10.242 10.067c0-2.567 2.125-4.65 4.758-4.65s4.758 2.083 4.758 4.65c0 2.566-2.125 4.641-4.758 4.641s-4.758-2.075-4.758-4.641z" />
+        <path fill="#F5426C" d="M6.667 21.61s2.625 3.807 8.2 3.807c5.575 0 8.466-3.742 8.466-3.742s-1.509-5.742-8.4-5.742c-6.55 0-8.2 5.609-8.2 5.609" />
+      </g>
+    </svg>
+    <div class="mask"></div>
+    <div class="login-hover">
+      <div class="login-inner">
+        <!--
+          <div style="display: none"><vtex.cmc:userLogin/></div>
+     -->
+        <!-- div class="login-facebook">
+        <a href="#" class="button __bt-login-facebook">
+          Entrar com o facebook
+          <div class="bg-opacity"></div>
+        </a>
+      </div>
+      <div class="login-email">
+        <a href="#" class="button __bt-login-email">
+          Receber acesso por email
+          <div class="bg-opacity"></div>
+        </a>
+      </div>
+
+      <span class="ou">ou</span -->
+        <div class="">
+          <a href="#" class="button __bt-login-entrar">
+          ENTRAR / CADASTRAR
+          <div class="bg-opacity"></div></a>
+        </div>
+        <div class="section-create">
+          <ul class="p-0 m-0">
+            <!--li><span>Cliente novo? <a href="#">Cadastre-se</a></span></li -->
+            <li>
+              <span>
+                <a href="/account#/orders">Meus pedidos</a>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a href="/meus-ebook">Meus _ebooks</a>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a href="/mais-cultura#consulte-saldo">Meus pontos +Cultura</a>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a href="/account#/profile">Minha conta</a>
+              </span>
+            </li>
+            <!--<li><span><a href="/account/lista-de-desejos">Lista de Desejos</a></span></li>-->
+            <li>
+              <span>
+                <a href="/GiftList">Lista de Desejos</a>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="user-message-wrapper">
+    <span class="welcome">Olá, bem vindo(a)!</span>
+    <p class="login">Entre ou cadastre-se</p>
+  </div>
+</div><div class="mini-cart col-mini-cart col-xs-1 col-sm-1 col-md-1 col-lg-3 hidden-xs"><a class="btn btn-default btn-block btn-mini-cart" href="/checkout/#/cart" title="Carrinho de Compras"><svg height="31" viewBox="0 0 38 36" width="38" xmlns="http://www.w3.org/2000/svg"><path d="M27.841 33.947c-.9 0-1.63-.73-1.63-1.631 0-.899.729-1.639 1.63-1.639.901 0 1.62.739 1.62 1.639s-.719 1.631-1.62 1.631zm-13.409 0c-.9 0-1.63-.73-1.63-1.631 0-.899.73-1.639 1.63-1.639a1.636 1.636 0 0 1 0 3.27zm23.35-27.08c-.22-.32-.57-.51-.95-.53l-23.57-1.02c-.68-.03-1.24.49-1.27 1.17-.03.68.49 1.25 1.17 1.28l21.97.96-4.319 13.57h-19.23l-3.47-19.04c-.08-.42-.36-.77-.75-.93l-5.7-2.24c-.62-.25-1.33.06-1.58.69-.24.63.07 1.34.69 1.59l5.06 2 3.54 19.37c.1.59.61 1.01 1.2 1.01h.58l-1.34 3.74c-.11.32-.06.67.13.94.19.27.5.429.83.429h.94a3.706 3.706 0 0 0-.94 2.46c0 2.031 1.64 3.681 3.66 3.681 2.01 0 3.66-1.649 3.66-3.681 0-.949-.36-1.799-.94-2.46h7.97a3.705 3.705 0 0 0-.939 2.46c0 2.031 1.639 3.681 3.659 3.681 2.02 0 3.66-1.649 3.66-3.681a3.71 3.71 0 0 0-.939-2.46h1.14c.56 0 1.02-.449 1.02-1.02 0-.56-.46-1.021-1.02-1.021h-19.48l1.09-3.069h18.39c.53 0 1-.351 1.16-.851l5.079-15.959a1.205 1.205 0 0 0-.161-1.069z" fill="#FFF" fill-rule="evenodd" /></svg><span class="badge bg-danger mini-cart-qty-admake">-</span></a><div id="mini-cart-admake-aux"><div class="portal-minicart-ref"></div><script>$('.portal-minicart-ref').minicart({ showMinicart: true, showTotalizers: false  , showShippingOptions: false });</script><div class="portal-totalizers-ref"></div><script>$('.portal-totalizers-ref').minicart({ showMinicart: false, showTotalizers: true, showShippingOptions: false });</script><div class="mini-cart-botao"><a class="ver-carrinho" href="/checkout/#/cart">ver meu carrinho</a><a class="btn btn-block btn-verde btn-finalizar-compra" href="/checkout/#/cart">Finalizar
+                  compra</a></div></div><!-- #mini-cart-admake-aux --><div id="mini-cart-admake" style="display: none;"><div class="mini-cart-header"><span><strong>Meu carrinho teste</strong></span></div><div class="mini-cart-itens"></div><div class="mini-cart-footer"><div class="mini-cart-totais"><strong class="pull-right" id="mini-cart-admake-total"><!-- recebe valor total --></strong></div><div class="mini-cart-botao"><a class="ver-carrinho" href="/checkout/#/cart">ver meu carrinho</a><a class="btn btn-block btn-verde btn-finalizar-compra" href="/checkout/#/cart">Finalizar Compra</a></div></div></div></div><!-- .mini-cart --></div><!-- .row --></div><!-- .container --></div><!-- .header --></section><!-- .header-container --><section class="menu js-menu-toggle"><div class="menu-header d-lg-none"><div class="user-wrapper">
+  <div class="icon-user-wrapper">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+      <g fill="none" fill-rule="evenodd">
+        <circle cx="15" cy="15" r="15" fill="#00525D" />
+        <path fill="#FEC838" d="M10.242 10.067c0-2.567 2.125-4.65 4.758-4.65s4.758 2.083 4.758 4.65c0 2.566-2.125 4.641-4.758 4.641s-4.758-2.075-4.758-4.641z" />
+        <path fill="#F5426C" d="M6.667 21.61s2.625 3.807 8.2 3.807c5.575 0 8.466-3.742 8.466-3.742s-1.509-5.742-8.4-5.742c-6.55 0-8.2 5.609-8.2 5.609" />
+      </g>
+    </svg>
+    <div class="mask"></div>
+    <div class="login-hover">
+      <div class="login-inner">
+        <!--
+          <div style="display: none"><vtex.cmc:userLogin/></div>
+     -->
+        <!-- div class="login-facebook">
+        <a href="#" class="button __bt-login-facebook">
+          Entrar com o facebook
+          <div class="bg-opacity"></div>
+        </a>
+      </div>
+      <div class="login-email">
+        <a href="#" class="button __bt-login-email">
+          Receber acesso por email
+          <div class="bg-opacity"></div>
+        </a>
+      </div>
+
+      <span class="ou">ou</span -->
+        <div class="">
+          <a href="#" class="button __bt-login-entrar">
+          ENTRAR / CADASTRAR
+          <div class="bg-opacity"></div></a>
+        </div>
+        <div class="section-create">
+          <ul class="p-0 m-0">
+            <!--li><span>Cliente novo? <a href="#">Cadastre-se</a></span></li -->
+            <li>
+              <span>
+                <a href="/account#/orders">Meus pedidos</a>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a href="/meus-ebook">Meus _ebooks</a>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a href="/mais-cultura#consulte-saldo">Meus pontos +Cultura</a>
+              </span>
+            </li>
+            <li>
+              <span>
+                <a href="/account#/profile">Minha conta</a>
+              </span>
+            </li>
+            <!--<li><span><a href="/account/lista-de-desejos">Lista de Desejos</a></span></li>-->
+            <li>
+              <span>
+                <a href="/GiftList">Lista de Desejos</a>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="user-message-wrapper">
+    <span class="welcome">Olá, bem vindo(a)!</span>
+    <p class="login">Entre ou cadastre-se</p>
+  </div>
+</div><button class="menu-toggler js-menu-toggler"><span class="navbar-toggler-icon d-flex"><div class="align-self-center icon-menu"><svg class="close-menu" height="17" viewBox="0 0 17 17" width="17" xmlns="http://www.w3.org/2000/svg"><path d="M2.08.665L.665 2.08l14.143 14.142 1.414-1.414L2.08.665zM.665 14.808l1.415 1.414L16.222 2.08 14.808.665.665 14.808z" fill="#FFF" fill-rule="nonzero" /></svg></div></span></button></div><nav class="main-menu js-main-menu navbar navbar-expand-lg">
+  <div class="menu-inner">
+    <div class="container">
+      <ul class="navbar-nav w-100 justify-content-between">
+        <li class="menu-item __categories">
+          <a href="javascript:void(0)">
+            Compre por categoria
+          </a>
+          <ul class="menu-filho">
+            <!-- Livros -->
+            <li class="toggle-menu sub-menu" id="menuf-livros">
+              <a href="/livros">Livros</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu">
+                <ul>
+                  <div class="box-separador">
+                    <li class="toggle-menu sub-menu" id="menuff-livros-d">
+                      <a href="javascript:void(0)">Destaques</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/busca?fq=H:259">Mais vendidos</a></li>
+                        <li><a href="/busca?fq=H:236">Lançamentos</a></li>
+                        <li><a href="/busca?fq=H:251">Pré-venda</a></li>
+                        <li><a href="/livros/livros?O=OrderByBestDiscountDESC">Ofertas</a></li>
+                      </ul>
+                    </li>
+                    <li class="toggle-menu sub-menu" id="menuff-livros-d">
+                      <a href="javascript:void(0)">Tipo</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/hotsites/livros-bolso">Livros de bolso</a></li>
+                      </ul>
+                    </li>
+                  </div>
+
+                  <li class="toggle-menu sub-menu" id="menuff-livros-c">
+                    <a href="javascript:void(0)">Categorias</a>
+                    <span class="toggle-icon"></span>
+                    <ul class="menu-submenu">
+                      <li><a href="/livros/administracao/Nacional?map=c,c,c,specificationFilter_112">Administração</a>
+                      </li>
+                      <li><a href="/livros/artes-e-fotografia/Nacional?map=c,c,c,specificationFilter_112">Artes e
+                        fotografia</a></li>
+                      <li><a href="/livros/autoajuda/Nacional?map=c,c,c,specificationFilter_112">Autoajuda</a></li>
+                      <li><a href="/livros/biografias/Nacional?map=c,c,c,specificationFilter_112">Biografias</a></li>
+                      <li><a href="/livros/didaticos/Nacional?map=c,c,c,specificationFilter_112">Didáticos</a></li>
+                      <li><a href="/livros/direito/Nacional?map=c,c,c,specificationFilter_112">Direito</a></li>
+                      <li><a href="/livros/filosofia/Nacional?map=c,c,c,specificationFilter_112">Filosofia</a></li>
+                      <li><a href="/livros/gastronomia/Nacional?map=c,c,c,specificationFilter_112">Gastronomia</a></li>
+                      <li><a href="/livros/historia/Nacional?map=c,c,c,specificationFilter_112">História</a></li>
+                      <li><a href="/livros/hqs/Nacional?map=c,c,c,specificationFilter_112">HQs</a></li>
+                      <li><a href="/livros/infantil/Nacional?map=c,c,c,specificationFilter_112">Infantil</a></li>
+                      <li><a href="/livros/literatura-internacional">Literatura Estrangeira</a></li>
+                      <li><a href="/livros/literatura-nacional">Literatura Nacional</a></li>
+                      <li><a href="/livros/psicologia/Nacional?map=c,c,c,specificationFilter_112">Psicologia</a></li>
+                      <li><a href="/livros/religiao/Nacional?map=c,c,c,specificationFilter_112">Religião</a></li>
+                      <li><a href="/livros/teen/Nacional?map=c,c,c,specificationFilter_112">Teen</a></li>
+                    </ul>
+                  </li>
+                  <div class="image-menu">
+					<div class="box-banner adv_lc" id="menu-mouseover-livros-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <!-- Fim de Livros -->
+
+            <!-- Livros Importados -->
+            <li class="toggle-menu sub-menu" id="menuf-livros-importados">
+              <a href="/livros-importados">Livros Importados</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu">
+                <ul>
+                  <div class="box-separador">
+                    <li class="toggle-menu sub-menu" id="menuff-livros-d">
+                      <a href="javascript:void(0)">Destaques</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/busca?fq=H:268">Mais vendidos</a></li>
+                        <li><a href="/busca?fq=H:378">Lançamentos</a></li>
+                        <li><a href="/busca?fq=H:377">Pré-venda</a></li>
+                        <li>
+                          <a
+                            href="/Importado?PS=24&map=specificationFilter_112&O=OrderByBestDiscountDESC"
+                          >
+                            Ofertas
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="toggle-menu sub-menu" id="menuff-livros-d">
+                      <a href="javascript:void(0)">Idiomas</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a
+                          href="/livros?fq=specificationFilter_112:Importado&fq=specificationFilter_115:ALEMÃO">Alemão</a>
+                        </li>
+                        <li><a
+                          href="/livros?fq=specificationFilter_112:Importado&fq=specificationFilter_115:ESPANHOL">Espanhol</a>
+                        </li>
+                        <li><a
+                          href="/livros?fq=specificationFilter_112:Importado&fq=specificationFilter_115:FRANCÊS">Francês</a>
+                        </li>
+                        <li><a
+                          href="/livros?fq=specificationFilter_112:Importado&fq=specificationFilter_115:GREGO">Grego</a>
+                        </li>
+                        <li><a
+                          href="/livros?fq=specificationFilter_112:Importado&fq=specificationFilter_115:INGLÊS">Inglês</a>
+                        </li>
+                        <li><a
+                          href="/livros?fq=specificationFilter_112:Importado&fq=specificationFilter_115:ITALIANO">Italiano</a>
+                        </li>
+                        <li><a
+                          href="/livros?fq=specificationFilter_112:Importado&fq=specificationFilter_115:JAPONÊS">Japonês</a>
+                        </li>
+                        <li><a
+                          href="/livros?fq=specificationFilter_112:Importado&fq=specificationFilter_115:LATIM">Latim</a>
+                        </li>
+                        <li><a
+                          href="/livros?fq=specificationFilter_112:Importado&fq=specificationFilter_115:RUSSO">Russo</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </div>
+                  <li class="toggle-menu sub-menu" id="menuff-livros-c">
+                    <a href="javascript:void(0)">Categorias</a>
+                    <span class="toggle-icon"></span>
+                    <ul class="menu-submenu">
+                      <li><a href="/livros/administracao/Importado?map=c,c,c,specificationFilter_112">Administração</a></li>
+                      <li><a href="/livros/artes-e-fotografia/Importado?map=c,c,c,specificationFilter_112">Artes e fotografia</a></li>
+                      <li><a href="/livros/autoajuda/Importado?map=c,c,c,specificationFilter_112">Autoajuda</a></li>
+                      <li><a href="/livros/biografias/Importado?map=c,c,c,specificationFilter_112">Biografias</a></li>
+                      <li><a href="/livros/didaticos/Importado?map=c,c,c,specificationFilter_112">Didáticos</a></li>
+                      <li><a href="/livros/direito/Importado?map=c,c,c,specificationFilter_112">Direito</a></li>
+                      <li><a href="/livros/filosofia/Importado?map=c,c,c,specificationFilter_112">Filosofia</a></li>
+                      <li><a href="/livros/gastronomia/Importado?map=c,c,c,specificationFilter_112">Gastronomia</a></li>
+                      <li><a href="/livros/historia/Importado?map=c,c,c,specificationFilter_112">História</a></li>
+                      <li><a href="/livros/hqs/Importado?map=c,c,c,specificationFilter_112">HQs</a></li>
+                      <li><a href="/livros/infantil/Importado?map=c,c,c,specificationFilter_112">Infantil</a></li>
+                      <li><a href="/livros/LITERATURA/Importado?map=c,c,c,specificationFilter_112">Literatura</a></li>
+                      <li><a href="/livros/psicologia/Importado?map=c,c,c,specificationFilter_112">Psicologia</a></li>
+                      <li><a href="/livros/religiao/Importado?map=c,c,c,specificationFilter_112">Religião</a></li>
+                      <li><a href="/livros/teen/Importado?map=c,c,c,specificationFilter_112">Teen</a></li>
+                    </ul>
+                  </li>
+                  <div class="image-menu">
+					<div class="box-banner adv_lc" id="menu-mouseover-livros-importados-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <!-- Fim de Livros Importados -->
+
+            <!-- Ebooks -->
+            <li class="toggle-menu sub-menu" id="menuf-ebooks">
+              <a href="/ebooks">eBooks</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu">
+                <ul>
+                  <div class="box-separador">
+                    <li class="toggle-menu sub-menu" id="menuff-ebooks-d">
+                      <a href="javascript:void(0)">Destaques</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/busca?fq=H:260">Mais vendidos</a></li>
+                        <li><a href="/busca?fq=H:244">Lançamentos</a></li>
+                        <li><a href="/busca?fq=H:254">Pré-venda</a></li>
+                        <!--<li><a href="/busca?fq=H:411">eBooks Grátis</a></li>-->
+                        <li><a href="/busca?fq=H:442">eBooks até R$ 9,90</a></li>
+                        <li><a href="/busca?fq=H:542">Ofertas</a></li>
+                        <li><a href="/institucional/kobo-writing-life">Kobo Writing Life</a></li>
+                        <li><a href="/institucional/apps-da-cultura">Apps</a></li>
+                        <li><a href="/institucional/ajuda-ebooks">Central de Ajuda</a></li>
+                      </ul>
+                    </li>
+                    <li class="toggle-menu sub-menu" id="menuff-ebooks-d">
+                      <a href="javascript:void(0)">Acesse seus ebooks</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/_secure/meus-ebook">Minha biblioteca</a></li>
+                      </ul>
+                    </li>
+                    <li class="toggle-menu sub-menu" id="menuff-ebooks-d">
+                      <a href="javascript:void(0)">Baixe o App da Kobo</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu download-apps">
+                        <li>
+                          <a href="https://itunes.apple.com/br/app/kobo-livraria-cultura/id582036714?mt=8"
+                             target="_blank" title="Download para iOS">
+                            <div class="Isvg">
+                              <svg class="ativo" enable-background="new 0 0 56.693 56.693" version="1.1"
+                                   viewBox="0 0 56.693 56.693" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="m41.777 30.517c-0.062-6.232 5.082-9.221 5.312-9.372-2.891-4.227-7.395-4.807-8.998-4.873-3.83-0.389-7.477 2.256-9.42 2.256-1.939 0-4.941-2.199-8.117-2.143-4.178 0.062-8.029 2.43-10.179 6.17-4.339 7.527-1.11 18.682 3.118 24.791 2.067 2.986 4.532 6.346 7.766 6.223 3.117-0.123 4.293-2.016 8.061-2.016s4.826 2.016 8.123 1.953c3.352-0.061 5.477-3.043 7.527-6.041 2.373-3.469 3.35-6.828 3.408-6.998-0.073-0.034-6.534-2.509-6.601-9.95z"/>
+                                <path
+                                  d="m35.582 12.229c1.715-2.082 2.877-4.975 2.561-7.855-2.475 0.1-5.471 1.645-7.248 3.725-1.592 1.846-2.984 4.785-2.611 7.613 2.761 0.214 5.577-1.405 7.298-3.483z"/>
+                              </svg>
+                              <svg class="hover" fill="none" stroke="#000" stroke-linecap="round"
+                                   stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                   xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="8 17 12 21 16 17"/>
+                                <line x1="12" x2="12" y1="12" y2="21"/>
+                                <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/>
+                              </svg>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://play.google.com/store/apps/details?id=com.kobobooks.android&feature=search_result&hl=pt_BR"
+                            target="_blank" title="Download para Android">
+                            <div class="Isvg">
+                              <svg class="ativo" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
+                                   xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="m122.53 174.44v199.54h0.114c1.399 16.856 16.903 30.248 35.675 30.248h200.65c18.77 0 34.273-13.392 35.675-30.248h0.115v-199.54h-272.23z"/>
+                                <path
+                                  d="m112.15 320.58c0 19.682-13.712 35.787-30.47 35.787-16.761 0-30.475-16.105-30.475-35.787v-117.13c0-19.686 13.713-35.79 30.475-35.79 16.758 0 30.47 16.104 30.47 35.79v117.13z"/>
+                                <path
+                                  d="m239.16 465.95c0 19.684-13.714 35.79-30.474 35.79-16.758 0-30.47-16.106-30.47-35.79v-117.13c0-19.684 13.712-35.789 30.47-35.789 16.76 0 30.474 16.105 30.474 35.789v117.13z"/>
+                                <path
+                                  d="m340.73 465.95c0 19.684-13.714 35.79-30.474 35.79s-30.474-16.106-30.474-35.79v-117.13c0-19.684 13.714-35.789 30.474-35.789s30.474 16.105 30.474 35.789v117.13z"/>
+                                <path
+                                  d="m467.44 320.58c0 19.682-13.713 35.787-30.473 35.787-16.757 0-30.474-16.105-30.474-35.787v-117.13c0-19.686 13.717-35.79 30.474-35.79 16.76 0 30.473 16.104 30.473 35.79v117.13z"/>
+                                <path
+                                  d="m325.94 54.443l19.554-35.083c1.595-2.866 1.126-6.201-1.045-7.412-2.173-1.21-5.259 0.145-6.854 3.01l-20.006 35.896c-17.835-7.018-37.83-10.952-58.949-10.952-21.277 0-41.412 3.994-59.354 11.114l-20.095-36.058c-1.596-2.866-4.681-4.22-6.851-3.01-2.173 1.21-2.641 4.546-1.045 7.412l19.649 35.26c-40.88 19.199-68.419 55.253-68.419 96.567 0 4.198 0.295 8.338 0.846 12.414h270.53c0.554-4.076 0.849-8.215 0.849-12.414 0-41.444-27.716-77.592-68.814-96.744zm-129.07 61.237c-6.575 0-11.904-5.329-11.904-11.904 0-6.574 5.329-11.905 11.904-11.905 6.574 0 11.905 5.331 11.905 11.905 0 6.576-5.331 11.904-11.905 11.904zm124.22 0c-6.576 0-11.906-5.329-11.906-11.904 0-6.574 5.33-11.905 11.906-11.905 6.574 0 11.904 5.331 11.904 11.905 0 6.576-5.33 11.904-11.904 11.904z"/>
+                              </svg>
+                              <svg class="hover" fill="none" stroke="#000" stroke-linecap="round"
+                                   stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                   xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="8 17 12 21 16 17"/>
+                                <line x1="12" x2="12" y1="12" y2="21"/>
+                                <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/>
+                              </svg>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://ptbr.kobo.com/desktop?utm_source=livrariacultura&utm_medium=Kobo Brand page"
+                             target="_blank" title="Download para Mac/PC">
+                            <div class="Isvg">
+                              <svg class="ativo" enable-background="new 0 0 75 61" version="1.1" viewBox="0 0 75 61"
+                                   xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M71,0H4C1.791,0,0,1.791,0,4v45c0,2.209,1.791,4,4,4h22v4h-6.907c-2.229,0-4.033,1.783-4.083,4H58.99  c-0.051-2.217-1.854-4-4.083-4H49v-4h22c2.209,0,4-1.791,4-4V4C75,1.791,73.209,0,71,0z M72,47H3V4h69V47z"
+                                  fill="#231F20"/></svg>
+                              <svg class="hover" fill="none" stroke="#000" stroke-linecap="round"
+                                   stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                   xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="8 17 12 21 16 17"/>
+                                <line x1="12" x2="12" y1="12" y2="21"/>
+                                <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/>
+                              </svg>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://appworld.blackberry.com/webstore/content/31507993/?countrycode=BR&lang=en"
+                             target="_blank" title="Download para Blackberry 10">
+                            <div class="Isvg">
+                              <svg class="ativo" enable-background="new 0 0 56.7 56.7" version="1.1"
+                                   viewBox="0 0 56.7 56.7" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="m20.643 12.786c0-1.6437-1.008-3.718-5.2224-3.718h-6.5005l-1.8359 8.5368h6.7575c5.2926 0 6.8013-2.4989 6.8013-4.8188z"/>
+                                <path
+                                  d="m38.13 12.786c0-1.6437-1.0028-3.718-5.2209-3.718h-6.489l-1.8451 8.5368h6.761c5.2916 0 6.794-2.4989 6.794-4.8188z"/>
+                                <path
+                                  d="m18.297 25.633c0-1.6428-1.0066-3.7089-5.2249-3.7089h-6.4913l-1.8474 8.5253h6.7739c5.28 0 6.7897-2.4995 6.7897-4.8164z"/>
+                                <path
+                                  d="m35.786 25.633c0-1.6428-1.0042-3.7089-5.2157-3.7089h-6.4981l-1.8436 8.5253h6.7609c5.2901 0 6.7965-2.4995 6.7965-4.8164z"/>
+                                <path
+                                  d="m54.085 20.423c0-1.6414-0.9994-3.7185-5.2162-3.7185h-6.4942l-1.8485 8.5396h6.7634c5.2915 1e-4 6.7955-2.5008 6.7955-4.8211z"/>
+                                <path
+                                  d="m51.566 33.804c0-1.637-1.0037-3.7185-5.222-3.7185h-6.4942l-1.8412 8.5354h6.7648c5.2862 0 6.7926-2.4961 6.7926-4.8169z"/>
+                                <path
+                                  d="m33.269 39.01c0-1.6389-0.9975-3.7175-5.2095-3.7175h-6.5004l-1.8446 8.5411h6.7763c5.2791 0 6.7782-2.4956 6.7782-4.8236z"/>
+                              </svg>
+                              <svg class="hover" fill="none" stroke="#000" stroke-linecap="round"
+                                   stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                   xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="8 17 12 21 16 17"/>
+                                <line x1="12" x2="12" y1="12" y2="21"/>
+                                <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/>
+                              </svg>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.microsoft.com/en-us/p/kobo-books/9wzdncrfj4q1?activetab=pivot:overviewtab"
+                            target="_blank" title="Download para Windows">
+                            <div class="Isvg">
+                              <svg class="ativo" enable-background="new 0 0 56.693 56.693" version="1.1"
+                                   viewBox="0 0 56.693 56.693" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="m3.765 46.362l19.836 2.873v-18.978h-19.836v16.105zm0-18.816h19.836v-18.98l-19.836 2.873v16.107zm22.547 22.082l26.616 3.855v-23.226h-26.616v19.371zm0-41.456v19.374h26.616v-23.227l-26.616 3.853z"/>
+                              </svg>
+                              <svg class="hover" fill="none" stroke="#000" stroke-linecap="round"
+                                   stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                   xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="8 17 12 21 16 17"/>
+                                <line x1="12" x2="12" y1="12" y2="21"/>
+                                <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/>
+                              </svg>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </div>
+                  <li class="toggle-menu sub-menu" id="menuff-ebooks-c">
+                    <a href="javascript:void(0)">Categorias</a>
+                    <span class="toggle-icon"></span>
+                    <ul class="menu-submenu">
+                      <li><a href="/ebooks/administracao">Administração</a></li>
+                      <li><a href="/ebooks/autoajuda">Autoajuda</a></li>
+                      <li><a href="/ebooks/biografias">Biografias</a></li>
+                      <li><a href="/ebooks/ciencias-exatas">Ciências Exatas</a></li>
+                      <li><a href="/ebooks/ciencias-sociais">Ciências Socias</a></li>
+                      <li><a href="/ebooks/direito">Direito</a></li>
+                      <li><a href="/ebooks/filosofia">Filosofia</a></li>
+                      <li><a href="/ebooks/historia">História</a></li>
+                      <li><a href="/ebooks/infantil">Infantil</a></li>
+                      <li><a href="/ebooks/informatica-e-tecnologia">Informática e Tecnologia</a>
+                      </li>
+                      <li><a href="/ebooks/literatura">Literatura</a></li>
+                      <li><a href="/ebooks/medicina">Medicina</a></li>
+                      <li><a href="/ebooks/pedagogia">Pedagogia</a></li>
+                      <li><a href="/ebooks/psicologia">Psicologia</a></li>
+                      <li><a href="/ebooks/religiao">Religião</a></li>
+                    </ul>
+                  </li>
+                  <div class="image-menu">
+					<div class="box-banner adv_lc" id="menu-mouseover-ebooks-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <!-- Fim de Ebooks -->
+
+            <!-- Filmes e séries -->
+            <li class="toggle-menu sub-menu" id="menuf-filmes">
+              <a href="/filmes">Filmes e séries</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu">
+                <ul>
+                  <div class="box-separador">
+                    <li class="toggle-menu sub-menu" id="menuff-filmes-d">
+                      <a href="javascript:void(0)">Destaques</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/busca?fq=H:261">Mais vendidos</a></li>
+                        <li><a href="/busca?fq=H:245">Lançamentos</a></li>
+                        <li><a href="/busca?fq=H:253">Pré-venda</a></li>
+                        <li><a href="/filmes/filmes?O=OrderByBestDiscountDESC">Ofertas</a></li>
+                      </ul>
+                    </li>
+                  </div>
+
+                  <li class="toggle-menu sub-menu" id="menuff-filmes-c">
+                    <a href="javascript:void(0)">Categorias</a>
+                    <span class="toggle-icon"></span>
+                    <ul class="menu-submenu">
+                      <li><a href="/filmes/filmes/animacao">Animação</a></li>
+                      <li><a href="/filmes/filmes/acao">Aventura / Ação</a></li>
+                      <li><a href="/filmes/filmes/europeu">Cinema Europeu</a></li>
+                      <li><a href="/filmes/filmes/nacional">Cinema Nacional</a></li>
+                      <li><a href="/filmes/filmes/classico">Clássico</a></li>
+                      <li><a href="/filmes/filmes/comedia">Comédia</a></li>
+                      <li><a href="/filmes/filmes/documentario">Documentário</a></li>
+                      <li><a href="/filmes/filmes/drama">Drama</a></li>
+                      <li><a href="/filmes/filmes/ficcao-cientifica">Ficção Cientifica</a></li>
+                      <li><a href="/filmes/filmes/infantil">Infantil</a></li>
+                      <li><a href="/filmes/filmes/musical">Musical</a></li>
+                      <li><a href="/filmes/filmes/romance">Romance</a></li>
+                      <li><a href="/filmes/tv-&-series">Séries de TV / Minisséries</a></li>
+                      <li><a href="/filmes/show">Shows</a></li>
+                      <li><a href="/filmes/filmes/suspense">Suspense</a></li>
+                      <li><a href="/filmes/filmes/terror">Terror</a></li>
+                    </ul>
+                  </li>
+                  <div class="image-menu">
+					<div class="box-banner adv_lc" id="menu-mouseover-filmes-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <!-- Fim de Filmes e séries -->
+
+            <!-- Música -->
+            <li class="toggle-menu sub-menu" id="menuf-musicas">
+              <a href="/musica">Música</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu">
+                <ul>
+                  <div class="box-separador">
+                    <li class="toggle-menu sub-menu" id="menuff-musicas-d">
+                      <a href="javascript:void(0)">Destaques</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/busca?fq=H:262">Mais vendidos</a></li>
+                        <li><a href="/busca?fq=H:237">Lançamentos</a></li>
+                        <!--<li><a href="/busca?fq=H:257">Pré-venda</a></li>-->
+                        <li><a href="/musica/musica?PS=24&O=OrderByBestDiscountDESC">Ofertas</a></li>
+                        <li><a href="/hotsites/vitrolas">Vitrolas</a></li>
+                        <li><a href="/musica/VINIL?map=c,specificationFilter_94">Vinil</a></li>
+                        <li><a href="/hotsites/jbl">JBL</a></li>
+                        <li><a href="/musica/headphones">Fones de ouvido</a></li>
+                      </ul>
+                    </li>
+                    <!-- <li id="menuff-musicas-d" class="toggle-menu sub-menu">
+                      <a href="javascript:void(0)">Tipo</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="">CD</a></li>
+                        <li><a href="">VINIL</a></li>
+                        <li><a href="">DVD</a></li>
+                        <li><a href="">BLU RAY</a></li>
+                        <li><a href="">BLU RAY 3D</a></li>
+                      </ul>
+                    </li> -->
+                  </div>
+                  <li class="toggle-menu sub-menu" id="menuff-musicas-c">
+                    <a href="javascript:void(0)">Categorias</a>
+                    <span class="toggle-icon"></span>
+                    <ul class="menu-submenu">
+                      <li><a href="/musica/shows">Shows</a></li>
+                      <li><a href="/musica/musica/musica-brasileira/mpb">MPB</a></li>
+                      <li><a href="/musica/musica/classico/genero/opera">Ópera</a></li>
+                      <li><a href="/musica/musica/pop/nacional">Pop Nacional</a></li>
+                      <li><a href="/musica/musica/pop/internacional">Pop Internacional</a></li>
+                      <li><a href="/musica/musica/rock/nacional">Rock Nacional</a></li>
+                      <li><a href="/musica/musica/rock">Rock Internacional</a></li>
+                      <li><a href="/musica/musica/musica-brasileira/sertanejo">Sertanejo</a></li>
+                      <li><a href="/musica/musica/rock/hard-rock-&-heavy-metal">Hard Rock Heave Metal</a></li>
+                      <li><a href="/musica/musica/musica-brasileira">Ritmos Brasileiros</a></li>
+                      <li><a href="/musica/musica/reggae">Reggae</a></li>
+                      <li><a href="/musica/musica/world-music">World Music</a></li>
+                      <li><a href="/musica/musica/R&B">R&B/Soul/Rap</a></l>
+                    </ul>
+                  </li>
+                  <div class="image-menu">
+					<div class="box-banner adv_lc" id="menu-mouseover-musica-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <!-- Fim de Música -->
+
+            <!-- Geek -->
+            <li class="toggle-menu sub-menu" id="menuf-geek">
+              <a href="/geek">Geek</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu">
+                <ul>
+                  <div class="box-separador">
+                    <!-- <li id="menuff-geek-d" class="toggle-menu sub-menu">
+                      <a href="javascript:void(0)">Destaques</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="">Mais vendidos</a></li>
+                        <li><a href="">Lançamentos</a></li>
+                        <li><a href="">Pré-venda</a></li>
+                        <li><a href="">Ofertas</a></li>
+                      </ul>
+                    </li> -->
+                    <li class="toggle-menu sub-menu" id="menuff-geek-d">
+                      <a href="javascript:void(0)">Filmes e Séries</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/filmes/filmes/ficcao-cientifica">Ficção Científica</a></li>
+                      </ul>
+                    </li>
+                    <li class="toggle-menu sub-menu" id="menuff-geek-d">
+                      <a href="javascript:void(0)">ETC</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/para-voce-&-para-casa/para-voce/camisetas-unissex">Camisetas</a></li>
+                        <li><a href="/para-voce-&-para-casa/para-casa/canecas">Canecas</a></li>
+                        <li><a href="/para-voce-&-para-casa/para-voce/carteiras">Carteiras</a></li>
+                      </ul>
+                    </li>
+                  </div>
+                  <div class="box-separador">
+                    <li class="toggle-menu sub-menu" id="menuff-musicas-c">
+                      <a href="javascript:void(0)">Hqs e Livros</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/livros/hqs">HQs</a></li>
+                        <li><a href="/geek/livros/ficcao-cientifica">Ficção Científica</a></li>
+                        <li><a href="/geek/livros/fantasia">Fantasia</a></li>
+                        <li><a href="/geek/hqs/Encadernados/DC-Comics">DC Graphic Novels</a></li>
+                        <li><a href="/geek/hqs/Encadernados/marvel-Comics">Marvel Graphic Novels</a></li>
+                      </ul>
+                    </li>
+                    <li class="toggle-menu sub-menu" id="menuff-musicas-c">
+                      <a href="javascript:void(0)">Jogos e Brinquedos</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/brinquedos/card-games">Card Games</a></li>
+                        <li><a href="/games/consoles">Consoles</a></li>
+                        <li><a href="/brinquedos/jogos/jogos-de-tabuleiro">Jogos de Tabuleiro</a></li>
+                        <li><a href="/brinquedos/blocos-de-montar/lego">Lego</a></li>
+                        <li><a href="/geek/toys/colecionaveis">Toys e Colecionáveis</a></li>
+                        <li><a href="/hotsites/playstation">Especial Playstation</a></li>
+                      </ul>
+                    </li>
+                  </div>
+                  <div class="image-menu">
+                    <div class="box-banner adv_lc" id="menu-mouseover-geek-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <!-- Fim de Geek -->
+
+            <!-- Brinquedos -->
+            <li class="toggle-menu sub-menu" id="menuf-brinquedos">
+              <a href="/brinquedos">Jogos e Brinquedos</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu">
+                <ul>
+                  <div class="box-separador">
+                    <!-- <li id="menuff-brinquedos-d" class="toggle-menu sub-menu">
+                      <a href="javascript:void(0)">Destaques</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="">Mais vendidos</a></li>
+                        <li><a href="">Lançamentos</a></li>
+                        <li><a href="">Pré-venda</a></li>
+                        <li><a href="">Ofertas</a></li>
+                      </ul>
+                    </li> -->
+                    <li class="toggle-menu sub-menu" id="menuff-brinquedos-d">
+                      <a href="javascript:void(0)">Para todas as idades</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/brinquedos/colecionaveis">Colecionáveis</a></li>
+                        <li><a href="/brinquedos/jogos">Jogos</a></li>
+                        <li><a href="/brinquedos/jogos/jogos-de-tabuleiro">Jogos de Tabuleiro</a></li>
+                        <li><a href="/brinquedos/quebra-cabecas">Quebra-cabeça</a></li>
+                      </ul>
+                    </li>
+                  </div>
+
+                  <li class="toggle-menu sub-menu" id="menuff-brinquedos-c">
+                    <a href="javascript:void(0)">Para crianças</a>
+                    <span class="toggle-icon"></span>
+                    <ul class="menu-submenu">
+                      <li><a href="/brinquedos/artes-e-atividades">Artes e Atividades</a></li>
+                      <li><a href="/brinquedos/blocos-de-montar">Blocos de Montar</a></li>
+                      <li><a href="/brinquedos/brinquedos-educativos">Brinquedos Educativos</a></li>
+                      <li><a href="/filmes/filmes/infantil">Filmes infantis</a></li>
+                      <li><a href="/brinquedos/pelucias">Pelúcias</a></li>
+                    </ul>
+                  </li>
+                  <div class="image-menu">
+					<div class="box-banner adv_lc" id="menu-mouseover-brinquedos-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <!-- Fim de brinquedos -->
+
+            <!-- Papelaria -->
+            <li class="toggle-menu sub-menu" id="menuf-papelaria">
+              <a href="/papelaria-&-etc">Papelaria</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu">
+                <ul>
+                  <div class="box-separador">
+                    <li class="toggle-menu sub-menu" id="menuff-livros-d">
+                      <a href="javascript:void(0)">Categorias</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/papelaria-&-etc/papelaria/agendas">Agendas e Calendários</a></li>
+                        <li><a href="/papelaria-&-etc/papelaria/blocos-de-anotacoes">Bloco de Anotações</a></li>
+                        <li><a href="/papelaria-&-etc/papelaria/cadernetas">Cadernetas</a></li>
+                        <li><a href="/papelaria-&-etc/papelaria/cadernos">Cadernos</a></li>
+                        <li><a href="/papelaria-&-etc/escritorio/calculadoras">Calculadoras</a></li>
+                        <li><a href="/papelaria-&-etc/papelaria/canetas-e-canetinhas">Canetas e Canetinhas</a></li>
+                        <li><a href="/papelaria-&-etc/escritorio/canetas-sociais">Canetas Sociais</a></li>
+                        <li><a href="/papelaria-&-etc/papelaria/lapis-de-cor">Lápis de Cor</a></li>
+                        <li><a href="/papelaria-&-etc/escritorio">Material de Escritório</a></li>
+                      </ul>
+                    </li>
+                  </div>
+                  <div class="image-menu">
+					<div class="box-banner adv_lc" id="menu-mouseover-papelaria-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <!-- Fim de Papelaria -->
+
+            <!-- Revistas -->
+            <li class="toggle-menu sub-menu" id="menuf-revistas">
+              <a href="/revistas">Revistas</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu">
+                <ul>
+                  <li class="toggle-menu sub-menu" id="menuff-revistas-d">
+                    <a href="javascript:void(0)">Categorias</a>
+                    <span class="toggle-icon"></span>
+                    <ul class="menu-submenu">
+                      <li><a href="/revistas/arquitetura-e-decoracao">Arquitetura e Decoração</a></li>
+                      <li><a href="/revistas/arte">Arte</a></li>
+                      <li><a href="/revistas/atualidades">Atualidades</a></li>
+                      <li><a href="/revistas/bem-estar">Bem Estar</a></li>
+                      <li><a href="/revistas/colecionaveis">Colecionáveis</a></li>
+                      <li><a href="/revistas/culturais">Culturais</a></li>
+                      <li><a href="/revistas/fotografia">Fotografia</a></li>
+                      <li><a href="/revistas/game">Game</a></li>
+                      <li><a href="/revistas/gastronomia">Gastronomia</a></li>
+                      <li><a href="/revistas/hqs">HQs</a></li>
+                      <li><a href="/revistas/infantil">Infantil</a></li>
+                      <li><a href="/revistas/manga">Mangá</a></li>
+                      <li><a href="/revistas/moda-e-beleza">Moda</a></li>
+                      <li><a href="/revistas/passatempo">Passatempo</a></li>
+                      <li><a href="/revistas/tecnologia">Tecnologia</a></li>
+                      <li><a href="/revistas/viagem">Viagem</a></li>
+                    </ul>
+                  </li>
+                  <div class="image-menu">
+					<div class="box-banner adv_lc" id="menu-mouseover-revistas-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <!-- fim de revista -->
+
+            <!-- Gifts -->
+            <li class="toggle-menu sub-menu" id="menuf-gifts">
+              <a href="/para-voce-&-para-casa">Gifts</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu">
+                <ul>
+                  <div class="box-separador">
+                    <li class="toggle-menu sub-menu" id="menuff-gifts-d">
+                      <a href="javascript:void(0)">Pra Você</a>
+                      <span class="toggle-icon"></span>
+                      <ul class="menu-submenu">
+                        <li><a href="/para-voce-&-para-casa/para-voce/camisetas-femininas">Camisetas Femininas</a></li>
+                        <li><a href="/para-voce-&-para-casa/para-voce/camisetas-masculinas">Camisetas Masculinas</a></li>
+                        <li><a href="/para-voce-&-para-casa/para-voce/camisetas-unissex">Camisetas Unissex</a></li>
+                        <li><a href="/para-voce-&-para-casa/para-voce/carteiras">Carteiras E Canivetes</a></li>
+                        <li><a href="/musica/headphones">Fones de ouvido</a></li>
+                        <li><a href="/para-voce-&-para-casa/para-voce/mochilas">Mochilas</a></li>
+                        <li><a href="/hotsites/oculos-de-leitura">Óculos de Leitura</a></li>
+                        <li><a href="/busca?fq=H:459">Meias</a></li>
+                        <li><a href="/busca?fq=H:441">Pen Drive</a></li>
+                        <li><a href="/hotsites/playstation">Especial Playstation</a></li>
+                        <li><a href="/hotsites/i2go">I2go</a></li>
+                        <li><a href="/hotsites/insecta">Insecta</a></li>
+                        <li><a href="/hotsites/guarda-chuva">Guarda-chuva</a></li>
+                        <li><a href="/hotsites/bento-store">Bento</a></li>
+                      </ul>
+                    </li>
+                  </div>
+                  <li class="toggle-menu sub-menu" id="menuff-gifts-c">
+                    <a href="javascript:void(0)">Para Casa</a>
+                    <span class="toggle-icon"></span>
+                    <ul class="menu-submenu">
+                      <li><a href="/para-voce-&-para-casa/para-casa/almofadas">Almofadas</a></li>
+                      <li><a href="/para-voce-&-para-casa/para-casa/canecas">Canecas, Copos E Xícaras</a></li>
+                      <li><a href="/para-voce-&-para-casa/para-casa/imas">Imãs</a></li>
+                      <li><a href="/para-voce-&-para-casa/para-casa/luminaria">Luminárias</a></li>
+                      <li><a href="/para-voce-&-para-casa/para-casa/objetos-decorativos">Objetos Decorativos</a></li>
+                      <li><a href="/para-voce-&-para-casa/para-casa/porta-retrato">Porta-Retratos</a></li>
+                      <li><a href="/para-voce-&-para-casa/para-casa/quadros-&-posteres">Quadros & Pôsteres</a></li>
+                      <li><a href="/para-voce-&-para-casa/para-casa/utensilios-e-acessorios">Utensílios & Acessórios</a>
+                      <li><a href="/hotsites/nespresso">Nespresso</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <div class="image-menu">
+					<div class="box-banner adv_lc" id="menu-mouseover-gifts-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+
+            <!-- Vale-presente -->
+            <li class="toggle-menu sub-menu __dark" id="menuf-vale">
+              <a href="/vale-presente/p">Vale-presente</a>
+              <span class="toggle-icon"></span>
+              <div class="menu-submenu solo">
+                <ul>
+                  <div class="image-menu">
+                    <div class="box-banner adv_lc" id="menu-mouseover-vale-presente-0"></div>
+                  </div>
+                </ul>
+              </div>
+            </li>
+            <!-- fim de Vale-presentes -->
+
+            <!-- Central de ofertas -->
+            <li class="__dark" id="menuf-central">
+              <a href="/hotsites/central-de-ofertas">Central de ofertas</a>
+              <span class="toggle-icon"></span>
+            </li>
+            <!-- fim de Central de ofertas -->
+
+          </ul>
+        </li>
+        <li class="menu-item __menu-drop">
+          <a href="javascript:void(0)">Explore Cultura</a>
+          <ul class="menu-filho">
+            <li>
+              <a
+                href="https://explore.livrariacultura.com.br/eventos/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Eventos
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://explore.livrariacultura.com.br/eventos/cultura-em-curso/"
+                rel="noopener noreferrer"
+              >
+                Cultura em Curso
+              </a>
+            </li>
+            <li>
+              <a
+                href="http://www.teatroevaherz.com.br/teatro/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Teatro Eva Herz
+              </a>
+            </li>
+            <li>
+              <a
+                href="/institucional/canal-cultura"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Canal da Cultura
+              </a>
+            </li>
+			<li>
+			  <a
+				href="/sala-de-visita"
+				rel="noopener noreferrer"
+			  >
+				Sala de visita
+			  </a>
+			</li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a
+            href="/hotsites/cultura-indica-listas"
+            rel="noopener noreferrer"
+          >
+            Cultura indica listas
+          </a>
+        </li>
+        <li class="menu-item">
+          <a
+            href="/hotsites/central-de-ofertas"
+            rel="noopener noreferrer"
+          >
+            Central de ofertas
+          </a>
+        </li>
+        <li class="menu-item">
+          <a
+            href="https://explore.livrariacultura.com.br/eventos"
+            target="_blank"
+            rel="noopener noreferrer">
+            Eventos
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		setTimeout(function(){
+			carregaAdserver("menu");
+		}, 1000);
+	});
+</script><!-- ATENÇÃO, esse erro prejudica a performance do seu site, o conteudo de nome LC-menudesktop não foi renderizado por nao ser um XDocument válido, erro: - '=' is an unexpected token. The expected token is ';'. Line 84, position 55.--></section><div id="popup_back" style="display: none"><div id="popupFundo"></div></div><div id="popup_back-menu" style="display: none"><div id="popupFundo-menu"></div></div><div class="teste-login" style="display: none"><script>
+                                    $(document).ready(function () {
+                                        vtexid.setScope('45d23dca-d4c7-44e5-ace5-389f8005292f');
+                                        vtexid.setScopeName('livrariacultura');
+                                        $('body').on('click', '#login', function () {
+                                            vtexid.start(
+                                                    {
+                                                        returnUrl: '/harry-potter-e-o-prisioneiro-de-azkaban-2010606463/p',
+                                                        userEmail: '',
+                                                        locale: 'pt-BR',
+                                                        forceReload: false
+                                                    });
+                                        });
+                                    });
+                                   </script><div class="ajax-content-loader" rel="/no-cache/user/welcome"></div></div></header><section class="breadcrumbs"><div class="container"><div class="bread-crumb" xmlns:v="http://rdf.data-vocabulary.org/#">
+<ul>
+<li typeof="v:Breadcrumb"><a href="https://www3.livrariacultura.com.br/" rel="v:url" property="v:title">Livraria Cultura</a></li>
+<li   typeof="v:Breadcrumb"><a href="https://www3.livrariacultura.com.br/ebooks" rel="v:url" property="v:title">eBooks</a></li><li class="last"  typeof="v:Breadcrumb"><a href="https://www3.livrariacultura.com.br/ebooks/infantil" rel="v:url" property="v:title">Infantil</a></li></ul>
+</div>
+</div></section><section class="section-title"><div class="container"><div class="title-wrapper"><h1 class="title_product"><div class="fn productName  HARRY-POTTER-E-O-PRISIONEIRO-DE-AZKABAN ">HARRY POTTER E O PRISIONEIRO DE AZKABAN</div><input id="___rc-p-id"  type="hidden" value="10191386" /><input id="___rc-p-dv-id"  type="hidden" value="24,9" /><input id="___rc-p-sku-ids"  type="hidden" value="10129965" /><input id="___rc-p-kit-ids"  type="hidden" value="" /></h1><span class="subtitle"></span></div></div></section><section class="meta-section"><div class="container"><div class="meta-wrapper d-flex"><div class="meta authors"><span>Autores:</span><h2></h2></div><div class="meta publisher d-none d-md-block"><span>Editora:</span><h2><div class="brandName KOBO-EDITIONS "><a href="https://www3.livrariacultura.com.br/ebooks/infantil/kobo-editions" class="brand kobo-editions">KOBO EDITIONS</a></div></h2></div><div class="meta link-to-full-description d-none d-md-block"><a href="#produto-especificacoes" class="full-description js-to-full-description">Ver descrição
+          completa</a></div><div id="share">
+<div class='giftlist-insertsku-wrapper'>
+<span class='hidden-glis-create-url' style='display: none !important;'>/giftlist/create</span>
+<span class='hidden-glis-edit-url' style='display: none !important;'>/giftlist/product</span>
+<span class='hidden-glis-addtoquantity' style='display: none !important;'>True</span>
+<span class='hidden-glis-address-message' style='display: none !important;'>O Tipo de Lista selecionado requer um endereço de entrega. Você será redirecionado para a criação da lista e retornará para esta página ao concluir o cadastro.</span>
+<span class='hidden-glis-address-message-add' style='display: none !important;'>Todos os Produtos selecionados serão incluidos à sua nova Lista</span>
+<span class='hidden-glis-address-message-noadd' style='display: none !important;'>Você precisará incluir os Produtos após o cadastro de sua nova Lista</span>
+<div class='glis-save-template' style='display: none !important;'>
+<li class='glis-save-title-new'>Sua Lista foi criada com sucesso</li>
+<li class='glis-save-inserted'>#quantidade# Produto(s) adicionado(s) à sua Lista</li>
+<li class='glis-save-existing'>#quantidade# Produto  (s) selecionado(s) já existia(m) em sua Lista</li>
+<li class='glis-save-edit'><a class='glis-edit-link' href='/giftlist/manage'>Clique aqui para gerenciar sua Lista</a></li>
+</div>
+
+<div class='glis-sku-single glis-sku-default'>
+
+<span class='hidden-sku-default' style='display: none !important;'>10129965</span>
+<input type='text' size='3' class='insert-sku-quantity' maxlength='3' id='isq-971d41b1badd4e7f9ec69b52400268fb' value='1'>
+<span class='glis-sku-single-item' name='971d41b1badd4e7f9ec69b52400268fb'>HARRY POTTER E O PRISIONEIRO DE AZKABAN</span>
+</div>
+<div class="ajax-content-loader" rel="/no-cache/GiftListInsertSkuV2.aspx?mode=list&popup=true&types=4&return=%2fharry-potter-e-o-prisioneiro-de-azkaban-2010606463%2fp"></div>
+</div>
+<div class="compartilhar"><svg enable-background="new 0 0 64 64" height="20" id="Layer_1" version="1.1" viewBox="0 0 64 64" width="18px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<path d="M48,39.26c-2.377,0-4.515,1-6.033,2.596L24.23,33.172c0.061-0.408,0.103-0.821,0.103-1.246c0-0.414-0.04-0.818-0.098-1.215  l17.711-8.589c1.519,1.609,3.667,2.619,6.054,2.619c4.602,0,8.333-3.731,8.333-8.333c0-4.603-3.731-8.333-8.333-8.333  s-8.333,3.73-8.333,8.333c0,0.414,0.04,0.817,0.098,1.215l-17.711,8.589c-1.519-1.609-3.666-2.619-6.054-2.619  c-4.603,0-8.333,3.731-8.333,8.333c0,4.603,3.73,8.333,8.333,8.333c2.377,0,4.515-1,6.033-2.596l17.737,8.684  c-0.061,0.407-0.103,0.821-0.103,1.246c0,4.603,3.731,8.333,8.333,8.333s8.333-3.73,8.333-8.333C56.333,42.99,52.602,39.26,48,39.26  z" />
+					</svg><span>
+						Compartilhar
+					</span></div><div class="conteudo-compartilhado"><div class="esconde"></div><div class="links"><ul style="margin: 0 auto;"><li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=" title="Compartilhar no Facebook" class="link-facebook">Facebook</a></li><li><a target="_blank" href="https://twitter.com/intent/tweet?url=" title="Compartilhar no Twitter" class="link-twitter">Twitter</a></li><li><a target="_blank" href="https://plus.google.com/share?url=" title="Compartilhar no Google" class="link-google">Google +</a></li><li><a target="_blank" href="mailto:?subject=&amp;body=:%20" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&amp;body=' + encodeURIComponent(document.URL)); return false;">Email</a></li></ul></div></div><div class="overlay-share"></div></div></div></div></section><section class="details"><div class="container"><div class="row"><div class="col-12 col-lg-4"><div class="product-image"><div class="product-labels"><div class="label product-type">
+              Livro Físico
+            </div></div><div class="apresentacao">
+<div id="setaThumbs"></div>
+<div id="show">
+<div id="include">
+<div id="image" productIndex="0">
+<a href="https://livrariacultura.vteximg.com.br/arquivos/ids/15751104-1000-1000/2010606463.jpg?v=637110068092870000" class="image-zoom"><img productIndex="0" id="image-main" class="sku-rich-image-main" src="https://livrariacultura.vteximg.com.br/arquivos/ids/15751104-292-292/2010606463.jpg?v=637110068092870000" alt="HARRY POTTER E O PRISIONEIRO DE AZKABAN" title="HARRY POTTER E O PRISIONEIRO DE AZKABAN" /></a>
+</div>
+</div>
+<ul class="thumbs"> <li>
+                                                    <a id='botaoZoom' href='javascript:void(0);' title='Zoom' rel='https://livrariacultura.vteximg.com.br/arquivos/ids/15751104-292-292/2010606463.jpg?v=637110068092870000' zoom='https://livrariacultura.vteximg.com.br/arquivos/ids/15751104-1000-1000/2010606463.jpg?v=637110068092870000'>
+                                                        <img src='https://livrariacultura.vteximg.com.br/arquivos/ids/15751104-50-75/2010606463.jpg?v=637110068092870000' title='' alt=''/>
+                                                    </a>
+                                                </li></ul></div>
+</div>
+</div></div><div class="col-12 col-lg-8"><div class="product-main box-shadow"><div class="loading-v2"><div class="anima1"></div><div class="anima2"></div><div class="anima3"></div><div class="anima4"></div><div class="anima5"></div><span>Carregando…</span></div><div class="seller-list">Vendido e entregue por
+            <a href="#" class="seller">Livraria Cultura</a></div><div class="row main-core"><div class="col-12 col-md-7 order-0"><div class="product-type-similar clearfix"></div><div class="product-type-container"><div class="sku-selector-container sku-selector-container-0" /></div><script>$('.sku-selector-container-0').skuSelector(skuJson_0, {selectSingleDimensionsOnOpening: 'true'});</script></div><div class="pricing" data-toggle-cents=".skuBestPrice"><div class="plugin-preco"><p productIndex="0" class="descricao-preco"><em productIndex="0" class="valor-de" style="display:none">De: <strong productIndex="0" class="skuListPrice">R$ 0,00</strong></em><em productIndex="0" class="valor-por" >Por: <strong productIndex="0" class="skuBestPrice">R$ 24,90</strong></em><em productIndex="0" class="valor-dividido" style="display:none"><span><span>ou <label productIndex="0" class="skuBestInstallmentNumber">1</label>X de</span> <strong><label productIndex="0" class="skuBestInstallmentValue">R$ 24,90</label></strong></span></em><p productIndex="0" class="preco-a-vista" style="display:block">Preço a vista: <strong productIndex="0" class="skuPrice">R$ 24,90</strong></p></p></div><script>$('.plugin-preco').price(10191386);</script></div><div class="installment"><div class="installment-heading">Ver opções de parcelamento</div><div class="popup" id="popup" style="display: none;"><div class="parcelas"><div class="other-payment-method-content">
+<div class="other-payment-method"><span class="titulo-parcelamento">Opções de Parcelamento:</span><ul class="other-payment-method-ul"><li class="other-payment-method-American Express-à vista #ParcelamentoPreco#">à vista R$ 24,90 <span class="other-payment-method-intereset-no"></span></li></ul><a class="see-other-payment-method-link" href="javascript:void(0)" onclick="window.open('https://www3.livrariacultura.com.br/productotherpaymentsystems/10129965','FormaPagamento','width=450,height=500,scrollbars=1')">Outras formas de pagamento</a></div></div></div></div></div></div><div class="product-buttons col-12 col-md-5 order-2 order-md-1"><div class="add-to-cart"><button class="buy-in-page-button">adicionar ao carrinho</button></div><div class="one-click-purchase"><a target="_top" class="buy-button buy-button-ref" href="https://www3.livrariacultura.com.br/checkout/cart/add?sku=10129965&qty=1&seller=1&sc=1&price=2490&cv=03396fb56502d3e7bcda4ee80c5e5463_&sc=1" style="display:block">Comprar</a><script>$('.buy-button-ref').buyButton(10191386, {salesChannel: 1}, {})</script><p class="unavailable-button" style="display:none">Produto Esgotado</p><input type="hidden" class="buy-button-amount" value="1"><div class="portal-notify-me-ref"></div><script>var notifyMeOptions = {'strings': {"title":"Avise-Me","explanation":"\r\n    Para ser avisado da disponibilidade deste Produto, basta preencher os campos abaixo.\r\n  ","loading":"Carregando...","namePlaceholder":"Digite seu nome...","emailPlaceholder":"Digite seu e-mail...","success":"Cadastrado com sucesso, assim que o produto for disponibilizado você receberá um email avisando.","error":"Não foi possível cadastrar. Tente mais tarde.","emailErrorMessage":"O endereço de e-mail informado é inválido."}};
+$('.portal-notify-me-ref').notifyMe(10191386, notifyMeOptions);</script></div></div><div class="col-12 highlights order-1 order-md-2"><div class="highlight pre-venda"><div class="pre-venda__box"><span class="pre-venda__texto">Produto em pré-venda</span><span class="pre-venda__prazo"></span></div></div><div class="highlight stock"></div><div class="encomenda"><div class="box-encomenda"><img class="img-fluid" src="/arquivos/icon-encomenga.png?v=636942555806900000" /><div class="title-encomenda">Produto sob encomenda<span class="prazo"></span></div></div></div><div class="highlight rocket-shipping"><a target="_blank" href="/central-de-ajuda/como-comprar-entregas-prazos" alt="" style="text-decoration: none">
+                  Entrega foguete disponível
+                </a></div><div class="icones-content"><span class="mensagem-opcoes-app">Você pode ler este livro digital em vários dispositivos:</span><ul class="opcaoes-app">
+              <li class="apple">
+                <a href="https://itunes.apple.com/br/app/kobo-livraria-cultura/id582036714?mt=8" target="_blank" alt="Apple">
+                  <div class="Isvg">
+                    <svg class="ativo" enable-background="new 0 0 56.693 56.693" version="1.1" viewBox="0 0 56.693 56.693"
+                      xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m41.777 30.517c-0.062-6.232 5.082-9.221 5.312-9.372-2.891-4.227-7.395-4.807-8.998-4.873-3.83-0.389-7.477 2.256-9.42 2.256-1.939 0-4.941-2.199-8.117-2.143-4.178 0.062-8.029 2.43-10.179 6.17-4.339 7.527-1.11 18.682 3.118 24.791 2.067 2.986 4.532 6.346 7.766 6.223 3.117-0.123 4.293-2.016 8.061-2.016s4.826 2.016 8.123 1.953c3.352-0.061 5.477-3.043 7.527-6.041 2.373-3.469 3.35-6.828 3.408-6.998-0.073-0.034-6.534-2.509-6.601-9.95z" />
+                      <path d="m35.582 12.229c1.715-2.082 2.877-4.975 2.561-7.855-2.475 0.1-5.471 1.645-7.248 3.725-1.592 1.846-2.984 4.785-2.611 7.613 2.761 0.214 5.577-1.405 7.298-3.483z" /></svg>
+                    <svg class="hover" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <polyline points="8 17 12 21 16 17" />
+                      <line x1="12" x2="12" y1="12" y2="21" />
+                      <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29" />
+                    </svg>
+                  </div>
+                </a>
+              </li>
+              <li class="android">
+                <a href="https://338861.measurementapi.com/serve?action=click&publisher_id=338861&site_id=13416&my_campaign=LC-AppPage-Android&my_publisher=LivrariaCultura"
+                  target="_blank" alt="Android">
+                  <div class="Isvg">
+                    <svg class="ativo" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
+                      xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m122.53 174.44v199.54h0.114c1.399 16.856 16.903 30.248 35.675 30.248h200.65c18.77 0 34.273-13.392 35.675-30.248h0.115v-199.54h-272.23z" />
+                      <path d="m112.15 320.58c0 19.682-13.712 35.787-30.47 35.787-16.761 0-30.475-16.105-30.475-35.787v-117.13c0-19.686 13.713-35.79 30.475-35.79 16.758 0 30.47 16.104 30.47 35.79v117.13z" />
+                      <path d="m239.16 465.95c0 19.684-13.714 35.79-30.474 35.79-16.758 0-30.47-16.106-30.47-35.79v-117.13c0-19.684 13.712-35.789 30.47-35.789 16.76 0 30.474 16.105 30.474 35.789v117.13z" />
+                      <path d="m340.73 465.95c0 19.684-13.714 35.79-30.474 35.79s-30.474-16.106-30.474-35.79v-117.13c0-19.684 13.714-35.789 30.474-35.789s30.474 16.105 30.474 35.789v117.13z" />
+                      <path d="m467.44 320.58c0 19.682-13.713 35.787-30.473 35.787-16.757 0-30.474-16.105-30.474-35.787v-117.13c0-19.686 13.717-35.79 30.474-35.79 16.76 0 30.473 16.104 30.473 35.79v117.13z" />
+                      <path d="m325.94 54.443l19.554-35.083c1.595-2.866 1.126-6.201-1.045-7.412-2.173-1.21-5.259 0.145-6.854 3.01l-20.006 35.896c-17.835-7.018-37.83-10.952-58.949-10.952-21.277 0-41.412 3.994-59.354 11.114l-20.095-36.058c-1.596-2.866-4.681-4.22-6.851-3.01-2.173 1.21-2.641 4.546-1.045 7.412l19.649 35.26c-40.88 19.199-68.419 55.253-68.419 96.567 0 4.198 0.295 8.338 0.846 12.414h270.53c0.554-4.076 0.849-8.215 0.849-12.414 0-41.444-27.716-77.592-68.814-96.744zm-129.07 61.237c-6.575 0-11.904-5.329-11.904-11.904 0-6.574 5.329-11.905 11.904-11.905 6.574 0 11.905 5.331 11.905 11.905 0 6.576-5.331 11.904-11.905 11.904zm124.22 0c-6.576 0-11.906-5.329-11.906-11.904 0-6.574 5.33-11.905 11.906-11.905 6.574 0 11.904 5.331 11.904 11.905 0 6.576-5.33 11.904-11.904 11.904z" /></svg>
+                    <svg class="hover" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <polyline points="8 17 12 21 16 17" />
+                      <line x1="12" x2="12" y1="12" y2="21" />
+                      <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29" />
+                    </svg>
+                  </div>
+                </a>
+              </li>
+              <li class="pc">
+                <a href="https://ptbr.kobo.com/desktop?utm_source=livrariacultura&utm_medium=Kobo Brand page"
+                  target="_blank" alt="PC">
+                  <div class="Isvg">
+                    <svg class="ativo" enable-background="new 0 0 75 61" version="1.1" viewBox="0 0 75 61" xml:space="preserve"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M71,0H4C1.791,0,0,1.791,0,4v45c0,2.209,1.791,4,4,4h22v4h-6.907c-2.229,0-4.033,1.783-4.083,4H58.99  c-0.051-2.217-1.854-4-4.083-4H49v-4h22c2.209,0,4-1.791,4-4V4C75,1.791,73.209,0,71,0z M72,47H3V4h69V47z" /></svg>
+                    <svg class="hover" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <polyline points="8 17 12 21 16 17" />
+                      <line x1="12" x2="12" y1="12" y2="21" />
+                      <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29" />
+                    </svg>
+                  </div>
+                </a>
+              </li>
+              <li class="blackbarry">
+                <a href="hhttps://appworld.blackberry.com/webstore/content/31507993/?countrycode=BR&lang=pt_br&utm_source=livrariacultura&utm_medium=Kobo Brand page"
+                  target="_blank" alt="Blackbarry">
+                  <div class="Isvg">
+                    <svg class="ativo" enable-background="new 0 0 56.7 56.7" version="1.1" viewBox="0 0 56.7 56.7"
+                      xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m20.643 12.786c0-1.6437-1.008-3.718-5.2224-3.718h-6.5005l-1.8359 8.5368h6.7575c5.2926 0 6.8013-2.4989 6.8013-4.8188z" />
+                      <path d="m38.13 12.786c0-1.6437-1.0028-3.718-5.2209-3.718h-6.489l-1.8451 8.5368h6.761c5.2916 0 6.794-2.4989 6.794-4.8188z" />
+                      <path d="m18.297 25.633c0-1.6428-1.0066-3.7089-5.2249-3.7089h-6.4913l-1.8474 8.5253h6.7739c5.28 0 6.7897-2.4995 6.7897-4.8164z" />
+                      <path d="m35.786 25.633c0-1.6428-1.0042-3.7089-5.2157-3.7089h-6.4981l-1.8436 8.5253h6.7609c5.2901 0 6.7965-2.4995 6.7965-4.8164z" />
+                      <path d="m54.085 20.423c0-1.6414-0.9994-3.7185-5.2162-3.7185h-6.4942l-1.8485 8.5396h6.7634c5.2915 1e-4 6.7955-2.5008 6.7955-4.8211z" />
+                      <path d="m51.566 33.804c0-1.637-1.0037-3.7185-5.222-3.7185h-6.4942l-1.8412 8.5354h6.7648c5.2862 0 6.7926-2.4961 6.7926-4.8169z" />
+                      <path d="m33.269 39.01c0-1.6389-0.9975-3.7175-5.2095-3.7175h-6.5004l-1.8446 8.5411h6.7763c5.2791 0 6.7782-2.4956 6.7782-4.8236z" /></svg>
+                    <svg class="hover" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <polyline points="8 17 12 21 16 17" />
+                      <line x1="12" x2="12" y1="12" y2="21" />
+                      <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29" />
+                    </svg>
+                  </div>
+                </a>
+              </li>
+              <li class="windows">
+                <a href="https://www.microsoft.com/en-us/store/p/kobo-books/9wzdncrfj4q1?utm_source=livrariacultura&utm_medium=Kobo Brand page"
+                  target="_blank" alt="Windows">
+                  <div class="Isvg">
+                    <svg class="ativo" enable-background="new 0 0 56.693 56.693" version="1.1" viewBox="0 0 56.693 56.693"
+                      xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m3.765 46.362l19.836 2.873v-18.978h-19.836v16.105zm0-18.816h19.836v-18.98l-19.836 2.873v16.107zm22.547 22.082l26.616 3.855v-23.226h-26.616v19.371zm0-41.456v19.374h26.616v-23.227l-26.616 3.853z" /></svg>
+                    <svg class="hover" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <polyline points="8 17 12 21 16 17" />
+                      <line x1="12" x2="12" y1="12" y2="21" />
+                      <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29" />
+                    </svg>
+                  </div>
+                </a>
+              </li>
+            </ul><!-- ATENÇÃO, esse erro prejudica a performance do seu site, o conteudo de nome icones-kobo não foi renderizado por nao ser um XDocument válido, erro: - '=' is an unexpected token. The expected token is ';'. Line 19, position 91.--></div></div></div></div><div class="store-pickup box-shadow d-flex">
+          Este produto pode ser retirado em loja
+          <a class="more-link" href="">Saiba mais</a></div><div class="calc-frete d-flex box-shadow justify-content-center"><div class="prod-calculafrete"><div class="shipping-calc"><p id="popupCalculoFreteWrapper" class="frete"><a onclick="ShippingValue();" href="javascript:void(0);" title="Calcule o valor do frete e prazo de entrega para a sua região" class="shipping-value">
+                Calcule o valor do frete e prazo de entrega para a sua região
+              </a></p><div id="calculoFrete" seller="1" produtocorrente="1" skucorrente="1"><div class="contentWrapper"><div class="header"><h1><a target="_parent" href="/" id="ctl00_lnkHome">Livraria Cultura</a></h1><h2>Calcular o Frete</h2><div class="close"><a href="javascript:void(0);" class="bt btn-thickbox" title="Fechar" id="lnkFechar1">Fechar</a></div></div><div id="ctl00_Conteudo_upnlContent"><input type="hidden" name="CEPObrigatorio" id="CEPObrigatorio" value="O CEP deve ser informado." /><input type="hidden" name="CEPInvalido" id="CEPInvalido" value="CEP inválido." /><input type="hidden" name="ProdutoQuantidadeObrigatorio" id="ProdutoQuantidadeObrigatorio" value="É necessário informar a quantidade do mesmo Produto." /><input type="hidden" id="StrCountry" value="BRA" /><div class="content"><div style="display: none;" class="aviso-erro" id="ctl00_Conteudo_lblErro"><div style="color: Red; display: none;" id="ctl00_Conteudo_vldSummary"></div></div><fieldset><label class="prefixo">
+                          Calcular o Frete
+                          <input type="tel" class="fitext freight-zip-box" id="txtCep" name="txtCep" value="" placeholder="00000-000" /><input type="button" class="bt freight-btn" title="OK" id="btnFreteAppend" value="OK" name="btnFreteSimulacao" /></label><div class="quantity"><input type="text" name="quantity" value="1" /></div><span class="frete-calcular btBordas btBordasInput"><input type="hidden" id="stockKeepingUnitId" name="stockKeepingUnitId" value="3166014" /><input type="button" class="bt freight-btn" title="OK" id="btnFreteSimulacao" value="OK" name="btnFreteSimulacao" /><span class="rdbd bdl"></span><span class="rdbd bdr"></span></span><span style="color: Red; display: none;" id="RegularExpressionValidator1"></span><span style="color: Red; display: none;" id="RegularExpressionValidator2"></span><span class="cep-busca"><a title="Não sei meu CEP" class="bt lnkExterno" target="_blank" href="http://www.buscacep.correios.com.br/sistemas/buscacep/">Não sei meu CEP</a></span></fieldset><div class="freight-values none" style="display: none"></div><span style="color: Red; display: none;" id="reqCep1"></span><span style="color: Red; display: none;" id="reqCep2"></span></div></div><div class="footer"><div class="close"><a href="javascript:void(0);" class="bt btn-thickbox" title="Fechar" id="lnkFechar2">Fechar</a></div></div></div></div></div><script type="text/javascript">
+                $(document).ready(function () {
+                    ShippingValue();
+                });
+            </script></div><div class="prod-fretegratis"><div class="shipping-message"><div class="message-heading">Frete grátis:</div><div class="message-body">
+                Para o Sul e Sudeste nas compras acima de R$ 99,00
+              </div><a href="/central-de-ajuda/regras-frete-gratis" class="more-link">Confira
+                o regulamento</a></div></div></div></div></div></div></section><div class="section-produto-comprejunto"><div class="container"><div class="content content-comprejunto"><div id='divCompreJunto' class='buy-together-content'></div></div></div></div><section class="section-produto-especificacoes"><div class="container"><div id="produto-especificacoes" class="info"><div class="vtex-productSpecification" style="display: none;"><div id="caracteristicas"><h4 class="group Dados-Basicos">Dados Básicos</h4><table cellspacing="0" class="group Dados-Basicos"><tr class="even"><th class="name-field ISBN">ISBN</th><td class="value-field ISBN">9781781103708</td></tr><tr ><th class="name-field Idioma">Idioma</th><td class="value-field Idioma">PORTUGUÊS</td></tr></table><h4 class="group Especificacoes">Especificações</h4><table cellspacing="0" class="group Especificacoes"><tr class="even"><th class="name-field Colaborador">Colaborador</th><td class="value-field Colaborador">Tradutor:WYLER, LIA|Autor:MOSS, OLLY|Autor:ROWLING, J.K.</td></tr><tr ><th class="name-field Editora">Editora</th><td class="value-field Editora">KOBO EDITIONS</td></tr><tr class="even"><th class="name-field Sinopse">Sinopse</th><td class="value-field Sinopse">As aulas estão de volta a Hogwarts e Harry Potter não vê a hora de embarcar no Expresso a vapor que o levará de volta à escola de bruxaria. Lá ele reencontra Rony e Hermione, seus melhores amigos em Hogwarts e, para sua surpresa, é procurado pelo próprio Ministro da Magia. Sem que Harry saiba, o ministro está preocupado com o garoto, pois fugiu da prisão de Azkaban o perigoso bruxo Sirius Black. Para piorar a situação, os terríveis guardas de Azkaban, conhecidos por dementadores, estão de guarda nos portões da escola, caso Sirius Black tente algo contra Harry. Por fim, Harry tem de enfrentar seu inimigo para salvar Rony e obrigado a escolher entre matar ou não aquele que traiu seus pais.</td></tr><tr ><th class="name-field Ano">Ano</th><td class="value-field Ano">2015</td></tr><tr class="even"><th class="name-field Formato">Formato</th><td class="value-field Formato">ePub</td></tr><tr ><th class="name-field Pais">País</th><td class="value-field Pais">CANADA</td></tr><tr class="even"><th class="name-field Origem">Origem</th><td class="value-field Origem">Importado</td></tr></table></div></div></div></div></section><section class="section-comentarios"><div class="container"><div class="row"><script type="text/javascript" onload="gigyaLoaded()"
+  src="https://cdns.gigya.com/js/gigya.js?apiKey=3_3Mez5cLsMYm3EyiqY7w8i7fsPMonWe3pXEf29pFJTmxgG7pHbKZd0ytLh4KeenVe&lang=pt-br">
+    { connectWithoutLoginBehavior: 'alwaysLogin'; autoLogin: true; }
+  </script>
+
+<div class="lc-comentarios">
+  <h2>
+    Avaliação dos consumidores
+    <div class="carregaComentarios">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid" class="lds-comments">
+        <path class="bg"
+          d="M78,19H22c-6.6,0-12,5.4-12,12v31c0,6.6,5.4,12,12,12h37.2c0.4,3,1.8,5.6,3.7,7.6c2.4,2.5,5.1,4.1,9.1,4 c-1.4-2.1-2-7.2-2-10.3c0-0.4,0-0.8,0-1.3h8c6.6,0,12-5.4,12-12V31C90,24.4,84.6,19,78,19z"
+          fill="#337ab7" />
+        <circle cx="30" cy="47" r="5" fill="#5bc0de">
+          <animate attributeName="opacity" calcMode="linear" values="0;1;1" keyTimes="0;0.2;1" dur="1" begin="0s"
+            repeatCount="indefinite" />
+        </circle>
+        <circle cx="50" cy="47" r="5" fill="#5cb85c">
+          <animate attributeName="opacity" calcMode="linear" values="0;0;1;1" keyTimes="0;0.2;0.4;1" dur="1" begin="0s"
+            repeatCount="indefinite" />
+        </circle>
+        <circle cx="70" cy="47" r="5" fill="#f0ad4e">
+          <animate attributeName="opacity" calcMode="linear" values="0;0;1;1" keyTimes="0;0.4;0.6;1" dur="1" begin="0s"
+            repeatCount="indefinite" />
+        </circle>
+      </svg>
+
+    </div>
+  </h2>
+  <div class="boxComentarios">
+    <div id="avalicaoLC"></div>
+    <div id="comentariosLC"></div>
+    <script type="text/javascript">
+
+      var refID = dataLayer.filter(function (v, i) {
+        return dataLayer[i].productReferenceId
+      })
+
+      var idProdutoGigya = refID[0].productReferenceId;
+
+      var ratingsParams =
+      {
+        categoryID: 'ProductsRatingReview',
+        streamID: idProdutoGigya,
+        containerID: 'avalicaoLC',
+        linkedCommentsUI: 'comentariosLC'
+      }
+      gigya.comments.showRatingUI(ratingsParams);
+
+      var commentsParams =
+      {
+        categoryID: 'ProductsRatingReview',
+        streamID: idProdutoGigya,
+        containerID: 'comentariosLC',
+        version: 2,
+      }
+      gigya.comments.showCommentsUI(commentsParams);
+
+      $(document).ready(function () {
+        setTimeout(function () {
+          $('.carregaComentarios').remove();
+          $('.boxComentarios').css({
+            display: "block"
+          });
+          $('.gig-comment-photo').remove();
+          $(".gig-comments-button").click(function () {
+            $('.gig-comment-photo').remove();
+            $('.gig-comment-summary').remove();
+          });
+          $('.gig-comment-summary').remove();
+          $('.gig-comment-flag').remove();
+          $('.gig-comment-likeLink').remove();
+          $('.gig-rating-averageRating').addClass("ativo");
+          var rating = $(".gig-rating-stars").attr('title');
+          $('.gig-rating').after('<div class="text-avaliacao">Avaliação média do produto</div>');
+          $('.gig-rating-stars').after('<div class="resultado-porcentagem" style="display:none">0%</div>');
+          $('#avalicaoLC').addClass('ativa-comentarios');
+
+          //avaliação
+          $('.gig-rating-writeYourReview').text("Avaliar");
+          //rating
+          $('.gig-rating-averageRating').text("0");
+          $('.gig-rating-averageRating').text(rating);
+          $('.gig-rating-averageRating').after('<p class="text-avaliacao-mobile">Avaliação média do produto</p>');
+          var resultadoRating = (rating * 20);
+
+          $('.gig-rating-averageRating').counterUp({
+            delay: 200,
+            time: 2000,
+            callback: function () {
+              $('.resultado-porcentagem').html(resultadoRating + "%" + "<p>Recomendam esse produto</p>");
+              $(".resultado-porcentagem").fadeIn(2000);
+            }
+          });
+
+          // //pega o numero de estrelas e mostra se é Compra Verificada
+          // //compra verificada = 5
+          // $('.gig-comment-rating').each(function () {
+          //   var compraVerificada = $(this).find('.gig-comment-rating-star-full').length;
+          //   if (compraVerificada == 5) {
+          //     $(this).attr('data-rating', compraVerificada);
+          //     $(this).addClass("compraVerificada");
+          //     $(this).after('<span class="verificado"><img class="img-fluid" src="/arquivos/gigya-verificado.png?v=637003764846330000">Compra verificada</span>');
+          //   }
+          // });
+        }, 3000);
+
+        // $('body').on('click', '.gig-comments-more', function () {
+        //   $('.gig-comment-summary').remove();
+        //   var intervalo = setInterval(function () {
+        //     if ($(".gig-comments-more-progress").length) {
+        //       $('.gig-comment-summary').remove();
+
+        //       $('.gig-comment-rating').each(function () {
+        //         var estrelas = $('.gig-comment-rating').hasClass("compraVerificada");
+
+        //         if (estrelas = true) {
+        //           $('.verificado').remove();
+        //           $('.gig-comment-rating').each(function () {
+        //             var compraVerificada = $(this).find('.gig-comment-rating-star-full').length;
+        //             if (compraVerificada == 5) {
+        //               $(this).attr('data-rating', compraVerificada);
+        //               $(this).addClass("compraVerificada");
+        //               $(this).after('<span class="verificado"><img class="img-fluid" src="/arquivos/gigya-verificado.png?v=637003764846330000">Compra verificada</span>');
+        //             }
+        //           });
+        //         }
+        //       });
+        //     }
+        //   }, 2000);
+        // });
+      });
+    </script>
+  </div>
+</div><!-- ATENÇÃO, esse erro prejudica a performance do seu site, o conteudo de nome LCcomentarios não foi renderizado por nao ser um XDocument válido, erro: - '=' is an unexpected token. The expected token is ';'. Line 2, position 121.--></div></div></section><div class="login-livraria" id="login-livraria" style="display: none"></div><div class="login" style="display: none"><section class="form-login-livraria"><div class="login-header"><h2>Por favor informe seu email</h2><span class="close-form-login">X</span></div><div class="login-content"><form><label>E-mail</label><input type="text" id="input-login" class="input-login" require="true" /><span class="erro-credential" style="display: none"></span><span class="voltar-login"> Voltar </span><Button type="button" class="btn-login-form btn-login" id="loginwithKey"> confirmar </Button></form></div></section><section class="form-login-livraria step2"><div class="login-header"><h2>Informar chave de acesso</h2><span class="close-form-login">X</span></div><div class="login-content"><form><label>Agora é só informar o código recebido em:</label><p class="email" id="email-resev"></p><input type="text" id="input-token" class="input-login" require="true" /><span class="erro-credential" style="display: none">
+                    Chave de acesso inválida. Verifique a digitação.
+                </span><span id="voltar-login-step2"> Voltar </span><Button type="button" id="btn-login-form-step2" class="btn-login"> confirmar </Button></form></div></section><section class="login-pass "><div class="content"><div class="login-header">
+                Entrar com email e senha
+                <span class="btn-sair-login-pass">X</span></div><form action=""><label>Seu email</label><input type="text" required="true" id="login-pass" /><div class="label1"><label>Senha</label><span class="esqueceu">
+                        Esqueci minha senha
+                    </span></div><input type="password" required="true" id="pass" /><span class="naoTem">
+                    Não tem uma senha? Cadastre agora
+                </span><span class="erro-credential" style="display: none"></span><span class="voltar-login">
+                    Voltar
+                </span><Button type="button" class="btn-login-form btn-login withpass" id="btnLoginSenha">
+                    confirmar
+                </Button></form></div></section><section class="recuperarPass" style="display: none;"><div class="content"><div class="login-header">
+                Recuperar Senha
+                <span class="btn-sair-login-pass">X</span></div><form action=""><label>Seu email</label><input type="text" required="true" id="recuperarSenhaInput" class="recuperarSenhaInput" /><span class="erro-credential" style="display: none"></span><span class="voltar-login-recuperarPass">Voltar</span><button type="button" class="btn-login-form btn-login btnRecuperar" id="btnRecuperar">confirmar</button></form></div></section><section class="recuperarPassStep2" style="display: none"><div class="content"><div class="login-header">
+                Cadastrar Nova Senha
+                <span class="btn-sair-login-pass">X</span></div><form action=""><label>Nova Senha</label><input type="password" required="true" id="newPass" class="newPass" /><label>Confirmar Senha</label><input type="password" required="true" id="ConfirmNewPass" class="ConfirmNewPass" /><div class="recuperarPassStep2-validate-password"><h5>Sua senha deve ter</h5><span id="passwordHasMinLength">Pelo menos 8 caracteres</span><span id="passwordHasNumber">1 numero</span><span id="passwordLowercase">1 letra minúscula</span><span id="passwordUppercase">1 letra maiúscula</span></div><span class="erro-credential" style="display: none">
+                    Senha diferente
+                </span><span class="voltar-login-recuperarPassStep2">Voltar</span><button type="button" class="btn-login-form btn-login btnRecuperarNovaSenhas" id="btnNovaSenha">confirmar</button></form></div></section><section class="recuperarPassStep3" style="display: none"><div class="login-header"><h2>Informar chave de acesso</h2><span class="close-form-login">X</span></div><div class="login-content"><form><label>Agora é só informar o código recebido em:</label><p class="email" id="email-resev"></p><input type="text" id="input-token" class="input-login" require="true" /><span class="erro-credential" style="display: none">
+                    Chave de acesso inválida. Verifique a digitação.
+                </span><span class="voltar-login-recuperarPassStep3">Voltar</span><Button type="button" id="btnRecuperarPassStep3" class="btn-login-form btn-login ">confirmar</Button></form></div></section></div><section class="PopLogin" style="display: none"><div class="content"><div class="login-header">
+            Use uma das opções para confirmar sua identidade
+            <span class="btn-sair-login-pass popUpSairBtn">X</span></div><div class="content-button"><button id="loginComToken">
+                Receber chave de acesso rápido por email
+            </button><button id="LoginComPass">
+                Entrar com email e senha
+            </button></div></div></section><footer class="footer"><div class="img-footer" style="display:none;"><!--<div id="img-cultura"><img src="/arquivos/banner-ev-lc.png?v=636864679259430000" /></div>--><!--<div id="img-cultura"><img src="/arquivos/bitmap.png?v=636851359326970000" /></div>--><!--<div id="img-logo-cultura"><img src="/arquivos/bitmap-baixo.png?v=636851359379300000" /></div>--><!--<div id="img-cultura-mobile" style="display: none"><img src="/arquivos/banner-ev-lcmobile.png?v=636864658654400000" /></div>--><!--<div id="img-cultura-mobile" style="display: none"><img src="/arquivos/bitmap-mobile.png?v=636851359399500000" /></div>--><!-- <div id="img-logo-cultura-mobile" style="display: none"><img src="/arquivos/bitmap-mobile1.png?" /></div>--></div><div class="footer-top pt-3 pb-3"><div class="container"><div class="row"><div class="col-md-6 col-lg-7 mb-4 mb-md-0 d-flex align-items-center newsletter"><div class="col-lg-12 d-md-flex"><div class="col-md-6 col-lg-6 mb-2 mb-md-0 p-0 align-self-center newsletter-desc "><span>Cadastre seu e-mail e ganhe um<br />cupom para sua primeira compra!</span></div><div class="col-md-6 col-lg-6 p-0 newsletter-input"><form class="form-newsletter">
+  <fieldset>
+    <input class="form-newsletter-email" name="email" placeholder="Digite seu e-mail" value="" required />
+    <button class="form-newsletter-enviar"></button>
+  </fieldset>
+</form><!-- ATENÇÃO, esse erro prejudica a performance do seu site, o conteudo de nome Conteúdo não foi renderizado por nao ser um XDocument válido, erro: - '/' is an unexpected token. The expected token is '='. Line 3, position 105.--></div></div></div><div class="col-md-6 col-lg-5 d-md-flex align-items-center social"><span class="col-md-4 mb-2 mb-md-0 p-md-0 newsletter-desc">Redes socias</span><div class="col-md-8 social-media-wrapper"><span class="col-sm-2 social-media"><a href="https://www.facebook.com/livrariacultura" target="_blank" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path fill="#FFF" fill-rule="evenodd" d="M18.561 12.7l-.4 2.65h-2.21v7.15h-2.6v-7.15h-1.91V12.7h1.91v-2.06c0-1.22.6-3.14 3.24-3.14l1.93.01v2.57h-1.68c-.29 0-.89.14-.89.72v1.9h2.61zM15 2.34C8.01 2.34 2.34 8.01 2.34 15S8.01 27.66 15 27.66 27.66 21.99 27.66 15 21.99 2.34 15 2.34zM15 30C6.72 30 0 23.28 0 15 0 6.72 6.72 0 15 0c8.28 0 15 6.72 15 15 0 8.28-6.72 15-15 15z" /></svg></a></span><span class="col-sm-2 social-media"><a href="https://twitter.com/livcultura" target="_blank" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30"><path fill="#FFF" fill-rule="evenodd" d="M21.6 11.72v.11c.21 5.38-3.67 9.73-8.66 9.73-1.76 0-3.42-.54-4.84-1.471 2.1.36 3.79-.771 4.29-1.38-1.4 0-2.67-1.29-2.77-2.271.28.051.92.11 1.29-.1-1.89-.56-2.41-2.1-2.39-3.26.32.33.99.41 1.35.38-1.06-.71-1.87-2.66-.94-4.4 1.53 2.14 4.24 3.39 6.56 3.45a3.57 3.57 0 0 1-.08-.74c0-1.84 1.39-3.33 3.089-3.33.891 0 1.681.39 2.24 1.03.5 0 1.5-.44 1.93-.74-.159.68-.829 1.55-1.289 1.81.71-.08 1.47-.37 1.72-.53a5.632 5.632 0 0 1-1.5 1.712zm-6-9.38C8.61 2.34 2.94 8.01 2.94 15S8.61 27.66 15.6 27.66 28.26 21.99 28.26 15 22.59 2.34 15.6 2.34zm0 27.66c-8.28 0-15-6.72-15-15 0-8.28 6.72-15 15-15 8.28 0 15 6.72 15 15 0 8.28-6.72 15-15 15z" /></svg></a></span><span class="col-sm-2 social-media"><a href="https://www.instagram.com/livraria_cultura/#" target="_blank" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30"><path fill="#FFF" fill-rule="nonzero" d="M15.2 0C6.92 0 .2 6.72.2 15c0 8.28 6.72 15 15 15 8.28 0 15-6.72 15-15 0-8.28-6.72-15-15-15zm0 27.66C8.21 27.66 2.54 21.99 2.54 15S8.21 2.34 15.2 2.34 27.86 8.01 27.86 15 22.19 27.66 15.2 27.66zm4.14-15.52c-.34 0-.67-.14-.899-.38-.24-.23-.38-.56-.38-.9 0-.33.14-.66.38-.9.229-.23.56-.37.899-.37.33 0 .66.14.9.37.229.24.37.57.37.9 0 .34-.141.67-.37.9-.24.24-.57.38-.9.38zM15.2 18.5c-1.93 0-3.5-1.569-3.5-3.5 0-1.93 1.57-3.5 3.5-3.5 1.931 0 3.5 1.57 3.5 3.5 0 1.931-1.569 3.5-3.5 3.5zm3.14 3.5c2.13 0 3.86-1.729 3.86-3.86v-6.28C22.2 9.73 20.47 8 18.34 8h-6.28C9.93 8 8.2 9.73 8.2 11.86v6.28c0 2.131 1.73 3.86 3.86 3.86h6.28z" /></svg></a></span><span class="col-sm-2 social-media"><a href="https://www.youtube.com/user/LivrariaCulturaSA" target="_blank" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30"><path fill="#FFF" fill-rule="nonzero" d="M15.8 0C7.52 0 .8 6.72.8 15c0 8.28 6.72 15 15 15 8.28 0 15-6.72 15-15 0-8.28-6.72-15-15-15zm0 27.66C8.81 27.66 3.14 21.99 3.14 15S8.81 2.34 15.8 2.34 28.46 8.01 28.46 15 22.79 27.66 15.8 27.66zm7.72-16.73a2.01 2.01 0 0 0-1.729-1.55c-1.981-.22-3.991-.22-5.991-.22-2 0-4.01 0-5.99.22-.84.1-1.53.71-1.73 1.55-.28 1.2-.28 2.5-.28 3.73 0 1.229 0 2.54.28 3.729.19.841.89 1.461 1.73 1.55 1.98.221 3.99.221 5.99.221s4.01 0 5.99-.221a2.006 2.006 0 0 0 1.729-1.55c.281-1.189.281-2.499.281-3.729s0-2.53-.28-3.73zm-9.79 6.18v-5.22l5.089 2.62-5.089 2.6z" /></svg></a></span><span class="col-sm-2 social-media"><a href="#" target="_blank" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path fill="#FFF" fill-rule="evenodd" d="M20.09 17.681a2.41 2.41 0 0 1 0 4.819 2.41 2.41 0 0 1-2.409-2.41c0-.109.02-.21.029-.32l-6.08-3.08a2.411 2.411 0 0 1-4.13-1.689 2.411 2.411 0 0 1 4.1-1.72l6.11-3.07c-.01-.1-.029-.2-.029-.3a2.41 2.41 0 1 1 2.409 2.41c-.68 0-1.3-.29-1.739-.75l-6.071 3.05c.02.12.04.25.04.38 0 .12-.02.23-.04.34l6.081 3.08a2.37 2.37 0 0 1 1.729-.74zM15 2.34C8.01 2.34 2.34 8.01 2.34 15S8.01 27.66 15 27.66 27.66 21.99 27.66 15 21.99 2.34 15 2.34zM15 30C6.72 30 0 23.28 0 15 0 6.72 6.72 0 15 0c8.28 0 15 6.72 15 15 0 8.28-6.72 15-15 15z" /></svg></a></span></div></div></div></div></div><div class="footer-nav"><div class="container"><div class="row"><div class="col-md-4 col-lg-2"><li class="links-footer-wrapper"><h3 class="title __footer-nav-title">Sobre a cultura</h3><ul class="p-0 links-footer"><li><a href="/quem-somos">Quem somos</a></li><li><a href="/trabalhe-conosco">Trabalhe conosco</a></li><li><a href="/nossas-lojas">Localização de lojas</a></li><li><a href="http://www.teatroevaherz.com.br/teatro/" target="_blank" rel="noreferrer noopener">Teatro Eva Herz</a></li><li><a href="/vale-presente/p">Vale-presente</a></li><li><a href="/comunicados/recuperacao-judicial">Recuperação Judicial</a></li></ul></li></div><div class="col-md-4 col-lg-3"><li class="links-footer-wrapper"><h3 class="title __footer-nav-title">Atendimento ao cliente</h3><ul class="p-0 links-footer"><li><a href="/formulario-de-atendimento">Entre em contato</a></li><li><a href="/central-de-ajuda/como-valor-pago-devolvido">Política
+                                de entrega e devolução</a></li><li><a href="/central-de-ajuda/site-seguro">Política de vendas</a></li><li><a href="/central-de-ajuda">Perguntas e respostas</a></li><li><a href="https://ptbr.kobo.com/help/" target="_blank" rel="noreferrer noopener">Atendimento Kobo</a></li></ul></li></div><div class="col-md-4 col-lg-2"><li class="links-footer-wrapper"><h3 class="title __footer-nav-title">Serviços</h3><ul class="p-0 links-footer"><li><a href="/mais-leitores">Mais leitores</a></li><li><a href="/espalhe-cultura">Espalhe cultura</a></li><li><a href="/mais-cultura">Mais cultura</a></li><li><a href="/itaucard">Cultura Itaucard</a></li><li><a href="/institucional/latam-pass">Latam Pass</a></li><!-- <li><a href="/mais-cultura-para-todos">+Cultura para todos</a></li> --><li><a href="/eventos/realize-evento">Solicitação de evento</a></li></ul></li></div><div class="bd"></div><div class="col-lg-5"><li class="d-md-flex flex-lg-column links-footer-wrapper _formas-pgto"><div class="col-md-8 col-lg-12 formas-pgto-content"><h3 class="title __footer-nav-title">Formas de pagamento</h3><ul class="p-0 links-footer"><li><img src="/arquivos/visa.png?v=636991622524900000" alt="logo Visa" title="Aceitamos pagamentos com cartões Visa" /></li><li><img src="/arquivos/master.png?v=636991622505470000" alt="logo Master Card" title="Aceitamos pagamentos com cartões Master Card" /></li><li><img src="/arquivos/american.png?v=636991622435270000" alt="logo American Express" title="Aceitamos pagamentos com cartões American Express" /></li><li><img src="/arquivos/elo.png?v=636991622475730000" alt="logo Elo" title="Aceitamos pagamentos com cartões Elo" /></li><li><img src="/arquivos/hiper.png?v=636991622495200000" alt="logo Hipercard" title="Aceitamos pagamentos com cartões Hipercard" /></li><!--<li><img src="/arquivos/aura.png?v=636991622445400000" alt="logo Aura" title="Aceitamos pagamentos com cartões Aura" /></li>--><li><img src="/arquivos/pay.png?v=636991622515770000" alt="logo PayPal" title="Aceitamos pagamentos com cartões PayPal" /></li><li><img src="/arquivos/diners.png?v=636991622465430000" alt="logo Diners" title="Aceitamos pagamentos com cartões Diners" /></li><li><img src="/arquivos/boleto.png?v=636991622455130000" alt="logo Boleto" title="Aceitamos pagamentos com boleto" /></li></ul><div class="p-0 links-footer"><img class="links-footer__paymee" src="https://livrariacultura.vteximg.com.br/arquivos/bancos-paymee-footer.png?v=637073723029000000" alt="Bancos aceitos pela PayMee: Banco do Brasil, Itaú, Bradesco, Santander, Caixa Econômica Federal, Banco Original, Banco Inter, BS2" title="Bancos aceitos pela PayMee" /></div></div><div class="col-md-4 col-lg-12 certificados-content"><h3 class="title __footer-nav-title">Certificados</h3><div class="p-0 links-footer"><table style="width: fit-content;margin-bottom: 15px;"><tbody><tr><td style="padding-right: 20px;"><!--                                            <a id="seloEbit" href="http://www.ebit.com.br/645" target="_blank"--><!--                                               onclick="redir(this.href);" style=" max-width: 60px; ">--><!--                                                <img src="https://newimgebit-a.akamaihd.net/ebitBR/selo/img_645.png"--><!--                                                     id="seloEbit" href="http://www.ebit.com.br/645" target="_blank"--><!--                                                     onclick="redir(this.href);" />--><!--                                            </a>--><a id="seloEbit" href="http://www.ebit.com.br/645" target="_blank" rel="noreferrer noopener" data-noop="redir(this.href);"></a><script type="text/javascript" id="getSelo" src="https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?645"></script></td><td><div id="reputation-ra"><script type="text/javascript" id="ra-embed-reputation" src="https://s3.amazonaws.com/raichu-beta/selos/bundle.js" data-id="MTEyNjk6bGl2cmFyaWEtY3VsdHVyYQ==" data-target="reputation-ra" data-model="1"></script></div></td></tr></tbody></table></div></div></li></div></div></div><script type="text/javascript">
+            $(document).ready(function(){
+                var newtrustsign = '<div id="ssltrust" style="padding:15px 0px 0px 35px"><param id="ssltrust_preload" value="true" /></div>';
+                var tsjs = document.createElement('script');
+                tsjs.src = 'https://s3-sa-east-1.amazonaws.com/selo.trustsign.com/ssltrust.js';
+                $(".links-footer").find("img[name='trustseal']").closest("td").html(newtrustsign);
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(tsjs, s);
+            });
+        </script><script>
+            $(".footer-nav .title").click(function () {
+                $(this).next().slideToggle('fast');
+                $(this).toggleClass("opened");
+            });
+        </script></div><div class="footer-bottom"><div class="container"><div class="row"><div class="col-sm-10 order-2"><div class="footer-bottom-text"><span>Livraria Cultura, todos os direitos reservados. Copyrights 2020</span><span>Livraria Cultura S/A | Av. Paulista, 2300, 10° andar, São Paulo - SP - Brasil CEP
+                            013110-300 | CNPJ 62.410.352/0001-72 | IE 111.133.781.116 | <a href="tel:+551130564300">PABX 11 3056-4300</a></span><span>Os preços, condições de pagamento e valores de frete são válidos exclusivamente para as
+                            compras efetuadas em nosso site, não valendo, necessariamente, para as nossas lojas
+                            físicas.</span></div></div><div class="col-sm-2 order-md-2"></div></div></div></div></footer><script type="text/javascript" src="https://livrariacultura.vteximg.com.br/arquivos/bootstrap.js?v=635827713930930000"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" /><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.0/dist/lazyload.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-masker/1.2.0/vanilla-masker.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script><script type="text/javascript" src="https://livrariacultura.vteximg.com.br/arquivos/advlc.js?v=20191217" async="true"></script><script type="text/javascript" src="https://livrariacultura.vteximg.com.br/arquivos/lc-bundle.min.js?v=175514022020"></script><!-- Pickup 1 --><div class="modal fade" id="pickupModal1" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="row"><div class="col-6"><div class="modal-msg"><h4 class="msg-title">Este produto pode <br /> ser retirado em loja</h4><ul class="msg-list"><li class="list-item">Seu produto chega mais rápido</li><li class="list-item">O frete é grátis</li><li class="list-item">Disponível em todas as lojas da Livraria Cultura</li></ul></div></div><div class="col-6"><div class="modal-body"><div class="shipping-calc"><p id="popupCalculoFreteWrapper" class="frete"><a onclick="ShippingValue();" href="javascript:void(0);" title="Calcule o valor do frete e prazo de entrega para a sua região" class="shipping-value">Calcule o valor do frete e prazo de entrega para a sua região</a></p><div id="calculoFrete" seller="1" produtoCorrente="10191386" skuCorrente="10129965"></div>
+</div><div class="loading"><div class="loading-gif"><img src="/arquivos/loading-gif.png?v=636851366690300000" alt="" class="icon" /></div><div class="loading-msg">Carregando…</div></div></div></div></div><div class="modal-close" data-dismiss="modal"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"><path fill="#000" fill-rule="nonzero" d="M2.08.665L.665 2.08l14.143 14.142 1.414-1.414L2.08.665zM.665 14.808l1.415 1.414L16.222 2.08 14.808.665.665 14.808z" /></svg></div></div></div></div><!-- Pickup 2 --><div class="modal fade" id="pickupModal2" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="row"><div class="col-6"><div class="modal-msg"><h4 class="msg-title">Este produto pode
+              <br /> ser retirado em loja</h4><ul class="msg-list"><li class="list-item">Seu produto chega mais rápido</li><li class="list-item">O frete é grátis</li><li class="list-item">Disponível em todas as lojas da Livraria Cultura</li></ul></div></div><div class="col-6"><div class="modal-body _loading"><div class="loading"><div class="loading-gif"><img src="/arquivos/loading-gif.png?v=636851366690300000" alt="" class="icon" /></div><div class="loading-msg">Carregando…</div></div></div></div><div class="modal-close" data-dismiss="modal"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"><path fill="#000" fill-rule="nonzero" d="M2.08.665L.665 2.08l14.143 14.142 1.414-1.414L2.08.665zM.665 14.808l1.415 1.414L16.222 2.08 14.808.665.665 14.808z" /></svg></div></div></div></div></div><div id="myModal" class="modal-img"><span class="close"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"><path fill="#FFF" fill-rule="nonzero" d="M2 0L0 2l20 20 2-2L2 0zM0 20l2 2L22 2l-2-2L0 20z" /></svg></span><img class="modal-content" id="img-modal" /><div id="caption"></div></div><!-- Pickup 3 --><div class="modal fade" id="pickupModal3" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="row"><div class="col-6"><div class="modal-msg"><h4 class="msg-title">Este produto pode
+              <br /> ser retirado em loja</h4><ul class="msg-list"><li class="list-item">Seu produto chega mais rápido</li><li class="list-item">O frete é grátis</li><li class="list-item">Disponível em todas as lojas da Livraria Cultura</li></ul></div></div><div class="col-6"><div class="modal-body"><div class="shipping-calc"><p id="popupCalculoFreteWrapper" class="frete"><a onclick="ShippingValue();" href="javascript:void(0);" title="Calcule o valor do frete e prazo de entrega para a sua região" class="shipping-value">Calcule o valor do frete e prazo de entrega para a sua região</a></p><div id="calculoFrete" seller="1" produtoCorrente="10191386" skuCorrente="10129965"></div>
+</div></div></div><div class="modal-close" data-dismiss="modal"><svg class="icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"><path fill="#000" fill-rule="nonzero" d="M2.08.665L.665 2.08l14.143 14.142 1.414-1.414L2.08.665zM.665 14.808l1.415 1.414L16.222 2.08 14.808.665.665 14.808z" /></svg></div></div></div></div></div><div id="highlights" style="display: none;"><p class="flag livro-digital">Livro digital</p></div><div class="modal-produto-adicionado"><div class="modal-produto-adicionado__fundo"></div><div class="modal-produto-adicionado__conteudo"><button class="modal-produto-adicionado__fechar"></button><h4 class="modal-produto-adicionado__titulo">Seu produto foi adicionado ao carrinho com sucesso!</h4><div class="modal-produto-adicionado__botoes"><button class="modal-produto-adicionado__mais-produtos">escolher mais produtos</button><button class="modal-produto-adicionado__finalizar">finalizar compra</button></div></div></div><script src="/arquivos/waypoints.min.js?v=636901655068070000"></script><script src="/arquivos/jquery.counterup.min.js?v=636901654962200000"></script><script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/track.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/thickbox.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/json2.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.viewpart.callcenterdisclaimer.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.viewpart.ajaxloader_v2.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/social/vtex-view-part.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/knockout-2.2.0.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.viewpart.giftlistinsertskuv2.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.jsevents.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.skuevents.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.skuevents.skudatafetcher.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.viewpart.imagecontrol3.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.commerce.batchbuy.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/jquery.livequery.min.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/prettyphoto/js/jquery.prettyphoto.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/prettyphoto/js/lean-prettyphoto.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/intersect.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.viewpart.otherpaymentmethod.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.viewpart.buytogether.js?v=1.4.1473.2165"   type="text/javascript"></script>
+<script language="javascript" src="https://livrariacultura.vteximg.com.br/scripts/vtex.viewpart.shippingvalue.js?v=1.4.1473.2165"   type="text/javascript"></script>
+</body>
+</html>
