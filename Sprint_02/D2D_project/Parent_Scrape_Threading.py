@@ -2,7 +2,10 @@ import io
 from lxml import etree
 
 import time
+
 import six
+
+import concurrent.futures
 
 from PIL import Image, ImageChops
 import urllib.request,io
@@ -341,6 +344,7 @@ def site_book_data_relevancy(original_book_data, site_book_data_list):
         print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(original_book_data): ", len(original_book_data))
         return None
     else:
+        '''
         for site_book_data in site_book_data_list:
             if len(site_book_data) != 17:
                 book_data_relevancy_list.append(None)
@@ -351,6 +355,22 @@ def site_book_data_relevancy(original_book_data, site_book_data_list):
 
         book_data_relevancy_list.sort(key=__sort_by_relevancy_rating, reverse=True)
 
+        '''
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            Future_Threads = {}
+            for site_book_data in site_book_data_list:
+                if len(site_book_data) != 17:
+                    print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(site_book_data): ", len(site_book_data))
+                    book_data_relevancy_list.append([None, 0])
+                else:
+                    Future_Threads[executor.submit(__compare_book_data_lists, original_book_data, site_book_data)] = site_book_data
+
+            for future in concurrent.futures.as_completed(Future_Threads):
+                site_book_data_temp = Future_Threads[future]
+                book_data_relevancy_list.append([site_book_data_temp, future.result()])
+
+            book_data_relevancy_list.sort(key=__sort_by_relevancy_rating, reverse=True)
+        
     end = time.time()
     print("Sorting TIME: ", (end - start))
     return book_data_relevancy_list
