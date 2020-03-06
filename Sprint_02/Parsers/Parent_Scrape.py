@@ -1,7 +1,14 @@
 import io
 from lxml import etree
 
+import time
+
 import six
+
+import concurrent.futures
+
+from PIL import Image, ImageChops
+import urllib.request,io
 """
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                      the following is a selection of generic functions                     
@@ -65,6 +72,27 @@ def parse(content, path):
     tree = etree.parse(io.BytesIO(content), parser)
     root = tree.getroot()
     return root.xpath(path)
+
+"""
+args:
+    image_url (String):
+        needs to be a url of an image
+returns:
+    image (Image):
+        open image that was returned from the site,
+        it was then converted to grayscale
+synopsis:
+    The purpose of this function is to parse an image from a specific
+    url, convert it to grayscale, and then return it.
+"""
+def get_book_image_from_image_url(image_url):
+    if image_url != None:
+        try:
+            return Image.open(io.BytesIO(urllib.request.urlopen(image_url).read())).convert("L")
+        except:
+            return None
+    else:
+        None
 
 """
 args:
@@ -165,7 +193,10 @@ synopsis:
     liklyness that 'book_data_string' matches
     'site_book_data_string'.
 """
-def __compare_string(book_data_string, site_book_data_string):
+def __compare_string(book_data_string, site_book_data_string, cleanup):
+    if cleanup == True:
+        book_data_string = book_data_string.replace("\t", " ").replace("\"", "").replace("\'", "").replace(".", "").replace(",","").replace("?", "")
+        site_book_data_string = site_book_data_string.replace("\n", "").replace("\t", " ").replace("\"", "").replace("\'", "").replace(".", "").replace(",","").replace("?", "")
     if book_data_string == site_book_data_string:
         return 1
     else:
@@ -176,6 +207,52 @@ def __compare_string(book_data_string, site_book_data_string):
             total_score += __compare_word_to_string(split, site_book_data_string)
         total_score_possible = len(split_book_data_string) * 100
         return (total_score / total_score_possible)
+
+"""
+args:
+    image1 (Image):
+        Original image to be compared against
+    image2 (Image):
+        image that is a potential match
+returns:
+    result (Number):
+        score based upon number of matching pixels
+synopsis:
+    The purpose of this function is to take two Images, compare them,
+    then return a percentage, that is the 'result' of the comparison
+    between the two.
+"""
+def compare_images(image1, image2):
+    try:
+        image1 = image1.convert("L")
+        diff = ImageChops.difference(image1, image2)
+
+        diff_bbox = diff.getbbox()
+        if not diff_bbox:
+            return 1
+        
+        image1_bbox = image1.getbbox()
+        if not image1_bbox:
+            return 0
+        image2_bbox = image2.getbbox()
+        if not image2_bbox:
+            return 0
+        
+        image1_pixels = sum((image1.crop(image1_bbox).point(lambda x: 255 if x else 0).convert("L").point(bool).getdata()))
+        image2_pixels = sum((image2.crop(image2_bbox).point(lambda x: 255 if x else 0).convert("L").point(bool).getdata()))
+        diff_pixels = sum((diff.crop(diff_bbox).point(lambda x: 255 if x else 0).convert("L").point(bool).getdata()))
+        image_pixels_mean = ((image1_pixels + image2_pixels) / 2)
+        numerator = 0
+        if image1_pixels > image2_pixels:
+            numerator = image1_pixels
+        else:
+            numerator = image2_pixels
+            
+        result = 1 - (diff_pixels / numerator)
+        return result 
+    except:
+        print("comapre_images => FAILED")
+        return 0
 
 """
 args:
@@ -204,9 +281,25 @@ def __compare_book_data_lists(original_book_data, site_book_data):
         if (original_book_data[x] != None) and (site_book_data[x] != None):
             #Specifically tests if both objects are Strings
             if (isinstance(original_book_data[x], six.string_types)) and (isinstance(site_book_data[x], six.string_types)):
-                total_score += __compare_string(original_book_data[x].lower(), site_book_data[x].lower())
+                cleanup = False
+                """
+                x == 4:
+                    isbn-13
+                x == 5:
+                    description
+                """
+                if (x == 4) or (x == 5):
+                    cleanup = True
+                total_score += __compare_string(original_book_data[x].lower(), site_book_data[x].lower(), cleanup)
                 objects_scored += 1
-    score = total_score / objects_scored
+            #Image Comparison
+            elif x == 2:
+                total_score += compare_images(original_book_data[x], site_book_data[x])
+                objects_scored += 1
+    if objects_scored != 0:
+        score = total_score / objects_scored
+    else:
+        score = 0
     return score
 
 """
@@ -240,10 +333,9 @@ synopsis:
     The purpose of this function is to return a list of
     'site_book_data', as well as its corresponding relevancy
     rating, determined by the 'original_book_data'
-WARNING:
-    site_book_data_relevancy() does NOT currently check for anything other than Strings
 """
 def site_book_data_relevancy(original_book_data, site_book_data_list):
+    start = time.time()
     print("original_book_data: ", len(original_book_data))
     print("site_book_data_list[0]: ", len(site_book_data_list[0]))
     book_data_relevancy_list = []
@@ -252,6 +344,7 @@ def site_book_data_relevancy(original_book_data, site_book_data_list):
         print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(original_book_data): ", len(original_book_data))
         return None
     else:
+        '''
         for site_book_data in site_book_data_list:
             if len(site_book_data) != 17:
                 book_data_relevancy_list.append(None)
@@ -259,8 +352,27 @@ def site_book_data_relevancy(original_book_data, site_book_data_list):
                 book_data_relevancy_list.append([None, 0])
             else:
                 book_data_relevancy_list.append([site_book_data, __compare_book_data_lists(original_book_data, site_book_data)])
-                pass
-    book_data_relevancy_list.sort(key=__sort_by_relevancy_rating, reverse=True)
+
+        book_data_relevancy_list.sort(key=__sort_by_relevancy_rating, reverse=True)
+
+        '''
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            Future_Threads = {}
+            for site_book_data in site_book_data_list:
+                if len(site_book_data) != 17:
+                    print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(site_book_data): ", len(site_book_data))
+                    book_data_relevancy_list.append([None, 0])
+                else:
+                    Future_Threads[executor.submit(__compare_book_data_lists, original_book_data, site_book_data)] = site_book_data
+
+            for future in concurrent.futures.as_completed(Future_Threads):
+                site_book_data_temp = Future_Threads[future]
+                book_data_relevancy_list.append([site_book_data_temp, future.result()])
+
+            book_data_relevancy_list.sort(key=__sort_by_relevancy_rating, reverse=True)
+        
+    end = time.time()
+    print("Sorting TIME: ", (end - start))
     return book_data_relevancy_list
 
 
