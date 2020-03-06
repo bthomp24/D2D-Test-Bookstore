@@ -336,26 +336,13 @@ synopsis:
 """
 def site_book_data_relevancy(original_book_data, site_book_data_list):
     start = time.time()
-    print("original_book_data: ", len(original_book_data))
-    print("site_book_data_list[0]: ", len(site_book_data_list[0]))
+
     book_data_relevancy_list = []
 
     if len(original_book_data) != 17:
         print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(original_book_data): ", len(original_book_data))
         return None
     else:
-        '''
-        for site_book_data in site_book_data_list:
-            if len(site_book_data) != 17:
-                book_data_relevancy_list.append(None)
-                print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(site_book_data): ", len(site_book_data))
-                book_data_relevancy_list.append([None, 0])
-            else:
-                book_data_relevancy_list.append([site_book_data, __compare_book_data_lists(original_book_data, site_book_data)])
-
-        book_data_relevancy_list.sort(key=__sort_by_relevancy_rating, reverse=True)
-
-        '''
         with concurrent.futures.ThreadPoolExecutor() as executor:
             Future_Threads = {}
             for site_book_data in site_book_data_list:
