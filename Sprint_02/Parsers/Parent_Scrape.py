@@ -222,7 +222,7 @@ synopsis:
     then return a percentage, that is the 'result' of the comparison
     between the two.
 """
-def compare_images(image1, image2):
+def __compare_images(image1, image2):
     try:
         image1 = image1.convert("L")
         diff = ImageChops.difference(image1, image2)
@@ -294,7 +294,7 @@ def __compare_book_data_lists(original_book_data, site_book_data):
                 objects_scored += 1
             #Image Comparison
             elif x == 2:
-                total_score += compare_images(original_book_data[x], site_book_data[x])
+                total_score += __compare_images(original_book_data[x], site_book_data[x])
                 objects_scored += 1
     if objects_scored != 0:
         score = total_score / objects_scored

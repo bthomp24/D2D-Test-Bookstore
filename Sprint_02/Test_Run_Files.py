@@ -51,7 +51,8 @@ book_data = [None, #00-format (String)
 
 book_image_url = "https://imgv2-2-f.scribdassets.com/img/word_document/356970421/original/e058724125/1582611379?v=1"
 tempImage = Par_Scrape.get_book_image_from_image_url(book_image_url)
-book_data = ["digital", #00-format (String)
+
+book_data = ["audiobook", #00-format (String)
     "The name of the wind", #01-book_title (String)
     None, #02-book_image (PIL.Image)
     None, #03-book_image_url (String)
