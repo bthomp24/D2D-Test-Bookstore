@@ -3,6 +3,7 @@ from lxml import etree
 import requests
 import Parsers.Parent_Scrape as Par_Scrape
 import mechanize
+import concurrent.futures
 
 
 class book_site_google():
@@ -96,7 +97,7 @@ class book_site_google():
         book_id = self.__get_book_id(response.url)
 
         # format
-        format = self.__get_book_format(response.content)
+        format = self.__get_book_format()
 
         # content
         content = response.content
@@ -137,11 +138,28 @@ class book_site_google():
 
         site_book_data_total = []
 
-        relevant_book_links = self.__get_book_links_from_search_site(url_gotten_from_form)
+        semirelevant_book_links = self.__get_book_links_from_search_site(url_gotten_from_form)
+
+        relevant_book_links = []
+
+        for book_link in semirelevant_book_links:
+            if book_link != None:
+                relevant_book_links.append(book_link)
+        
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            Future_Threads = []
+            for book_link in relevant_book_links:
+                Future_Threads.append(executor.submit(self.get_book_data_from_site, book_link))
+            
+            for future in concurrent.futures.as_completed(Future_Threads):
+                site_book_data_total.append(future.result())
+
+        '''
         for url in relevant_book_links:
             if url != None:
                 site_book_data_list = self.get_book_data_from_site(url)
                 site_book_data_total.append(site_book_data_list)
+        '''
 
         return Par_Scrape.site_book_data_relevancy(book_data, site_book_data_total)
 
@@ -564,3 +582,9 @@ class book_site_google():
         result_url = self.__Is_search_valid(book_search)
 
         return result_url
+
+"""
+This = book_site_google()
+a_stuff = ["DIGITAL", "Return of the King", None, None, None, "Description stuff yo", None, None, None, None]
+
+This.find_book_matches_at_site(a_stuff)"""

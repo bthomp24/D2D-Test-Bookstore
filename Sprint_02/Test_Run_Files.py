@@ -52,7 +52,8 @@ book_data = [None, #00-format (String)
 book_image_url = "https://imgv2-2-f.scribdassets.com/img/word_document/356970421/original/e058724125/1582611379?v=1"
 tempImage = Par_Scrape.get_book_image_from_image_url(book_image_url)
 
-#GOOGLE BOOKS
+#BOOK DATA
+'''
 book_data = ["audiobook", #00-format (String)
     "The name of the wind", #01-book_title (String)
     None, #02-book_image (PIL.Image)
@@ -64,13 +65,30 @@ book_data = ["audiobook", #00-format (String)
     None, #08-subtitle (String)
     "Patrick Rothfuss", #09-authors (String)
     None, #10-book_id (String)
-    "GB", #11-site_slug (String)
+    "tb", #11-site_slug (String)
     None, #12-parse_status (String)
     None, #13-url (String)
     None, #14-content (String)
     None, #15-ready_for_sale (boolean)
     None] #16-extra (List[])
-
+'''
+book_data = ["audiobooks", #00-format (String)
+    "The Devil Made Him Do It: A Shocking True Crime Story of Mass Murder", #01-book_title (String)
+    None, #02-book_image (PIL.Image)
+    None, #03-book_image_url (String)
+    "9781386434450", #04-isbn_13 (String)
+    "Jason Dalton was driving through downtown Kalamazoo killing people, seemingly at random. But this was not a night of random slaughter. There was a method to the madness of Jason 's mass murder spree. An app on Jason's iPhone that glowed like the devil was telling him whom to kill. It was a terrifying night in February 2016 as the people of Kalamazoo, Mich. stayed glued to their TVs and radios while bodies were falling and gunfire was reported throughout the city. Each time Jason was pulling the trigger. Each time the devil in his smartphone was telling him who should live and who should die.  Mothers, fathers, husbands, and wives frantically texted their loved ones to make sure they were not among the dead.  This is the story of the people Jason Dalton allegedly killed, those who survived, those who sacrificed themselves to save others, and how Jason was able to stay one step ahead of the police officers until the devil on his smartphone told Jason to stop killing on this blood-soaked night in Kalamazoo.   The Devil Made Him Do It: A Shocking True Crime Story of Mass Murder that Kalamazoo, Mich. will never forget.", #05-description (String)
+    None, #06-series (String)
+    None, #07-volume_number (Int)
+    None, #08-subtitle (String)
+    "Rod Kackley", #09-authors (String)
+    None, #10-book_id (String)
+    "kb", #11-site_slug (String)
+    None, #12-parse_status (String)
+    None, #13-url (String)
+    None, #14-content (String)
+    None, #15-ready_for_sale (boolean)
+    None] #16-extra (List[])
 
 ''' Call the parsers from the Scrapes file '''
 
@@ -78,13 +96,15 @@ slug = book_data[11]
 
 book_site = Scrapers.get_book_site(slug)
 
-Par_Scrape.write_Txt(str(book_site.find_book_matches_at_site(book_data)), "Test_Files/GB_File")
+file_name = "Test_Files/" + book_data[11].upper() + "_File"
+
+Par_Scrape.write_Txt(str(book_site.find_book_matches_at_site(book_data)), file_name)
 
 
 end_time = time.time()
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-print("                                  FINISHED")
+print("                                  "+ slug.upper() + "  FINISHED")
 print("                                  TIME: ", (end_time - start_time))
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")

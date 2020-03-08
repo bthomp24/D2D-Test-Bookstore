@@ -7,7 +7,7 @@ import Parsers.Parent_Scrape as Par_Scrape
 import urllib.request, io
 from bs4 import BeautifulSoup
 from datetime import date, datetime
-
+import concurrent.futures
 from PIL import Image
 
 import mechanize
@@ -139,6 +139,8 @@ class book_site_kobo():
             return None
         #get the links from 4 pages of search results
 
+        total_relevant_book_links = []
+
         for i in range(1,5):
 
             # Perform whatever form making for the website in order to get a relevant search link
@@ -150,12 +152,20 @@ class book_site_kobo():
             relevant_book_links = self.__get_book_links_from_search_site(content)
 
             if relevant_book_links != None:
+                total_relevant_book_links += relevant_book_links
 
-                #get site_book_data from book_links and place into list
-                for book_link in relevant_book_links:
-                    site_book_data_list.append(self.get_book_data_from_site(book_link))
-
-            #sort by relevancy
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            Future_Threads = []
+            for book_link in total_relevant_book_links:
+                Future_Threads.append(executor.submit(self.get_book_data_from_site, book_link))
+            
+            for future in concurrent.futures.as_completed(Future_Threads):
+                site_book_data_list.append(future.result())
+        '''
+        for book_link in total_relevant_book_links:
+            site_book_data_list.append(self.get_book_data_from_site(book_link))
+        '''
+        #sort by relevancy
         return Par_Scrape.site_book_data_relevancy(book_data, site_book_data_list)
 
     """

@@ -12,6 +12,8 @@ from datetime import date
 
 import mechanize
 
+import concurrent.futures
+
 class book_site_test_bookstore():
     def __init__(self, *args, **kwargs):
         pass
@@ -68,9 +70,19 @@ class book_site_test_bookstore():
         site_book_data_list = []
 
         #get site_book_data from book_links and place into list
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            Future_Threads = []
+            for book_link in relevant_book_links:
+                Future_Threads.append(executor.submit(self.get_book_data_from_site, book_link))
+            
+            for future in concurrent.futures.as_completed(Future_Threads):
+                site_book_data_list.append(future.result())
+
+
+        '''
         for book_link in relevant_book_links:
             site_book_data_list.append(self.get_book_data_from_site(book_link))
-
+        '''
         #sort by relevancy
         return Par_Scrape.site_book_data_relevancy(book_data, site_book_data_list)
 
