@@ -96,7 +96,7 @@ class book_site_google():
         book_id = self.__get_book_id(response.url)
 
         # format
-        format = self.__get_book_format()
+        format = self.__get_book_format(response.content)
 
         # content
         content = response.content
@@ -127,6 +127,10 @@ class book_site_google():
         the book_data object.
     """
     def find_book_matches_at_site(self, book_data):
+        if book_data[0].upper() == "AUDIOBOOK":
+            return None
+
+
         # Perform whatever form making for the website in order to get a relevant search link
         #url_gotten_from_form = "https://books.google.com/"
         url_gotten_from_form = self.get_search_link_from_book_data_form(book_data)
@@ -442,8 +446,11 @@ class book_site_google():
         "DIGITAL" since google books only has E-books on their 
         own site.
     """
-    def __get_book_format(self):
-        return "DIGITAL"
+    def __get_book_format(self, content):
+        if Par_Scrape.parse(content, "//*[@id='gb-get-book-not-available']"):
+            return "PRINT"
+        else:    
+            return "DIGITAL"
 
     """
     args:
@@ -462,6 +469,30 @@ class book_site_google():
             return False
         else:
             return True
+
+
+    """
+    args:
+        content (Request.get):
+            content is needed in order to scrape the e-book's
+            price if applicable
+    returns:
+        price:
+            This is this price of the ebook.
+        (None):
+            If there is no ebook for the book searched.
+    synopsis:
+        The purpose of this function is to parse the to scrape
+        for the ebook's price and return it.
+    """
+    def __get_book_sale_price(self, content):
+        if Par_Scrape.parse(content, "//*[@id='gb-get-book-not-available']"):
+            return None
+        else:
+            ebook = Par_Scrape.parse(content, "//*[@id='gb-get-book-content']/text()")
+            price = [x.strip() for x in ebook[0].split('-')]
+            return price[1]
+
 
     """
     args:
@@ -565,8 +596,7 @@ class book_site_google():
 
         return result_url
 
-"""
 This = book_site_google()
-a_stuff = ["DIGITAL", "Return of the King", None, None, None, "Description stuff yo", None, None, None, None]
+a_stuff = ["Audiobook", "Return of the King", None, None, None, "Description stuff yo", None, None, None, None]
 
-This.find_book_matches_at_site(a_stuff)"""
+This.find_book_matches_at_site(a_stuff)
