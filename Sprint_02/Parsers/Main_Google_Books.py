@@ -1,7 +1,7 @@
 import io
 from lxml import etree
 import requests
-import Parent_Scrape as Par_Scrape
+import Parsers.Parent_Scrape as Par_Scrape
 import mechanize
 
 
@@ -96,7 +96,7 @@ class book_site_google():
         book_id = self.__get_book_id(response.url)
 
         # format
-        format = self.__get_book_format(response.content)
+        format = self.__get_book_format()
 
         # content
         content = response.content
@@ -389,7 +389,7 @@ class book_site_google():
         except:
             return None
 
-     """
+    """
     args:
         url (String):
             url is used to scrape the book's site_slug
