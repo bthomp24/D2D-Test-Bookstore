@@ -145,18 +145,18 @@ class book_site_scribd():
     def find_book_matches_at_site(self, book_data):
         # Perform whatever form making for the website in order to get a relevant search link
         #url_gotten_from_form = "https://www.scribd.com/search?content_type=books&page=1&query=name%20of%20the%20wind&language=1"
-        url_gotten_from_from = self.__get_search_link_from_book_data_form(book_data)
+        url_gotten_from_form = self.__get_search_link_from_book_data_form(book_data)
         
-        if not url_gotten_from_from:
+        if not url_gotten_from_form:
             return None
         
         ''' \/\/ the following should not change \/\/ '''
         
-        #print("url_gotten_from_form: ", url_gotten_from_from)
+        #print("url_gotten_from_form: ", url_gotten_from_form)
 
         site_book_data_total = []
 
-        for url in url_gotten_from_from:
+        for url in url_gotten_from_form:
             relevant_book_links = self.__get_book_links_from_search_site(url)
             if relevant_book_links != None:
                 site_book_data_list = []
@@ -793,7 +793,7 @@ class book_site_scribd():
 
         for link in links:
             formatted_links.append(self.__format_mechanize_url(book_data[0], link))
-
+        print(formatted_links)
         return formatted_links
 
 
