@@ -52,6 +52,7 @@ book_data = [None, #00-format (String)
 book_image_url = "https://imgv2-2-f.scribdassets.com/img/word_document/356970421/original/e058724125/1582611379?v=1"
 tempImage = Par_Scrape.get_book_image_from_image_url(book_image_url)
 
+#GOOGLE BOOKS
 book_data = ["audiobook", #00-format (String)
     "The name of the wind", #01-book_title (String)
     None, #02-book_image (PIL.Image)
@@ -63,7 +64,7 @@ book_data = ["audiobook", #00-format (String)
     None, #08-subtitle (String)
     "Patrick Rothfuss", #09-authors (String)
     None, #10-book_id (String)
-    "SD", #11-site_slug (String)
+    "GB", #11-site_slug (String)
     None, #12-parse_status (String)
     None, #13-url (String)
     None, #14-content (String)
@@ -72,9 +73,12 @@ book_data = ["audiobook", #00-format (String)
 
 
 ''' Call the parsers from the Scrapes file '''
-scribd = Scrapers.get_book_site(book_data[11])
 
-Par_Scrape.write_Txt(str(Scrapers.get_book_site(book_data[11]).find_book_matches_at_site(book_data)), "Test_Files/testingFile")
+slug = book_data[11]
+
+book_site = Scrapers.get_book_site(slug)
+
+Par_Scrape.write_Txt(str(book_site.find_book_matches_at_site(book_data)), "Test_Files/GB_File")
 
 
 end_time = time.time()
