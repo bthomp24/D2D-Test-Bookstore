@@ -71,7 +71,7 @@ class book_site_test_bookstore():
         control.value = searchString
         br.submit()
 
-        relevant_book_links = self.__navigate_pages(br)
+        relevant_book_links = self.__navigate_pages(br,3)
 
         site_book_data_list = []
 
