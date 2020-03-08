@@ -141,7 +141,7 @@ class book_site_kobo():
 
         total_relevant_book_links = []
 
-        for i in range(1,5):
+        for i in range(1,3):
 
             # Perform whatever form making for the website in order to get a relevant search link
             url_gotten_from_form = url + "&pageNumber=" + str(i)
