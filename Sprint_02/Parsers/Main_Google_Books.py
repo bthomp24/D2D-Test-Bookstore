@@ -520,6 +520,10 @@ class book_site_google():
         collected_urls = Par_Scrape.parse(response.content, ("//*[@class='ZINbbc xpd O9g5cc uUPGi']/div[@class='kCrYT'][1]/a/@href"))
         relevant_urls = []
 
+        # if no search results are found.
+        if len(collected_urls) == 0:
+            return None
+
         # Process for formatting the urls collected into direct links.
         # This process is due to google books links acquired taking the
         # browser to a "Preview" book page which doesn't have the data we
@@ -543,10 +547,20 @@ class book_site_google():
 
             # process to construct the url for the page linked by the next button on google books.
             next_page_tail = Par_Scrape.parse(requests.get(url).content, "//*[@class='nBDE1b G5eFlf'][@aria-label='Next page']/@href")
+
+            # if there is no next page.
+            if len(next_page_tail) == 0:
+                return relevant_urls
+            
             next_page = "https://www.google.com" + next_page_tail[0]
 
             page_number += 1
             next_group = self.__get_book_links_from_search_site(next_page, page_number)
+
+            # if there is a next page but it contains no results
+            if next_group == None:
+                return relevant_urls
+            
             for url in next_group:
                 relevant_urls.append(url)    
 
