@@ -1,7 +1,7 @@
 import io
 from lxml import etree
 import requests
-import Parsers.Parent_Scrape as Par_Scrape
+import Parent_Scrape as Par_Scrape
 import mechanize
 
 
@@ -133,7 +133,7 @@ class book_site_google():
 
         # Perform whatever form making for the website in order to get a relevant search link
         #url_gotten_from_form = "https://books.google.com/"
-        url_gotten_from_form = self.get_search_link_from_book_data_form(book_data)
+        url_gotten_from_form = self.__get_search_link_from_book_data_form(book_data)
         
         # check to ensure search page exists
         if not url_gotten_from_form:
@@ -141,11 +141,13 @@ class book_site_google():
 
         site_book_data_total = []
 
-        relevant_book_links = self.__get_book_links_from_search_site(url_gotten_from_form)
-        for url in relevant_book_links:
-            if url != None:
-                site_book_data_list = self.get_book_data_from_site(url)
-                site_book_data_total.append(site_book_data_list)
+        for url in url_gotten_from_form:
+
+            relevant_book_links = self.__get_book_links_from_search_site(url, 0)
+            for url in relevant_book_links:
+                if url != None:
+                    site_book_data_list = self.get_book_data_from_site(url)
+                    site_book_data_total.append(site_book_data_list)
 
         return Par_Scrape.site_book_data_relevancy(book_data, site_book_data_total)
 
@@ -512,7 +514,7 @@ class book_site_google():
         It will return a list of the book url's formatted to take
         the browser directly to the book source.
     """
-    def __get_book_links_from_search_site(self, url):
+    def __get_book_links_from_search_site(self, url, page_number):
         response = requests.get(url)
 
         collected_urls = Par_Scrape.parse(response.content, ("//*[@class='ZINbbc xpd O9g5cc uUPGi']/div[@class='kCrYT'][1]/a/@href"))
@@ -524,13 +526,29 @@ class book_site_google():
         # are after.
         for proper_link in collected_urls:
             url_split = "&"
+            
             proper_link = proper_link.split(url_split, 1)[0]
             proper_link += "&source=gbs_navlinks_s"
+            
             
             if "https://books.google.com/books?id=" in proper_link:
                 relevant_urls.append(proper_link)
             else:
                 relevant_urls.append(None)
+        
+        # statement for going to get links on next page.
+        # recursive calling function that stops after
+        # 5 page search results full. (60 results)
+        if page_number < 5:
+
+            # process to construct the url for the page linked by the next button on google books.
+            next_page_tail = Par_Scrape.parse(requests.get(url).content, "//*[@class='nBDE1b G5eFlf'][@aria-label='Next page']/@href")
+            next_page = "https://www.google.com" + next_page_tail[0]
+
+            page_number += 1
+            next_group = self.__get_book_links_from_search_site(next_page, page_number)
+            for url in next_group:
+                relevant_urls.append(url)    
 
         return relevant_urls    
 
@@ -579,24 +597,39 @@ class book_site_google():
         link that can be parsed for individual book links, 
         depending on what is passed in the book_data.
     """
-    def get_search_link_from_book_data_form(self, book_data):
+    def __get_search_link_from_book_data_form(self, book_data):
+        
+        book_title = book_data[1]
+        book_ISBN = book_data[4]
+        book_author = book_data[9]
 
         # our string for the form
         book_search = ""
         links = []
 
-        if (book_data[1] != None):
-            book_search += book_data[1] + " "
-        if (book_data[4] != None):
-            book_search += book_data[4] + " "
-        if (book_data[9] != None):
-            book_search += book_data[9]
+        if (book_title != None) or (book_ISBN != None) or (book_author != None):
+            
+            if book_ISBN != None:
+                result0 = self.__Is_search_valid(book_ISBN)
+                if result0 != None:
+                    links.append(result0)
+            
+            if book_title != None:
+                result1 = self.__Is_search_valid(book_title)
+                if result1 != None:
+                    links.append(result1)
+            
+            if book_author != None:
+                result2 = self.__Is_search_valid(book_author)
+                if result2 != None:
+                    links.append(result2)
+        else:
+            return None
 
-        result_url = self.__Is_search_valid(book_search)
+        return links
 
-        return result_url
 
 This = book_site_google()
-a_stuff = ["Audiobook", "Return of the King", None, None, None, "Description stuff yo", None, None, None, None]
+a_stuff = ["Digital", "Return of the King", None, None, None, "Description stuff yo", None, None, None, None]
 
 This.find_book_matches_at_site(a_stuff)
