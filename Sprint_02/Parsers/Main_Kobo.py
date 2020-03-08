@@ -3,11 +3,11 @@ import re
 import io
 from lxml import etree
 import requests
-import Parent_Scrape as Par_Scrape
+import Parsers.Parent_Scrape as Par_Scrape
 import urllib.request, io
 from bs4 import BeautifulSoup
 from datetime import date, datetime
-
+import concurrent.futures
 from PIL import Image
 
 import mechanize
@@ -139,7 +139,9 @@ class book_site_kobo():
             return None
         #get the links from 4 pages of search results
 
-        for i in range(1,5):
+        total_relevant_book_links = []
+
+        for i in range(1,3):
 
             # Perform whatever form making for the website in order to get a relevant search link
             url_gotten_from_form = url + "&pageNumber=" + str(i)
@@ -150,12 +152,20 @@ class book_site_kobo():
             relevant_book_links = self.__get_book_links_from_search_site(content)
 
             if relevant_book_links != None:
+                total_relevant_book_links += relevant_book_links
 
-                #get site_book_data from book_links and place into list
-                for book_link in relevant_book_links:
-                    site_book_data_list.append(self.get_book_data_from_site(book_link))
-
-            #sort by relevancy
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            Future_Threads = []
+            for book_link in total_relevant_book_links:
+                Future_Threads.append(executor.submit(self.get_book_data_from_site, book_link))
+            
+            for future in concurrent.futures.as_completed(Future_Threads):
+                site_book_data_list.append(future.result())
+        '''
+        for book_link in total_relevant_book_links:
+            site_book_data_list.append(self.get_book_data_from_site(book_link))
+        '''
+        #sort by relevancy
         return Par_Scrape.site_book_data_relevancy(book_data, site_book_data_list)
 
     """
@@ -733,39 +743,3 @@ class book_site_kobo():
         formatted_link = self.__format_mechanize_url(book_data[0], link)
 
         return formatted_link
-
-
-"""
-    SiteBookData (List):
-        format (String): 
-        book_title (String):
-        book_image:~
-        book_image_url (String):
-        isbn_13 (String):
-        description (String):
-        series (String):~
-        volume_number (Int):~
-        subtitle (String):~
-        authors (String):
-        book_id:
-        site_slug (String):
-        parse_status (String):~
-        url (String):
-        content (String):
-        ready_for_sale (boolean):~
-        extra:~
-"""
-
-#Par_Scrape.write_Response(requests.get("url"), "")
-
-book_data = ["DIGITAL", "The name of the wind", None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
-
-test = book_site_kobo()
-print(test.get_search_link_from_book_data_form(book_data))
-Par_Scrape.write_Txt(str(test.find_book_matches_at_site(book_data)), "testText")
-
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-print("                                  FINISHED")
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
