@@ -680,7 +680,10 @@ class book_site_scribd():
             return self.__generate_dynamic_link_list(self.__parse_books(response))
         elif book_format == "tops":
             search_link_list = self.__generate_dynamic_link_list(self.__parse_audiobooks(response))
-            search_link_list += self.__generate_dynamic_link_list(self.__parse_books(response))
+            if search_link_list != None:
+                search_link_list += self.__generate_dynamic_link_list(self.__parse_books(response))
+            else:
+                search_link_list = self.__generate_dynamic_link_list(self.__parse_books(response))
             return search_link_list
         else:
             return None
