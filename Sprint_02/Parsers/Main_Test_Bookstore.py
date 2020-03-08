@@ -12,6 +12,8 @@ from datetime import date
 
 import mechanize
 
+from bs4 import BeautifulSoup
+
 import concurrent.futures
 
 class book_site_test_bookstore():
@@ -42,7 +44,11 @@ class book_site_test_bookstore():
     def find_book_matches_at_site(self, book_data):
 
         br = mechanize.Browser()
-        response = br.open('http://localhost:8000/bookstore/')
+        try:
+            response = br.open('http://localhost:8000/bookstore/')
+        except:
+            print("\nError accessing Test Bookstore. Please make sure it is running.\n")
+            return None
 
         br.select_form(nr=0)
         control = br.form.find_control("searcher")
@@ -259,8 +265,10 @@ class book_site_test_bookstore():
             description = ""
             for i in range(len(description_elements)):
                 if not description_elements[i].text is None:
-                    description += description_elements[i].text + '\n\n'
-            return description.strip()
+                    description += description_elements[i].text + ' '
+            soup = BeautifulSoup(description, features='lxml')
+            description_text = soup.get_text()
+            return description_text.strip()
         except:
             return None
 
