@@ -414,7 +414,7 @@ class book_site_kobo():
             description = etree.tostring(description_element, encoding = 'utf8', method = 'xml')
             soup = BeautifulSoup(description, features='lxml')
             text = soup.get_text()
-            return text
+            return text.replace("\n", " ")
             
         except:
             return None
