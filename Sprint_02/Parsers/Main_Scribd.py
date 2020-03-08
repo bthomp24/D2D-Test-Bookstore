@@ -14,7 +14,7 @@ class book_site_scribd():
     def __init__(self, *args, **kwargs):
         self.meta_Father_Type = ".//meta[@property='og:type']"
         self.columns_container = ".//div[@class='columns_container']"
-        self.right_col = self.columns_container + "/div[@class='right_col']" 
+        self.right_col = self.columns_container + "/section[@class='right_col']" 
         self.details = ".//span[@class='meta_label']/span"
 
 
@@ -145,18 +145,18 @@ class book_site_scribd():
     def find_book_matches_at_site(self, book_data):
         # Perform whatever form making for the website in order to get a relevant search link
         #url_gotten_from_form = "https://www.scribd.com/search?content_type=books&page=1&query=name%20of%20the%20wind&language=1"
-        url_gotten_from_form = self.__get_search_link_from_book_data_form(book_data)
+        url_gotten_from_from = self.__get_search_link_from_book_data_form(book_data)
         
-        if not url_gotten_from_form:
+        if not url_gotten_from_from:
             return None
         
         ''' \/\/ the following should not change \/\/ '''
         
-        #print("url_gotten_from_form: ", url_gotten_from_form)
+        print("url_gotten_from_form: ", url_gotten_from_from)
 
         site_book_data_total = []
 
-        for url in url_gotten_from_form:
+        for url in url_gotten_from_from:
             relevant_book_links = self.__get_book_links_from_search_site(url)
             if relevant_book_links != None:
                 site_book_data_list = []
@@ -316,7 +316,7 @@ class book_site_scribd():
     """
     def __get_book_authors(self, content):
         try:
-            return Par_Scrape.parse(content, (self.right_col + "/div[@class='contributors']/span[@class='author']/span[@itemprop='author']/a/text()"))[0]
+            return Par_Scrape.parse(content, (self.right_col + "/div[@class='contributors']/p/span/a/text()"))[0]
         except:
             return None
     
@@ -474,7 +474,7 @@ class book_site_scribd():
     """
     def __get_book_availability(self, content):
         try:
-            publish_date = Par_Scrape.parse(content, (self.right_col + "/div[@class='metadata']/div/span/span[contains(text(), 'Released: ')]/following-sibling::span/text()"))[0]
+            publish_date = Par_Scrape.parse(content, (self.right_col + "/dl[@class='metadata']/dd[@class='meta_description released_date']/text()"))[0]
 
             converted_date = publish_date.replace(",", "").replace(" ", "-")
 
@@ -747,7 +747,6 @@ class book_site_scribd():
 
         if (detect_books not in detection) and (detect_audiobooks not in detection):
             return None
-            
         return link
 
     """
@@ -793,7 +792,7 @@ class book_site_scribd():
 
         for link in links:
             formatted_links.append(self.__format_mechanize_url(book_data[0], link))
-        print(formatted_links)
+
         return formatted_links
 
 
