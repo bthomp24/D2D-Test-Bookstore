@@ -2,7 +2,9 @@ import io
 from lxml import etree
 import requests
 import Parsers.Parent_Scrape as Par_Scrape
+import mechanize
 
+import concurrent.futures
 
 class book_site_livraria_cultura(): 
 
@@ -31,10 +33,9 @@ class book_site_livraria_cultura():
     def __get_authors__(self, content):
         authors_element = Par_Scrape.parse(content, "//*[@class='value-field Colaborador']")[0]
         authors = authors_element.text
-        # authors = authors.replace('Autor:', '')
-        # authors = authors.replace('Tradutor:', '')
-        # authors = authors.replace('Coordenador/Editor:', '')
-        return authors
+        author = authors.split("Autor:")[-1]
+        
+        return author
 
     def __get_book_id__(self, content):
         book_id = self.__get_url__(content)
@@ -44,9 +45,6 @@ class book_site_livraria_cultura():
 
     def __get_url__(self, content):
         return Par_Scrape.parse(content, "//meta[@itemprop='url']/@content")[0]
-
-    # def get_ready_for_sale(content):
-    #     return Parent_Scrape.parse(content, "//*[@class='value-field Sinopse']")[0].text
 
     def get_book_data_from_site(self, url):
 
@@ -120,16 +118,81 @@ class book_site_livraria_cultura():
 
         return SiteBookData
 
+    def __is_search_valid(self, search):
+        #https://www3.livrariacultura.com.br/busca/?ft=test&originalText=what%20am%20i%20testing
+        original_link = "https://www3.livrariacultura.com.br/"
+        num_books = "?PS=48"
+        search = search.replace(" ", "%20")
+        link = original_link + search + num_books
+
+        response = requests.get(link)
+        if "Nenhum produto encontrado para sua pesquisa por" in response.text:
+            return None
+
+        return link
+
+    def __get_search_link_from_book_data(self, book_data):
+        book_title = book_data[1]
+        book_ISBN = book_data[4]
+        book_author = book_data[9]
+
+        links = []
+
+        if (book_title != None) or (book_ISBN != None) or (book_author != None):
+            if book_ISBN != None:
+                result0 = self.__is_search_valid(book_ISBN)
+                if result0 != None:
+                    links.append(result0)
+                
+            if book_title != None:
+                result1 = self.__is_search_valid(book_title)
+                if result1 != None:
+                    links.append(result1)
+            
+            if book_author != None:
+                result2 = self.__is_search_valid(book_author)
+                if result2 != None:
+                    links.append(result2)
+        else:
+            return None
+
+        return links
+
+    def __get_book_links_froms_search_site(self, url):
+        content = self.__fetch__(url)
+        return Par_Scrape.parse(content, ".//h2[@class='prateleiraProduto__informacao__nome']/a/@href")
+
     def find_book_matches_at_site(self, book_data):
-        return None
+        urls_gotten_from_form = self.__get_search_link_from_book_data(book_data)
+
+        if not urls_gotten_from_form:
+            return None
+
+        site_book_data_total = []
+
+        for url in urls_gotten_from_form:
+            relevant_book_links = self.__get_book_links_froms_search_site(url)
+            if relevant_book_links != None:
+                site_book_data_list = []
+
+                with concurrent.futures.ThreadPoolExecutor() as executor:
+                    Future_Threads = []
+                    for book_link in relevant_book_links:
+                        Future_Threads.append(executor.submit(self.get_book_data_from_site, book_link))
+
+                    for future in concurrent.futures.as_completed(Future_Threads):
+                        site_book_data_list.append(future.result())
+                site_book_data_total += site_book_data_list
+
+        cleaned_book_links = []
+        cleaned_site_book_data_total = []
+        for site_book in site_book_data_total:
+            if site_book[13] not in cleaned_book_links:
+                cleaned_book_links.append(site_book[13])
+                cleaned_site_book_data_total.append(site_book)
+        
+        return Par_Scrape.site_book_data_relevancy(book_data, cleaned_site_book_data_total)
 
     def convert_book_id_to_url(self, book_id):
         primary_url = "https://www3.livrariacultura.com.br/"
         return primary_url + book_id + "/p"
-
-
-URL = "https://www3.livrariacultura.com.br/harry-potter-e-o-prisioneiro-de-azkaban-2010606463/p"
-lc = book_site_livraria_cultura()
-print(lc.get_book_data_from_site(URL))
-
-print(lc.convert_book_id_to_url('harry-potter-e-o-prisioneiro-de-azkaban-2010606463'))

@@ -1,5 +1,6 @@
 import Parsers.Main_Google_Books as google_books_book_site
 import Parsers.Main_Kobo as kobo_site
+import Parsers.Main_Livraria_Cultura as livaria_cultura_book_site
 import Parsers.Main_Scribd as scribd_book_site
 import Parsers.Main_Test_Bookstore as test_bookstore_book_site
 
@@ -13,7 +14,7 @@ def get_book_site(slug):
         return kobo_site.book_site_kobo()
 
     elif slug.lower() == "lc":
-        pass
+        return livaria_cultura_book_site.book_site_livraria_cultura()
 
     #Scribd Parser
     elif slug.lower() == "sd":

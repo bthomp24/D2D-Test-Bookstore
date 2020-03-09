@@ -152,7 +152,7 @@ class book_site_scribd():
         
         ''' \/\/ the following should not change \/\/ '''
         
-        print("url_gotten_from_form: ", url_gotten_from_from)
+        #print("url_gotten_from_form: ", url_gotten_from_from)
 
         site_book_data_total = []
 
