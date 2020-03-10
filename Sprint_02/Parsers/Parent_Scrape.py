@@ -122,6 +122,52 @@ def parse_status(parse_list):
     return "FULLY_PARSED"
 
 """
+args:
+    original_book_data[]:
+        list of data that will be tested against the data that is contained
+        withing the site_book_data_list
+    site_book_daata_list[]:
+        list of site_book_data's, this will be checked against by the
+        'original_book_data'.
+returns:
+    book_data_relevancy_list[]:
+        This is a list of site_book_data, and their correcsponding
+        relevancy rates.
+synopsis:
+    The purpose of this function is to return a list of
+    'site_book_data', as well as its corresponding relevancy
+    rating, determined by the 'original_book_data'
+"""
+def site_book_data_relevancy(original_book_data, site_book_data_list):
+    start = time.time()
+
+    book_data_relevancy_list = []
+
+    if len(original_book_data) != 17:
+        print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(original_book_data): ", len(original_book_data))
+        return None
+    else:
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            Future_Threads = {}
+            for site_book_data in site_book_data_list:
+                if len(site_book_data) != 17:
+                    print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(site_book_data): ", len(site_book_data))
+                    book_data_relevancy_list.append([None, 0])
+                else:
+                    Future_Threads[executor.submit(__compare_book_data_lists, original_book_data, site_book_data)] = site_book_data
+
+            for future in concurrent.futures.as_completed(Future_Threads):
+                site_book_data_temp = Future_Threads[future]
+                book_data_relevancy_list.append([site_book_data_temp, future.result()])
+
+            book_data_relevancy_list.sort(key=__sort_by_relevancy_rating, reverse=True)
+        
+    end = time.time()
+    print("Sorting TIME: ", (end - start))
+    return book_data_relevancy_list
+
+
+"""
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
        following private functions are necessary for the site_book_relevancy function       
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -316,51 +362,6 @@ synopsis:
 """
 def __sort_by_relevancy_rating(element):
     return element[1]
-
-"""
-args:
-    original_book_data[]:
-        list of data that will be tested against the data that is contained
-        withing the site_book_data_list
-    site_book_daata_list[]:
-        list of site_book_data's, this will be checked against by the
-        'original_book_data'.
-returns:
-    book_data_relevancy_list[]:
-        This is a list of site_book_data, and their correcsponding
-        relevancy rates.
-synopsis:
-    The purpose of this function is to return a list of
-    'site_book_data', as well as its corresponding relevancy
-    rating, determined by the 'original_book_data'
-"""
-def site_book_data_relevancy(original_book_data, site_book_data_list):
-    start = time.time()
-
-    book_data_relevancy_list = []
-
-    if len(original_book_data) != 17:
-        print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(original_book_data): ", len(original_book_data))
-        return None
-    else:
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            Future_Threads = {}
-            for site_book_data in site_book_data_list:
-                if len(site_book_data) != 17:
-                    print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(site_book_data): ", len(site_book_data))
-                    book_data_relevancy_list.append([None, 0])
-                else:
-                    Future_Threads[executor.submit(__compare_book_data_lists, original_book_data, site_book_data)] = site_book_data
-
-            for future in concurrent.futures.as_completed(Future_Threads):
-                site_book_data_temp = Future_Threads[future]
-                book_data_relevancy_list.append([site_book_data_temp, future.result()])
-
-            book_data_relevancy_list.sort(key=__sort_by_relevancy_rating, reverse=True)
-        
-    end = time.time()
-    print("Sorting TIME: ", (end - start))
-    return book_data_relevancy_list
 
 
 """

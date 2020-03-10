@@ -137,6 +137,7 @@ class book_site_kobo():
         url = self.get_search_link_from_book_data_form(book_data)
         if url == None:
             return None
+        #print(url)
         #get the links from 4 pages of search results
 
         total_relevant_book_links = []
@@ -723,12 +724,12 @@ class book_site_kobo():
                 what_to_search += book_title
                 was_previous = True
             if book_ISBN != None:
-                if was_previous == False:
+                if was_previous == True:
                     what_to_search += " "
                 what_to_search += book_ISBN
                 was_previous = True
             if book_author != None:
-                if was_previous == False:
+                if was_previous == True:
                     what_to_search += " "
                 what_to_search += book_author
                 was_previous = True

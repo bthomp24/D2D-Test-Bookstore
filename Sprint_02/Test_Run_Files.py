@@ -72,7 +72,8 @@ book_data = ["audiobook", #00-format (String)
     None, #15-ready_for_sale (boolean)
     None] #16-extra (List[])
 '''
-book_data = ["digital", #00-format (String)
+
+book_data1 = ["Digital", #00-format (String)
     "The Devil Made Him Do It: A Shocking True Crime Story of Mass Murder", #01-book_title (String)
     None, #02-book_image (PIL.Image)
     None, #03-book_image_url (String)
@@ -83,16 +84,14 @@ book_data = ["digital", #00-format (String)
     None, #08-subtitle (String)
     "Rod Kackley", #09-authors (String)
     None, #10-book_id (String)
-    "kb", #11-site_slug (String)
+    "tb", #11-site_slug (String)
     None, #12-parse_status (String)
     None, #13-url (String)
     None, #14-content (String)
     None, #15-ready_for_sale (boolean)
     None] #16-extra (List[])
 
-
-
-book_data1 = ["digital", #00-format (String)
+book_data = ["digital", #00-format (String)
     "anne frank", #01-book_title (String)
     None, #02-book_image (PIL.Image)
     "https://kbimages1-a.akamaihd.net/defcbc15-71d7-4bb5-9fcb-4835cfd17b38/353/569/90/False/anne-frank-s-tales-from-the-secret-annex-1.jpg", #03-book_image_url (String)
