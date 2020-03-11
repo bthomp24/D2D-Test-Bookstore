@@ -1,0 +1,13 @@
+body {
+    background-image: url("test bookstore detail page.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-size: 100%;
+
+}
+h1 {
+    padding-left: 20%;
+    padding-top: 4%;
+    font-family: "Palatino Linotype";
+    font-size: 2.4em;
+}
