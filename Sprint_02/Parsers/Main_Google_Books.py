@@ -109,8 +109,14 @@ class book_site_google():
         extra['Price'] = price_tag
 
         # parse_status
-        parse_status = Par_Scrape.parse_status([format, book_title, book_image, book_image_url, isbn_13, description, authors, book_id, site_slug, url, content, ready_for_sale])
-        
+        check_data = [format, book_title, book_image, book_image_url, isbn_13, description, authors, book_id, site_slug, url, content, ready_for_sale]
+        if series != None:
+            check_data.append(series)
+        if format == "DIGITAL":
+            check_data.append(extra)
+
+        parse_status = Par_Scrape.parse_status(check_data)
+
         SiteBookData = [format, book_title, book_image, book_image_url, isbn_13, description, series, volume_number, subtitle, authors, book_id, site_slug, parse_status, url, content, ready_for_sale, extra]
         
         return SiteBookData
