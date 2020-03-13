@@ -106,8 +106,7 @@ class book_site_google():
 
         # price
         price_tag = self.__get_book_sale_price(response.content)
-        if price_tag != None:
-            extra['Price'] = price_tag
+        extra['Price'] = price_tag
 
         # parse_status
         parse_status = Par_Scrape.parse_status([format, book_title, book_image, book_image_url, isbn_13, description, authors, book_id, site_slug, url, content, ready_for_sale])
