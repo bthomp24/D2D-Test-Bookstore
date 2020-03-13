@@ -57,7 +57,7 @@ class book_site_google():
         book_url = None
         content = None
         ready_for_sale = None
-        extra = None
+        extra = {}
 
         # book_title
         book_title = self.__get_book_title(response.content)
@@ -103,6 +103,11 @@ class book_site_google():
 
         # ready_for_sale
         ready_for_sale = self.__get_book_sale_status(response.content)
+
+        # price
+        price_tag = self.__get_book_sale_price(response.content)
+        if price_tag != None:
+            extra['Price'] = price_tag
 
         # parse_status
         parse_status = Par_Scrape.parse_status([format, book_title, book_image, book_image_url, isbn_13, description, authors, book_id, site_slug, url, content, ready_for_sale])

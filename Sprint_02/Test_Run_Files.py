@@ -37,10 +37,10 @@ SiteBookData (List):
 """
 
 ''' Call the parsers from the Scrapes file '''
-scribd = Scrapers.get_book_site("SD")
+googs = Scrapers.get_book_site("gb")
 
 ''' Test the files '''
-Par_Scrape.write_Txt(str(scribd.find_book_matches_at_site(book_data)), "Test_Files/testingFile")
+Par_Scrape.write_Txt(str(googs.find_book_matches_at_site(book_data)), "Test_Files/testingFile")
 
 
 end_time = time.time()
