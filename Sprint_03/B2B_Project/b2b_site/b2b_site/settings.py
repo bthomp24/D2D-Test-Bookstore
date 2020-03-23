@@ -74,20 +74,31 @@ WSGI_APPLICATION = 'b2b_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'b2b_clients',
-        'USER': 'mydatabaseuser',
-        'PASSWORD': 'databasepassword',
-        'HOST': 'localhost',
-        'PORT': '',
-        'OPTIONS':{
-            'autocommit': True
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
+
+'''
+#Mysql
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'b2b_clients',
+            'USER': 'mydatabaseuser',
+            'PASSWORD': 'databasepassword',
+            'HOST': 'localhost',
+            'PORT': '',
+            'OPTIONS':{
+                'autocommit': True
+            }
+        }
+    }
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
