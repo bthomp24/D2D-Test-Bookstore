@@ -16,99 +16,90 @@ class book_site_kobo():
     def __init__(self, *args, **kwargs):
         pass
 
-    """
-    args:
-        url (String):
-            Kobo book url to be parsed
-    returns:
-        SiteBookData (List):
-            format (String): 
-            book_title (String):
-            book_image:~
-            book_image_url (String):
-            isbn_13 (String):
-            description (String):
-            series (String):~
-            volume_number (Int):~
-            subtitle (String):~
-            authors (String):
-            book_id:
-            site_slug (String):
-            parse_status (String):~
-            url (String):
-            content (String):
-            ready_for_sale (boolean):~
-            extra:~
-    synopsis:
-        The purpose of this function is to parse a url of the Kobo
-        website.  The url should be a specific book's url, in order
-        for the following function to work.  This function works with
-        both digital books and audio books.
-    """
+
     def get_book_data_from_site(self, url):
+        """
+        args:
+            url (String):
+                Kobo book url to be parsed
+        returns:
+            SiteBookData (List):
+                format (String): 
+                book_title (String):
+                book_image:~
+                book_image_url (String):
+                isbn_13 (String):
+                description (String):
+                series (String):~
+                volume_number (Int):~
+                subtitle (String):~
+                authors (String):
+                book_id:
+                site_slug (String):
+                parse_status (String):~
+                url (String):
+                content (String):
+                ready_for_sale (boolean):~
+                extra:~
+        synopsis:
+            The purpose of this function is to parse a url of the Kobo
+            website.  The url should be a specific book's url, in order
+            for the following function to work.  This function works with
+            both digital books and audio books.
+        """
         response = requests.get(url)
-        format = None
-        book_title = None
-        book_image = None
-        book_image_url = None
-        isbn_13 = None
-        description = None
-        series = None
-        volume_number = None
-        subtitle = None
-        authors = None
-        book_id = None
-        site_slug = None
-        parse_status = None
-        url = None
-        content = None
-        ready_for_sale = None
-        extra = None
+
+        extra = {}
 
         #book_title
-        book_title = self.__get_book_title(response.content)
+        book_title = self._get_book_title(response.content)
 
         #book_image_url
-        book_image_url = self.__get_book_image_url(response.content)
+        book_image_url = self._get_book_image_url(response.content)
 
         #book_image
         book_image = Par_Scrape.get_book_image_from_image_url(book_image_url)
         
         #isbn_13
-        isbn_13 = self.__get_book_isbn_13(response.content)
+        isbn_13 = self._get_book_isbn_13(response.content)
 
         #description
-        description = self.__get_book_description(response.content)
+        description = self._get_book_description(response.content)
         
         #series
-        series = self.__get_book_series(response.content)
+        series = self._get_book_series(response.content)
 
         #volume_number
-        volume_number = self.__get_book_volume_number(response.content)
+        volume_number = self._get_book_volume_number(response.content)
 
         #subtitle
-        subtitle = self.__get_book_subtitle(response.content)
+        subtitle = self._get_book_subtitle(response.content)
 
         #authors
-        authors = self.__get_book_authors(response.content)
+        authors = self._get_book_authors(response.content)
 
         #url
-        url = self.__get_book_url(response.content)
+        url = self._get_book_url(response.content)
 
         #site_slug
-        site_slug = self.__get_book_site_slug()
+        site_slug = self._get_book_site_slug()
 
         #book_id
-        book_id = self.__get_book_id(response.content)
+        book_id = self._get_book_id(response.content)
 
         #format
-        book_format = self.__get_book_format(response.content)
+        book_format = self._get_book_format(response.content)
 
         #content
         content = response.content
 
         #ready_for_sale
-        ready_for_sale = self.__get_book_availability(response.content)
+        ready_for_sale = self._get_book_availability(response.content)
+
+        #book_price
+        book_price = self._get_book_price(response.content)
+
+        extra['Price'] = book_price
  
 
         #parse_status
@@ -118,19 +109,20 @@ class book_site_kobo():
 
         return SiteBookData
 
-    """
-    args:
-        book_data (List):
-            This is a list that has various book attirbutes retrieed from the user.
-    returns:
-        Par_Scrape.site_book_data_relevancy(book_data, site_book_data_list) (List):
-            This list of all the relevant books sorted using relevency rating.
-    synopsis:
-        The purpose of this function is to create a list of relevent books
-        sorted using the relevancy rating.
-    """
+
 
     def find_book_matches_at_site(self, book_data):
+        """
+        args:
+            book_data (List):
+                This is a list that has various book attirbutes retrieed from the user.
+        returns:
+            Par_Scrape.site_book_data_relevancy(book_data, site_book_data_list) (List):
+                This list of all the relevant books sorted using relevency rating.
+        synopsis:
+            The purpose of this function is to create a list of relevent books
+            sorted using the relevancy rating.
+        """
     
         site_book_data_list = []
 
@@ -150,7 +142,7 @@ class book_site_kobo():
             content = response.content
 
             #Get relevant book links
-            relevant_book_links = self.__get_book_links_from_search_site(content)
+            relevant_book_links = self._get_book_links_from_search_site(content)
 
             if relevant_book_links != None:
                 total_relevant_book_links += relevant_book_links
@@ -169,37 +161,59 @@ class book_site_kobo():
         #sort by relevancy
         return Par_Scrape.site_book_data_relevancy(book_data, site_book_data_list)
 
-    """
-    args:
-        book_id (String):
-            This is the site_slug that is required to build a
-            working link to the website.
-    returns:
-        url (String):
-            This is a working url to the book's website.
-    synopsis:
-        The purpose of this function is to use the passed
-        book_id in order to create a final book url.
-    """
+
     def convert_book_id_to_url(self, book_id):
+        """
+        args:
+            book_id (String):
+                This is the site_slug that is required to build a
+                working link to the website.
+        returns:
+            url (String):
+                This is a working url to the book's website.
+        synopsis:
+            The purpose of this function is to use the passed
+            book_id in order to create a final book url.
+        """
         primary_url = "https://www.kobo.com/us/en/"
         return primary_url + book_id
 
-    """
-    args:
-        month (String):
-            month to be converted to an integer for purposes of
-            comparing.
-    returns:
-        month_num (Number):
-            the number that is related to the month that was
-            passed
-    synopsis:
-        The purpose of this function is to return the number
-        of a specific month that it is passed, so that it
-        may be used for comparison purposes.
-    """
-    def __score_month(self,month):
+
+    def _parse(self, content, path):
+        """
+        args:
+            content (requests.get()):
+                What you wish to be searched using xpath
+            path (String(xpath format)):
+                what the xpath will use to search the content
+        returns:
+            result (filtered requests.get() according to 'path'):
+                what is returned by the xpath searching the content
+        synopsis:
+            This function will search a the first parameter using the
+            second parameter as an xpath.
+        """
+        parser = etree.HTMLParser(remove_pis=True)
+        tree = etree.parse(io.BytesIO(content), parser)
+        root = tree.getroot()
+        return root.xpath(path)[0]
+
+
+    def _score_month(self,month):
+        """
+        args:
+            month (String):
+                month to be converted to an integer for purposes of
+                comparing.
+        returns:
+            month_num (Number):
+                the number that is related to the month that was
+                passed
+        synopsis:
+            The purpose of this function is to return the number
+            of a specific month that it is passed, so that it
+            may be used for comparison purposes.
+        """
         try:
             if (month == "January") or (month =="Jan"):
                 return 1
@@ -230,25 +244,22 @@ class book_site_kobo():
         except:
                 return 0
     
-    """
-    args:
-        content (requests.get)
-            content is required in order to scrape the book's
-            availability.
-    returns:
-        Bool:
-            Tell if the book is available to be purchased.
-    synopsis:
-        The purpose of this functin is to confirm that the book is for sale.
-    """    
+ 
 
-    def __get_book_availability(self, content):
+    def _get_book_availability(self, content):
+        """
+        args:
+            content (requests.get)
+                content is required in order to scrape the book's
+                availability.
+        returns:
+            Boolean:
+                Tell if the book is available to be purchased.
+        synopsis:
+            The purpose of this functin is to confirm that the book is for sale.
+        """   
         try:
-            parser = etree.HTMLParser(remove_pis=True)
-            tree = etree.parse(io.BytesIO(content), parser)
-            root = tree.getroot()
-            xpath = ".//div[@class = 'bookitem-secondary-metadata']/ul/li[2]/span"
-            publish_date_element = root.xpath(xpath)[0]
+            publish_date_element = _parse(content, ".//div[@class = 'bookitem-secondary-metadata']/ul/li[2]/span")
             publish_date = publish_date_element.text
             soup = BeautifulSoup(publish_date, features='lxml')
             text = soup.get_text()
@@ -256,7 +267,6 @@ class book_site_kobo():
 
 
             converted_date = text.replace(",", "").replace(" ", "-")
-
             today = date.today().strftime("%b-%d-%Y")
             today_string = str(today)
 
@@ -271,11 +281,11 @@ class book_site_kobo():
 
             #if the years equal
             elif(int(today_string.split("-")[2]) == int(converted_date.split("-")[2])):
-                publish_month = self.__score_month(converted_date.split("-")[0])
+                publish_month = self._score_month(converted_date.split("-")[0])
                 if publish_month == 0:
                     return None
 
-                today_month = self.__score_month(today_string.split("-")[0])
+                today_month = self._score_month(today_string.split("-")[0])
                 if today_month == 0:
                     return None
 
@@ -318,24 +328,22 @@ class book_site_kobo():
         except:
             return None      
 
-    """
-    args:
-        content (requests.get)
-            content is required in order to scrape the book's
-            title.
-    returns:
-        title (String):
-            title is the book's title that is being scraped.
-    synopsis:
-        The purpose of this function is to determine what the book's
-        title is.
-    """
-    def __get_book_title(self, content):
+
+    def _get_book_title(self, content):
+        """
+        args:
+            content (requests.get)
+                content is required in order to scrape the book's
+                title.
+        returns:
+            title (String):
+                title is the book's title that is being scraped.
+        synopsis:
+            The purpose of this function is to determine what the book's
+            title is.
+        """
         try:
-            parser = etree.HTMLParser(remove_pis=True)
-            tree = etree.parse(io.BytesIO(content), parser)
-            root = tree.getroot()
-            title_element = root.xpath(".//span[@class ='title product-field']")[0]
+            title_element = _parse(content, ".//span[@class ='title product-field']")
             title = title_element.text
             soup = BeautifulSoup(title, features='lxml')
             text = soup.get_text()
@@ -343,75 +351,89 @@ class book_site_kobo():
         except:
             return None
 
-    """
-    args:
-        content (requests.get):
-            content is required in order to scrape the book's cover
-            image url.
-    returns:
-        image_url (String):
-            image_url is the book's url for the book's cover
-            image.
-    synopsis:
-        This purpose of this function is to determine what the
-        url is for the cover image.
-    """
-    def __get_book_image_url(self, content):
-        try:
-            parser = etree.HTMLParser(remove_pis=True)
-            tree = etree.parse(io.BytesIO(content), parser)
-            root = tree.getroot()
-            xpath = ".//img[@class = 'cover-image  notranslate_alt']/@src"
-            book_image_url_element = root.xpath(xpath)[0]
+
+    def _get_book_price(self, content):
+        """
+        args:
+            content (requests.get)
+                content is required in order to scrape the book's
+                price.
+        returns:
+            price (String):
+                price is the book's price that is being scraped.
+        synopsis:
+            The purpose of this function is to determine what the book's
+            current price is.
+        """
+        try: 
+            price_element = _parse(content, ".//div[@class = 'price-wrapper']/span[@class = 'price']")
+            price = price_element.text
+            return price
+        except:
+            return None
+
+
+    def _get_book_image_url(self, content):
+        """
+        args:
+            content (requests.get):
+                content is required in order to scrape the book's cover
+                image url.
+        returns:
+            image_url (String):
+                image_url is the book's url for the book's cover
+                image.
+        synopsis:
+            This purpose of this function is to determine what the
+            url is for the cover image.
+        """
+        try: 
+            book_image_url_element = _parse(content, ".//img[@class = 'cover-image  notranslate_alt']/@src")
             book_image_url = "https:" + str(book_image_url_element)
             return book_image_url
         except:
             return None
-    """
-    args:
-        content (requests.get):
-            content is needed in order to scrape the book's
-            isbn_13.
-    returns:
-        isbn_13 (String):
-            isbn_13 is the book's isbn_13 that is being
-            scraped.
-    synopsis:
-        The purpose of this function is to determine the
-        book's isbn_13.
-    """
-    def __get_book_isbn_13(self, content):
+
+
+    def _get_book_isbn_13(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to scrape the book's
+                isbn_13.
+        returns:
+            isbn_13 (String):
+                isbn_13 is the book's isbn_13 that is being
+                scraped.
+        synopsis:
+            The purpose of this function is to determine the
+            book's isbn_13.
+        """
         try:
-            parser = etree.HTMLParser(remove_pis=True)
-            tree = etree.parse(io.BytesIO(content), parser)
-            root = tree.getroot()
-            xpath = ".//div[@class = 'bookitem-secondary-metadata']/ul/li[4]/span"
-            isbn_element = root.xpath(xpath)[0]
+            isbn_element = _parse(content, ".//div[@class = 'bookitem-secondary-metadata']/ul/li[4]/span")
             isbn13 = isbn_element.text
             return isbn13
         except:
             return None
     
-    """
-    args:
-        content (requests.get):
-            content is needed in order to scrape the book's
-            description
-    returns:
-        description (String):
-            description is the book's description that is
-            being scraped.
-    synopsis:
-        The purpose of this function is to determine what
-        the book's description
-    """
-    def __get_book_description(self, content):
+
+    def _get_book_description(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to scrape the book's
+                description
+        returns:
+            description (String):
+                description is the book's description that is
+                being scraped.
+        synopsis:
+            The purpose of this function is to determine what
+            the book's description
+        """
         try:
-            parser = etree.HTMLParser(remove_pis=True)
-            tree = etree.parse(io.BytesIO(content), parser)
-            root = tree.getroot()
-            xpath = ".//div[@class = 'synopsis-description']"
-            description_element = root.xpath(xpath)[0]
+
+            description_element = _parse(content, ".//div[@class = 'synopsis-description']")
             description = etree.tostring(description_element, encoding = 'utf8', method = 'xml')
             soup = BeautifulSoup(description, features='lxml')
             text = soup.get_text()
@@ -420,29 +442,26 @@ class book_site_kobo():
         except:
             return None
 
-    """
-    args:
-        content (requests.get):
-            content is needed in order to scrape the book's
-            series title
-    returns:
-        series_title (String):
-            series_title is the book series title that is
-            being scraped if it is exists.
-    synopsis:
-        The purpose of this function is to determine what
-        the series title is.
-    """
 
-    def __get_book_series(self, content):
+
+    def _get_book_series(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to scrape the book's
+                series title
+        returns:
+            series_title (String):
+                series_title is the book series title that is
+                being scraped if it is exists.
+        synopsis:
+            The purpose of this function is to determine what
+            the series title is.
+        """
         try:
-            parser = etree.HTMLParser(remove_pis=True)
-            tree = etree.parse(io.BytesIO(content), parser)
-            root = tree.getroot()
-            xpath = ".//span[@class = 'product-sequence-field']/a"
-            series_title__element = root.xpath(xpath)
+            series_title__element = Par_Scrape.parse(content, ".//span[@class = 'product-sequence-field']/a")
             if (len(series_title__element)>0):
-                series_title__element = root.xpath(xpath)[0]
+                series_title__element = _parse(content, ".//span[@class = 'product-sequence-field']/a")
                 series_title = series_title__element.text
             else:
                 series_title = 'None'
@@ -456,7 +475,7 @@ class book_site_kobo():
         The programmer was unable to determine a way in such,
         that a subtitle could not be scraped.
     """
-    def __get_book_volume_number(self, content):
+    def _get_book_volume_number(self, content):
         return None
 
     """
@@ -464,87 +483,83 @@ class book_site_kobo():
         The programmer was unable to determine a way in such,
         that a subtitle could not be scraped.
     """
-    def __get_book_subtitle(self, content):
+    def _get_book_subtitle(self, content):
         return None
 
-    """
-    args:
-        content (requests.get):
-            content is needed in order to get the authors
-            names.
-    returns:
-        authors (String):
-            authors is the book's authors
-    synopsis:
-        The purpose of this function is to determine what the
-        authors are for the book being scraped.
-    """
-    def __get_book_authors(self, content):
-        try:
-            parser = etree.HTMLParser(remove_pis=True)
-            tree = etree.parse(io.BytesIO(content), parser)
-            root = tree.getroot()
-            xpath = ".//a[@class = 'contributor-name']"
-            author_element = root.xpath(xpath)[0]
+
+    def _get_book_authors(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to get the authors
+                names.
+        returns:
+            authors (String):
+                authors is the book's authors
+        synopsis:
+            The purpose of this function is to determine what the
+            authors are for the book being scraped.
+        """
+        try: 
+            author_element = _parse(content, ".//a[@class = 'contributor-name']")
             author = author_element.text
             return author    
         except:
             return None
     
-    """
-    args:
-        content (requests.get):
-            content is needed in order to scrape the book's url.
-    returns:
-        book_final_url (String):
-            book_final_url is book's url that is normally used, as determined
-            by the website.
-    synopsis:
-        The purpose of this function is to determine what the book's
-        url is that is being scraped.  This is required in order for
-        functions to work properly.
-    """
-    def __get_book_url(self, content):
+
+    def _get_book_url(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to scrape the book's url.
+        returns:
+            book_final_url (String):
+                book_final_url is book's url that is normally used, as determined
+                by the website.
+        synopsis:
+            The purpose of this function is to determine what the book's
+            url is that is being scraped.  This is required in order for
+            functions to work properly.
+        """
         try:
-            parser = etree.HTMLParser(remove_pis=True)
-            tree = etree.parse(io.BytesIO(content), parser)
-            root = tree.getroot()
-            xpath = ".//meta[@property='og:url']/@content"
-            book_final_url_element = root.xpath(xpath)[0]
+            book_final_url_element = _parse(content, ".//meta[@property='og:url']/@content")
             book_final_url = book_final_url_element;
             return book_final_url;
         except:
             return None
 
-    """
-    args:
-        url (String):
-            url is used to scrape the book's site_slug
-    returns:
-        site_slug (String):
-            site_slug is the website's ID.
-    synopsis:
-        The purpose of this function is to determine what the
-        book's site_slug is.
-    """
-    def __get_book_site_slug(self):
+
+    def _get_book_site_slug(self):
+        """
+        args:
+            url (String):
+                url is used to scrape the book's site_slug
+        returns:
+            site_slug (String):
+                site_slug is the website's ID.
+        synopsis:
+            The purpose of this function is to determine what the
+            book's site_slug is.
+        """
         return "KB"
 
-    """
-    args:
-        content (requests.get):
-            content is needed in order to scrape the book's id.
-    returns:
-        book_id (String):
-            id is the book's id, as determined by the website
-    synopsis:
-        The purpose of this function is to determine what the
-        book's id that is being scraped, using the already
-        scraped site_slug
-    """
-    def __get_book_id(self, content):
+
+    def _get_book_id(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to scrape the book's id.
+        returns:
+            book_id (String):
+                id is the book's id, as determined by the website
+        synopsis:
+            The purpose of this function is to determine what the
+            book's id that is being scraped, using the already
+            scraped site_slug
+        """
         try:
-            url = self.__get_book_url(content)
+            url = self._get_book_url(content)
             first = "en/"
             last = ""
             start = url.rindex(first) + len(first)
@@ -556,24 +571,21 @@ class book_site_kobo():
 
     
 
-    """
-    args:
-        content (requests.get):
-            content is needed in order to scrape the book's format.
-    returns:
-        format (String):
-            format is what type of book was scraped
-    synopsis:
-        The purpose of this function is to determine what kind of
-        book is being scraped.
-    """
-    def __get_book_format(self, content):
+
+    def _get_book_format(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to scrape the book's format.
+        returns:
+            format (String):
+                format is what type of book was scraped
+        synopsis:
+            The purpose of this function is to determine what kind of
+            book is being scraped.
+        """
         try: 
-           parser = etree.HTMLParser(remove_pis=True)
-           tree = etree.parse(io.BytesIO(content), parser)
-           root = tree.getroot()
-           xpath = ".//div[@class = 'bookitem-secondary-metadata']/h2"
-           book_format_element = root.xpath(xpath)[0]
+           book_format_element = _parse(content, ".//div[@class = 'bookitem-secondary-metadata']/h2")
            book_format = book_format_element.text
            book_format = book_format.split()
            book_format = book_format[0]
@@ -586,23 +598,24 @@ class book_site_kobo():
         except:
             return None
 
-    """
-    args:
-        content (request.get):
-            Content is required to scarpe the all links in the search results
-    returns:
-        list_of_matches_urls:
-            This is a list of links that is located on the url
-            that is passed.
-        (None):
-            This is returned if the url passed is not an
-            acceptable input.
-    synopsis:
-        The purpose of this function is to parse the url that is
-        passed, and search for book url's dependent upon the url.
-        It will return a list of the book url's.
-    """
-    def __get_book_links_from_search_site(self, content):
+
+    def _get_book_links_from_search_site(self, content):
+        """
+        args:
+            content (request.get):
+                Content is required to scarpe the all links in the search results
+        returns:
+            list_of_matches_urls:
+                This is a list of links that is located on the url
+                that is passed.
+            (None):
+                This is returned if the url passed is not an
+                acceptable input.
+        synopsis:
+            The purpose of this function is to parse the url that is
+            passed, and search for book url's dependent upon the url.
+            It will return a list of the book url's.
+        """
         try:
             parser = etree.HTMLParser(remove_pis=True)
             tree = etree.parse(io.BytesIO(content), parser)
@@ -618,26 +631,27 @@ class book_site_kobo():
         except:
             return None
 
-    """
-    args:
-        url (url):
-            url is the search page url with all the queries included.
-        formatting(String):
-            formatting is the string that decides if we are searching for audiobook oe ebook
-    returns:
-        url:
-            url that was passed if no formatting is required
-        url + formatting:
-            url with the filter using the formatting
 
-        (None):
-            This is returned if the url passed is not an
-            acceptable input.
-    synopsis:
-        The purpose of this function is to generate the final search url.
-    """
 
-    def __format_mechanize_url(self, formatting, url):
+    def _format_mechanize_url(self, formatting, url):
+        """
+        args:
+            url (url):
+                url is the search page url with all the queries included.
+            formatting(String):
+                formatting is the string that decides if we are searching for audiobook oe ebook
+        returns:
+            url:
+                url that was passed if no formatting is required
+            url + formatting:
+                url with the filter using the formatting
+
+            (None):
+                This is returned if the url passed is not an
+                acceptable input.
+        synopsis:
+            The purpose of this function is to generate the final search url.
+        """
         if formatting == None:
             return url
         else:
@@ -649,22 +663,22 @@ class book_site_kobo():
                 return url
         return None
 
-    """
-    args:
-        search (String):
-            Search includes all the keywords which will be used to filter the search results
 
-    returns:
-        link:
-            url that can be used to search for relevant books
+    def _Is_Search_Valid(self, search):    
+        """
+        args:
+            search (String):
+                Search includes all the keywords which will be used to filter the search results
 
-        (None):
-            if the url is invalid or produces no search results.
-    synopsis:
-        The purpose of this function is to generate a search url.
-    """
+        returns:
+            link:
+                url that can be used to search for relevant books
 
-    def __Is_Search_Valid(self, search):
+            (None):
+                if the url is invalid or produces no search results.
+        synopsis:
+            The purpose of this function is to generate a search url.
+         """
         br = mechanize.Browser()
         br.set_handle_robots(False)
         br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
@@ -683,33 +697,30 @@ class book_site_kobo():
         #Parse and ensure link has results, and does not return a 404 error page
         response = requests.get(link)
         content = response.content
-        
-        parser = etree.HTMLParser(remove_pis=True)
-        tree = etree.parse(io.BytesIO(content), parser)
-        root = tree.getroot()
-        xpath = ".//p[@class='title product-field']/a/@href"
-        num_links = len(root.xpath(xpath))
+         
+        num_links = len(Par_Scrape.parse(content, ".//p[@class='title product-field']/a/@href"))
         if (num_links == 0):
             return None
         else:
             return link
 
-    """
-    args:
-        book_data (Python List):
-            It includes book attributes that will be used as keywords for search purposes.
 
-    returns:
-        link:
-            url that can be used to search for relevant books
-
-        (None):
-            if the url is invalid or produces no search results.
-    synopsis:
-        The purpose of this function is to generate a search url.
-    """
 
     def get_search_link_from_book_data_form(self, book_data):
+        """
+        args:
+            book_data (Python List):
+                It includes book attributes that will be used as keywords for search purposes.
+
+        returns:
+            link:
+                url that can be used to search for relevant books
+
+            (None):
+                if the url is invalid or produces no search results.
+        synopsis:
+            The purpose of this function is to generate a search url.
+        """
         book_title = book_data[1]
         book_ISBN = book_data[4]
         book_author = book_data[9]
@@ -734,13 +745,13 @@ class book_site_kobo():
                 what_to_search += book_author
                 was_previous = True
             
-            link = self.__Is_Search_Valid(what_to_search)
+            link = self._Is_Search_Valid(what_to_search)
             if link == None:
                 return None
 
         else:
             return None
 
-        formatted_link = self.__format_mechanize_url(book_data[0], link)
+        formatted_link = self._format_mechanize_url(book_data[0], link)
 
         return formatted_link

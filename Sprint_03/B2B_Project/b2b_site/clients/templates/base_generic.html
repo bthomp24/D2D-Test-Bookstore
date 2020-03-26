@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block title %}<title>Draft 2 Digital</title>{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Big Shoulders Text' rel='stylesheet'>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
+    <script src="{% static 'js/app.js' %}"></script>
+</head>
+
+<body onload="start()">
+    <div class="header">
+        <img src="https://draft2digital-prod-static.s3.amazonaws.com/img/outer/d2d-logo-dark.png" alt="Company Icon"
+            align="center" width="383" height="73">
+
+    </div>
+    <div class= "body">
+        {% block body %}{% endblock %}
+    </div>
+</body>
+
+</html>
