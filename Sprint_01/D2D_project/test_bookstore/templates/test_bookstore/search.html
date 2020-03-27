@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+{% load static %}
+{% load django_tables2 %}
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'test_bookstore/search_page_style.css' %}">
+        <style>
+        table{
+            background-color:white;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            width: 80%;
+            font-size: 120%;
+            border-bottom: 1px solid black;
+            align-items:left;
+        }
+        th, td {
+             padding: 15px;
+             border-bottom: 1px solid black;
+             text-align: left;
+        }
+
+        .center .form {
+            border-radius: 25px;
+            padding: 20px; 
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            font-size: 120%;
+      
+        }
+
+        .icon {
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+            font-size: 120%;
+        }
+        input[type=text] {
+            border: none;
+            border-radius: 8px;
+            font-size: 100%;
+            padding: 2px;
+
+        }
+        input[type=submit] {
+            border-radius: 8px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 16px;
+            padding: 10px 8px;
+
+        }
+        .pagination {
+            display: inline-block;
+            align-items: center;
+            margin-left: 10%;
+        }
+
+        .pagination a {
+            color: whitesmoke;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            align-self: center;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color:#f4511e;
+            border-radius: 5px;
+        }
+        ul li{
+            display: inline;
+            align-items: center;
+        }
+
+        * {
+             box-sizing: border-box;
+        }
+        /* Style the header */
+        .header {
+            grid-area: header;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        /* The grid container */
+        .grid-container {
+            display: grid;
+            grid-template-areas: 
+                'header header header header header header' 
+                'middle middle middle middle middle middle';
+
+        } 
+        .middle {
+            height: 100%; /* Should be removed. Only for demonstration */
+        }
+        /* Style the middle column */
+        .middle {
+            grid-area: middle;
+        }
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media (max-width: 600px) {
+        .grid-container  {
+            grid-template-areas: 
+                'header header header header header header'  
+                'middle middle middle middle middle middle';
+        }
+        }
+
+        </style>
+    </head>
+    
+    <body>
+    <div class="grid-container">
+        <div class="header">
+    
+            {% block logo %}
+            <div class="icon" style="position:relative">     
+                <p style="font-size: 2.4em; color:whitesmoke;" align="center"><img src="https://draft2digital-prod-static.s3.amazonaws.com/img/outer/d2d-logo-dark-xs.png" alt="Company Icon" align="center"width="100" height="60">  Test Bookstore</p>
+            </div>
+            {% endblock logo %}
+
+        </div>
+        <div class="middle">
+            {% block searcher %}
+            <div class="center">
+                <form action="{% url 'test_bookstore:search' %}" method="post" class="form">
+                
+                    {{ form }}
+                    {% csrf_token %}
+                    <input type="submit" value="Search" id="searchButton">
+                </form>
+            </div>
+            {% endblock searcher %}
+            <div>
+                {% if "" not in results %}
+                    {% block table %}
+                        {% render_table table %}
+                    {% endblock table %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

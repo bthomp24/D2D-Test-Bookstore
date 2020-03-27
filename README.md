@@ -1,24 +1,13 @@
-# D2D-Test-Bookstore
+# D2D-Project
 
-This project is designed to funciton as a test bookstore for which we will test the Checkmate Library project.  It will function as a very basic bookstore, accepting ONIX files in order to add or update books within the database.
+This project is designed to be split into three sprints.
+* The First Sprint consists of a test bookstore. It has a web interface that allows a user to search a book.  It also contains an API with two endpoints, one for uploading an ONIX file, and another for processing an ONIX file that has been uploaded to the project.
+* The Second Sprint consists of a group of screen scrapers for several bookstores, known as Checkmate Library.  It also contains an API with a single endpoint, that allows a user to pass a Book_Site_Data, and recieve a list of possible results that has been rated based upon likeliness.
+* The Third Sprint consists of a Website that allows users to interact with the Checkmate Library.  This Sprint contains a database that remembers it's users and the companies, it will also remember the amount of searches that each person makes.
 
-### Installing
+### How to Use
 
-When creating your virtual environment, the .gitignore file has been customized to ignore a virtual environment with the name of 'venv'.  This is the recommendation for the name of your virtual environment.  Below is how to set that up.
-
-``` 
-py -m venv venv
-
-(CHANGE YOUR INTERPRETER TO THE VIRTUAL ENVIRONMENT)
-
-pip install -r pip_requirements.txt 
-```
-
-## Updating Pip Requirements
-
-```
-pip freeze > pip_requirements.txt
-```
+Each Sprint has its own README.md file, with the proper instructions on how to use and understand the contents of the sprint.  Each Sprint also requires its own Virtual Environment, this project has been configured with that in mind, and is designed for the Virtual Environment to be simply named "venv".
 
 ## Acknowledgements
 
