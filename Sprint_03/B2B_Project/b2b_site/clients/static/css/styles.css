@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Big Shoulders Text';
+}
+h3 {
+    font-family: 'Big Shoulders Text';
+}
+
+/* Style the header */
+.header {
+    background-color: #2e1572;
+    padding: 30px;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+/* Container for flexboxes */
+.row {
+    display: -webkit-flex;
+    display: flex;
+}
+
+/* Create three unequal columns that sits next to each other */
+.column {
+    padding: 10px;
+    height: 900px;
+    /* Should be removed. Only for demonstration */
+}
+
+/* Left and right column */
+.column.sidebar {
+    -webkit-flex: 0.5;
+    -ms-flex: 0.5;
+    flex: 0.5;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+
+.column.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color:#f1f1f1 ;
+    display: block;
+    font-family: 'Big Shoulders Text';
+    background-color: #ff6500;
+    width: 40%;
+    margin-left: 5%;
+}
+.column.sidebar p {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color:#f1f1f1 ;
+    display: block;
+    font-family: 'Big Shoulders Text';
+}
+
+.column.sidebar a:hover {
+    color: #818181;
+}
+
+/* Middle column */
+.column.middle {
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+}
+
+/* Style the footer */
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .row {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+}
+
+/*styling for menu bar*/
+.search_nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.search_nav li {
+    float: right;
+    border-right: 2px solid #bbb;
+    border-left: 2px solid #bbb;
+}
+
+.search_nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Big Shoulders Text';
+}
+
+.search_nav li a:hover {
+    background-color: #111;
+}
+
+#active {
+    background-color: #ff6500;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #bbb;
+    color: white;
+    float: right;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 50%;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Big Shoulders Text';
+    border-right: 2px solid #ff6500;
+    border-left: 2px solid #ff6500;
+  }
+  
+  .tablink:hover {
+    background-color: #ff6500;
+  }
+  
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent {
+    color: black;
+    display: none;
+    padding: 100px 20px;
+    font-size: 25px;
+    height: 100%;
+  }
+
+#JSON {
+    background-color: gainsboro;
+}
+
+#MANUAL {
+    background-color: gainsboro;
+}

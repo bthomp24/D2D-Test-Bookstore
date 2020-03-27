@@ -16,16 +16,13 @@ Including another URLconf
 from django.urls import path
 from django.contrib import admin
 from django.urls import include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
-
-urlpatterns += [
-    path('clients/', include('clients.urls')),
-]
-
+# Add URL maps to redirect the base URL to our application
+from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('clients/', include('clients.urls')),
+    path('', RedirectView.as_view(url='clients/', permanent=True)),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
