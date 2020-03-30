@@ -6,10 +6,24 @@
     <button class="tablink" onclick="openPage('JSON', this)">Search via JSON</button>
     <button class="tablink" onclick="openPage('MANUAL', this)" id="defaultOpen">Search via Form</button>
     <div id="JSON" class="tabcontent">
-        <h3>JSON form goes here</h3>
+        <form method = "post">
+            {% csrf_token %}
+            <table>
+                {{ json_form.as_table }}
+            </table>
+            <button type="submit" class = "submitbtn" style="vertical-align:middle" value  ="json"> <span>Submit</span></button>
+            
+        </form>
     </div>
     <div id="MANUAL" class="tabcontent">
-        <h3>Search form goes here</h3>
+        <form method = "post">
+            {% csrf_token %}
+            <table>
+                {{ manual_form.as_table }}
+            </table>
+            <button type="submit" class = "submitbtn" style="vertical-align:middle" value = "manual"> <span>Submit</span></button>
+            
+        </form>
     </div>
 </div>
 

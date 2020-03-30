@@ -4,12 +4,11 @@
 
 <div class="row">
     <div class="column sidebar">
-        <p><i class="fa fa-fw fa-user"></i> Client: Daniel Guill</p>
-        <p><i class="fas fa-city"></i> Company: Paycom LLC</p>
-        <p><i class="fa fa-fw fa-envelope"></i> Email: daniel.guill@eagles.oc.edu</p>
-        <p><i class="fas fa-question-circle"></i> Queries: 10</p>
-        <a href="#services"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
-
+        <p><i class="fa fa-fw fa-user"></i> Client: {{ user.username }}</p>
+        <p><i class="fas fa-city"></i> Company: {{ user.user.company }}</p>
+        <p><i class="fa fa-fw fa-envelope"></i> Email: {{ user.user.email }}</p>
+        <p><i class="fas fa-question-circle"></i> Queries: {{ user.user.queries }}</p>
+        <a href="{% url 'login' %}"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
     </div>
 
     <div class="column middle" style="background-color:white;">
