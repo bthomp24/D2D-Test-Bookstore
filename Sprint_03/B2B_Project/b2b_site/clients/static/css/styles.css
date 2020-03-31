@@ -237,3 +237,39 @@ table {
     font-size: 25px;
     font-family: 'Big Shoulders Text';
   }
+
+  #navbar {
+    overflow: hidden;
+    background-color: #333;
+    margin-top: 25px;
+  }
+  
+  #navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    border-right: 2px solid #bbb;
+  }
+  
+  #navbar a:hover {
+    background-color: #ff6500;
+    color: #FFFFFF;
+  }
+  .content {
+    padding: 16px;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 93%;
+  }
+  
+  .sticky + .content {
+    padding-top: 60px;
+  }
+  
