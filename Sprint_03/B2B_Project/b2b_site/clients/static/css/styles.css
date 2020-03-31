@@ -29,8 +29,7 @@ h3 {
 /* Create three unequal columns that sits next to each other */
 .column {
     padding: 10px;
-    height: 900px;
-    /* Should be removed. Only for demonstration */
+    height: 820px;
 }
 
 /* Left and right column */
@@ -266,7 +265,7 @@ table {
   .sticky {
     position: fixed;
     top: 0;
-    width: 93%;
+    width: 95%;
   }
   
   .sticky + .content {
