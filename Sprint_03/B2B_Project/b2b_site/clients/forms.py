@@ -1,4 +1,6 @@
 from django import forms
+from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext_lazy as _
 
 class MultipleForm(forms.Form):
     action = forms.CharField(max_length=60, widget=forms.HiddenInput())
@@ -33,3 +35,23 @@ class JsonForm(MultipleForm):
         json_code = self.cleaned_data['json_code']
         return json_code
 
+class PasswordResetForm(forms.Form):
+    old_password = forms.CharField(max_length=32, widget=forms.PasswordInput(attrs={'placeholder': 'Enter Title of the Book', 'size':40}))
+    new_password = forms.CharField(max_length=32, widget=forms.PasswordInput(attrs={'placeholder': 'Enter Title of the Book', 'size':40}))
+    confirm_new_password = forms.CharField(max_length=32, widget=forms.PasswordInput(attrs={'placeholder': 'Enter Title of the Book', 'size':40}))
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super(PasswordResetForm, self).__init__(*args, **kwargs)
+    
+    def clean_old_password(self):
+        data = self.cleaned_data['old_password']
+
+        if data != self.user.password:
+            raise ValidationError(_('Invalid Password Entered'))
+    def clean_confirm_new_password(self):
+        data = self.cleaned_data['confirmed_new_password']
+        new_password = self.cleaned_data['new_password']
+
+        if data != new_password:
+            raise ValidationError(_('Passwords do not Match.')) 

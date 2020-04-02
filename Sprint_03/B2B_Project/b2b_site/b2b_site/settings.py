@@ -142,3 +142,5 @@ STATIC_URL = '/static/'
 
 # Redirect to login URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/clients/search/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

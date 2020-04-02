@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Big Shoulders Text';
+    font-size: 25px;
 }
 h3 {
     font-family: 'Big Shoulders Text';
@@ -29,7 +30,7 @@ h3 {
 /* Create three unequal columns that sits next to each other */
 .column {
     padding: 10px;
-    height: 820px;
+    height: fit-content;
 }
 
 /* Left and right column */
@@ -179,7 +180,7 @@ table {
   .loginbtn{
     margin: 0 auto;
     display: block;
-    font-size: 18px;
+    font-size: 22px;
     font-family: 'Big Shoulders Text';
   }
 
@@ -272,3 +273,75 @@ table {
     padding-top: 60px;
   }
   
+  /*css for manage account page*/
+  
+  .accInfo {
+    width: 25%;
+  background-color: #000;
+  color: #FFF;
+  cursor: pointer;
+  padding: 16px 16px 16px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 2px solid whitesmoke;
+  text-align: left;
+  outline: none;
+  font-size: 25px;
+  transition: 0.4s;
+  font-family: 'Big Shoulders Text';
+  border-radius: 12px;
+  margin-top: 6px;
+}
+
+.accInfo:hover {
+  background-color: #ffc300;
+  color: #FFFFFF;
+}
+
+.accInfo:after {
+  font-family: "Font Awesome 5 Free";
+  content: '\f044';
+  color: #000;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.ReLogin{
+  background-color: #bbb;
+  color: #000;
+  cursor: pointer;
+  padding: 16px 16px 16px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 2px solid whitesmoke;
+  text-align: center;
+  outline: none;
+  font-size: 25px;
+  transition: 0.4s;
+  font-family: 'Big Shoulders Text';
+  margin:0 auto;
+  width: fit-content;
+}
+
+.ReLogin:hover {
+  background-color: #ffc300;
+  color: #FFFFFF;
+}
+
+.accMenu p{
+  width: 50%;
+  background-color: #bbb;
+  color: #000;
+  cursor: pointer;
+  padding: 16px 16px 16px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 2px solid #fff;
+  text-align: left;
+  outline: none;
+  font-size: 25px;
+  transition: 0.4s;
+  font-family: 'Big Shoulders Text';
+  margin: 0;
+}

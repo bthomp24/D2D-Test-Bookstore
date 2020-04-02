@@ -8,11 +8,13 @@ from .forms import SearchManualForm, JsonForm
 
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
 
-class MainView(TemplateView):
+class MainView(LoginRequiredMixin,TemplateView):
     template_name = "search.html"
 
     def get(self, request, *args, **kwargs):
@@ -107,3 +109,10 @@ def login(request):
         "form": form
     }
     return render(request, 'registration/login.html', context=context)
+
+@login_required
+def manage_account(request):
+    context = {
+    }
+    return render(request, 'manage_account.html', context=context)
+
