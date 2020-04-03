@@ -1,3 +1,5 @@
+
+
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, get_object_or_404
@@ -8,6 +10,9 @@ from .forms import SearchManualForm, JsonForm
 
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
+
+
+
 
 # Create your views here.
 
