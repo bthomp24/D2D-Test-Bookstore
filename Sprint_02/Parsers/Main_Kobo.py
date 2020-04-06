@@ -598,9 +598,9 @@ class book_site_kobo():
            else:
                 book_format = None
 
-            return book_format
+           return book_format
         except:
-            return None
+           return None
 
 
     def _get_book_links_from_search_site(self, content):
