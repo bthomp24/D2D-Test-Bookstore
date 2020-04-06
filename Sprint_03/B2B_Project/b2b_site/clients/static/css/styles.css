@@ -345,3 +345,12 @@ table {
   font-family: 'Big Shoulders Text';
   margin: 0;
 }
+
+.loadingInfo {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loadingInfo i{
+  font-size: 100px;
+}
