@@ -1,8 +1,10 @@
 .vscode
 Sprint_01/.vscode
 Sprint_02/.vscode
+Sprint_03..vscode
 venv/
 Sprint_01/venv
 Sprint_02/venv
-Sprint02/__pycache__//
-Sprint02/Parsers/__pycache__//
+Sprint_03/venv
+Sprint02/__pycache__
+Sprint02/Parsers/__pycache__
