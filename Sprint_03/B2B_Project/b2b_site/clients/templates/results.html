@@ -1,0 +1,41 @@
+{% extends "base_sidebar.html" %}
+
+{% block content %}
+
+<div class="column middle" style="background-color:white;">
+    <h1>Results Found In:</h1>
+    {% for site in site_list %}
+        <h2>{{ site.name }}:</h2>
+        {% if site.books|length > 1 %}
+            {% for book in site.books %}
+                {% if forloop.first %}
+                    <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
+                    <p class="inline-block-child">book test</p>
+                    <p class="inline-block-child">rating</p>
+                    
+                    <button class="accordion">More Results</button>
+                    <div class="panel">
+                {% elif forloop.last %}
+                        <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
+                        <p class="inline-block-child">test</p>
+                        <p class="inline-block-child">rating</p>
+                    </div>
+                {% else %}
+                        <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
+                        <p class="inline-block-child">test</p>
+                        <p class="inline-block-child">rating</p>
+                {% endif %}
+            {% endfor %}
+        {% elif site.books|length == 1 %}
+            {% for book in site.books %}
+                <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
+                <p class="inline-block-child">test</p>
+                <p class="inline-block-child">rating</p>
+            {% endfor %}
+        {% else %}
+            <p>No Results Found</p>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

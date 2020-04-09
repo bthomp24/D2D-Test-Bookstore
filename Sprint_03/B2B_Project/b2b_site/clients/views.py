@@ -102,6 +102,26 @@ def search(request):
     }
     return render(request, 'search.html', context=context)
 
+def results(request):
+
+    books = ['book','book2','book3']
+    site1 = {'name':'Kobo','books':books}
+
+    books2 = ['book','book2','book3']
+    site2 = {'name':'Google','books':books2}
+
+    books3 = []
+    site3 = {'name':'Livaria Cultura','books':books3}
+
+    books4 = ['bookis']
+    site4 = {'name':'Test Bookstore','books':books4}
+
+    site_list = [site1,site2,site3,site4]
+
+    context = {'site_list': site_list}
+
+    return render(request,'results.html',context=context)
+
 
 def login(request):
     form = AuthenticationForm

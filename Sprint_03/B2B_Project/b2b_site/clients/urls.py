@@ -10,5 +10,6 @@ urlpatterns = [
     path('', views.login, name = 'login_form'),
     path('search/', MainView.as_view(), name='search'),
     path('manage_account/', views.manage_account, name= 'manage_account'),
-    path('loading/',TemplateView.as_view(template_name='loading.html'))
+    path('loading/',TemplateView.as_view(template_name='loading.html')),
+    path('results/', views.results, name='results'),
 ]
