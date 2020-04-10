@@ -8,20 +8,40 @@ import json
 
 
 def search_checkmate(book_data):
+    list_data = book_data["bookdata"]
+    site_book_data = [
+        list_data["format"], #00-format (String)
+        list_data["title"], #01-book_title (String)
+        None, #02-book_image (PIL.Image)
+        list_data["image_url"], #03-book_image_url (String)
+        list_data["isbn13"], #04-isbn_13 (String)
+        list_data["description"], #05-description (String)
+        list_data["series"], #06-series (String)
+        list_data["volume_number"], #07-volume_number (Int)
+        list_data["subtitle"], #08-subtitle (String)
+        list_data["authors"], #09-authors (String)
+        None, #10-book_id (String)
+        None, #11-site_slug (String)
+        None, #12-parse_status (String)
+        None, #13-url (String)
+        None, #14-content (String)
+        None, #15-ready_for_sale (boolean)
+        None #16-extra (List[])
+        ] 
 
-    # google_books = Scrapers.get_book_site('gb')
-    # google_books.find_book_matches_at_site(book_data)
+    google_books = Scrapers.get_book_site('gb')
+    results = google_books.find_book_matches_at_site(site_book_data)
 
-    # kobo = Scrapers.get_book_site('kb')
-    # kobo.find_book_matches_at_site(book_data)
+    kobo = Scrapers.get_book_site('kb')
+    kobo.find_book_matches_at_site(site_book_data)
 
-    # livraria_cultura = Scrapers.get_book_site('lc')
-    # livraria_cultura.find_book_matches_at_site(book_data)
+    livraria_cultura = Scrapers.get_book_site('lc')
+    livraria_cultura.find_book_matches_at_site(site_book_data)
 
-    # scribd = Scrapers.get_book_site('sd')
-    # scribd.find_book_matches_at_site(book_data)
+    scribd = Scrapers.get_book_site('sd')
+    scribd.find_book_matches_at_site(site_book_data)
 
-    return book_data
+    return results
 
 if __name__ == "__main__":
 
