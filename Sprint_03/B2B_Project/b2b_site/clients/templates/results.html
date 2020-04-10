@@ -9,27 +9,27 @@
         {% if site.books|length > 1 %}
             {% for book in site.books %}
                 {% if forloop.first %}
-                    <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
-                    <p class="inline-block-child">{{ book.name }}</p>
+                    <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30" align="bottom">
+                    <p class="inline-block-child" title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
                     <p class="inline-block-child right-child">{{ book.rating }}%</p>
                     
                     <button class="accordion">More Results</button>
                     <div class="panel">
                 {% elif forloop.last %}
-                        <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
-                        <p class="inline-block-child">{{ book.name }}</p>
+                        <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30" align="middle">
+                        <p class="inline-block-child" title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
                         <p class="inline-block-child right-child">{{ book.rating }}%</p>
                     </div>
                 {% else %}
-                        <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
-                        <p class="inline-block-child">{{ book.name }}</p>
+                        <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30" align="middle">
+                        <p class="inline-block-child" title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
                         <p class="inline-block-child right-child">{{ book.rating }}%</p>
                 {% endif %}
             {% endfor %}
         {% elif site.books|length == 1 %}
             {% for book in site.books %}
-                <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
-                <p class="inline-block-child">{{ book.name }}</p>
+                <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30" align="middle">
+                <p class="inline-block-child" title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
                 <p class="inline-block-child right-child">{{ book.rating }}%</p>
             {% endfor %}
         {% else %}

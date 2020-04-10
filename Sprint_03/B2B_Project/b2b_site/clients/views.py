@@ -110,7 +110,7 @@ def results(request):
     books = [book,book2,book3]
     site1 = {'name':'Kobo','books':books}
 
-    book4 = {'name': 'Wowee','rating': 97.1}
+    book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','rating': 97.1}
     book5 = {'name': 'Campfire','rating': 67.4}
     book6 = {'name': 'Eh','rating': 65.5}
     books2 = [book4,book5,book6]
