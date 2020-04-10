@@ -10,27 +10,27 @@
             {% for book in site.books %}
                 {% if forloop.first %}
                     <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
-                    <p class="inline-block-child">book test</p>
-                    <p class="inline-block-child">rating</p>
+                    <p class="inline-block-child">{{ book.name }}</p>
+                    <p class="inline-block-child right-child">{{ book.rating }}%</p>
                     
                     <button class="accordion">More Results</button>
                     <div class="panel">
                 {% elif forloop.last %}
                         <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
-                        <p class="inline-block-child">test</p>
-                        <p class="inline-block-child">rating</p>
+                        <p class="inline-block-child">{{ book.name }}</p>
+                        <p class="inline-block-child right-child">{{ book.rating }}%</p>
                     </div>
                 {% else %}
                         <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
-                        <p class="inline-block-child">test</p>
-                        <p class="inline-block-child">rating</p>
+                        <p class="inline-block-child">{{ book.name }}</p>
+                        <p class="inline-block-child right-child">{{ book.rating }}%</p>
                 {% endif %}
             {% endfor %}
         {% elif site.books|length == 1 %}
             {% for book in site.books %}
                 <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="42" width="42">
-                <p class="inline-block-child">test</p>
-                <p class="inline-block-child">rating</p>
+                <p class="inline-block-child">{{ book.name }}</p>
+                <p class="inline-block-child right-child">{{ book.rating }}%</p>
             {% endfor %}
         {% else %}
             <p>No Results Found</p>

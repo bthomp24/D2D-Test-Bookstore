@@ -104,16 +104,23 @@ def search(request):
 
 def results(request):
 
-    books = ['book','book2','book3']
+    book = {'name': 'HHGreg','rating': 90.0}
+    book2 = {'name': 'Sing-a-long','rating': 87.0}
+    book3 = {'name': 'Why','rating': 78.3}
+    books = [book,book2,book3]
     site1 = {'name':'Kobo','books':books}
 
-    books2 = ['book','book2','book3']
+    book4 = {'name': 'Wowee','rating': 97.1}
+    book5 = {'name': 'Campfire','rating': 67.4}
+    book6 = {'name': 'Eh','rating': 65.5}
+    books2 = [book4,book5,book6]
     site2 = {'name':'Google','books':books2}
 
     books3 = []
     site3 = {'name':'Livaria Cultura','books':books3}
 
-    books4 = ['bookis']
+    book7 ={'name': 'Bookis','rating': 88.8}
+    books4 = [book7]
     site4 = {'name':'Test Bookstore','books':books4}
 
     site_list = [site1,site2,site3,site4]
