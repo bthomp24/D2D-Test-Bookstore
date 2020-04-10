@@ -13,8 +13,14 @@ admin.site.register(Site_Slug)
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'company', 'queries')
+    #list_display = ('get_lastname', 'email', 'company', 'queries')
+    list_display = ('get_lastname', 'email', 'company')
     filter = ('company')
+
+    def get_lastname(self,obj):
+        return obj.user.last_name
+    get_lastname.short_description = 'User'
+    get_lastname.admin_order_field = 'user__last_name'
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
