@@ -21,7 +21,7 @@ def search_checkmate(book_data):
     # scribd = Scrapers.get_book_site('sd')
     # scribd.find_book_matches_at_site(book_data)
 
-    return "in search"
+    return book_data
 
 if __name__ == "__main__":
 

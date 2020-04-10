@@ -42,8 +42,3 @@ class QueryInfo(models.Model):
     year = models.IntegerField(null=False, blank=False)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-class SearchCheckmate(models.Model):
-    title = models.CharField(max_length=500)
-    authors = models.CharField(max_length=500)
-    isbn = models.CharField(max_length=13)

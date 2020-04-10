@@ -13,7 +13,7 @@ from django.views.generic.edit import FormView
 
 from rest_framework import viewsets
 from rest_framework.views import APIView
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CheckmateSerializer
@@ -121,13 +121,15 @@ def login(request):
 
 
 class CheckmateView(APIView):
-    parser_classes = (MultiPartParser, FormParser)
+    parser_classes = (JSONParser, FormParser)
     
     def post(self, request, *args, **kwargs):
 
-        book_data = CheckmateSerializer(data=request.data)
-        if book_data.is_valid():
-            results = search_checkmate(book_data)
+        serializer = CheckmateSerializer(data=request.data)
+        if serializer.is_valid():
+            json = serializer.data
+            results = search_checkmate(json)
+            print(serializer.data)
             return Response(results, status=status.HTTP_201_CREATED)
         else:
-            return Response(book_data.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

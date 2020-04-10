@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from .models import SearchCheckmate
 
-class CheckmateSerializer (serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = SearchCheckmate
-        fields = ('title', 'authors', 'isbn')
+class SearchFields(object):
+    def __init__(self, bookdata):
+        self.bookdata = bookdata
+
+class CheckmateSerializer (serializers.Serializer):
+    bookdata = serializers.JSONField()
