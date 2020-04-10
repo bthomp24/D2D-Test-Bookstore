@@ -8,9 +8,12 @@ from bs4 import BeautifulSoup
 import mechanize
 import concurrent.futures
 
+
+URL = "https://www.audiobooks.com/"
 # URL = "https://www.audiobooks.com/search/book/flip"
-URL = "https://www.audiobooks.com/audiobook/146247"
+# URL = "https://www.audiobooks.com/audiobook/146247"
 # URL = "https://www.audiobooks.com/audiobook/good-omens-the-bbc-radio-4-dramatisation/331959"
+
 class book_site_audiobooks():
     def __init__(self, *args, **kwargs):
         self.content_table = "//*[@id='content']"
@@ -51,8 +54,19 @@ class book_site_audiobooks():
         format = self.__get_book_format()
 
     # Change url to Site Book Data when you prepare for the bar searching.
-    def find_book_matches_at_site(self, url):
-        results = self.__get_book_links_from_Search_site(url)
+    def find_book_matches_at_site(self, book_data):
+        if book_data[0].upper() != "AUDIOBOOK":
+            return None
+            
+        url_gotten_from_form = self.__get_search_link_from_book_data_form(book_data)
+
+        # check to ensure search page exists
+        if not url_gotten_from_form:
+            return None
+
+        site_book_data_total = []
+        for url in url_gotten_from_form:
+            results = self.__get_book_links_from_Search_site(book_data)
 
 
     def convert_book_id_to_url(self, book_id):
@@ -177,11 +191,53 @@ class book_site_audiobooks():
         print(relevant_urls)
         return relevant_urls
 
+    def __is_search_valid(self, search):
+        br = mechanize.Browser()
+        br.set_handle_robots(False)
+        br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
+        response = br.open("https://www.audiobooks.com/")
+        br.select_form("searchForm")
+        control = br.form.controls[0]
+
+        if control.type != "text":
+            return 
+
+        control.value = search
+        br.submit()
+        link = br.geturl()
+
+        #Newly Added
+        test_validity = requests.get(link)
+        returned = Par_Scrape.parse(test_validity.content, "//div[@class='browseContainer__bookItem flexer']")
+        if len(returned) != 0:
+            return None
+
+        return link
 
 
+    def __get_search_link_from_book_data_form(self, book_data):
+
+        book_title = book_data[1]
+        book_author = book_data[9]
+
+        # our string for the form
+        book_search = ""
+        links = []
+
+        if(book_title != None) or (book_author != None):
+
+            if book_title != None:
+                resultZero = self.__is_search_valid(book_title)
+                print(resultZero)
+
+            if book_author != None:
+                resultOne = self.__is_search_valid(book_author)
+
+
+book_data = ["audiobook", "flip", None, None, "9781423389309", None, None, None, None, "Patrick Roghfuss", None, "au", None, None, None, None, None]
 audiob = book_site_audiobooks()
 
-audiob.get_book_data_from_site(URL)
-# audiob.find_book_matches_at_site(URL)
+# audiob.get_book_data_from_site(URL)
+audiob.find_book_matches_at_site(book_data)
 # rip = requests.get(URL)
-# Par_Scrape.write_Response(rip, "SearchFlip")
+# Par_Scrape.write_Response(rip, "Formpage")
