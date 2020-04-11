@@ -357,32 +357,142 @@ table {
 
 .accordion {
   background-color: #eee;
+  border-radius: 12px;
   color: #444;
   cursor: pointer;
   padding: 18px;
   width: 100%;
-  border: none;
+  border: 2px, solid #999;
   text-align: left;
   outline: none;
-  font-size: 15px;
+  font-size: 25px;
   transition: 0.4s;
+  font-weight: bold;
+  font-family: 'Big Shoulders Text';
 }
 
 .active, .accordion:hover {
-  background-color: #ccc; 
+  background-color: #ffc300; 
 }
 
 .panel {
-  padding: 0 18px;
   display: none;
   background-color: white;
   overflow: hidden;
 }
 
-.inline-block-child {
-  display: inline-block;
+/* .accordion {
+  background-color: #333;
+  color: #eee;
+  cursor: pointer;
+  padding: 16px 16px 16px 16px;
+  width: 20%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 25px;
+  transition: 0.4s;
+  display: block;
+  font-family: 'Big Shoulders Text';
+  border-bottom: 4px solid #fff;
 }
 
-.rig-child {
-  text-align: right;
+.active, .accordion:hover {
+  background-color: #ffc300; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: #ccc;
+  overflow: hidden;
+  width: fit-content;
+} */
+
+.flex-child-first {
+  margin-left: 3%;
+}
+
+.flex-child-last {
+  margin-left: auto;
+  margin-right: 7%;
+}
+
+.flex-content {
+  border: 2px solid #999;
+  margin: 0 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.book-link:link {
+  text-decoration: none;
+  color: #000;
+}
+
+.book-link:visited {
+  text-decoration: none;
+  color: #000;
+}
+
+.book-link:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.book-link:active {
+  text-decoration: none;
+  color: #000;
+}
+
+.back-button {
+  border-radius: 4px;
+  background-color: #ffa600;
+  border: none;
+  color: #000000;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: 'Big Shoulders Text';
+  align-self: left;
+}
+
+.back-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.back-button span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.back-button:hover span {
+  padding-left: 25px;
+}
+
+.back-button:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.site-name {
+  margin-bottom: 10px;
 }

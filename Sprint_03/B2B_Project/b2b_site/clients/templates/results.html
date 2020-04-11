@@ -3,34 +3,57 @@
 {% block content %}
 
 <div class="column middle" style="background-color:white;">
-    <h1>Results Found In:</h1>
+    <div class="flex-heading">
+        <h1>Results Found In:</h1>
+        <a href="{% url 'search' %}" class="flex-child-last">
+            <button type="button" class="back-button">
+                <span>Back</span>
+            </button>
+        </a>
+    </div>
     {% for site in site_list %}
-        <h2>{{ site.name }}:</h2>
+        <h2 class="site-name">{{ site.name }}:</h2>
         {% if site.books|length > 1 %}
             {% for book in site.books %}
                 {% if forloop.first %}
-                    <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30" align="bottom">
-                    <p class="inline-block-child" title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
-                    <p class="inline-block-child right-child">{{ book.rating }}%</p>
-                    
+                    <a href="{{ book.link }}" target="_blank" class="book-link">
+                        <div class="flex-content">
+                            <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30">
+                            <p class="flex-child-first" title="{{ book.name }}">{{ book.name|truncatechars:35 }}</p>
+                            <p class="flex-child-last">Rating: {{ book.rating }}%</p>
+                        </div>
+                    </a>
+
                     <button class="accordion">More Results</button>
                     <div class="panel">
                 {% elif forloop.last %}
-                        <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30" align="middle">
-                        <p class="inline-block-child" title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
-                        <p class="inline-block-child right-child">{{ book.rating }}%</p>
+                        <a href="{{ book.link }}" target="_blank" class="book-link">
+                            <div class="flex-content">
+                                <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30">
+                                <p class="flex-child-first" title="{{ book.name }}">{{ book.name|truncatechars:35 }}</p>
+                                <p class="flex-child-last">Rating: {{ book.rating }}%</p>
+                            </div>
+                        </a>
                     </div>
                 {% else %}
-                        <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30" align="middle">
-                        <p class="inline-block-child" title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
-                        <p class="inline-block-child right-child">{{ book.rating }}%</p>
+                        <a href="{{ book.link }}" target="_blank" class="book-link">
+                            <div class="flex-content">
+                                <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30">
+                                <p class="flex-child-first" title="{{ book.name }}">{{ book.name|truncatechars:35 }}</p>
+                                <p class="flex-child-last">Rating: {{ book.rating }}%</p>
+                            </div>
+                        </a>
                 {% endif %}
             {% endfor %}
         {% elif site.books|length == 1 %}
             {% for book in site.books %}
-                <img class="inline-block-child" src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30" align="middle">
-                <p class="inline-block-child" title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
-                <p class="inline-block-child right-child">{{ book.rating }}%</p>
+                <a href="{{ book.link }}" target="_blank" class="book-link">
+                    <div class="flex-content">
+                        <img  src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30" >
+                        <p title="{{ book.name }}">{{ book.name|truncatechars:35 }}</p>
+                        <p class="flex-child-last">Rating: {{ book.rating }}%</p>
+                    </div>
+                </a>
             {% endfor %}
         {% else %}
             <p>No Results Found</p>

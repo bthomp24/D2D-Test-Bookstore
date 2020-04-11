@@ -104,22 +104,22 @@ def search(request):
 
 def results(request):
 
-    book = {'name': 'HHGreg','rating': 90.0}
-    book2 = {'name': 'Sing-a-long','rating': 87.0}
-    book3 = {'name': 'Why','rating': 78.3}
+    book = {'name': 'HHGreg','rating': 90.0,'link':'https://www.mariowiki.com/Luigi'}
+    book2 = {'name': 'Sing-a-long','rating': 87.0,'link':'https://www.mariowiki.com/Luigi'}
+    book3 = {'name': 'Why','rating': 78.3,'link':'https://www.mariowiki.com/Luigi'}
     books = [book,book2,book3]
     site1 = {'name':'Kobo','books':books}
 
-    book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','rating': 97.1}
-    book5 = {'name': 'Campfire','rating': 67.4}
-    book6 = {'name': 'Eh','rating': 65.5}
+    book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','rating': 97.1,'link':'https://www.mariowiki.com/Luigi'}
+    book5 = {'name': 'Campfire','rating': 67.4,'link':'https://www.mariowiki.com/Luigi'}
+    book6 = {'name': 'Eh','rating': 65.5,'link':'https://www.mariowiki.com/Luigi'}
     books2 = [book4,book5,book6]
     site2 = {'name':'Google','books':books2}
 
     books3 = []
     site3 = {'name':'Livaria Cultura','books':books3}
 
-    book7 ={'name': 'Bookis','rating': 88.8}
+    book7 ={'name': 'Bookis','rating': 88.8,'link':'https://www.mariowiki.com/Luigi'}
     books4 = [book7]
     site4 = {'name':'Test Bookstore','books':books4}
 
