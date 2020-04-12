@@ -18,8 +18,15 @@
                 {% if forloop.first %}
                     <a href="{{ book.link }}" target="_blank" class="book-link">
                         <div class="flex-content">
-                            <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30">
-                            <p class="flex-child-first" title="{{ book.name }}">{{ book.name|truncatechars:35 }}</p>
+                            <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="96" width="60">
+                            <div class="flex-child-first">
+                                <p title="{{ book.name }}">{{ book.name|truncatechars:60 }}</p>
+                            {% if ',' in book.author %}
+                                <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:50 }}</p>
+                            {% else %}
+                                <p title="{{ book.author }}">Author: {{ book.author|truncatechars:50 }}</p>
+                            {% endif %}
+                            </div>
                             <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                         </div>
                     </a>
@@ -29,8 +36,15 @@
                 {% elif forloop.last %}
                         <a href="{{ book.link }}" target="_blank" class="book-link">
                             <div class="flex-content">
-                                <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30">
-                                <p class="flex-child-first" title="{{ book.name }}">{{ book.name|truncatechars:35 }}</p>
+                                <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="96" width="60">
+                                <div class="flex-child-first">
+                                    <p title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
+                                {% if ',' in book.author %}
+                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:24 }}</p>
+                                {% else %}
+                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:25 }}</p>
+                                {% endif %}
+                                </div>
                                 <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                             </div>
                         </a>
@@ -38,8 +52,15 @@
                 {% else %}
                         <a href="{{ book.link }}" target="_blank" class="book-link">
                             <div class="flex-content">
-                                <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30">
-                                <p class="flex-child-first" title="{{ book.name }}">{{ book.name|truncatechars:35 }}</p>
+                                <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="96" width="60">
+                                <div class="flex-child-first">
+                                    <p title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
+                                {% if ',' in book.author %}
+                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:24 }}</p>
+                                {% else %}
+                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:25 }}</p>
+                                {% endif %}
+                                </div>
                                 <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                             </div>
                         </a>
@@ -49,8 +70,15 @@
             {% for book in site.books %}
                 <a href="{{ book.link }}" target="_blank" class="book-link">
                     <div class="flex-content">
-                        <img  src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="48" width="30" >
-                        <p title="{{ book.name }}">{{ book.name|truncatechars:35 }}</p>
+                        <img  src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="96" width="60" >
+                        <div class="flex-child-first">
+                            <p title="{{ book.name }}">{{ book.name|truncatechars:60 }}</p>
+                        {% if ',' in book.author %}
+                            <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:49 }}</p>
+                        {% else %}
+                            <p title="{{ book.author }}">Author: {{ book.author|truncatechars:50 }}</p>
+                        {% endif %}
+                        </div>
                         <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                     </div>
                 </a>

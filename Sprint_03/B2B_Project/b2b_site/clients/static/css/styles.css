@@ -355,7 +355,7 @@ table {
   font-size: 100px;
 }
 
-.accordion {
+/* .accordion {
   background-color: #eee;
   border-radius: 12px;
   color: #444;
@@ -379,21 +379,21 @@ table {
   display: none;
   background-color: white;
   overflow: hidden;
-}
+} */
 
-/* .accordion {
+.accordion {
   background-color: #333;
   color: #eee;
   cursor: pointer;
   padding: 16px 16px 16px 16px;
   width: 20%;
-  border: none;
   text-align: left;
   outline: none;
   font-size: 25px;
   transition: 0.4s;
   display: block;
   font-family: 'Big Shoulders Text';
+  border-top: 4px solid #fff;
   border-bottom: 4px solid #fff;
 }
 
@@ -402,24 +402,29 @@ table {
 }
 
 .panel {
-  padding: 0 18px;
+  /* padding: 16px 16px 16px 16px; */
   display: none;
-  background-color: #ccc;
+  padding: 0 18px;
   overflow: hidden;
-  width: fit-content;
-} */
+  width: 50%;
+}
 
 .flex-child-first {
+  font-size: 30px;
   margin-left: 3%;
 }
 
 .flex-child-last {
+  font-size: 30px;
   margin-left: auto;
   margin-right: 7%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .flex-content {
   border: 2px solid #999;
+  border-radius: 5px;
   margin: 0 7px;
   display: flex;
   flex-direction: row;
@@ -429,6 +434,12 @@ table {
 .flex-heading {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.flex-book-info {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -444,7 +455,8 @@ table {
 
 .book-link:hover {
   text-decoration: none;
-  color: #000;
+  color: #ffa600;
+  transition: 0.1s;
 }
 
 .book-link:active {
@@ -494,5 +506,6 @@ table {
 }
 
 .site-name {
+  margin-top: 25px;
   margin-bottom: 10px;
 }

@@ -104,22 +104,23 @@ def search(request):
 
 def results(request):
 
-    book = {'name': 'HHGreg','rating': 90.0,'link':'https://www.mariowiki.com/Luigi'}
-    book2 = {'name': 'Sing-a-long','rating': 87.0,'link':'https://www.mariowiki.com/Luigi'}
-    book3 = {'name': 'Why','rating': 78.3,'link':'https://www.mariowiki.com/Luigi'}
+    book = {'name': 'HHGreg','author':'First Last','rating': 90.0,'link':'https://www.mariowiki.com/Luigi'}
+    book2 = {'name': 'Sing-a-long','author':'First Last','rating': 87.0,'link':'https://www.mariowiki.com/Luigi'}
+    book3 = {'name': 'Why','author':'First Last','rating': 78.3,'link':'https://www.mariowiki.com/Luigi'}
     books = [book,book2,book3]
     site1 = {'name':'Kobo','books':books}
 
-    book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','rating': 97.1,'link':'https://www.mariowiki.com/Luigi'}
-    book5 = {'name': 'Campfire','rating': 67.4,'link':'https://www.mariowiki.com/Luigi'}
-    book6 = {'name': 'Eh','rating': 65.5,'link':'https://www.mariowiki.com/Luigi'}
-    books2 = [book4,book5,book6]
+    book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','author':'First Last','rating': 97.1,'link':'https://www.mariowiki.com/Luigi'}
+    book5 = {'name': 'Campfire','author':'First Last','rating': 67.4,'link':'https://www.mariowiki.com/Luigi'}
+    book6 = {'name': 'Eh','author':'First Last, Test Name','rating': 65.5,'link':'https://www.mariowiki.com/Luigi'}
+    book62 = {'name': 'YEAAAH!','author':'Other Name','rating': 64.5,'link':'https://www.mariowiki.com/Luigi'}
+    books2 = [book4,book5,book6,book62]
     site2 = {'name':'Google','books':books2}
 
     books3 = []
     site3 = {'name':'Livaria Cultura','books':books3}
 
-    book7 ={'name': 'Bookis','rating': 88.8,'link':'https://www.mariowiki.com/Luigi'}
+    book7 ={'name': 'Bookis','author':'First Last','rating': 88.8,'link':'https://www.mariowiki.com/Luigi'}
     books4 = [book7]
     site4 = {'name':'Test Bookstore','books':books4}
 
