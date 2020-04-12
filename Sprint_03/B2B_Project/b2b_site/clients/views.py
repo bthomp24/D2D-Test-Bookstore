@@ -111,7 +111,7 @@ def results(request):
     site1 = {'name':'Kobo','books':books}
 
     book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','author':'First Last','rating': 97.1,'link':'https://www.mariowiki.com/Luigi'}
-    book5 = {'name': 'Campfire','author':'First Last','rating': 67.4,'link':'https://www.mariowiki.com/Luigi'}
+    book5 = {'name': 'Campfire','author':'First Name, Blah Blah, Jeff Smith','rating': 67.4,'link':'https://www.mariowiki.com/Luigi'}
     book6 = {'name': 'Eh','author':'First Last, Test Name','rating': 65.5,'link':'https://www.mariowiki.com/Luigi'}
     book62 = {'name': 'YEAAAH!','author':'Other Name','rating': 64.5,'link':'https://www.mariowiki.com/Luigi'}
     books2 = [book4,book5,book6,book62]

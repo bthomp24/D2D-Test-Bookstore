@@ -431,6 +431,10 @@ table {
   align-items: center;
 }
 
+.flex-content img {
+  margin-left: 8px;
+}
+
 .flex-heading {
   display: flex;
   flex-direction: row;
