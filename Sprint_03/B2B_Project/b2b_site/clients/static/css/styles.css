@@ -410,12 +410,10 @@ table {
 }
 
 .flex-child-first {
-  font-size: 30px;
   margin-left: 3%;
 }
 
 .flex-child-last {
-  font-size: 30px;
   margin-left: auto;
   margin-right: 7%;
   margin-top: 20px;
@@ -423,6 +421,7 @@ table {
 }
 
 .flex-content {
+  font-size: 30px;
   border: 2px solid #999;
   border-radius: 5px;
   margin: 0 7px;
@@ -460,7 +459,7 @@ table {
 .book-link:hover {
   text-decoration: none;
   color: #ffa600;
-  transition: 0.1s;
+  transition: 0.3s;
 }
 
 .book-link:active {
@@ -512,4 +511,9 @@ table {
 .site-name {
   margin-top: 25px;
   margin-bottom: 10px;
+}
+
+.empty-results {
+  margin: 0 7px;
+  font-size: 30px;
 }
