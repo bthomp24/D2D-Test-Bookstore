@@ -35,9 +35,7 @@ class SearchManualForm(MultipleForm):
         return data
 
 class JsonForm(MultipleForm):
-    json_code = forms.CharField(widget=forms.Textarea(attrs={'rows':40, 'cols':100, 
-                                'placeholder': 'Enter URL of the Book Cover' +'\n'+ 'Enter URL of the Book Cover Enter URL of the Book Cover Enter URL of the Book Cover'})
-                                )
+    json_code = forms.CharField(widget=forms.Textarea(attrs={'rows':30, 'cols':60,'placeholder': 'Enter JSON code to search Digital/Audio Book'}))
 
     def clean_json_code(self):
         json_code = self.cleaned_data['json_code']
@@ -73,8 +71,8 @@ class QueryForm(forms.Form):
 
     print(company_list)
 
-    month = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Enter the Month Number e.g. January =1', 'size':100}))
-    year = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Enter the Year', 'size':100}))
+    month = forms.IntegerField(widget=forms.TextInput(attrs={'placeholder': 'Enter the Month Number e.g. January =1', 'size':28}))
+    year = forms.IntegerField(widget=forms.TextInput(attrs={'placeholder': 'Enter the Year', 'size':28}))
     company = forms.ChoiceField(required = False, choices= [(x, x)for x in company_list], help_text= 'Not Required')
 
     def clean_month(self):

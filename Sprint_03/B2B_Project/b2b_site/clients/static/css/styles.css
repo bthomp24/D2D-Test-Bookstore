@@ -35,9 +35,9 @@ h3 {
 
 /* Left and right column */
 .column.sidebar {
-    -webkit-flex: 0.5;
-    -ms-flex: 0.5;
-    flex: 0.5;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     left: 0;
     background-color: #333;
     overflow-x: hidden;
@@ -381,17 +381,18 @@ table {
 }
 
 #query_form{
+  border-left: 4px dotted #ccc;
   padding: 16px 16px 16px 16px;
-  display: none;
-  background-color: #ccc;
+  display: block;
+  background-color: whitesmoke;
   overflow: hidden;
-  width: max-content;
+  width: 100%;
   margin: 0 auto;
   font-size: 25px;
 }
 
 select {
-  padding: 10px 57px 10px 57px;
+  padding: 10px 95px 10px 95px;
   color: #818181;
   font-size: 25px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -399,10 +400,49 @@ select {
 
 textarea {
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
+  padding: 16px 16px 16px 16px;
+  background-color: #FFF;
   
 }
 
 .loading_page{
   text-align: center;
+}
+
+.label {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 30px;
+  color: #ccc;
+  background-color: #333;
+  text-align: center;
+  padding: 16px;
+}
+
+.loginLabel{
+  padding-left: 48px;
+  padding-top: 10px;
+}
+
+
+#JSON {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.json_code {
+  float: left;
+  font-size: 18px;
+  width: 50%;
+  background-color: gainsboro;
+  padding-left: 100px;
+  padding-bottom: 10px;
+}
+.json_example {
+  float: left;
+  font-size: 18px;
+  width: 50%;
+  background-color: gainsboro;
+  padding-right: 100px;
+  padding-bottom: 60px;
 }
