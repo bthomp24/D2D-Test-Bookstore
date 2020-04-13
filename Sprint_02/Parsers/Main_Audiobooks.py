@@ -9,6 +9,8 @@ import mechanize
 import concurrent.futures
 
 
+# Be sure to do try and except stuff when it comes to parsing and stuff.
+
 URL = "https://www.audiobooks.com/"
 # URL = "https://www.audiobooks.com/search/book/flip"
 # URL = "https://www.audiobooks.com/audiobook/146247"
@@ -191,28 +193,18 @@ class book_site_audiobooks():
         print(relevant_urls)
         return relevant_urls
 
-    def __is_search_valid(self, search):
-        br = mechanize.Browser()
-        br.set_handle_robots(False)
-        br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
-        response = br.open("https://www.audiobooks.com/")
-        br.select_form("searchForm")
-        control = br.form.controls[0]
+    # Change this to be a URL construction function for making it rather than actually using Mechanize.
+    # starting point below
+    """
+    start = "https://www.audiobooks.com/search/book/"
+    end = title.replace(" ", "%20")
+    return start + end
+    """
+    def __site_search_url(self, search):
+        start = "https://www.audiobooks.com/search/book/"
+        end = search.replace(" ", "%20").replace(".", "%20").replace("!", "%20").replace(":", "%20")
+        return start + end
 
-        if control.type != "text":
-            return 
-
-        control.value = search
-        br.submit()
-        link = br.geturl()
-
-        #Newly Added
-        test_validity = requests.get(link)
-        returned = Par_Scrape.parse(test_validity.content, "//div[@class='browseContainer__bookItem flexer']")
-        if len(returned) != 0:
-            return None
-
-        return link
 
 
     def __get_search_link_from_book_data_form(self, book_data):
@@ -227,11 +219,11 @@ class book_site_audiobooks():
         if(book_title != None) or (book_author != None):
 
             if book_title != None:
-                resultZero = self.__is_search_valid(book_title)
+                resultZero = self.__site_search_url(book_title)
                 print(resultZero)
 
             if book_author != None:
-                resultOne = self.__is_search_valid(book_author)
+                resultOne = self.__site_search_url(book_author)
 
 
 book_data = ["audiobook", "flip", None, None, "9781423389309", None, None, None, None, "Patrick Roghfuss", None, "au", None, None, None, None, None]
