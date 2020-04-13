@@ -355,32 +355,6 @@ table {
   font-size: 100px;
 }
 
-/* .accordion {
-  background-color: #eee;
-  border-radius: 12px;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: 2px, solid #999;
-  text-align: left;
-  outline: none;
-  font-size: 25px;
-  transition: 0.4s;
-  font-weight: bold;
-  font-family: 'Big Shoulders Text';
-}
-
-.active, .accordion:hover {
-  background-color: #ffc300; 
-}
-
-.panel {
-  display: none;
-  background-color: white;
-  overflow: hidden;
-} */
-
 .accordion {
   background-color: #333;
   color: #eee;
@@ -406,7 +380,7 @@ table {
   display: none;
   padding: 0 18px;
   overflow: hidden;
-  width: 50%;
+  width: 90%;
 }
 
 .flex-child-first {
@@ -434,11 +408,11 @@ table {
   margin-left: 8px;
 }
 
-.flex-heading {
+/* .flex-heading {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
+} */
 
 .flex-book-info {
   display: flex;
@@ -467,7 +441,7 @@ table {
   color: #000;
 }
 
-.back-button {
+/* .back-button {
   border-radius: 4px;
   background-color: #ffa600;
   border: none;
@@ -506,7 +480,7 @@ table {
 .back-button:hover span:after {
   opacity: 1;
   left: 0;
-}
+} */
 
 .site-name {
   margin-top: 25px;

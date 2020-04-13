@@ -3,14 +3,7 @@
 {% block content %}
 
 <div class="column middle" style="background-color:white;">
-    <div class="flex-heading">
-        <h1>Results Found In:</h1>
-        <a href="{% url 'search' %}" class="flex-child-last">
-            <button type="button" class="back-button">
-                <span>Back</span>
-            </button>
-        </a>
-    </div>
+    <h1>Results Found In:</h1>
     {% for site in site_list %}
         <h2 class="site-name">{{ site.name }}:</h2>
         {% if site.books|length > 1 %}
@@ -18,13 +11,17 @@
                 {% if forloop.first %}
                     <a href="{{ book.link }}" target="_blank" class="book-link">
                         <div class="flex-content">
-                            <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="96" width="60">
+                        {% if book.cover == None or book.cover|length < 1 %}
+                            <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                        {% else %}
+                            <img src="{{ book.cover }}" height="96" width="60">
+                        {% endif %}
                             <div class="flex-child-first">
-                                <p title="{{ book.name }}">{{ book.name|truncatechars:60 }}</p>
+                                <p title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
                             {% if ',' in book.author %}
-                                <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:50 }}</p>
+                                <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:59 }}</p>
                             {% else %}
-                                <p title="{{ book.author }}">Author: {{ book.author|truncatechars:50 }}</p>
+                                <p title="{{ book.author }}">Author: {{ book.author|truncatechars:60 }}</p>
                             {% endif %}
                             </div>
                             <p class="flex-child-last">Rating: {{ book.rating }}%</p>
@@ -34,15 +31,19 @@
                     <button class="accordion">More Results</button>
                     <div class="panel">
                 {% elif forloop.last %}
-                        <a href="{{ book.link }}" target="_blank" class="book-link">
+                        <a href="{{ book.link }}" target="_blank" class="book-link"></a>
                             <div class="flex-content">
-                                <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="96" width="60">
+                            {% if book.cover == None or book.cover|length < 1 %}
+                                <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                            {% else %}
+                                <img src="{{ book.cover }}" height="96" width="60">
+                            {% endif %}
                                 <div class="flex-child-first">
-                                    <p title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
+                                    <p title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
                                 {% if ',' in book.author %}
-                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:24 }}</p>
+                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:34 }}</p>
                                 {% else %}
-                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:25 }}</p>
+                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:35 }}</p>
                                 {% endif %}
                                 </div>
                                 <p class="flex-child-last">Rating: {{ book.rating }}%</p>
@@ -52,13 +53,17 @@
                 {% else %}
                         <a href="{{ book.link }}" target="_blank" class="book-link">
                             <div class="flex-content">
-                                <img src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="96" width="60">
+                            {% if book.cover == None or book.cover|length < 1 %}
+                                <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                            {% else %}
+                                <img src="{{ book.cover }}" height="96" width="60">
+                            {% endif %}
                                 <div class="flex-child-first">
-                                    <p title="{{ book.name }}">{{ book.name|truncatechars:30 }}</p>
+                                    <p title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
                                 {% if ',' in book.author %}
-                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:24 }}</p>
+                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:34 }}</p>
                                 {% else %}
-                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:25 }}</p>
+                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:35 }}</p>
                                 {% endif %}
                                 </div>
                                 <p class="flex-child-last">Rating: {{ book.rating }}%</p>
@@ -70,13 +75,17 @@
             {% for book in site.books %}
                 <a href="{{ book.link }}" target="_blank" class="book-link">
                     <div class="flex-content">
-                        <img  src="https://miro.medium.com/max/1400/1*p4JUDVX5XfyFoxXFh_XTjQ.png" height="96" width="60" >
+                    {% if book.cover == None or book.cover|length < 1 %}
+                        <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                    {% else %}
+                        <img src="{{ book.cover }}" height="96" width="60">
+                    {% endif %}
                         <div class="flex-child-first">
-                            <p title="{{ book.name }}">{{ book.name|truncatechars:60 }}</p>
+                            <p title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
                         {% if ',' in book.author %}
-                            <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:49 }}</p>
+                            <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:59 }}</p>
                         {% else %}
-                            <p title="{{ book.author }}">Author: {{ book.author|truncatechars:50 }}</p>
+                            <p title="{{ book.author }}">Author: {{ book.author|truncatechars:60 }}</p>
                         {% endif %}
                         </div>
                         <p class="flex-child-last">Rating: {{ book.rating }}%</p>
