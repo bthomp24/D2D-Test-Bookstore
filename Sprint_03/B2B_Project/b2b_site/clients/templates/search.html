@@ -6,7 +6,7 @@
     <button class="tablink" onclick="openPage('JSON', this)">Search via JSON</button>
     <button class="tablink" onclick="openPage('MANUAL', this)" id="defaultOpen">Search via Form</button>
     <div id="JSON" class="tabcontent">
-        <form method = "post">
+        <form action= "{% url 'loading_page' %}" method = "POST">
             {% csrf_token %}
             <table>
                 {{ json_form.as_table }}
@@ -16,7 +16,7 @@
         </form>
     </div>
     <div id="MANUAL" class="tabcontent">
-        <form method = "post">
+        <form action= "{% url 'loading_page' %}" method = "POST">
             {% csrf_token %}
             <table>
                 {{ manual_form.as_table }}
