@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 class Site_Slug(models.Model):
     name = models.CharField(max_length=2, unique=True)
+    site_name = models.CharField(max_length=100, default="you should probably have filled this out instead of seeing this")
 
     def __str__(self):
         return self.name
