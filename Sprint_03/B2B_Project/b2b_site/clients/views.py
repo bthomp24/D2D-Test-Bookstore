@@ -129,7 +129,6 @@ class CheckmateView(APIView):
         if serializer.is_valid():
             json = serializer.data
             results = search_checkmate(json)
-            print(serializer.data)
             return Response(results, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
