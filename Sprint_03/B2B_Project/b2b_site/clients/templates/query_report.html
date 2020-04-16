@@ -15,10 +15,11 @@
     {% endif %}
 
 </div>
+{% if user.is_superuser %}
 <div class= "column sidebar" id= "query_form">
     <p class="label"> <i class="fas fa-history"></i> Search Historical Records</p>
     <br>
-    <form action = "{% url 'query_chart' %}" method = "POST">
+    <form action = "" method = "POST">
         {% csrf_token %}
         <table>
             {{ form.as_table }}
@@ -27,4 +28,5 @@
         
     </form>
 </div>
+{% endif %}
 {% endblock %}
