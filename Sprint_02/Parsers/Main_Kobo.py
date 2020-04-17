@@ -585,7 +585,7 @@ class book_site_kobo():
             else:
                 book_format = None
 
-           return book_format
+            return book_format
         except:
            return None
 
