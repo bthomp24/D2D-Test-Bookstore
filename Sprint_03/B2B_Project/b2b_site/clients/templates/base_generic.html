@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
     
     <script src="{% static 'js/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery/jquery-3.5.0.min.js' %}"></script>
 </head>
 
 <body onload="start()">
@@ -39,6 +40,11 @@
                 }
             });
         }
+    </script>
+    <script>
+        $(window).on('load', function () {
+            $('#loading').hide();
+        });
     </script>
 </body>
 
