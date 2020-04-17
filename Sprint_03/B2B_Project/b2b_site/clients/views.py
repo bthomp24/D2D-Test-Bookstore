@@ -11,6 +11,8 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from .models import Site_Slug
+
 # Create your views here.
 
 
@@ -103,6 +105,11 @@ def search(request):
     return render(request, 'search.html', context=context)
 
 def results(request):
+
+    site_list = Site_Slug.objects.order_by('name')
+
+    for site in site_list:
+        print(site.site_name)
 
     #Separate Book information
     book = {'name': 'HHGreg','author':'First Last','rating': 90.0,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
