@@ -28,6 +28,7 @@ from rest_framework import status
 from .serializers import CheckmateSerializer
 from .search_checkmate import search_checkmate
 
+from .models import Site_Slug
 
 # Create your views here.
 
@@ -263,6 +264,43 @@ def search(request):
         'form': form,
     }
     return render(request, 'search.html', context=context)
+
+def results(request):
+
+    site_list = Site_Slug.objects.order_by('name')
+
+    for site in site_list:
+        print(site.site_name)
+
+    #Separate Book information
+    book = {'name': 'HHGreg','author':'First Last','rating': 90.0,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
+    book2 = {'name': 'Sing-a-long','author':'First Last','rating': 87.0,'cover':'','link':'https://www.mariowiki.com/Luigi'}
+    book3 = {'name': 'Why','author':'First Last','rating': 78.3,'link':'https://www.mariowiki.com/Luigi'}
+    #Book list
+    books = [book,book2,book3]
+    #Site information
+    site1 = {'name':'Kobo','books':books}
+
+    book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','author':'First Last','rating': 97.1,'link':'https://www.mariowiki.com/Luigi'}
+    book5 = {'name': 'Campfire','author':'First Name, Blah Blah, Jeff Smith','rating': 67.4,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
+    book6 = {'name': 'Eh','author':'First Last, Test Name','rating': 65.5,'link':'https://www.mariowiki.com/Luigi'}
+    book62 = {'name': 'YEAAAH!','author':'Other Name','rating': 64.5,'link':'https://www.mariowiki.com/Luigi'}
+    books2 = [book4,book5,book6,book62]
+    site2 = {'name':'Google','books':books2}
+
+    books3 = []
+    site3 = {'name':'Livaria Cultura','books':books3}
+
+    book7 ={'name': 'Bookis','author':'First Last','rating': 88.8,'link':'https://www.mariowiki.com/Luigi'}
+    books4 = [book7]
+    site4 = {'name':'Test Bookstore','books':books4}
+
+    #Site list
+    site_list = [site1,site2,site3,site4]
+
+    context = {'site_list': site_list}
+
+    return render(request,'results.html',context=context)
 
 
 def login(request):

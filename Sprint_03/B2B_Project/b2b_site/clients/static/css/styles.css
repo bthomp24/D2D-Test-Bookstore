@@ -347,6 +347,15 @@ table {
   margin: 0;
 }
 
+.loadingInfo {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loadingInfo i{
+  font-size: 100px;
+}
+
 .accordion {
   background-color: #333;
   color: #eee;
@@ -360,8 +369,8 @@ table {
   transition: 0.4s;
   display: block;
   font-family: 'Big Shoulders Text';
-  border-bottom: 4px solid #fff;
   border-top: 4px solid #fff;
+  border-bottom: 4px solid #fff;
 }
 
 .active, .accordion:hover {
@@ -445,4 +454,113 @@ textarea {
   background-color: gainsboro;
   padding-right: 100px;
   padding-bottom: 60px;
+}
+
+.flex-child-first {
+  margin-left: 3%;
+}
+
+.flex-child-last {
+  margin-left: auto;
+  margin-right: 7%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.flex-content {
+  font-size: 30px;
+  border: 2px solid #999;
+  border-radius: 5px;
+  margin: 0 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-content img {
+  margin-left: 8px;
+}
+
+/* .flex-heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+} */
+
+.flex-book-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-link:link {
+  text-decoration: none;
+  color: #000;
+}
+
+.book-link:visited {
+  text-decoration: none;
+  color: #000;
+}
+
+.book-link:hover {
+  text-decoration: none;
+  color: #ffa600;
+  transition: 0.3s;
+}
+
+.book-link:active {
+  text-decoration: none;
+  color: #000;
+}
+
+/* .back-button {
+  border-radius: 4px;
+  background-color: #ffa600;
+  border: none;
+  color: #000000;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: 'Big Shoulders Text';
+  align-self: left;
+}
+
+.back-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.back-button span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.back-button:hover span {
+  padding-left: 25px;
+}
+
+.back-button:hover span:after {
+  opacity: 1;
+  left: 0;
+} */
+
+.site-name {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.empty-results {
+  margin: 0 7px;
+  font-size: 30px;
 }
