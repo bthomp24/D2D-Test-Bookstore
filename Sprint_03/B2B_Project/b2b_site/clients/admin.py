@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import User, Company, Site_Slug
+from .models import User, Company, Site_Slug, QueryInfo
 
 '''
 # Minimal registration of Models.
@@ -10,10 +10,8 @@ admin.site.register(Company)
 admin.site.register(Site_Slug)
 '''
 admin.site.register(Site_Slug)
-
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    #list_display = ('get_lastname', 'email', 'company', 'queries')
     list_display = ('get_lastname', 'email', 'company')
     filter = ('company')
 
@@ -25,3 +23,7 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'display_slug')
+
+@admin.register(QueryInfo)
+class QueryInfoAdmin(admin.ModelAdmin):
+    list_display = ('user', 'month', 'year', 'querynum' )

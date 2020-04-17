@@ -3,15 +3,15 @@
 {% block body %}
 
   {% if form.errors %}
-    <p style="text-align: left;">Your username and password didn't match. Please try again.</p>
+    <p style="text-align: center;">Your username and password didn't match. Please try again.</p>
   {% endif %}
   
   {% if next %}
     {% if user.is_authenticated %}
-      <p style="text-align: left;">Your account doesn't have access to this page. To proceed,
+      <p style="text-align: center;">Your account doesn't have access to this page. To proceed,
       please login with an account that has access.</p>
     {% else %}
-      <p style="text-align: left;">Please login to see this page.</p>
+      <p style="text-align: center;">Please login to see this page.</p>
     {% endif %}
   {% endif %}
   
@@ -32,7 +32,8 @@
     <button type="submit" class="loginbtn"> <i class="fas fa-sign-in-alt"></i> Login</button>
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
-  
-
+  <div style="text-align:center" class="loginLabel">
+  <a href="{% url 'password_reset' %}">Forgot Password?</a>
+  </div>
   
 {% endblock %}

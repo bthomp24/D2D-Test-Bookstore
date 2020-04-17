@@ -6,9 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Big Shoulders Text' rel='stylesheet'>
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
+    <script type="text/javascript" src="{% static 'clients/fusioncharts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'clients/fusioncharts.charts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'clients/themes/fusioncharts.theme.fusion.js' %}"></script>
+    <script type="text/javascript" src="{% static 'clients/themes/fusioncharts.theme.candy.js' %}"></script>
+    
     <script src="{% static 'js/app.js' %}"></script>
 </head>
 
@@ -16,11 +22,28 @@
     <div class="header">
         <img src="https://draft2digital-prod-static.s3.amazonaws.com/img/outer/d2d-logo-dark.png" alt="Company Icon"
             align="center" width="383" height="73">
+        {% block navbar %}{% endblock %}
 
     </div>
     <div class= "body">
         {% block body %}{% endblock %}
     </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+        </script>
 </body>
 
 </html>
