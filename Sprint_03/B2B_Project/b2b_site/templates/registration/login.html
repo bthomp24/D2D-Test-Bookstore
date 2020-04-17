@@ -32,7 +32,8 @@
     <button type="submit" class="loginbtn"> <i class="fas fa-sign-in-alt"></i> Login</button>
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
-  
-
+  <div style="text-align:center" class="loginLabel">
+  <a href="{% url 'password_reset' %}">Forgot Password?</a>
+  </div>
   
 {% endblock %}

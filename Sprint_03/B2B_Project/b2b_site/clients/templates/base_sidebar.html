@@ -3,7 +3,7 @@
 {% block navbar %}
 <div id="navbar">
     <a href="{% url 'search' %}"><i class="fas fa-search"></i>  Search</a>
-    <a href=""><i class="fas fa-question-circle"></i>  Query Report</a>
+    <a href="{% url 'query_report' %}"><i class="fas fa-question-circle"></i>  Query Report</a>
     <a href="{% url 'manage_account' %}"><i class="fas fa-user-cog"></i>  Manage Account</a>
     <a href= "javascript:void(0)" style = "border : none"></a>
     <a href= "{% url 'logout' %}" style = "float : right"><i class="fas fa-sign-out-alt"></i>  Sign Out</a>
@@ -16,6 +16,7 @@
 
     {% block content%}
     {% endblock %}
+  
 
 </div>
 

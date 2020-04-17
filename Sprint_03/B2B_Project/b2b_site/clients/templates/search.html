@@ -6,17 +6,48 @@
     <button class="tablink" onclick="openPage('JSON', this)">Search via JSON</button>
     <button class="tablink" onclick="openPage('MANUAL', this)" id="defaultOpen">Search via Form</button>
     <div id="JSON" class="tabcontent">
-        <form method = "post">
+        <div class= "json_code">
+        <form action= "{% url 'loading_page' %}" method = "POST">
             {% csrf_token %}
             <table>
                 {{ json_form.as_table }}
             </table>
-            <button type="submit" class = "submitbtn" style="vertical-align:middle" value  ="json"> <span>Submit</span></button>
-            
+            <button type="submit" class = "submitbtn" style="vertical-align:middle" value  ="json"> <span>Submit</span></button> 
         </form>
+        </div>
+        <div class="json_example">
+        
+        <p> Example JSON to search Digital Book <br> <br>
+            {"bookdata": { <br>  '"format": "digital",' <br>   
+            '"title": "Unearthed",' <br> 
+            '"image_url": "https://images-na.ssl-images-amazon.com/images/I/61mNl6dQLeL._SX338_BO1,204,203,200_.jpg",'  <br> 
+            '"isbn13": "9781484758052",'  <br> 
+            '"description": "Example of a description would go here",'  <br> 
+            '"series": "Unearthed",'  <br> 
+            '"volume_number": "1",' <br>
+            '"subtitle": "None",'  <br>
+            '"authors": ['  <br> 
+            '{"author": "Amie Kaufman"},'  <br> 
+            '{"author": "Meagan Spooner"}'  <br> 
+            ']' <br>
+            '}}'<br><br></p>
+            <p>
+            'Example JSON to search Audio Book'<br>
+            '{"bookdata": {'<br>  
+            '"format": "audiobook",'  <br>   
+            '"title": "Unearthed",'  <br> 
+            '"image_url": "https://images-na.ssl-images-amazon.com/images/I/61mNl6dQLeL._SX338_BO1,204,203,200_.jpg",'  <br> 
+            '"isbn13": "9781484758052",'  <br> 
+            '"authors": ['  <br> 
+            '{"author": "Amie Kaufman"},'  <br> 
+            '{"author": "Meagan Spooner"}'  <br> 
+            ']' <br>  
+            '}}'</p>
+        </div>
     </div>
     <div id="MANUAL" class="tabcontent">
-        <form method = "post">
+        
+        <form action= "{% url 'loading_page' %}" method = "POST">
             {% csrf_token %}
             <table>
                 {{ manual_form.as_table }}
