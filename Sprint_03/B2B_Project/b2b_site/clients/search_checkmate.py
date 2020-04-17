@@ -77,10 +77,10 @@ def search_checkmate(book_data):
 
     results = []
     
-    print("Searching Google Books")
-    google_books = Scrapers.get_book_site('gb')
-    gb_list = google_books.find_book_matches_at_site(site_book_data)
-    results.append(['gb', return_list(gb_list)])
+    # print("Searching Google Books")
+    # google_books = Scrapers.get_book_site('gb')
+    # gb_list = google_books.find_book_matches_at_site(site_book_data)
+    # results.append(['gb', return_list(gb_list)])
 
     print("Searching Kobo")
     kobo = Scrapers.get_book_site('kb')
