@@ -19,7 +19,7 @@ from fuzzywuzzy import fuzz
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
-def write_Response(response, target):
+def write_response(response, target):
     """
     args:
         response (requests.get()):
@@ -39,8 +39,7 @@ def write_Response(response, target):
     text_file.write(response.text)
     text_file.close()
 
-
-def write_Txt(text, target):
+def write_txt(text, target):
     """
     args:
         text (String):
@@ -59,7 +58,6 @@ def write_Txt(text, target):
     text_file = open(target, "w", encoding="utf-8")
     text_file.write(text)
     text_file.close()
-
 
 def parse(content, path):
     """
@@ -80,7 +78,6 @@ def parse(content, path):
     tree = etree.parse(io.BytesIO(content), parser)
     root = tree.getroot()
     return root.xpath(path)
-
 
 def get_book_image_from_image_url(image_url):
     """
@@ -103,7 +100,6 @@ def get_book_image_from_image_url(image_url):
             return None
     else:
         None
-
 
 def parse_status(parse_list):
     """
@@ -132,7 +128,6 @@ def parse_status(parse_list):
         if parse_content == None:
             return "UNSUCCESSFUL"
     return "FULLY_PARSED"
-
 
 def site_book_data_relevancy(original_book_data, site_book_data_list):
     """
@@ -168,13 +163,13 @@ def site_book_data_relevancy(original_book_data, site_book_data_list):
                     print("Parent_Scrape ~ site_book_data_relevancy ~ site_book_data: CRITICAL ERROR => len(site_book_data): ", len(site_book_data))
                     book_data_relevancy_list.append([None, 0])
                 else:
-                    Future_Threads[executor.submit(__compare_book_data_lists, original_book_data, site_book_data)] = site_book_data
+                    Future_Threads[executor.submit(_compare_book_data_lists, original_book_data, site_book_data)] = site_book_data
 
             for future in concurrent.futures.as_completed(Future_Threads):
                 site_book_data_temp = Future_Threads[future]
                 book_data_relevancy_list.append([site_book_data_temp, future.result()])
 
-            book_data_relevancy_list.sort(key=__sort_by_relevancy_rating, reverse=True)
+            book_data_relevancy_list.sort(key=_sort_by_relevancy_rating, reverse=True)
         
     end = time.time()
     print("Sorting TIME: ", (end - start))
@@ -188,7 +183,7 @@ def site_book_data_relevancy(original_book_data, site_book_data_list):
 """
 
 
-def __compare_string(book_data_string, site_book_data_string, cleanup):
+def _compare_string(book_data_string, site_book_data_string, cleanup):
     """
     args:
         book_data_string (String):
@@ -214,8 +209,7 @@ def __compare_string(book_data_string, site_book_data_string, cleanup):
 
     return fuzz.ratio(book_data_string.lower(), site_book_data_string.lower())
 
-
-def __compare_images(image1, image2):
+def _compare_images(image1, image2):
     """
     args:
         image1 (Image):
@@ -261,8 +255,7 @@ def __compare_images(image1, image2):
         print("comapre_images => FAILED")
         return 0
 
-
-def __compare_book_data_lists(original_book_data, site_book_data):
+def _compare_book_data_lists(original_book_data, site_book_data):
     """
     args:
         original_book_data[]:
@@ -302,11 +295,11 @@ def __compare_book_data_lists(original_book_data, site_book_data):
                     """
                     if (x == 4) or (x == 5):
                         cleanup = True
-                    total_score += __compare_string(original_book_data[x].lower(), site_book_data[x].lower(), cleanup)
+                    total_score += _compare_string(original_book_data[x].lower(), site_book_data[x].lower(), cleanup)
                     objects_scored += 1
                 #Image Comparison
                 elif x == 2:
-                    total_score += __compare_images(original_book_data[x], site_book_data[x])
+                    total_score += _compare_images(original_book_data[x], site_book_data[x])
                     objects_scored += 1
     if objects_scored != 0:
         score = total_score / objects_scored
@@ -314,7 +307,7 @@ def __compare_book_data_lists(original_book_data, site_book_data):
         score = 0
     return round(score, 2)
 
-def __sort_by_relevancy_rating(element):
+def _sort_by_relevancy_rating(element):
     """
     args:
         element[]:
@@ -328,43 +321,3 @@ def __sort_by_relevancy_rating(element):
         list using only the second objects of the array.
     """
     return element[1]
-
-
-"""
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                               list of public functions below                               
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~           
-                              write_Response(response, target)                   
-            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~           
-                                   write_Txt(text, target)                       
-            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~           
-                                    parse(content, path)                         
-            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~           
-                                  parse_status(parse_list)                       
-            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~           
-             site_book_data_relevancy(origninal_book_data, site_book_data_list)  
-            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~        
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
-"""
-'''
-returns:
-        SiteBookData (List):
-            format (String): 
-            book_title (String):
-            book_image:~
-            book_image_url:~
-            isbn_13 (String):
-            description (String):
-            series (String):*
-            volume_number (Int):*
-            subtitle:~
-            authors (String):
-            book_id (String):
-            site_slug (String):
-            parse_status (String):
-            url (String):
-            content (String):
-            ready_for_sale (boolean):
-            extra:~
-'''
