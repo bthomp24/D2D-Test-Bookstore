@@ -1,7 +1,7 @@
 import io
 from lxml import etree
 import requests
-import Parent_Scrape as Par_Scrape
+import Parsers.Parent_Scrape as Par_Scrape
 
 from bs4 import BeautifulSoup
 
@@ -11,7 +11,8 @@ import concurrent.futures
 
 # Be sure to do try and except stuff when it comes to parsing and stuff.
 
-URL = "https://www.audiobooks.com/"
+# URL = "https://www.audiobooks.com/audiobook/untitled-a-court-of-thorns-and-roses-6/370201"
+# URL = "https://www.audiobooks.com/"
 # URL = "https://www.audiobooks.com/search/book/flip"
 # URL = "https://www.audiobooks.com/audiobook/146247"
 # URL = "https://www.audiobooks.com/audiobook/good-omens-the-bbc-radio-4-dramatisation/331959"
@@ -20,6 +21,8 @@ class book_site_audiobooks():
     def __init__(self, *args, **kwargs):
         self.content_table = "//*[@id='content']"
         pass
+
+
     def get_book_data_from_site(self, url):
         response = requests.get(url)
         
@@ -43,7 +46,7 @@ class book_site_audiobooks():
         extra = None
 
        
-        title = self.__get_book_title(response.content)
+        book_title = self.__get_book_title(response.content)
         book_image_url = self.__get_book_image_url(response.content)
         book_image = Par_Scrape.get_book_image_from_image_url(book_image_url)
         isbn_13 = self.__get_book_isbn_13()
@@ -52,8 +55,18 @@ class book_site_audiobooks():
         volume_number = self.__get_book_volume()
         subtitle = self.__get_book_subtitle()
         authors = self.__get_book_authors(response.content)
+        book_url = url
+        site_slug = self.__get_book_site_slug()
+        book_id = self.__get_book_id(response.url)
 
         format = self.__get_book_format()
+        content = response.content
+        ready_for_sale = self.__get_book_sale_status(response.content)
+
+        parse_status = Par_Scrape.parse_status([format, book_title, book_image, book_image_url, description, authors, book_id, site_slug, url, content, ready_for_sale])
+        SiteBookData = [format, book_title, book_image, book_image_url, isbn_13, description, series, volume_number, subtitle, authors, book_id, site_slug, parse_status, url, content, ready_for_sale, extra]
+
+        return SiteBookData
 
     # Change url to Site Book Data when you prepare for the bar searching.
     def find_book_matches_at_site(self, book_data):
@@ -67,8 +80,24 @@ class book_site_audiobooks():
             return None
 
         site_book_data_total = []
+
         for url in url_gotten_from_form:
-            results = self.__get_book_links_from_Search_site(book_data)
+
+            relevant_book_links = self.__get_book_links_from_Search_site(url)
+            if relevant_book_links != None:
+                site_book_data_list = []
+
+                with concurrent.futures.ThreadPoolExecutor() as executor:
+                    future_threads = []
+
+                    for book_link in relevant_book_links:
+                        future_threads.append(executor.submit(self.get_book_data_from_site, book_link))
+
+                    for future in concurrent.futures.as_completed(future_threads):
+                        site_book_data_list.append(future.result())
+                site_book_data_total += site_book_data_list
+        
+        return Par_Scrape.site_book_data_relevancy(book_data, site_book_data_total)
 
 
     def convert_book_id_to_url(self, book_id):
@@ -79,13 +108,16 @@ class book_site_audiobooks():
 
     def __get_book_title(self, content):
         try:
-            return Par_Scrape.parse(content, self.content_table + "//h1[@class='audiobookTitle']/text()")
+            return Par_Scrape.parse(content, self.content_table + "//h1[@class='audiobookTitle']/text()")[0]
         except:
             return None
 
     def __get_book_image_url(self, content):
         try:
-            return Par_Scrape.parse(content, self.content_table + "//img[@class='book-cover']/@src")           
+            tail_url = Par_Scrape.parse(content, self.content_table + "//img[@class='book-cover']/@src")[0]
+            full_url = "https:" + tail_url
+
+            return full_url        
         except:
             return None
 
@@ -139,28 +171,42 @@ class book_site_audiobooks():
             return None
 
     # work on this when you do the search page
-    def __get_book_url():
-        pass 
+    def __get_book_url(self, bigger_url):
+        fragmented = bigger_url.split('/')
+        final_url = "https://www.audiobooks.com/audiobook/" + fragmented[-1]
+        return final_url
 
     def __get_book_site_slug(self):
         return "AU"
 
+    # Not been tested yet.
     def __get_book_id(self, url):
-        fragmented = url.split('/')
-
-        print(fragmented[-1])
-        return fragmented[-1]
+        try:
+            fragmented = url.split('/')
+            return fragmented[-1]
+        except:
+            return None
 
     def __get_book_format(self):
         return "AUDIOBOOK"
 
     def __get_book_sale_status(self, content):
-        pass
+        try:
+            if Par_Scrape.parse(content, self.content_table + "//span[@class='nonmember-notify save-later-text']"):
+                return False
+            else:
+                return True
+        except:
+            return None
 
+    # Not implemented in extra or as another option yet
     def __get_book_sale_price(self, content):
-        pass
-    
-    # optionals I may do
+        try:
+            return Par_Scrape.parse(content, self.content_table + "//div[@class='fleft button-text']/div/p/text()")
+        except:
+            return None
+
+    # optionals functions I may do
     ########################################    
     def __get_book_narrators(self, content):
         pass
@@ -177,22 +223,25 @@ class book_site_audiobooks():
 
 
     def __get_book_links_from_Search_site(self, url):
-        response = requests.get(url)
+        try:
+            response = requests.get(url)
 
-        collected_urls = Par_Scrape.parse(response.content, ("//*[@class='browseContainer__bookItem flexer']/a/@href"))
-        relevant_urls = []
+            collected_urls = Par_Scrape.parse(response.content, ("//*[@class='browseContainer__bookItem flexer']/a/@href"))
+            relevant_urls = []
 
-        # if no search results are found.
-        if len(collected_urls) == 0:
+            # if no search results are found.
+            if len(collected_urls) == 0:
+                return None
+
+
+            for proper_link in collected_urls:
+                relevant_urls.append(proper_link)
+
+            return relevant_urls
+        except:
             return None
 
-
-        for proper_link in collected_urls:
-            relevant_urls.append(proper_link)
-
-        print(relevant_urls)
-        return relevant_urls
-
+            
     # Change this to be a URL construction function for making it rather than actually using Mechanize.
     # starting point below
     """
@@ -202,6 +251,9 @@ class book_site_audiobooks():
     """
     def __site_search_url(self, search):
         start = "https://www.audiobooks.com/search/book/"
+
+        # Add more of these replace statements as you discover more stuff to replace.
+        # if it becomes too many, you may need to make it a for loop or something like that.
         end = search.replace(" ", "%20").replace(".", "%20").replace("!", "%20").replace(":", "%20")
         return start + end
 
@@ -220,16 +272,21 @@ class book_site_audiobooks():
 
             if book_title != None:
                 resultZero = self.__site_search_url(book_title)
-                print(resultZero)
+                if resultZero != None:
+                    links.append(resultZero)
 
             if book_author != None:
                 resultOne = self.__site_search_url(book_author)
+                if resultOne != None:
+                    links.append(resultOne)
+        return links
+        
 
 
-book_data = ["audiobook", "flip", None, None, "9781423389309", None, None, None, None, "Patrick Roghfuss", None, "au", None, None, None, None, None]
-audiob = book_site_audiobooks()
+# book_data = ["audiobook", "flip", None, None, "9781423389309", None, None, None, None, "Patrick Roghfuss", None, "au", None, None, None, None, None]
+# audiob = book_site_audiobooks()
 
 # audiob.get_book_data_from_site(URL)
-audiob.find_book_matches_at_site(book_data)
+# audiob.find_book_matches_at_site(book_data)
 # rip = requests.get(URL)
-# Par_Scrape.write_Response(rip, "Formpage")
+# Par_Scrape.write_Response(rip, "ComingSoon")
