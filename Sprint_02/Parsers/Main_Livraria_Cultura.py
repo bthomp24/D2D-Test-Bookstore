@@ -13,38 +13,61 @@ class book_site_livraria_cultura():
         return response.content
 
     def __get_title__(self, content):
-        return Par_Scrape.parse(content, ".//h1[@class='title_product']/div")[0].text
+        try:
+            return Par_Scrape.parse(content, ".//h1[@class='title_product']/div")[0].text
+        except:
+            return None
 
     def __get_subtitle__(self, content):
-        subtitle_element = Par_Scrape.parse(content, "//*[@class='value-field Subtitulo']")
-        if len(subtitle_element)>0:
-            subtitle = subtitle_element[0].text
-            return subtitle
+        try:
+            subtitle_element = Par_Scrape.parse(content, "//*[@class='value-field Subtitulo']")
+            if len(subtitle_element)>0:
+                subtitle = subtitle_element[0].text
+                return subtitle
+        except:
+            return None
 
     def __get_book_image_url__(self, content):
-        return Par_Scrape.parse(content, "//*[@id='image-main']/@src")[0]
+        try:
+            return Par_Scrape.parse(content, "//*[@id='image-main']/@src")[0]
+        except:
+            return None
 
     def __get_isbn__(self, content):
-        return Par_Scrape.parse(content, "//*[@class='value-field ISBN']")[0].text
+        try:
+            return Par_Scrape.parse(content, "//*[@class='value-field ISBN']")[0].text
+        except:
+            return None
 
     def __get_description__(self, content):
-        return Par_Scrape.parse(content, "//meta[@itemprop='description']/@content")[0]
+        try:
+            return Par_Scrape.parse(content, "//meta[@itemprop='description']/@content")[0]
+        except:
+            return None
 
     def __get_authors__(self, content):
-        authors_element = Par_Scrape.parse(content, "//*[@class='value-field Colaborador']")[0]
-        authors = authors_element.text
-        author = authors.split("Autor:")[-1]
-        
-        return author
+        try:
+            authors_element = Par_Scrape.parse(content, "//*[@class='value-field Colaborador']")[0]
+            authors = authors_element.text
+            author = authors.split("Autor:")[-1]
+            return author
+        except:
+            return None
 
     def __get_book_id__(self, content):
-        book_id = self.__get_url__(content)
-        book_id = book_id.replace('https://www3.livrariacultura.com.br/', '')
-        book_id = book_id.replace('/p', '')
-        return book_id
+        try:
+            book_id = self.__get_url__(content)
+            book_id = book_id.replace('https://www3.livrariacultura.com.br/', '')
+            book_id = book_id.replace('/p', '')
+            return book_id
+        except:
+            return None
 
     def __get_url__(self, content):
-        return Par_Scrape.parse(content, "//meta[@itemprop='url']/@content")[0]
+        try:
+            return Par_Scrape.parse(content, "//meta[@itemprop='url']/@content")[0]
+        except:
+            return None
 
     def get_book_data_from_site(self, url):
 

@@ -200,7 +200,6 @@ class book_site_kobo():
             of a specific month that it is passed, so that it
             may be used for comparison purposes.
         """
-
         try:
             if (month == "January") or (month == "Jan"):
                 return 1
@@ -381,7 +380,6 @@ class book_site_kobo():
             The purpose of this function is to determine the
             book's isbn_13.
         """
-
         try:
             isbn_element = _parse(content, ".//div[@class = 'bookitem-secondary-metadata']/ul/li[4]/span")
             isbn13 = isbn_element.text
@@ -547,7 +545,6 @@ class book_site_kobo():
             book's id that is being scraped, using the already
             scraped site_slug
         """
-
         try:
             url = self._get_book_url(content)
             first = "en/"
@@ -590,7 +587,7 @@ class book_site_kobo():
 
             return book_format
         except:
-            return None
+           return None
 
     def _get_book_links_from_search_site(self, content):
         """

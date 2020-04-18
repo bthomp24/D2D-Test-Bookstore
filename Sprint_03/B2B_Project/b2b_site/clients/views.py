@@ -21,6 +21,16 @@ import json
 import calendar
 from django.template import loader
 
+from rest_framework import viewsets
+from rest_framework.views import APIView
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import CheckmateSerializer
+from .search_checkmate import search_checkmate
+
+from .models import Site_Slug
+
 # Create your views here.
 
 
@@ -248,6 +258,46 @@ class JsonFormView(FormView):
         else:
             return self.render_to_response(self.get_context_data(json_form=json_form, manual_form=manual_form))
 
+class CheckmateView(APIView):
+    parser_classes = (JSONParser, FormParser)
+    
+    def post(self, request, *args, **kwargs):
+
+        serializer = CheckmateSerializer(data=request.data)
+        if serializer.is_valid():
+            json = serializer.data
+            results = search_checkmate(json)
+            return Response(results, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# def search(request):
+#     book = {}
+
+#     if request.method == 'POST':
+#         form = SearchManualForm(request.POST)
+
+#         if form.is_valid():
+#             book_title = form.cleaned_data['book_title']
+#             book_author = form.cleaned_data['book_author']
+#             book_isbn = form.cleaned_data['book_isbn']
+#             book_image_url = form.cleaned_data['book_image_url']
+
+#             book = {"title": book_title, "author": book_author,
+#                     "isbn": book_isbn, "image_url": book_image_url, "json": "None"}
+
+#             print(book)
+
+#             return book
+
+#     else:
+#         form = SearchManualForm()
+
+#     context = {
+#         'form': form,
+#     }
+#     return render(request, 'search.html', context=context)
+
 def results(request):
 
     site_list = Site_Slug.objects.order_by('name')
@@ -304,7 +354,6 @@ def login(request):
         "form": form
     }
     return render(request, 'registration/login.html', context=context)
-
 
 @login_required
 def manage_account(request):
