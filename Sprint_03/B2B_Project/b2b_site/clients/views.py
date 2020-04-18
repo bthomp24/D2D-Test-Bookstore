@@ -196,7 +196,8 @@ class MainView(LoginRequiredMixin, TemplateView):
             request.session['book_image_url'] = book_image_url 
 
    
-            return redirect(reverse('loading_page'))
+            #return redirect(reverse('loading_page'))
+            return redirect(reverse('results'))
         else:
             return self.render_to_response(self.get_context_data(manual_form=manual_form, json_form=json_form))
 
@@ -254,33 +255,45 @@ def results(request):
     for site in site_list:
         print(site.site_name)
 
-    #Separate Book information
-    book = {'name': 'HHGreg','author':'First Last','rating': 90.0,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
-    book2 = {'name': 'Sing-a-long','author':'First Last','rating': 87.0,'cover':'','link':'https://www.mariowiki.com/Luigi'}
-    book3 = {'name': 'Why','author':'First Last','rating': 78.3,'link':'https://www.mariowiki.com/Luigi'}
-    #Book list
-    books = [book,book2,book3]
-    #Site information
-    site1 = {'name':'Kobo','books':books}
+    book_title = request.session.get('book_title')
+    book_isbn = request.session.get('book_isbn')
+    book_author = request.session.get('book_author')
+    book_image_url = request.session.get('book_image_url')
+    json_code = request.session.get('json_code')
 
-    book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','author':'First Last','rating': 97.1,'link':'https://www.mariowiki.com/Luigi'}
-    book5 = {'name': 'Campfire','author':'First Name, Blah Blah, Jeff Smith','rating': 67.4,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
-    book6 = {'name': 'Eh','author':'First Last, Test Name','rating': 65.5,'link':'https://www.mariowiki.com/Luigi'}
-    book62 = {'name': 'YEAAAH!','author':'Other Name','rating': 64.5,'link':'https://www.mariowiki.com/Luigi'}
-    books2 = [book4,book5,book6,book62]
-    site2 = {'name':'Google','books':books2}
+    print(book_author)
+    print(book_image_url)
+    print(book_isbn)
+    print(book_title)
+    print(json_code)
 
-    books3 = []
-    site3 = {'name':'Livaria Cultura','books':books3}
+    # #Separate Book information
+    # book = {'name': 'HHGreg','author':'First Last','rating': 90.0,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
+    # book2 = {'name': 'Sing-a-long','author':'First Last','rating': 87.0,'cover':'','link':'https://www.mariowiki.com/Luigi'}
+    # book3 = {'name': 'Why','author':'First Last','rating': 78.3,'link':'https://www.mariowiki.com/Luigi'}
+    # #Book list
+    # books = [book,book2,book3]
+    # #Site information
+    # site1 = {'name':'Kobo','books':books}
 
-    book7 ={'name': 'Bookis','author':'First Last','rating': 88.8,'link':'https://www.mariowiki.com/Luigi'}
-    books4 = [book7]
-    site4 = {'name':'Test Bookstore','books':books4}
+    # book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','author':'First Last','rating': 97.1,'link':'https://www.mariowiki.com/Luigi'}
+    # book5 = {'name': 'Campfire','author':'First Name, Blah Blah, Jeff Smith','rating': 67.4,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
+    # book6 = {'name': 'Eh','author':'First Last, Test Name','rating': 65.5,'link':'https://www.mariowiki.com/Luigi'}
+    # book62 = {'name': 'YEAAAH!','author':'Other Name','rating': 64.5,'link':'https://www.mariowiki.com/Luigi'}
+    # books2 = [book4,book5,book6,book62]
+    # site2 = {'name':'Google','books':books2}
 
-    #Site list
-    site_list = [site1,site2,site3,site4]
+    # books3 = []
+    # site3 = {'name':'Livaria Cultura','books':books3}
 
-    context = {'site_list': site_list}
+    # book7 ={'name': 'Bookis','author':'First Last','rating': 88.8,'link':'https://www.mariowiki.com/Luigi'}
+    # books4 = [book7]
+    # site4 = {'name':'Test Bookstore','books':books4}
+
+    # #Site list
+    # site_list = [site1,site2,site3,site4]
+
+    context = {}#{'site_list': site_list}
 
     return render(request,'results.html',context=context)
 

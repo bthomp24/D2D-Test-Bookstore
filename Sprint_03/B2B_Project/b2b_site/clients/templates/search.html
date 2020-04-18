@@ -2,14 +2,6 @@
 
 {% block content %}
 
-<div id="loading">
-    <div id="loading-items">
-        <p class="loading-top">Gathering Information...</p>
-        {% load static %}
-        <img src="{% static 'images/ajax-loader.gif'%}" alt="Loading..." />
-        <p class="loading-bottom">Please wait.</p>
-    </div>
-</div>
 <div class="column middle" style="background-color:white;">
     <button class="tablink" onclick="openPage('JSON', this)">Search via JSON</button>
     <button class="tablink" onclick="openPage('MANUAL', this)" id="defaultOpen">Search via Form</button>

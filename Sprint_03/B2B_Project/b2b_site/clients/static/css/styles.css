@@ -476,11 +476,11 @@ table {
 }
 
 .loading-top {
-  transform: translate(0%, +150%);
+  transform: translate(0%, +80%);
 }
 
 .loading-bottom {
-  transform: translate(0%, -150%);
+  transform: translate(0%, -80%);
 }
 
 .query_report{
