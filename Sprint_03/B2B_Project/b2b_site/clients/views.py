@@ -57,9 +57,6 @@ def myFirstChart(request):
         # Insert the data into the `dataSource['data']` list.
 
         for query in queries:
-            print(query.user.company)
-            print(query.month)
-            print(query.year)
             if current_company == query.user.company and current_month == query.month and current_year == query.year:
                 dataSource["data"].append(
                     {"label": query.user.name, "value": query.querynum})
@@ -137,7 +134,6 @@ def myFirstChart(request):
             year = form.cleaned_data['year']
             company = form.cleaned_data['company']
 
-            print("from view", month, year)
             request.session['month'] = month
             request.session['year'] = year
             request.session['company'] = company
@@ -167,23 +163,72 @@ class MainView(LoginRequiredMixin, TemplateView):
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
-        if len(request.POST)==3:
+        current_month = datetime.now().month
+        current_year = datetime.now().year
+        queries = QueryInfo.objects.all()
+        current_user_name = request.user
+        users = User.objects.all()
+
+        for user in users:
+            if user.user == current_user_name:
+                current_user = user
+        
+        query_found = 0 #flag to check instance of QueryInfo of current month exists for the current user
+        
+        #Check the length of request.POST to find out which form was submitted by the user
+        if len(request.POST) == 3:
             json_form = JsonForm(self.request.POST)
             manual_form = SearchManualForm()
         else:
             manual_form = SearchManualForm(self.request.POST)
             json_form = JsonForm()
 
-
         context = self.get_context_data(**kwargs)
 
         if json_form.is_valid():
-            json_code = json_form.cleaned_data['json_code']
+            if current_user_name.is_superuser == False:
+                for query in queries:
+                    if str(query.user.user) == str(current_user_name) and query.month==current_month and query.year==current_year:
+                        query.querynum = query.querynum + 1
+                        query.save()
+                        query_found = 1
+                
+                #Create new instance of QueryInfo if one does not exist for current month for the current user
+                if query_found ==0:
+                    new_query = QueryInfo()
+                    new_query.month = current_month
+                    new_query.year = current_year
+                    new_query.user = current_user
+                    new_query.querynum = 1
+                    new_query.save()
 
-            request.session['json'] = json_code
-            
+
+            json_code = json_form.cleaned_data['json_code']
+            #Save the form data in the session
+            request.session['json_code'] = json_code
+            request.session['book_title'] = "None"
+            request.session['book_isbn'] = "None"
+            request.session['book_author'] = "None"
+            request.session['book_image_url'] = "None"
+
             return redirect(reverse('loading_page'))
+
         elif manual_form.is_valid():
+            if current_user_name.is_superuser == False:
+                for query in queries:
+                    if str(query.user.user) == str(current_user_name) and query.month==current_month and query.year==current_year:
+                        query.querynum = query.querynum + 1
+                        query.save()
+                        query_found = 1
+                
+                if query_found ==0:
+                    new_query = QueryInfo()
+                    new_query.month = current_month
+                    new_query.year = current_year
+                    new_query.user = current_user
+                    new_query.querynum = 1
+                    new_query.save()
+
             book_title = manual_form.cleaned_data['book_title']
             book_isbn = manual_form.cleaned_data['book_isbn']
             book_author = manual_form.cleaned_data['book_author']
@@ -193,9 +238,9 @@ class MainView(LoginRequiredMixin, TemplateView):
             request.session['book_title'] = book_title
             request.session['book_isbn'] = book_isbn
             request.session['book_author'] = book_author
-            request.session['book_image_url'] = book_image_url 
+            request.session['book_image_url'] = book_image_url
+            request.session['json_code'] = "None"
 
-   
             return redirect(reverse('loading_page'))
         else:
             return self.render_to_response(self.get_context_data(manual_form=manual_form, json_form=json_form))
@@ -221,8 +266,8 @@ class ManualFormView(FormView):
             book = {"title": book_title, "author": book_author,
                     "isbn": book_isbn, "image_url": book_image_url, "json": None}
             context = {
-                'manual_form' : manual_form,
-                'json_form' : json_form
+                'manual_form': manual_form,
+                'json_form': json_form
             }
 
             return self.render_to_response(context)
