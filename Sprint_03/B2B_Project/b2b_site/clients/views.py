@@ -29,8 +29,6 @@ from rest_framework import status
 from .serializers import CheckmateSerializer
 from .search_checkmate import search_checkmate
 
-from .models import Site_Slug
-
 # Create your views here.
 
 
@@ -347,6 +345,9 @@ class CheckmateView(APIView):
 
 def results(request):
 
+    current_user = request.user
+    print(current_user)
+
     site_info = Site_Slug.objects.order_by('name')
     for site in site_info:
         print(site.name)
@@ -361,7 +362,7 @@ def results(request):
     print('Image',book_image_url)
     print('ISBN',book_isbn)
     print('Title',book_title)
-    print('JSON',json_code)
+    print(json_code)
 
     book_data = {}
     if json_code == None:
@@ -383,13 +384,19 @@ def results(request):
         book_data = {'bookdata': bookdata}
 
     else:
-        pass
+        book_data = json.loads(json_code)
+        
+        if 'authors' in book_data['bookdata']:
+            author_names = []
+            for author in book_data['bookdata']['authors']:
+                author_names.append(author['author'])
+
+            book_data['bookdata']['authors'] = ','.join(author_names)
 
     site_book_data = search_checkmate(book_data)
 
     site_list = []
     for site in site_book_data:
-        print(site[0])
         site_name = ''
         for individual_site in site_info:
             if site[0] == individual_site.name.lower():
@@ -407,34 +414,6 @@ def results(request):
                 books.append({'name':book_name,'author':book_author,'link':book_link,'cover':book_cover,'rating':book_rating})
 
         site_list.append({'name':site_name,'books':books})
-
-    #search_checkmate
-
-    # #Separate Book information
-    # book = {'name': 'HHGreg','author':'First Last','rating': 90.0,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
-    # book2 = {'name': 'Sing-a-long','author':'First Last','rating': 87.0,'cover':'','link':'https://www.mariowiki.com/Luigi'}
-    # book3 = {'name': 'Why','author':'First Last','rating': 78.3,'link':'https://www.mariowiki.com/Luigi'}
-    # #Book list
-    # books = [book,book2,book3]
-    # #Site information
-    # site1 = {'name':'Kobo','books':books}
-
-    # book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','author':'First Last','rating': 97.1,'link':'https://www.mariowiki.com/Luigi'}
-    # book5 = {'name': 'Campfire','author':'First Name, Blah Blah, Jeff Smith','rating': 67.4,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
-    # book6 = {'name': 'Eh','author':'First Last, Test Name','rating': 65.5,'link':'https://www.mariowiki.com/Luigi'}
-    # book62 = {'name': 'YEAAAH!','author':'Other Name','rating': 64.5,'link':'https://www.mariowiki.com/Luigi'}
-    # books2 = [book4,book5,book6,book62]
-    # site2 = {'name':'Google','books':books2}
-
-    # books3 = []
-    # site3 = {'name':'Livaria Cultura','books':books3}
-
-    # book7 ={'name': 'Bookis','author':'First Last','rating': 88.8,'link':'https://www.mariowiki.com/Luigi'}
-    # books4 = [book7]
-    # site4 = {'name':'Test Bookstore','books':books4}
-
-    # #Site list
-    # site_list = [site1,site2,site3,site4]
 
     context = {'site_list': site_list}
 

@@ -38,7 +38,7 @@
                     <button class="accordion">More Results</button>
                     <div class="panel">
                 {% elif forloop.last %}
-                        <a href="{{ book.link }}" target="_blank" class="book-link"></a>
+                        <a href="{{ book.link }}" target="_blank" class="book-link">
                             <div class="flex-content">
                             {% if book.cover == None or book.cover|length < 1 %}
                                 <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">

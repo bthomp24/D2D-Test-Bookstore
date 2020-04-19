@@ -8,7 +8,6 @@ import json
 
 
 def search_checkmate(book_data):
-    print(book_data)
     list_data = book_data["bookdata"]
 
     try:
@@ -75,8 +74,7 @@ def search_checkmate(book_data):
         None, #14-content (String)
         None, #15-ready_for_sale (boolean)
         None #16-extra (List[])
-        ] 
-    print(site_book_data)
+        ]
 
     results = []
     
