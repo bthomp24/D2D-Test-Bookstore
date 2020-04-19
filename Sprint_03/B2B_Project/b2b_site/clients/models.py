@@ -30,7 +30,7 @@ class User(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='users')
-    #queries = models.PositiveIntegerField(default=0)
+    queries = models.PositiveIntegerField(default=0)
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -43,3 +43,6 @@ class QueryInfo(models.Model):
     year = models.IntegerField(null=False, blank=False)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.name
