@@ -38,7 +38,10 @@ class SearchManualForm(MultipleForm):
         book_image_url = self.cleaned_data.get("book_image_url")
 
         if book_title== '' and book_author=='' and book_isbn=='' and book_image_url=='':
-            raise forms.ValidationError(_("Atleast one of the search fields must be filled."))
+            raise forms.ValidationError(_("Atleast one of the search fields must be filled out to perform the search."))
+
+        if book_title== '' and book_author=='' and book_isbn=='' and book_image_url!='':
+            raise forms.ValidationError(_("Cannot Perform Search only based on Image URL."))
 
         return cleaned_data
 
@@ -77,8 +80,6 @@ class QueryForm(forms.Form):
 
     for company in companies:
         company_list.append(company.name)
-
-    print(company_list)
 
     month = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Enter the Month Number e.g. January =1', 'size':28}))
     year = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Enter the Year', 'size':28}))
