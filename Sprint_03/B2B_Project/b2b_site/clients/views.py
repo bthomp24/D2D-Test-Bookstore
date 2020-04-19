@@ -217,7 +217,6 @@ class MainView(LoginRequiredMixin, TemplateView):
             request.session['book_author'] = "None"
             request.session['book_image_url'] = "None"
 
-            #return redirect(reverse('loading_page'))
             return redirect(reverse('results'))
 
         elif manual_form.is_valid():
@@ -248,8 +247,6 @@ class MainView(LoginRequiredMixin, TemplateView):
             request.session['book_image_url'] = book_image_url
             request.session['json_code'] = "None"
 
-   
-            #return redirect(reverse('loading_page'))
             return redirect(reverse('results'))
         else:
             return self.render_to_response(self.get_context_data(manual_form=manual_form, json_form=json_form))
@@ -312,37 +309,12 @@ class CheckmateView(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# def search(request):
-#     book = {}
-
-#     if request.method == 'POST':
-#         form = SearchManualForm(request.POST)
-
-#         if form.is_valid():
-#             book_title = form.cleaned_data['book_title']
-#             book_author = form.cleaned_data['book_author']
-#             book_isbn = form.cleaned_data['book_isbn']
-#             book_image_url = form.cleaned_data['book_image_url']
-
-#             book = {"title": book_title, "author": book_author,
-#                     "isbn": book_isbn, "image_url": book_image_url, "json": "None"}
-
-#             print(book)
-
-#             return book
-
-#     else:
-#         form = SearchManualForm()
-
-#     context = {
-#         'form': form,
-#     }
-#     return render(request, 'search.html', context=context)
-
 def results(request):
 
-    current_user = request.user
-    print(current_user)
+    current_user = User.objects.get(user=request.user)
+    slug_list = []
+    for slug in current_user.company.slugs.all():
+        slug_list.append(slug.name.lower())
 
     site_info = Site_Slug.objects.order_by('name')
 
@@ -353,7 +325,7 @@ def results(request):
     json_code = request.session.get('json_code')
 
     book_data = {}
-    if json_code == None:
+    if json_code == 'None':
 
         bookdata = {}
 
@@ -372,6 +344,7 @@ def results(request):
         book_data = {'bookdata': bookdata}
 
     else:
+
         book_data = json.loads(json_code)
         
         if 'authors' in book_data['bookdata']:

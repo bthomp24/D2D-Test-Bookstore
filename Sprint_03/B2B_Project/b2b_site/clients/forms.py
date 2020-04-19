@@ -22,8 +22,13 @@ class SearchManualForm(MultipleForm):
         book_author = self.cleaned_data['book_author']
         return book_author
 
+    # def clean_book_isbn(self):
+    #     book_isbn = self.cleaned_data['book_isbn']
+    #     return book_isbn
     def clean_book_isbn(self):
         book_isbn = self.cleaned_data['book_isbn']
+        if len(book_isbn) == 10:
+            book_isbn = "978"+ book_isbn
         return book_isbn
     
     def clean_book_url(self):
@@ -51,28 +56,13 @@ class JsonForm(MultipleForm):
     def clean_json_code(self):
         json_code = self.cleaned_data['json_code']
 
+        if json_code[0] !='\'' or json_code[0]!='\"':
+            json_code = json_code[1:]
+
+        if json_code[len(json_code)-1]!='\'' or json_code[len(json_code)-1] !='\"':
+            json_code = json_code[:-1]
+
         return json_code
-
-class PasswordResetForm(forms.Form):
-    old_password = forms.CharField(max_length=32, widget=forms.PasswordInput(attrs={'placeholder': 'Enter Title of the Book', 'size':40}))
-    new_password = forms.CharField(max_length=32, widget=forms.PasswordInput(attrs={'placeholder': 'Enter Title of the Book', 'size':40}))
-    confirm_new_password = forms.CharField(max_length=32, widget=forms.PasswordInput(attrs={'placeholder': 'Enter Title of the Book', 'size':40}))
-
-    def __init__(self, *args, **kwargs):
-        self.user = kwargs.pop('user', None)
-        super(PasswordResetForm, self).__init__(*args, **kwargs)
-    
-    def clean_old_password(self):
-        data = self.cleaned_data['old_password']
-
-        if data != self.user.password:
-            raise ValidationError(_('Invalid Password Entered'))
-    def clean_confirm_new_password(self):
-        data = self.cleaned_data['confirmed_new_password']
-        new_password = self.cleaned_data['new_password']
-
-        if data != new_password:
-            raise ValidationError(_('Passwords do not Match.')) 
 
 class QueryForm(forms.Form):
     companies = Company.objects.all()
