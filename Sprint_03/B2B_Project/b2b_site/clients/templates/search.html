@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="column middle" style="background-color:white;">
+<div id="columnMiddle" class="column middle" style="background-color:white;">
     <button class="tablink" onclick="openPage('JSON', this)">Search via JSON</button>
     <button class="tablink" onclick="openPage('MANUAL', this)" id="defaultOpen">Search via Form</button>
     <div id="JSON" class="tabcontent">
@@ -12,7 +12,7 @@
             <table>
                 {{ json_form.as_table }}
             </table>
-            <button type="submit" class = "submitbtn" style="vertical-align:middle" value  ="json"> <span>Submit</span></button> 
+            <button type="submit" onclick="show_loading();" class = "submitbtn" style="vertical-align:middle" value  ="json"> <span>Submit</span></button> 
         </form>
         </div>
         <div class="json_example">
@@ -52,9 +52,23 @@
             <table>
                 {{ manual_form.as_table }}
             </table>
-            <button type="submit" class = "submitbtn" style="vertical-align:middle" value = "manual"> <span>Submit</span></button>
+            <button type="submit" onclick="show_loading();" class = "submitbtn" style="vertical-align:middle" value = "manual" > <span>Submit</span></button>
         </form>
     </div>
 </div>
+<script>
+    function show_loading() {
+        $('<div id="loading"><div id="loading-items"><p class="loading-top">Gathering Information...</p><i class= "fa fa-spinner fa-pulse fa-3x"></i><p class="loading-bottom">Please Wait.</p></div></div>').appendTo("#columnMiddle").hide().fadeIn(500);
+    }
+    // $(window).on('load', function () {
+    //     setTimeout(removeLoader, 4000); //wait for page load PLUS two seconds.
+    // });
+    // function removeLoader() {
+    //     $("#loading").fadeOut(500, function () {
+    //         // fadeOut complete. Remove the loading div
+    //         $("#loading").remove(); //makes page more lightweight 
+    //     });
+    // }
+</script>
 
 {% endblock %}
