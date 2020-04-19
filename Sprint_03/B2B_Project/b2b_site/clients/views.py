@@ -31,7 +31,6 @@ from .search_checkmate import search_checkmate
 
 # Create your views here.
 
-
 def myFirstChart(request):
     current_month = datetime.now().month
     current_year = datetime.now().year
@@ -156,7 +155,6 @@ def myFirstChart(request):
         "form": form,
     })
 
-
 class MainView(LoginRequiredMixin, TemplateView):
     template_name = "search.html"
 
@@ -258,7 +256,6 @@ class MainView(LoginRequiredMixin, TemplateView):
 
         return self.render_to_response(context)
 
-
 class ManualFormView(FormView):
     form_class = SearchManualForm
     template_name = 'search.html'
@@ -284,7 +281,6 @@ class ManualFormView(FormView):
             return self.render_to_response(context)
         else:
             return self.render_to_response(self.get_context_data(manual_form=manual_form, json_form=json_form))
-
 
 class JsonFormView(FormView):
     form_class = JsonForm
@@ -349,20 +345,12 @@ def results(request):
     print(current_user)
 
     site_info = Site_Slug.objects.order_by('name')
-    for site in site_info:
-        print(site.name)
 
     book_title = request.session.get('book_title')
     book_isbn = request.session.get('book_isbn')
     book_author = request.session.get('book_author')
     book_image_url = request.session.get('book_image_url')
     json_code = request.session.get('json_code')
-
-    print('Author',book_author)
-    print('Image',book_image_url)
-    print('ISBN',book_isbn)
-    print('Title',book_title)
-    print(json_code)
 
     book_data = {}
     if json_code == None:
@@ -419,7 +407,6 @@ def results(request):
 
     return render(request,'results.html',context=context)
 
-
 def login(request):
     form = AuthenticationForm
     context = {
@@ -432,7 +419,6 @@ def manage_account(request):
     context = {
     }
     return render(request, 'manage_account.html', context=context)
-
 
 def loading(request):
     book_title = request.session.get('book_title')
@@ -450,7 +436,6 @@ def loading(request):
 
     }
     return render(request, 'loading.html', context=context)
-
 
 @login_required
 def historicalChart(request):
