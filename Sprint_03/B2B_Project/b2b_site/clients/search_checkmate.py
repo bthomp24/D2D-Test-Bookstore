@@ -8,12 +8,14 @@ import json
 
 
 def search_checkmate(book_data):
+    print(book_data)
     list_data = book_data["bookdata"]
 
     try:
         format = list_data["format"]
     except:
-        format = None
+        #format = None
+        format = 'digital'
 
     try:
         title = list_data["title"]
@@ -74,6 +76,7 @@ def search_checkmate(book_data):
         None, #15-ready_for_sale (boolean)
         None #16-extra (List[])
         ] 
+    print(site_book_data)
 
     results = []
     

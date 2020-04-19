@@ -192,7 +192,8 @@ class MainView(LoginRequiredMixin, TemplateView):
 
             request.session['json'] = json_code
             
-            return redirect(reverse('loading_page'))
+            #return redirect(reverse('loading_page'))
+            return redirect(reverse('results'))
         elif manual_form.is_valid():
             book_title = manual_form.cleaned_data['book_title']
             book_isbn = manual_form.cleaned_data['book_isbn']
@@ -300,10 +301,9 @@ class CheckmateView(APIView):
 
 def results(request):
 
-    site_list = Site_Slug.objects.order_by('name')
-
-    for site in site_list:
-        print(site.site_name)
+    site_info = Site_Slug.objects.order_by('name')
+    for site in site_info:
+        print(site.name)
 
     book_title = request.session.get('book_title')
     book_isbn = request.session.get('book_isbn')
@@ -311,11 +311,58 @@ def results(request):
     book_image_url = request.session.get('book_image_url')
     json_code = request.session.get('json_code')
 
-    print(book_author)
-    print(book_image_url)
-    print(book_isbn)
-    print(book_title)
-    print(json_code)
+    print('Author',book_author)
+    print('Image',book_image_url)
+    print('ISBN',book_isbn)
+    print('Title',book_title)
+    print('JSON',json_code)
+
+    book_data = {}
+    if json_code == None:
+
+        bookdata = {}
+
+        if book_author:
+            bookdata['authors'] = book_author
+
+        if book_image_url:
+            bookdata['image_url'] = book_image_url
+
+        if book_isbn:
+            bookdata['isbn13'] = book_isbn
+
+        if book_title:
+            bookdata['title'] = book_title
+
+        book_data = {'bookdata': bookdata}
+
+    else:
+        pass
+
+    site_book_data = search_checkmate(book_data)
+
+    site_list = []
+    for site in site_book_data:
+        print(site[0])
+        site_name = ''
+        for individual_site in site_info:
+            if site[0] == individual_site.name.lower():
+                site_name = individual_site.site_name
+                break
+
+        books = []
+        for book in site[1]:
+            if float(book[4]) > 60:
+                book_name = book[0]
+                book_author = book[1]
+                book_link = book[2]
+                book_cover = book[3]
+                book_rating = book[4]
+                books.append({'name':book_name,'author':book_author,'link':book_link,'cover':book_cover,'rating':book_rating})
+
+        site_list.append({'name':site_name,'books':books})
+
+    #search_checkmate
 
     # #Separate Book information
     # book = {'name': 'HHGreg','author':'First Last','rating': 90.0,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
@@ -343,7 +390,7 @@ def results(request):
     # #Site list
     # site_list = [site1,site2,site3,site4]
 
-    context = {}#{'site_list': site_list}
+    context = {'site_list': site_list}
 
     return render(request,'results.html',context=context)
 
