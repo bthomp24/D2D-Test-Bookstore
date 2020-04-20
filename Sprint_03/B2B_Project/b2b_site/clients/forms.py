@@ -51,16 +51,27 @@ class SearchManualForm(MultipleForm):
         return cleaned_data
 
 class JsonForm(MultipleForm):
-    json_code = forms.CharField(widget=forms.Textarea(attrs={'rows':30, 'cols':60,'placeholder': 'Enter JSON code to search Digital/Audio Book'}))
+    json_code = forms.CharField(required=False,widget=forms.Textarea(attrs={'rows':30, 'cols':60,'placeholder': 'Enter JSON code to search Digital/Audio Book'}))
 
     def clean_json_code(self):
         json_code = self.cleaned_data['json_code']
 
+        if (json_code == ''):
+            raise forms.ValidationError(_("Text area cannot be empty."))
+
+        json_code = json_code.replace('\r','').replace('\n','')
+
         if json_code[0] !='\'' or json_code[0]!='\"':
             json_code = json_code[1:]
-
+        
         if json_code[len(json_code)-1]!='\'' or json_code[len(json_code)-1] !='\"':
             json_code = json_code[:-1]
+
+        if json_code[0] !='{':
+            json_code = '{' + json_code
+
+        if json_code[len(json_code)-1] == '}' and json_code[len(json_code)-2] != '}':
+            json_code = json_code + '}'
 
         return json_code
 
