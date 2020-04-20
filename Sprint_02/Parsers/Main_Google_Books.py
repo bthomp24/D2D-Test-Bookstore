@@ -159,13 +159,6 @@ class book_site_google():
                         site_book_data_list.append(future.result())
                 site_book_data_total += site_book_data_list
 
-            '''
-            for url in relevant_book_links:
-                if url != None:
-                    site_book_data_list = self.get_book_data_from_site(url)
-                    site_book_data_total.append(site_book_data_list)
-            '''
-
         
         return Par_Scrape.site_book_data_relevancy(book_data, site_book_data_total)
 
@@ -278,20 +271,22 @@ class book_site_google():
             The purpose of this function is to determine what
             the book's description
         """
+        try:
+            desc_parts = Par_Scrape.parse(content, ("//*[@id='synopsistext']//text()"))
 
-        desc_parts = Par_Scrape.parse(content, ("//*[@id='synopsistext']//text()"))
+            # Process here is to compensate for returning empty variables
+            # as well as acquiring all the text in between HTML tags.
+            # Solution to the dynamic html formatting of google books descriptions.
+            if len(desc_parts) == 0:
+                return None
 
-        # Process here is to compensate for returning empty variables
-        # as well as acquiring all the text in between HTML tags.
-        # Solution to the dynamic html formatting of google books descriptions.
-        if len(desc_parts) == 0:
+            full_desc = ""            
+            for parts in desc_parts:
+                full_desc += parts
+                
+            return full_desc
+        except:
             return None
-        else:
-           full_desc = ""
-           for parts in desc_parts:
-               full_desc += parts
-               
-        return full_desc
 
 
     def _get_book_series(self, content):
@@ -486,12 +481,13 @@ class book_site_google():
             "DIGITAL" since google books only has E-books on their 
             own site.
         """
-
-        if Par_Scrape.parse(content, "//*[@id='gb-get-book-not-available']"):
-            return "PRINT"
-        else:    
-            return "DIGITAL"
-
+        try:
+            if Par_Scrape.parse(content, "//*[@id='gb-get-book-not-available']"):
+                return "PRINT"
+            else:    
+                return "DIGITAL"
+        except:
+            return None
     
     def _get_book_sale_status(self, content):
         """
@@ -506,12 +502,13 @@ class book_site_google():
             The purpose of this function is to determine if the
             book is available for sale.
         """
-
-        if Par_Scrape.parse(content, "//*[@id='gb-get-book-not-available']"):
-            return False
-        else:
-            return True
-
+        try:
+            if Par_Scrape.parse(content, "//*[@id='gb-get-book-not-available']"):
+                return False
+            else:
+                return True
+        except:
+            return None
 
     def _get_book_sale_price(self, content):
         """
@@ -528,16 +525,14 @@ class book_site_google():
             The purpose of this function is to parse the to scrape
             for the ebook's price and return it.
         """
-
-        if Par_Scrape.parse(content, "//*[@id='gb-get-book-not-available']"):
+        try:
+            if Par_Scrape.parse(content, "//*[@id='gb-get-book-not-available']"):
+                return None
+        except:
             return None
-        else:
-            ebook = Par_Scrape.parse(content, "//*[@id='gb-get-book-content']/text()")
-            price = [x.strip() for x in ebook[0].split('-')]
-            return price[1]
 
-
-    def _get_book_links_from_search_site(self, url, page_number):
+    
+    def __get_book_links_from_search_site(self, url, page_number):
         """
         args:
             url (String):
@@ -556,58 +551,59 @@ class book_site_google():
             It will return a list of the book url's formatted to take
             the browser directly to the book source.
         """
+        try:
+            response = requests.get(url)
+            
+            collected_urls = Par_Scrape.parse(response.content, ("//*[@class='ZINbbc xpd O9g5cc uUPGi']/div[@class='kCrYT'][1]/a/@href"))
+            relevant_urls = []
 
-        response = requests.get(url)
+            # if no search results are found.
+            if len(collected_urls) == 0:
+                return None
 
-        collected_urls = Par_Scrape.parse(response.content, ("//*[@class='ZINbbc xpd O9g5cc uUPGi']/div[@class='kCrYT'][1]/a/@href"))
-        relevant_urls = []
+            # Process for formatting the urls collected into direct links.
+            # This process is due to google books links acquired taking the
+            # browser to a "Preview" book page which doesn't have the data we
+            # are after.
+            for proper_link in collected_urls:
+                url_split = "&"
+                
+                proper_link = proper_link.split(url_split, 1)[0]
+                proper_link += "&source=gbs_navlinks_s"
+                
+                
+                if "https://books.google.com/books?id=" in proper_link:
+                    relevant_urls.append(proper_link)
+                else:
+                    relevant_urls.append(None)
+            
+            # statement for going to get links on next page.
+            # recursive calling function that stops after
+            # 5 page search results full. (60 results)
+            if page_number < 5:
 
-        # if no search results are found.
-        if len(collected_urls) == 0:
+                # process to construct the url for the page linked by the next button on google books.
+                next_page_tail = Par_Scrape.parse(requests.get(url).content, "//*[@class='nBDE1b G5eFlf'][@aria-label='Next page']/@href")
+
+                # if there is no next page.
+                if len(next_page_tail) == 0:
+                    return relevant_urls
+                
+                next_page = "https://www.google.com" + next_page_tail[0]
+
+                page_number += 1
+                next_group = self.__get_book_links_from_search_site(next_page, page_number)
+
+                # if there is a next page but it contains no results
+                if next_group == None:
+                    return relevant_urls
+                
+                for url in next_group:
+                    relevant_urls.append(url)    
+
+            return relevant_urls    
+        except:
             return None
-
-        # Process for formatting the urls collected into direct links.
-        # This process is due to google books links acquired taking the
-        # browser to a "Preview" book page which doesn't have the data we
-        # are after.
-        for proper_link in collected_urls:
-            url_split = "&"
-            
-            proper_link = proper_link.split(url_split, 1)[0]
-            proper_link += "&source=gbs_navlinks_s"
-            
-            
-            if "https://books.google.com/books?id=" in proper_link:
-                relevant_urls.append(proper_link)
-            else:
-                relevant_urls.append(None)
-        
-        # statement for going to get links on next page.
-        # recursive calling function that stops after
-        # 5 page search results full. (60 results)
-        if page_number < 5:
-
-            # process to construct the url for the page linked by the next button on google books.
-            next_page_tail = Par_Scrape.parse(requests.get(url).content, "//*[@class='nBDE1b G5eFlf'][@aria-label='Next page']/@href")
-
-            # if there is no next page.
-            if len(next_page_tail) == 0:
-                return relevant_urls
-            
-            next_page = "https://www.google.com" + next_page_tail[0]
-
-            page_number += 1
-            next_group = self._get_book_links_from_search_site(next_page, page_number)
-
-            # if there is a next page but it contains no results
-            if next_group == None:
-                return relevant_urls
-            
-            for url in next_group:
-                relevant_urls.append(url)    
-
-        return relevant_urls    
-
 
     def _Is_search_valid(self, search):
         """
