@@ -84,7 +84,7 @@ book_data1 = ["Digital", #00-format (String)
     None, #08-subtitle (String)
     "Rod Kackley", #09-authors (String)
     None, #10-book_id (String)
-    "tb", #11-site_slug (String)
+    "gb", #11-site_slug (String)
     None, #12-parse_status (String)
     None, #13-url (String)
     None, #14-content (String)
@@ -118,7 +118,7 @@ book_site = Scrapers.get_book_site(slug)
 
 file_name = "Test_Files/" + book_data[11].upper() + "_File"
 
-Par_Scrape.write_Txt(str(book_site.find_book_matches_at_site(book_data)), file_name)
+Par_Scrape.write_txt(str(book_site.find_book_matches_at_site(book_data)), file_name)
 
 
 end_time = time.time()

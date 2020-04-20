@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block navbar %}
+<div id="navbar">
+    <a href="{% url 'search' %}"><i class="fas fa-search"></i>  Search</a>
+    <a href="{% url 'query_report' %}"><i class="fas fa-question-circle"></i>  Query Report</a>
+    <a href="{% url 'manage_account' %}"><i class="fas fa-user-cog"></i>  Manage Account</a>
+    <a href= "javascript:void(0)" style = "border : none"></a>
+    <a href= "{% url 'logout' %}" style = "float : right"><i class="fas fa-sign-out-alt"></i>  Sign Out</a>
+  </div>
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+
+    {% block content%}
+    {% endblock %}
+  
+
+</div>
+
+{% endblock %}

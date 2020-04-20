@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'clients',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,9 @@ ROOT_URLCONF = 'b2b_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,3 +140,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Redirect to login URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/clients/search/'
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# usermanager/settings.py
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'd2db2bteam@gmail.com'
+EMAIL_HOST_PASSWORD = 'Passwordd2db2b'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'D2D Team <d2db2bteam@gmail.com>'

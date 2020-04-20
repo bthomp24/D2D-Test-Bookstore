@@ -1,0 +1,101 @@
+{% extends "base_sidebar.html" %}
+
+{% block content %}
+
+<div id="columnMiddle" class="column middle" style="background-color:white;">
+    <h1>Results Found In:</h1>
+    {% for site in site_list %}
+        <h2 class="site-name">{{ site.name }}:</h2>
+        {% if site.books|length > 1 %}
+            {% for book in site.books %}
+                {% if forloop.first %}
+                    <a href="{{ book.link }}" target="_blank" class="book-link">
+                        <div class="flex-content">
+                        {% if book.cover == None or book.cover|length < 1 %}
+                            <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                        {% else %}
+                            <img src="{{ book.cover }}" height="96" width="60">
+                        {% endif %}
+                            <div class="flex-child-first">
+                                <p title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
+                            {% if ',' in book.author %}
+                                <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:59 }}</p>
+                            {% else %}
+                                <p title="{{ book.author }}">Author: {{ book.author|truncatechars:60 }}</p>
+                            {% endif %}
+                            </div>
+                            <p class="flex-child-last">Rating: {{ book.rating }}%</p>
+                        </div>
+                    </a>
+
+                    <button class="accordion">More Results</button>
+                    <div class="panel">
+                {% elif forloop.last %}
+                        <a href="{{ book.link }}" target="_blank" class="book-link">
+                            <div class="flex-content">
+                            {% if book.cover == None or book.cover|length < 1 %}
+                                <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                            {% else %}
+                                <img src="{{ book.cover }}" height="96" width="60">
+                            {% endif %}
+                                <div class="flex-child-first">
+                                    <p title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
+                                {% if ',' in book.author %}
+                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:34 }}</p>
+                                {% else %}
+                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:35 }}</p>
+                                {% endif %}
+                                </div>
+                                <p class="flex-child-last">Rating: {{ book.rating }}%</p>
+                            </div>
+                        </a>
+                    </div>
+                {% else %}
+                        <a href="{{ book.link }}" target="_blank" class="book-link">
+                            <div class="flex-content">
+                            {% if book.cover == None or book.cover|length < 1 %}
+                                <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                            {% else %}
+                                <img src="{{ book.cover }}" height="96" width="60">
+                            {% endif %}
+                                <div class="flex-child-first">
+                                    <p title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
+                                {% if ',' in book.author %}
+                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:34 }}</p>
+                                {% else %}
+                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:35 }}</p>
+                                {% endif %}
+                                </div>
+                                <p class="flex-child-last">Rating: {{ book.rating }}%</p>
+                            </div>
+                        </a>
+                {% endif %}
+            {% endfor %}
+        {% elif site.books|length == 1 %}
+            {% for book in site.books %}
+                <a href="{{ book.link }}" target="_blank" class="book-link">
+                    <div class="flex-content">
+                    {% if book.cover == None or book.cover|length < 1 %}
+                        <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                    {% else %}
+                        <img src="{{ book.cover }}" height="96" width="60">
+                    {% endif %}
+                        <div class="flex-child-first">
+                            <p title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
+                        {% if ',' in book.author %}
+                            <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:59 }}</p>
+                        {% else %}
+                            <p title="{{ book.author }}">Author: {{ book.author|truncatechars:60 }}</p>
+                        {% endif %}
+                        </div>
+                        <p class="flex-child-last">Rating: {{ book.rating }}%</p>
+                    </div>
+                </a>
+            {% endfor %}
+        {% else %}
+            <p class="empty-results">No Results Found</p>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}
