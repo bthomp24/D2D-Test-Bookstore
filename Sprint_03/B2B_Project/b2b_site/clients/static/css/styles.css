@@ -347,22 +347,12 @@ table {
   margin: 0;
 }
 
-/* .loadingInfo {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.loadingInfo i{
-  font-size: 100px;
-} */
-
 .accordion {
   background-color: #333;
   color: #eee;
   cursor: pointer;
   padding: 16px 16px 16px 16px;
-  width: 20%;
-  /* border: none; */
+  width: fit-content;
   text-align: left;
   outline: none;
   font-size: 25px;
@@ -378,21 +368,19 @@ table {
 }
 
 .panel {
-  /* padding: 16px 16px 16px 16px; */
   display: none;
   padding: 0 18px;
   overflow: hidden;
   width: 90%;
-  /* padding: 0 18px;
-  display: none;
-  background-color: #ccc;
-  overflow: hidden;
-  width: 50%;
-} */
 }
 
 .flex-child-first {
   margin-left: 3%;
+}
+
+.flex-child-first-child {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .flex-child-last {
@@ -467,6 +455,7 @@ table {
 }
 
 #loading-items {
+  width: 100%;
   font-size: 50px;
   position: fixed;
   top: 50%;
@@ -530,7 +519,6 @@ textarea {
   padding-left: 48px;
   padding-top: 10px;
 }
-
 
 #JSON {
   box-sizing: border-box;

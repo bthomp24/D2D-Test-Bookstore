@@ -17,12 +17,8 @@
                             <img src="{{ book.cover }}" height="96" width="60">
                         {% endif %}
                             <div class="flex-child-first">
-                                <p title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
-                            {% if ',' in book.author %}
-                                <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:59 }}</p>
-                            {% else %}
-                                <p title="{{ book.author }}">Author: {{ book.author|truncatechars:60 }}</p>
-                            {% endif %}
+                                <p class="flex-child-first-child" title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
+                                <p class="flex-child-first-child" title="{{ book.author }}">By: {{ book.author|truncatechars:67 }}</p>
                             </div>
                             <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                         </div>
@@ -39,12 +35,8 @@
                                 <img src="{{ book.cover }}" height="96" width="60">
                             {% endif %}
                                 <div class="flex-child-first">
-                                    <p title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
-                                {% if ',' in book.author %}
-                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:34 }}</p>
-                                {% else %}
-                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:35 }}</p>
-                                {% endif %}
+                                    <p class="flex-child-first-child" title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
+                                    <p class="flex-child-first-child" title="{{ book.author }}">By: {{ book.author|truncatechars:37 }}</p>
                                 </div>
                                 <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                             </div>
@@ -59,12 +51,8 @@
                                 <img src="{{ book.cover }}" height="96" width="60">
                             {% endif %}
                                 <div class="flex-child-first">
-                                    <p title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
-                                {% if ',' in book.author %}
-                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:34 }}</p>
-                                {% else %}
-                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:35 }}</p>
-                                {% endif %}
+                                    <p class="flex-child-first-child" title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
+                                    <p class="flex-child-first-child" title="{{ book.author }}">By: {{ book.author|truncatechars:37 }}</p>
                                 </div>
                                 <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                             </div>
@@ -81,12 +69,8 @@
                         <img src="{{ book.cover }}" height="96" width="60">
                     {% endif %}
                         <div class="flex-child-first">
-                            <p title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
-                        {% if ',' in book.author %}
-                            <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:59 }}</p>
-                        {% else %}
-                            <p title="{{ book.author }}">Author: {{ book.author|truncatechars:60 }}</p>
-                        {% endif %}
+                            <p class="flex-child-first-child" title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
+                            <p class="flex-child-first-child" title="{{ book.author }}">By: {{ book.author|truncatechars:67 }}</p>
                         </div>
                         <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                     </div>
