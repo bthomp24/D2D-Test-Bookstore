@@ -606,7 +606,7 @@ class book_site_google():
         except:
             return None
 
-    def _Is_search_valid(self, search):
+    def _form_search_submission(self, search):
         """
         args:
             search (String):
@@ -670,12 +670,12 @@ class book_site_google():
         if (book_title != None) or (book_ISBN != None) or (book_author != None):
             
             if book_ISBN != None:
-                result0 = self._Is_search_valid(book_ISBN)
+                result0 = self._form_search_submission(book_ISBN)
                 if result0 != None:
                     links.append(result0)
             
             if book_title != None:
-                result1 = self._Is_search_valid(book_title)
+                result1 = self._form_search_submission(book_title)
                 if result1 != None:
                     links.append(result1)
             
