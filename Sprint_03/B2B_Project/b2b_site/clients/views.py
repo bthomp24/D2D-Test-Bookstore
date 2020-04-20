@@ -367,8 +367,10 @@ def results(request):
         books = []
         for book in site[1]:
             if float(book[4]) > 60:
-                book_name = book[0]
+                book_name = book[0].title()
                 book_author = book[1]
+                if book_author is not None:
+                    book_author = book_author.title()
                 book_link = book[2]
                 book_cover = book[3]
                 book_rating = book[4]
