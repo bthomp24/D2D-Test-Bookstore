@@ -680,7 +680,7 @@ class book_site_google():
                     links.append(result1)
             
             if book_author != None:
-                result2 = self._Is_search_valid(book_author)
+                result2 = self._form_search_submission(book_author)
                 if result2 != None:
                     links.append(result2)
         else:
