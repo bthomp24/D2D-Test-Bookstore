@@ -531,7 +531,7 @@ class book_site_google():
             return None
 
     
-    def __get_book_links_from_search_site(self, url, page_number):
+    def _get_book_links_from_search_site(self, url, page_number):
         """
         args:
             url (String):
@@ -594,7 +594,7 @@ class book_site_google():
                 next_page = "https://www.google.com" + next_page_tail[0]
 
                 page_number += 1
-                next_group = self.__get_book_links_from_search_site(next_page, page_number)
+                next_group = self._get_book_links_from_search_site(next_page, page_number)
 
                 # if there is a next page but it contains no results
                 if next_group == None:

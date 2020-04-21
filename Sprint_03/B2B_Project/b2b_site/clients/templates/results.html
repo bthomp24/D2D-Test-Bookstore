@@ -3,9 +3,9 @@
 {% block content %}
 
 <div id="columnMiddle" class="column middle" style="background-color:white;">
-    <h1>Results Found In:</h1>
+    <h2>Results Found In:</h2>
     {% for site in site_list %}
-        <h2 class="site-name">{{ site.name }}:</h2>
+        <h3 class="site-name">{{ site.name }}:</h3>
         {% if site.books|length > 1 %}
             {% for book in site.books %}
                 {% if forloop.first %}
