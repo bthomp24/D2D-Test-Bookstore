@@ -4,8 +4,8 @@
 
 <div class="column middle" style="background-color:white;">
     <div class="accMenu">
-        <p><i class="fas fa-info-circle"></i> Name: {{ user.first_name }} {{user.last_name}}</p>
-        <p><i class="fa fa-fw fa-envelope"></i> Email: {{ user.email }}</p>
+        <p><i class="fas fa-info-circle"></i> Name: {{ user.user.name}}</p>
+        <p><i class="fa fa-fw fa-envelope"></i> Email: {{ user.user.email }}</p>
         <p><i class="fa fa-fw fa-user"> </i> Username: {{ user.username }}</p>
         <p><i class="fas fa-city"></i> Company: {{ user.user.company }}</p>
         <a class="accInfo" href="{% url 'password_reset' %}"><i class="fas fa-key"></i> Reset Password</a>
