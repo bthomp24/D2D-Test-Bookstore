@@ -401,7 +401,11 @@ table {
 }
 
 .flex-content img {
+  height: 160px;
+  width: 100px;
   margin-left: 8px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .flex-book-info {

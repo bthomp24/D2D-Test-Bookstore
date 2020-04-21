@@ -311,10 +311,16 @@ class CheckmateView(APIView):
 
 def results(request):
 
-    current_user = User.objects.get(user=request.user)
     slug_list = []
-    for slug in current_user.company.slugs.all():
-        slug_list.append(slug.name.lower())
+    if request.user.is_superuser:
+        all_slugs = Site_Slug.objects.all()
+
+        for slug in all_slugs:
+            slug_list.append(slug.name.lower())
+    else:
+        current_user = User.objects.get(user=request.user)
+        for slug in current_user.company.slugs.all():
+            slug_list.append(slug.name.lower())
 
     site_info = Site_Slug.objects.order_by('name')
 
@@ -365,8 +371,9 @@ def results(request):
                 break
 
         books = []
+        count = 0
         for book in site[1]:
-            if float(book[4]) > 60:
+            if  count < 6 and float(book[4]) > 60:
                 book_name = book[0].title()
                 book_author = book[1]
                 if book_author is not None:
@@ -375,6 +382,7 @@ def results(request):
                 book_cover = book[3]
                 book_rating = book[4]
                 books.append({'name':book_name,'author':book_author,'link':book_link,'cover':book_cover,'rating':book_rating})
+                count = count + 1
 
         site_list.append({'name':site_name,'books':books})
 
