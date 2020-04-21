@@ -49,12 +49,12 @@ class book_site_test_bookstore():
             response = br.open('http://localhost:8000/bookstore/')
         except:
             print("\nError accessing Test Bookstore. Please make sure it is running.\n")
-            return None
+            return []
 
         br.select_form(nr=0)
         control = br.form.find_control("searcher")
         if control.type != "text":
-            return None
+            return []
         searchString = ''
         if ((book_data[1] != None) or (book_data[4] != None) or (book_data[9] != None)):
             
@@ -67,7 +67,7 @@ class book_site_test_bookstore():
             if (book_data[9] != None):
                 searchString += book_data[9]
         else:
-            return None
+            return []
 
         control.value = searchString
         br.submit()
@@ -422,7 +422,8 @@ class book_site_test_bookstore():
                 format is what type of book was scraped
         synopsis:
             The purpose of this function is to determine what kind of
-            book is being scraped.
+            book is being scraped. Always returns 'DIGITAL' since
+            books in the test bookstore do not have a format.
         """
 
         return "DIGITAL"
