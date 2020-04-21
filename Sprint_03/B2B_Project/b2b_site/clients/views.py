@@ -27,6 +27,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CheckmateSerializer
 from .search_checkmate import search_checkmate
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Site_Slug
 
@@ -227,6 +229,8 @@ class JsonFormView(FormView):
 
 class CheckmateView(APIView):
     parser_classes = (JSONParser, FormParser)
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     
     def post(self, request, *args, **kwargs):
 
