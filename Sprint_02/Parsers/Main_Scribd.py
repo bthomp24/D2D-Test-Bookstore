@@ -713,6 +713,8 @@ class book_site_scribd():
         book_format = url.split(url_split)[1]
         book_format = book_format.split(final_url_split)[0].replace(" ", "")
 
+
+
         response = requests.get(url)
 
         search_link_list = []
@@ -722,8 +724,18 @@ class book_site_scribd():
         elif book_format == "books":
             return self.__generate_dynamic_link_list(self.__parse_books(response))
         elif book_format == "tops":
-            search_link_list = self.__generate_dynamic_link_list(self.__parse_audiobooks(response))
-            search_link_list += self.__generate_dynamic_link_list(self.__parse_books(response))
+            search_link_list = []
+
+            try:
+                search_link_list += self.__generate_dynamic_link_list(self.__parse_audiobooks(response))
+            except:
+                pass
+
+            try:
+                search_link_list += self.__generate_dynamic_link_list(self.__parse_books(response))
+            except:
+                pass
+
             return search_link_list
         else:
             return None
@@ -748,11 +760,14 @@ class book_site_scribd():
         new_start = url_split[0] + "search?content_type="
         new_end = "&query" + url_split[1]
         new_formatting = ""
-        if formatting.lower() == "digital":
-            new_formatting = "books"
-        elif formatting.lower() == "audiobook":
-            new_formatting = "audiobooks"
-        else:
+        try:
+            if formatting.lower() == "digital":
+                new_formatting = "books"
+            elif formatting.lower() == "audiobook":
+                new_formatting = "audiobooks"
+            else:
+                new_formatting = "tops"
+        except:
             new_formatting = "tops"
         return new_start + new_formatting + new_end
 

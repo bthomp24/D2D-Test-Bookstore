@@ -54,7 +54,7 @@ tempImage = Par_Scrape.get_book_image_from_image_url(book_image_url)
 
 #BOOK DATA
 
-book_data = ["audiobook", #00-format (String)
+book_data = [None, #00-format (String)
     "The name of the wind", #01-book_title (String)
     None, #02-book_image (PIL.Image)
     None, #03-book_image_url (String)
