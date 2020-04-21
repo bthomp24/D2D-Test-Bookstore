@@ -305,13 +305,19 @@ class CheckmateView(APIView):
     parser_classes = (JSONParser, FormParser)
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
+
     
     def post(self, request, *args, **kwargs):
+        slug_list = []
+        current_user = User.objects.get(user=request.user)
+        for slug in current_user.company.slugs.all():
+            slug_list.append(slug.name.lower())
 
         serializer = CheckmateSerializer(data=request.data)
         if serializer.is_valid():
             json = serializer.data
-            results = search_checkmate(json)
+            results = search_checkmate(json, slug_list)
+            
             return Response(results, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
