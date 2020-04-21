@@ -124,7 +124,7 @@ class book_site_google():
                 a list of site_book_data's with their relevant ratings.
         synopsis:
             The purpose of this function is to use a book_data object,
-            and then use that to search Scribd.com for related
+            and then use that to search googlebooks for related
             book_data objects (known as site_book_data objects),
             and then sort them in order of how related they are to
             the book_data object.
@@ -428,8 +428,6 @@ class book_site_google():
     def _get_book_site_slug(self):
         """
         args:
-            url (String):
-                url is used to scrape the book's site_slug
         returns:
             site_slug (String):
                 site_slug is the book's 'non-static' url, as
@@ -447,7 +445,7 @@ class book_site_google():
     def _get_book_id(self, url):
         """
         args:
-            site_slug (String):
+            url (String):
                 site_slug is used to scrape the book's id
         returns:
             id (String):
@@ -479,8 +477,8 @@ class book_site_google():
                 own site.
         synopsis:
             The purpose of this function is to return the book format
-            "DIGITAL" since google books only has E-books on their 
-            own site.
+            "DIGITAL" or "PRINT" since google books only has E-books on their 
+            own site with links to "PRINT" books.
         """
         try:
             if Par_Scrape.parse(content, "//*[@id='gb-get-book-not-available']"):
@@ -524,7 +522,7 @@ class book_site_google():
                 If there is no ebook for the book searched.
         synopsis:
             The purpose of this function is to parse the to scrape
-            for the ebook's price and return it.
+            for the e-book's price and return it.
         """
         try:
             if Par_Scrape.parse(content, "//*[@id='gb-get-book-not-available']"):
@@ -539,6 +537,9 @@ class book_site_google():
             url (String):
                 This is the link to the search page that is going
                 to be parsed for relevant book links
+            page_number (int)
+                This is used to keep track of which page of
+                results the parser is on.
         returns:
             relevant_urls[]:
                 This is a list of links that is located on the url
@@ -635,7 +636,6 @@ class book_site_google():
         br.submit()
         link = br.geturl()
 
-        #Newly Added
         test_validity = requests.get(link)
         returned =  Par_Scrape.parse(test_validity.content, "//span[@class='JZCD0c r0bn4c rQMQod']")
         if len(returned) != 0:
@@ -651,8 +651,8 @@ class book_site_google():
                 The search that will be determined based upon the data
                 that is passed in from book_data.
         returns:
-            result_url:
-                A search link that can be parsed for results
+            links (list[]):
+                A list of search links that can be parsed for results
         synopsis:
             The purpose of this function is to return the search
             link that can be parsed for individual book links, 
