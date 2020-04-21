@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="column middle" style="background-color:white;">
+<div id="columnMiddle" class="column middle" style="background-color:white;">
     <h1>Results Found In:</h1>
     {% for site in site_list %}
         <h2 class="site-name">{{ site.name }}:</h2>
@@ -12,17 +12,13 @@
                     <a href="{{ book.link }}" target="_blank" class="book-link">
                         <div class="flex-content">
                         {% if book.cover == None or book.cover|length < 1 %}
-                            <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                            <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png">
                         {% else %}
-                            <img src="{{ book.cover }}" height="96" width="60">
+                            <img src="{{ book.cover }}">
                         {% endif %}
                             <div class="flex-child-first">
-                                <p title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
-                            {% if ',' in book.author %}
-                                <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:59 }}</p>
-                            {% else %}
-                                <p title="{{ book.author }}">Author: {{ book.author|truncatechars:60 }}</p>
-                            {% endif %}
+                                <p class="flex-child-first-child" title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
+                                <p class="flex-child-first-child" title="{{ book.author }}">By: {{ book.author|truncatechars:67 }}</p>
                             </div>
                             <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                         </div>
@@ -31,20 +27,16 @@
                     <button class="accordion">More Results</button>
                     <div class="panel">
                 {% elif forloop.last %}
-                        <a href="{{ book.link }}" target="_blank" class="book-link"></a>
+                        <a href="{{ book.link }}" target="_blank" class="book-link">
                             <div class="flex-content">
                             {% if book.cover == None or book.cover|length < 1 %}
-                                <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                                <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png">
                             {% else %}
-                                <img src="{{ book.cover }}" height="96" width="60">
+                                <img src="{{ book.cover }}">
                             {% endif %}
                                 <div class="flex-child-first">
-                                    <p title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
-                                {% if ',' in book.author %}
-                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:34 }}</p>
-                                {% else %}
-                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:35 }}</p>
-                                {% endif %}
+                                    <p class="flex-child-first-child" title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
+                                    <p class="flex-child-first-child" title="{{ book.author }}">By: {{ book.author|truncatechars:37 }}</p>
                                 </div>
                                 <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                             </div>
@@ -54,17 +46,13 @@
                         <a href="{{ book.link }}" target="_blank" class="book-link">
                             <div class="flex-content">
                             {% if book.cover == None or book.cover|length < 1 %}
-                                <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                                <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png">
                             {% else %}
-                                <img src="{{ book.cover }}" height="96" width="60">
+                                <img src="{{ book.cover }}">
                             {% endif %}
                                 <div class="flex-child-first">
-                                    <p title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
-                                {% if ',' in book.author %}
-                                    <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:34 }}</p>
-                                {% else %}
-                                    <p title="{{ book.author }}">Author: {{ book.author|truncatechars:35 }}</p>
-                                {% endif %}
+                                    <p class="flex-child-first-child" title="{{ book.name }}">{{ book.name|truncatechars:40 }}</p>
+                                    <p class="flex-child-first-child" title="{{ book.author }}">By: {{ book.author|truncatechars:37 }}</p>
                                 </div>
                                 <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                             </div>
@@ -76,17 +64,13 @@
                 <a href="{{ book.link }}" target="_blank" class="book-link">
                     <div class="flex-content">
                     {% if book.cover == None or book.cover|length < 1 %}
-                        <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png" height="96" width="60">
+                        <img src="http://www.lse.ac.uk/International-History/Images/Books/NoBookCover.png">
                     {% else %}
-                        <img src="{{ book.cover }}" height="96" width="60">
+                        <img src="{{ book.cover }}">
                     {% endif %}
                         <div class="flex-child-first">
-                            <p title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
-                        {% if ',' in book.author %}
-                            <p title="{{ book.author }}">Authors: {{ book.author|truncatechars:59 }}</p>
-                        {% else %}
-                            <p title="{{ book.author }}">Author: {{ book.author|truncatechars:60 }}</p>
-                        {% endif %}
+                            <p class="flex-child-first-child" title="{{ book.name }}">{{ book.name|truncatechars:70 }}</p>
+                            <p class="flex-child-first-child" title="{{ book.author }}">By: {{ book.author|truncatechars:67 }}</p>
                         </div>
                         <p class="flex-child-last">Rating: {{ book.rating }}%</p>
                     </div>
@@ -97,5 +81,17 @@
         {% endif %}
     {% endfor %}
 </div>
+<script>
+    $("#columnMiddle").append('<div id="loading"><div id="loading-items"><p class="loading-top">Gathering Information...</p><i class= "fa fa-spinner fa-pulse fa-3x"></i><p class="loading-bottom">Please Wait.</p></div></div>');
+    $(window).on('load', function () {
+      setTimeout(removeLoader, 1000); //wait for page load PLUS two seconds.
+    });
+    function removeLoader() {
+      $("#loading").fadeOut(500, function () {
+        // fadeOut complete. Remove the loading div
+        $("#loading").remove(); //makes page more lightweight 
+      });
+    }
+</script>
 
 {% endblock %}

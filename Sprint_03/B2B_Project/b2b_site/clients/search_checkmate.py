@@ -73,7 +73,7 @@ def search_checkmate(book_data):
         None, #14-content (String)
         None, #15-ready_for_sale (boolean)
         None #16-extra (List[])
-        ] 
+        ]
 
     results = []
     
@@ -102,10 +102,11 @@ def search_checkmate(book_data):
 def return_list(temp_list):
     book_data_list = []
 
-    for data in temp_list:
-        site_book_data = data[0]
-        rating = data[1]
-        book_data_list.append([site_book_data[1], site_book_data[9], site_book_data[13], site_book_data[3], rating])
+    if temp_list is not None:
+        for data in temp_list:
+            site_book_data = data[0]
+            rating = data[1]
+            book_data_list.append([site_book_data[1], site_book_data[9], site_book_data[13], site_book_data[3], rating])
 
     return book_data_list
 

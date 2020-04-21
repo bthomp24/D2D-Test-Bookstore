@@ -12,9 +12,9 @@ urlpatterns = [
     path('search/', MainView.as_view(), name='search'),
     path('checkmate/', CheckmateView.as_view(), name='search-checkmate'),
     path('manage_account/', views.manage_account, name= 'manage_account'),
+    path('loading/',TemplateView.as_view(template_name='loading.html')),
+    path('results/', views.results, name='results'),
     path('query_report/', views.myFirstChart, name= 'query_report'),
     path('query_chart/', views.historicalChart, name= 'query_chart'),
     path('loading_page/', views.loading, name= 'loading_page'),
-    path('loading/',TemplateView.as_view(template_name='loading.html')),
-    path('results/', views.results, name='results'),
 ]

@@ -15,9 +15,10 @@ from collections import OrderedDict
 # Include the `fusioncharts.py` file that contains functions to embed the charts.
 
 from .fusioncharts import FusionCharts
-from .models import User, Company, QueryInfo
+from .models import User, Company, QueryInfo, Site_Slug
 from datetime import datetime
-import json, calendar
+import json
+import calendar
 from django.template import loader
 
 from rest_framework import viewsets
@@ -30,7 +31,6 @@ from .search_checkmate import search_checkmate
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-from .models import Site_Slug
 
 # Create your views here.
 
@@ -68,9 +68,6 @@ def myFirstChart(request):
         # Insert the data into the `dataSource['data']` list.
 
         for query in queries:
-            print(query.user.company)
-            print(query.month)
-            print(query.year)
             if current_company == query.user.company and current_month == query.month and current_year == query.year:
                 dataSource["data"].append(
                     {"label": query.user.name, "value": query.querynum})
@@ -97,7 +94,8 @@ def myFirstChart(request):
         num = 0
 
         linkedchartConfig = OrderedDict()
-        linkedchartConfig["caption"] = "Total Number of Queries Made in "+ calendar.month_name[current_month] +" "+str(current_year)
+        linkedchartConfig["caption"] = "Total Number of Queries Made in " + \
+            calendar.month_name[current_month] + " "+str(current_year)
         linkedchartConfig["xAxisName"] = "Users"
         linkedchartConfig["yAxisName"] = "Number of Queries"
         linkedchartConfig["numberSuffix"] = " Queries"
@@ -113,9 +111,9 @@ def myFirstChart(request):
             linkedchartConfig["subCaption"] = "Company: " + str(company)
             for query in queries:
                 if company == query.user.company and current_month == query.month and current_year == query.year:
-                  temp_total = temp_total + query.querynum
-                  data.append(
-                    {"label": query.user.name, "value": query.querynum})
+                    temp_total = temp_total + query.querynum
+                    data.append(
+                        {"label": query.user.name, "value": query.querynum})
 
             dataSource["linkeddata"].append(
                 {"id": "q"+str(num), "linkedchart": {"chart": linkedchartConfig, "data": data}})
@@ -124,7 +122,8 @@ def myFirstChart(request):
 
     # The `chartConfig` dict contains key-value pairs of data for chart attribute
     chartConfig = OrderedDict()
-    chartConfig["caption"] = "Total Number of Queries Made by Companies in "+ calendar.month_name[current_month] +" "+str(current_year)
+    chartConfig["caption"] = "Total Number of Queries Made by Companies in " + \
+        calendar.month_name[current_month] + " "+str(current_year)
     chartConfig["subCaption"] = "Click on columns to see Company Details"
     chartConfig["xAxisName"] = "Companies"
     chartConfig["yAxisName"] = "Number of Queries"
@@ -137,7 +136,7 @@ def myFirstChart(request):
     dataSource["chart"] = chartConfig
 
     column2D = FusionCharts("column2d", "myFirstChart", "800",
-                                "400", "myFirstchart-container", "json", dataSource)
+                            "400", "myFirstchart-container", "json", dataSource)
 
     if request.method == 'POST':
         form = QueryForm(request.POST)
@@ -146,23 +145,19 @@ def myFirstChart(request):
             year = form.cleaned_data['year']
             company = form.cleaned_data['company']
 
-            print(month, year)
-            context = {
-                "month": month,
-                "year": year
-            }
-            form.save()
+            request.session['month'] = month
+            request.session['year'] = year
+            request.session['company'] = company
 
-            return redirect(reverse('query_chart'), context = context)
+            return redirect(reverse('query_chart'))
     else:
         form = QueryForm()
 
     return render(request, 'query_report.html', {
-            'output': column2D.render(),
-            "total": temp_total,
-            "form": form,
-        })
-
+        'output': column2D.render(),
+        "total": temp_total,
+        "form": form,
+    })
 
 class MainView(LoginRequiredMixin, TemplateView):
     template_name = "search.html"
@@ -177,51 +172,130 @@ class MainView(LoginRequiredMixin, TemplateView):
 
         return self.render_to_response(context)
 
+    def post(self, request, *args, **kwargs):
+        current_month = datetime.now().month
+        current_year = datetime.now().year
+        queries = QueryInfo.objects.all()
+        current_user_name = request.user
+        users = User.objects.all()
+
+        for user in users:
+            if user.user == current_user_name:
+                current_user = user
+        
+        query_found = 0 #flag to check instance of QueryInfo of current month exists for the current user
+        
+        #Check the length of request.POST to find out which form was submitted by the user
+        if len(request.POST) == 3:
+            json_form = JsonForm(self.request.POST)
+            manual_form = SearchManualForm()
+        else:
+            manual_form = SearchManualForm(self.request.POST)
+            json_form = JsonForm()
+
+        context = self.get_context_data(**kwargs)
+
+        if json_form.is_valid():
+            if current_user_name.is_superuser == False:
+                for query in queries:
+                    if str(query.user.user) == str(current_user_name) and query.month==current_month and query.year==current_year:
+                        query.querynum = query.querynum + 1
+                        query.save()
+                        query_found = 1
+                
+                #Create new instance of QueryInfo if one does not exist for current month for the current user
+                if query_found ==0:
+                    new_query = QueryInfo()
+                    new_query.month = current_month
+                    new_query.year = current_year
+                    new_query.user = current_user
+                    new_query.querynum = 1
+                    new_query.save()
+
+
+            json_code = json_form.cleaned_data['json_code']
+            #Save the form data in the session
+            request.session['json_code'] = json_code
+            request.session['book_title'] = "None"
+            request.session['book_isbn'] = "None"
+            request.session['book_author'] = "None"
+            request.session['book_image_url'] = "None"
+
+            return redirect(reverse('results'))
+
+        elif manual_form.is_valid():
+            if current_user_name.is_superuser == False:
+                for query in queries:
+                    if str(query.user.user) == str(current_user_name) and query.month==current_month and query.year==current_year:
+                        query.querynum = query.querynum + 1
+                        query.save()
+                        query_found = 1
+                
+                if query_found ==0:
+                    new_query = QueryInfo()
+                    new_query.month = current_month
+                    new_query.year = current_year
+                    new_query.user = current_user
+                    new_query.querynum = 1
+                    new_query.save()
+
+            book_title = manual_form.cleaned_data['book_title']
+            book_isbn = manual_form.cleaned_data['book_isbn']
+            book_author = manual_form.cleaned_data['book_author']
+            book_image_url = manual_form.cleaned_data['book_image_url']
+            manual_form.clean()
+
+            request.session['book_title'] = book_title
+            request.session['book_isbn'] = book_isbn
+            request.session['book_author'] = book_author
+            request.session['book_image_url'] = book_image_url
+            request.session['json_code'] = "None"
+
+            return redirect(reverse('results'))
+        else:
+            return self.render_to_response(self.get_context_data(manual_form=manual_form, json_form=json_form))
+
+        return self.render_to_response(context)
 
 class ManualFormView(FormView):
     form_class = SearchManualForm
     template_name = 'search.html'
-    success_url = '/'
+    success_url = '/loading_page/'
 
     def post(self, request, *args, **kwargs):
         manual_form = self.form_class(request.POST)
-        json_form = JsonForm
+        json_form = JsonForm()
 
         if manual_form.is_valid():
             book_title = manual_form.cleaned_data['book_title']
             book_author = manual_form.cleaned_data['book_author']
             book_isbn = manual_form.cleaned_data['book_isbn']
             book_image_url = manual_form.cleaned_data['book_image_url']
-            manual_form.save()
 
             book = {"title": book_title, "author": book_author,
                     "isbn": book_isbn, "image_url": book_image_url, "json": None}
+            context = {
+                'manual_form': manual_form,
+                'json_form': json_form
+            }
 
-            print(book)
-
-            return book
+            return self.render_to_response(context)
         else:
             return self.render_to_response(self.get_context_data(manual_form=manual_form, json_form=json_form))
-
 
 class JsonFormView(FormView):
     form_class = JsonForm
     template_name = 'search.html'
-    success_url = '/'
+    success_url = '/loading_page/'
 
     def post(self, request, *args, **kwargs):
         json_form = self.form_class(request.POST)
-        manual_form = SearchManualForm
+        manual_form = SearchManualForm()
 
         if json_form.is_valid():
             json_code = json_form.cleaned_data['json_code']
 
-            json_form.save()
-
-            book = {"title": None, "author": None,
-                    "isbn": None, "image_url": None, "json": json_code}
-            print(book)
-            return book
+            return self.render_to_response(self.get_context_data(manual_form=manual_form, json_form=json_form))
 
         else:
             return self.render_to_response(self.get_context_data(json_form=json_form, manual_form=manual_form))
@@ -242,70 +316,86 @@ class CheckmateView(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-def search(request):
-    book = {}
-
-    if request.method == 'POST':
-        form = SearchManualForm(request.POST)
-
-        if form.is_valid():
-            book_title = form.cleaned_data['book_title']
-            book_author = form.cleaned_data['book_author']
-            book_isbn = form.cleaned_data['book_isbn']
-            book_image_url = form.cleaned_data['book_image_url']
-
-            book = {"title": book_title, "author": book_author,
-                    "isbn": book_isbn, "image_url": book_image_url, "json": "None"}
-
-            print(book)
-
-            return book
-
-    else:
-        form = SearchManualForm()
-
-    context = {
-        'form': form,
-    }
-    return render(request, 'search.html', context=context)
-
 def results(request):
 
-    site_list = Site_Slug.objects.order_by('name')
+    slug_list = []
+    if request.user.is_superuser:
+        all_slugs = Site_Slug.objects.all()
 
-    for site in site_list:
-        print(site.site_name)
+        for slug in all_slugs:
+            slug_list.append(slug.name.lower())
+    else:
+        current_user = User.objects.get(user=request.user)
+        for slug in current_user.company.slugs.all():
+            slug_list.append(slug.name.lower())
 
-    #Separate Book information
-    book = {'name': 'HHGreg','author':'First Last','rating': 90.0,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
-    book2 = {'name': 'Sing-a-long','author':'First Last','rating': 87.0,'cover':'','link':'https://www.mariowiki.com/Luigi'}
-    book3 = {'name': 'Why','author':'First Last','rating': 78.3,'link':'https://www.mariowiki.com/Luigi'}
-    #Book list
-    books = [book,book2,book3]
-    #Site information
-    site1 = {'name':'Kobo','books':books}
+    site_info = Site_Slug.objects.order_by('name')
 
-    book4 = {'name': 'Woweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','author':'First Last','rating': 97.1,'link':'https://www.mariowiki.com/Luigi'}
-    book5 = {'name': 'Campfire','author':'First Name, Blah Blah, Jeff Smith','rating': 67.4,'cover':'https://upload.wikimedia.org/wikipedia/en/b/bb/Luigi_SSBU.png','link':'https://www.mariowiki.com/Luigi'}
-    book6 = {'name': 'Eh','author':'First Last, Test Name','rating': 65.5,'link':'https://www.mariowiki.com/Luigi'}
-    book62 = {'name': 'YEAAAH!','author':'Other Name','rating': 64.5,'link':'https://www.mariowiki.com/Luigi'}
-    books2 = [book4,book5,book6,book62]
-    site2 = {'name':'Google','books':books2}
+    book_title = request.session.get('book_title')
+    book_isbn = request.session.get('book_isbn')
+    book_author = request.session.get('book_author')
+    book_image_url = request.session.get('book_image_url')
+    json_code = request.session.get('json_code')
 
-    books3 = []
-    site3 = {'name':'Livaria Cultura','books':books3}
+    book_data = {}
+    if json_code == 'None':
 
-    book7 ={'name': 'Bookis','author':'First Last','rating': 88.8,'link':'https://www.mariowiki.com/Luigi'}
-    books4 = [book7]
-    site4 = {'name':'Test Bookstore','books':books4}
+        bookdata = {}
 
-    #Site list
-    site_list = [site1,site2,site3,site4]
+        if book_author:
+            bookdata['authors'] = book_author
+
+        if book_image_url:
+            bookdata['image_url'] = book_image_url
+
+        if book_isbn:
+            bookdata['isbn13'] = book_isbn
+
+        if book_title:
+            bookdata['title'] = book_title
+
+        book_data = {'bookdata': bookdata}
+
+    else:
+
+        book_data = json.loads(json_code)
+        
+        if 'authors' in book_data['bookdata']:
+            author_names = []
+            for author in book_data['bookdata']['authors']:
+                author_names.append(author['author'])
+
+            book_data['bookdata']['authors'] = ','.join(author_names)
+
+    site_book_data = search_checkmate(book_data)
+
+    site_list = []
+    for site in site_book_data:
+        site_name = ''
+        for individual_site in site_info:
+            if site[0] == individual_site.name.lower():
+                site_name = individual_site.site_name
+                break
+
+        books = []
+        count = 0
+        for book in site[1]:
+            if  count < 6 and float(book[4]) > 60:
+                book_name = book[0].title()
+                book_author = book[1]
+                if book_author is not None:
+                    book_author = book_author.title()
+                book_link = book[2]
+                book_cover = book[3]
+                book_rating = book[4]
+                books.append({'name':book_name,'author':book_author,'link':book_link,'cover':book_cover,'rating':book_rating})
+                count = count + 1
+
+        site_list.append({'name':site_name,'books':books})
 
     context = {'site_list': site_list}
 
     return render(request,'results.html',context=context)
-
 
 def login(request):
     form = AuthenticationForm
@@ -321,39 +411,39 @@ def manage_account(request):
     return render(request, 'manage_account.html', context=context)
 
 def loading(request):
-    book_title = request.POST.get('book_title')
-    book_isbn = request.POST.get('book_isbn')
-    book_author = request.POST.get('book_author')
-    book_image_url = request.POST.get('book_image_url')
+    book_title = request.session.get('book_title')
+    book_isbn = request.session.get('book_isbn')
+    book_author = request.session.get('book_author')
+    book_image_url = request.session.get('book_image_url')
+    json_code = request.session.get('json_code')
 
     print(book_author)
     print(book_image_url)
     print(book_isbn)
     print(book_title)
+    print(json_code)
     context = {
 
     }
-    return render(request, 'loading.html', context= context)
-
+    return render(request, 'loading.html', context=context)
 
 @login_required
 def historicalChart(request):
-    selected_month = int(request.POST.get('month'))
-    selected_year = int(request.POST.get('year'))
-    selected_company = request.POST.get('company')
+    selected_month = int(request.session.get('month'))
+    selected_year = int(request.session.get('year'))
+    selected_company = request.session.get('company')
     queries = QueryInfo.objects.all()
     companies = Company.objects.all()
 
     dataSource = OrderedDict()
     dataSource["data"] = []
     dataSource["linkeddata"] = []
-    
+
     num = 0
 
-    print(type(selected_company))
-
     linkedchartConfig = OrderedDict()
-    linkedchartConfig["caption"] = "Total Number of Queries Made in "+ calendar.month_name[selected_month] +" "+str(selected_year)
+    linkedchartConfig["caption"] = "Total Number of Queries Made in " + \
+        calendar.month_name[selected_month] + " "+str(selected_year)
     linkedchartConfig["xAxisName"] = "Users"
     linkedchartConfig["yAxisName"] = "Number of Queries"
     linkedchartConfig["numberSuffix"] = " Queries"
@@ -371,12 +461,13 @@ def historicalChart(request):
             for query in queries:
                 if company == query.user.company and selected_month == query.month and selected_year == query.year:
                     temp_total = temp_total + query.querynum
-                    data.append({"label": query.user.name, "value": query.querynum})
+                    data.append({"label": query.user.name,
+                                 "value": query.querynum})
 
             dataSource["linkeddata"].append(
-                    {"id": "q"+str(num), "linkedchart": {"chart": linkedchartConfig, "data": data}})
+                {"id": "q"+str(num), "linkedchart": {"chart": linkedchartConfig, "data": data}})
             dataSource["data"].append(
-                    {"label": company.name, "value": temp_total, "link": "newchart-json-q"+str(num)})
+                {"label": company.name, "value": temp_total, "link": "newchart-json-q"+str(num)})
     else:
         company = selected_company
         temp_total = 0
@@ -386,16 +477,18 @@ def historicalChart(request):
         for query in queries:
             if company == str(query.user.company) and selected_month == query.month and selected_year == query.year:
                 temp_total = temp_total + query.querynum
-                data.append({"label": query.user.name, "value": query.querynum})
+                data.append({"label": query.user.name,
+                             "value": query.querynum})
 
         dataSource["linkeddata"].append(
-                {"id": "q"+str(num), "linkedchart": {"chart": linkedchartConfig, "data": data}})
+            {"id": "q"+str(num), "linkedchart": {"chart": linkedchartConfig, "data": data}})
         dataSource["data"].append(
-                {"label": company, "value": temp_total, "link": "newchart-json-q"+str(num)})
+            {"label": company, "value": temp_total, "link": "newchart-json-q"+str(num)})
 
     # The `chartConfig` dict contains key-value pairs of data for chart attribute
     chartConfig = OrderedDict()
-    chartConfig["caption"] = "Total Number of Queries Made by Companies "+ calendar.month_name[selected_month] +" "+str(selected_year)
+    chartConfig["caption"] = "Total Number of Queries Made by Companies " + \
+        calendar.month_name[selected_month] + " "+str(selected_year)
     chartConfig["subCaption"] = "Click on columns to see Company Details"
     chartConfig["xAxisName"] = "Companies"
     chartConfig["yAxisName"] = "Number of Queries"
@@ -407,7 +500,6 @@ def historicalChart(request):
 
     dataSource["chart"] = chartConfig
 
-
     column2D = FusionCharts("column3d", "myFirstChart", "800",
-                                "400", "myFirstchart-container", "json", dataSource)
+                            "400", "myFirstchart-container", "json", dataSource)
     return render(request, 'query_chart.html', {'output': column2D.render()})

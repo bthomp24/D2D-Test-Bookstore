@@ -20,28 +20,29 @@ class book_site_test_bookstore():
     def __init__(self, *args, **kwargs):
         pass
     
-    """
-    args:
-        book_data (requests.get):
-            represents search terms and is needed to fill out 
-            the test bookstore web form.
-    returns:
-        relevancy_list ([[[SiteBookData],float]]):
-            relevancy_list is a list of lists including
-            a float and SiteBookData, with the float
-            representing how closely the SiteBookData
-            matches the original search terms (book_data).
-    synopsis:
-        The purposes of this function is to:
-            1)  Use Mechanize to get relevant book detail
-                links from the text bookstore.
-            2)  Parse SiteBookData based on those links.
-            3)  Put SiteBookData into a list sorted based
-                similar it is to the original search terms,
-                along with a float that quantifies that
-                similarity.
-    """
+    
     def find_book_matches_at_site(self, book_data):
+        """
+        args:
+            book_data (requests.get):
+                represents search terms and is needed to fill out 
+                the test bookstore web form.
+        returns:
+            relevancy_list ([[[SiteBookData],float]]):
+                relevancy_list is a list of lists including
+                a float and SiteBookData, with the float
+                representing how closely the SiteBookData
+                matches the original search terms (book_data).
+        synopsis:
+            The purposes of this function is to:
+                1)  Use Mechanize to get relevant book detail
+                    links from the text bookstore.
+                2)  Parse SiteBookData based on those links.
+                3)  Put SiteBookData into a list sorted based
+                    similar it is to the original search terms,
+                    along with a float that quantifies that
+                    similarity.
+        """
 
         br = mechanize.Browser()
         try:
@@ -73,7 +74,7 @@ class book_site_test_bookstore():
 
         #print(br.geturl())
 
-        relevant_book_links = self.__navigate_pages(br,3)
+        relevant_book_links = self._navigate_pages(br,3)
 
         site_book_data_list = []
 
@@ -94,35 +95,37 @@ class book_site_test_bookstore():
         #sort by relevancy
         return Par_Scrape.site_book_data_relevancy(book_data, site_book_data_list)
 
-    """
-    args:
-        url (String):
-            Test Bookstore book url to be parsed
-    returns:
-        SiteBookData (List):
-            format (String): 
-            book_title (String):
-            book_image:~
-            book_image_url:~
-            isbn_13 (String):
-            description (String):
-            series (String):*
-            volume_number (Int):*
-            subtitle:~
-            authors (String):
-            book_id (String):
-            site_slug (String):
-            parse_status (String):
-            url (String):
-            content (String):
-            ready_for_sale (boolean):
-            extra:~
-    synopsis:
-        The purpose of this function is to parse a url of the Test
-        Bookstore website.  The url should be a specific book's url,
-        in order for the following function to work.
-    """
+    
     def get_book_data_from_site(self, url):
+        """
+        args:
+            url (String):
+                Test Bookstore book url to be parsed
+        returns:
+            SiteBookData (List):
+                format (String): 
+                book_title (String):
+                book_image:~
+                book_image_url:~
+                isbn_13 (String):
+                description (String):
+                series (String):*
+                volume_number (Int):*
+                subtitle:~
+                authors (String):
+                book_id (String):
+                site_slug (String):
+                parse_status (String):
+                url (String):
+                content (String):
+                ready_for_sale (boolean):
+                extra:~
+        synopsis:
+            The purpose of this function is to parse a url of the Test
+            Bookstore website.  The url should be a specific book's url,
+            in order for the following function to work.
+        """
+
         response = requests.get(url)
 
         format = None
@@ -144,40 +147,40 @@ class book_site_test_bookstore():
         extra = None
 
         #book_title
-        book_title = self.__get_book_title(response.content)
+        book_title = self._get_book_title(response.content)
         
         #isbn_13
-        isbn_13 = self.__get_book_isbn_13(response.content)
+        isbn_13 = self._get_book_isbn_13(response.content)
 
         #description
-        description = self.__get_book_description(response.content)
+        description = self._get_book_description(response.content)
         
         #series
-        series = self.__get_book_series(response.content)
+        series = self._get_book_series(response.content)
 
         #volume_number
-        volume_number = self.__get_book_volume_number(response.content)
+        volume_number = self._get_book_volume_number(response.content)
 
         #authors
-        authors = self.__get_book_authors(response.content)
+        authors = self._get_book_authors(response.content)
 
         #url
-        url = self.__get_book_url(response.content)
+        url = self._get_book_url(response.content)
 
         #site_slug
-        site_slug = self.__get_book_site_slug()
+        site_slug = self._get_book_site_slug()
 
         #book_id
-        book_id = self.__get_book_id(response.content)
+        book_id = self._get_book_id(response.content)
 
         #format
-        format = self.__get_book_format()
+        format = self._get_book_format()
 
         #content
         content = response.content
 
         #ready_for_sale
-        ready_for_sale = self.__get_ready_for_sale(response.content)
+        ready_for_sale = self._get_ready_for_sale(response.content)
 
         #parse_status
         if series == "None" and volume_number == "None":
@@ -193,75 +196,83 @@ class book_site_test_bookstore():
 
         return SiteBookData
 
-    """
-    args:
-        book_id (String):
-            This is the unique string that is required to 
-            build a working link to the specific book's
-            detail page.
-    returns:
-        url (String):
-            This is a working url to the book's detail page.
-    synopsis:
-        The purpose of this function is to use the passed
-        book_id in order to create a link to the specific
-        book's detail page.
-    """
+    
     def convert_book_id_to_url(self, book_id):
+        """
+        args:
+            book_id (String):
+                This is the unique string that is required to 
+                build a working link to the specific book's
+                detail page.
+        returns:
+            url (String):
+                This is a working url to the book's detail page.
+        synopsis:
+            The purpose of this function is to use the passed
+            book_id in order to create a link to the specific
+            book's detail page.
+        """
+
         primary_url = "http://localhost:8000/bookstore/"
         return primary_url + book_id + "/details"
 
-    """
-    args:
-        content (requests.get)
-            content is required in order to scrape the book's
-            title.
-    returns:
-        title (String):
-            title is the book's title that is being scraped.
-    synopsis:
-        Thepurpose of this function is to determine what the book's
-        title is.
-    """
-    def __get_book_title(self, content):
+    
+    def _get_book_title(self, content):
+        """
+        args:
+            content (requests.get)
+                content is required in order to scrape the book's
+                title.
+        returns:
+            title (String):
+                title is the book's title that is being scraped.
+        synopsis:
+            Thepurpose of this function is to determine what the book's
+            title is.
+        """
+
         try:
             return Par_Scrape.parse(content, ".//p[@class='bookTitle']/b")[0].text
         except:
             return None
 
-    """
-    args:
-        content (requests.get):
-            content is needed in order to scrape the book's
-            isbn_13.
-    returns:
-        isbn_13 (String):
-            isbn_13 is the book's isbn_13 that is being
-            scraped.
-    synopsis:
-        The purpose of this function is to determine the
-        book's isbn_13.
-    """
-    def __get_book_isbn_13(self, content):
+    
+    def _get_book_isbn_13(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to scrape the book's
+                isbn_13.
+        returns:
+            isbn_13 (String):
+                isbn_13 is the book's isbn_13 that is being
+                scraped.
+        synopsis:
+            The purpose of this function is to determine the
+            book's isbn_13.
+        """
+
         try:
             return Par_Scrape.parse(content,".//tr[td='ISBN 13#:']/td[@class='bookDetail']")[0].text
         except:
             return None
     
-    """
-    args:
-        content (requests.get):
-            content is needed in orde to scrape the book's
-            description
-    returns:
-        description (String):
-            description is the book's description that is
-            being scraped.
-    synopsis:
-        The purpose of this function is to determine what
-        the book's description
-    """
-    def __get_book_description(self, content):
+    
+    def _get_book_description(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in orde to scrape the book's
+                description
+        returns:
+            description (String):
+                description is the book's description that is
+                being scraped.
+        synopsis:
+            The purpose of this function is to determine what
+            the book's description
+        """
+
         try:
             description_elements = Par_Scrape.parse(content,".//div[@class='right']/p")[1:]
             description = ""
@@ -274,36 +285,40 @@ class book_site_test_bookstore():
         except:
             return None
 
-    """
-    args:
-        content (requests.get):
-            content is needed in order to get the series.
-    returns:
-        series (String):
-            series is the book's series
-    synopsis:
-        The purpose of this function is to determine what the
-        series is for the book being scraped (if it exists).
-    """
-    def __get_book_series(self, content):
+    
+    def _get_book_series(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to get the series.
+        returns:
+            series (String):
+                series is the book's series
+        synopsis:
+            The purpose of this function is to determine what the
+            series is for the book being scraped (if it exists).
+        """
+
         try:
             return Par_Scrape.parse(content,".//tr[td='Series:']/td[@class='bookDetail']")[0].text
         except:
             return None
 
-    """
-    args:
-        content (requests.get):
-            content is needed in order to get the volume
-            number.
-    returns:
-        volume_number (Int):
-            volume_number is the book's volume_number
-    synopsis:
-        The purpose of this function is to determine what the
-        volume_number is for the book being scraped (if it exists).
-    """
-    def __get_book_volume_number(self, content):
+    
+    def _get_book_volume_number(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to get the volume
+                number.
+        returns:
+            volume_number (Int):
+                volume_number is the book's volume_number
+        synopsis:
+            The purpose of this function is to determine what the
+            volume_number is for the book being scraped (if it exists).
+        """
+
         try:
             volume_number = Par_Scrape.parse(content,".//tr[td='Volume#:']/td[@class='bookDetail']")[0].text
             if volume_number == "None":
@@ -313,19 +328,21 @@ class book_site_test_bookstore():
         except:
             return None
 
-    """
-    args:
-        content (requests.get):
-            content is needed in order to get the authors
-            names.
-    returns:
-        authors (String):
-            authors is the book's authors
-    synopsis:
-        The purpose of this function is to determine what the
-        authors are for the book being scraped.
-    """
-    def __get_book_authors(self, content):
+    
+    def _get_book_authors(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to get the authors
+                names.
+        returns:
+            authors (String):
+                authors is the book's authors
+        synopsis:
+            The purpose of this function is to determine what the
+            authors are for the book being scraped.
+        """
+
         try:
             authorsText = Par_Scrape.parse(content,".//tr[td='Author:']/td[@class='bookDetail']")[0].text
             author_array = authorsText.split(',')
@@ -337,85 +354,95 @@ class book_site_test_bookstore():
         except:
             return None
     
-    """
-    args:
-        content (requests.get):
-            content is needed in order to scrape the book's url.
-    returns:
-        url (String):
-            url is book's url that is normally used, as determined
-            by the website.
-    synopsis:
-        The purpose of this function is to determine what the book's
-        url is that is being scraped.  This is required in order for
-        functions to work properly.
-    """
-    def __get_book_url(self, content):
+    
+    def _get_book_url(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to scrape the book's url.
+        returns:
+            url (String):
+                url is book's url that is normally used, as determined
+                by the website.
+        synopsis:
+            The purpose of this function is to determine what the book's
+            url is that is being scraped.  This is required in order for
+            functions to work properly.
+        """
+
         try:
             return "http://localhost:8000/bookstore/" + Par_Scrape.parse(content,".//tr[td='ISBN 13#:']/td[@class='bookDetail']")[0].text + "/details"
         except:
             return None
 
-    """
-    args:
-        None
-    returns:
-        site_slug (String):
-            site_slug is the book's 'non-static' url, as
-            determined by the website
-    synopsis:
-        The purpose of this function is to determine what the
-        book's site_slug is that is being scraped, using the
-        book's url.  This site_slug can be used in order to
-        create a static url for the book.
-    """
-    def __get_book_site_slug(self):
+    
+    def _get_book_site_slug(self):
+        """
+        args:
+            None
+        returns:
+            site_slug (String):
+                site_slug is the book's 'non-static' url, as
+                determined by the website
+        synopsis:
+            The purpose of this function is to determine what the
+            book's site_slug is that is being scraped, using the
+            book's url.  This site_slug can be used in order to
+            create a static url for the book.
+        """
+
         return "TB"
 
-    """
-    args:
-        content (requests.get):
-            content is needed in order to scrape the book's id.
-    returns:
-        id (String):
-            id is the book's id, as determined by the website
-    synopsis:
-        The purpose of this function is to determine what the
-        book's id that is being scraped.
-    """
-    def __get_book_id(self, content):
+    
+    def _get_book_id(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to scrape the book's id.
+        returns:
+            id (String):
+                id is the book's id, as determined by the website
+        synopsis:
+            The purpose of this function is to determine what the
+            book's id that is being scraped.
+        """
+
         try:
             return Par_Scrape.parse(content,".//tr[td='ISBN 13#:']/td[@class='bookDetail']")[0].text
         except:
             return None
     
-    """
-    args:
-        None
-    returns:
-        format (String):
-            format is what type of book was scraped
-    synopsis:
-        The purpose of this function is to determine what kind of
-        book is being scraped.
-    """
-    def __get_book_format(self):
+    
+    def _get_book_format(self):
+        """
+        args:
+            None
+        returns:
+            format (String):
+                format is what type of book was scraped
+        synopsis:
+            The purpose of this function is to determine what kind of
+            book is being scraped.
+        """
+
         return "DIGITAL"
 
-    """
-    args:
-        content (requests.get):
-            content is needed in order to scrape the book's release
-            date.
-    returns:
-        ready_for_sale (Boolean):
-            ready_for_sale is the book's availability, as determined by
-            the website
-    synopsis:
-        The purpose of this function is to determine if the book
-        is available or not.
-    """
-    def __get_ready_for_sale(self, content):
+    
+    def _get_ready_for_sale(self, content):
+        """
+        args:
+            content (requests.get):
+                content is needed in order to scrape the book's release
+                date.
+        returns:
+            ready_for_sale (Boolean):
+                ready_for_sale is the book's availability, as determined by
+                the website
+        synopsis:
+            The purpose of this function is to determine if the book
+            is available or not.
+        """
+
         try:
             release_array = Par_Scrape.parse(content,".//tr[td='Release Date:  ']/td[@class='bookDetail']")[0].text.split('/')
             release_date = date(int(release_array[0]),int(release_array[1]),int(release_array[2]))
@@ -424,22 +451,23 @@ class book_site_test_bookstore():
         except:
             return None
 
-    """
-    args:
-        br (Mechanize Browser object):
-            br is needed in order to get book detail links
-            and follow next page links
-        max_pages (Int): *optional*
-            defines the max number of pages to get book
-            detail links from
-    returns:
-        links ([String]):
-            links is a list of book detail urls as Strings
-    synopsis:
-        The purpose of this function is get all book detail links
-        over a number of pages.
-    """
-    def __navigate_pages(self, br, max_pages=float("inf")):
+    
+    def _navigate_pages(self, br, max_pages=float("inf")):
+        """
+        args:
+            br (Mechanize Browser object):
+                br is needed in order to get book detail links
+                and follow next page links
+            max_pages (Int): *optional*
+                defines the max number of pages to get book
+                detail links from
+        returns:
+            links ([String]):
+                links is a list of book detail urls as Strings
+        synopsis:
+            The purpose of this function is get all book detail links
+            over a number of pages.
+        """
 
         links = []
 

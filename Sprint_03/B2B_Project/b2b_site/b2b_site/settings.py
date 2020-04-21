@@ -144,4 +144,11 @@ STATIC_URL = '/static/'
 # Redirect to login URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/clients/search/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# usermanager/settings.py
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'd2db2bteam@gmail.com'
+EMAIL_HOST_PASSWORD = 'Passwordd2db2b'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'D2D Team <d2db2bteam@gmail.com>'
