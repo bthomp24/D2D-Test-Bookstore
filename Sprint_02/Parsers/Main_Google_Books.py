@@ -130,7 +130,7 @@ class book_site_google():
             the book_data object.
         """
 
-        if book_data[0].upper() == "AUDIOBOOK":
+        if book_data[0].upper() != "DIGITAL" and book_data[0].upper() != "PRINT" and book_data[0] != None:
             return None
 
 

@@ -135,7 +135,7 @@ class book_site_audiobooks():
             the book_data object.
         """
 
-        if book_data[0].upper() != "AUDIOBOOK":
+        if book_data[0].upper() != "AUDIOBOOK" and book_data[0] != None:
             return None
 
         # getting the search pages for the book data we pass in.    
