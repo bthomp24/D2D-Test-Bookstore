@@ -84,6 +84,8 @@ def search_checkmate(book_data):
         results.append(['gb', return_list(gb_list)])
     except Exception as e:
         print("Exception: ", e)
+        temp_list = []
+        results.append(['gb', temp_list])
 
     try:
         print("Searching Kobo")
@@ -92,6 +94,8 @@ def search_checkmate(book_data):
         results.append(['kb', return_list(kb_list)])
     except Exception as e:
         print("Exception: ", e)
+        temp_list = []
+        results.append(['kb', temp_list])
     
     try:
         print("Searching Livraria Cultura")
@@ -100,6 +104,8 @@ def search_checkmate(book_data):
         results.append(['lc', return_list(lc_list)])
     except Exception as e:
         print("Exception: ", e)
+        temp_list = []
+        results.append(['lc', temp_list])
     
     try:
         print("Searching Scribd")
@@ -108,6 +114,8 @@ def search_checkmate(book_data):
         results.append(['sd', return_list(sd_list)])
     except Exception as e:
         print("Exception: ", e)
+        temp_list = []
+        results.append(['sd', temp_list])
 
     try:
         print("Audiobooks")
@@ -116,6 +124,8 @@ def search_checkmate(book_data):
         results.append(['au', return_list(audiobooks_list)])
     except Exception as e:
         print("Exception: ", e)
+        temp_list = []
+        results.append(['au', temp_list])
 
     try:
         print("Test Bookstore")
@@ -124,6 +134,8 @@ def search_checkmate(book_data):
         results.append(['tb', return_list(test_bookstore_list)])
     except Exception as e:
         print("Exception: ", e)
+        temp_list = []
+        results.append(['tb', temp_list])
 
     return results
 
