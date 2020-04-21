@@ -13,8 +13,7 @@ def search_checkmate(book_data):
     try:
         format = list_data["format"]
     except:
-        #format = None
-        format = 'digital'
+        format = None
 
     try:
         title = list_data["title"]
