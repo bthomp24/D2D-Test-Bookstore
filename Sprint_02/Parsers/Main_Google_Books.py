@@ -130,8 +130,10 @@ class book_site_google():
             the book_data object.
         """
 
-        if book_data[0].upper() != "DIGITAL" and book_data[0].upper() != "PRINT" and book_data[0] != None:
-            return None
+        site_book_data_total = []
+
+        if book_data[0] != None and book_data[0].upper() != "DIGITAL" and book_data[0].upper() != "PRINT":
+            return site_book_data_total
 
 
         # Perform whatever form making for the website in order to get a relevant search link
@@ -140,9 +142,7 @@ class book_site_google():
         
         # check to ensure search page exists
         if not url_gotten_from_form:
-            return None
-
-        site_book_data_total = []
+            return site_book_data_total  
 
         for url in url_gotten_from_form:
 
@@ -531,7 +531,7 @@ class book_site_google():
             return None
 
     
-    def __get_book_links_from_search_site(self, url, page_number):
+    def _get_book_links_from_search_site(self, url, page_number):
         """
         args:
             url (String):
@@ -594,7 +594,7 @@ class book_site_google():
                 next_page = "https://www.google.com" + next_page_tail[0]
 
                 page_number += 1
-                next_group = self.__get_book_links_from_search_site(next_page, page_number)
+                next_group = self._get_book_links_from_search_site(next_page, page_number)
 
                 # if there is a next page but it contains no results
                 if next_group == None:

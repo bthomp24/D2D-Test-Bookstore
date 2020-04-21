@@ -65,49 +65,49 @@ class book_site_audiobooks():
         extra = None
 
         # book_title
-        book_title = self.__get_book_title(response.content)
+        book_title = self._get_book_title(response.content)
 
         # book_image_url
-        book_image_url = self.__get_book_image_url(response.content)
+        book_image_url = self._get_book_image_url(response.content)
 
         # book_image
         book_image = Par_Scrape.get_book_image_from_image_url(book_image_url)
         
         # book_isbn_13
-        isbn_13 = self.__get_book_isbn_13()
+        isbn_13 = self._get_book_isbn_13()
 
         # description
-        description = self.__get_book_description(response.content)
+        description = self._get_book_description(response.content)
 
         # series
-        series = self.__get_book_series()
+        series = self._get_book_series()
 
         # volume_number
-        volume_number = self.__get_book_volume()
+        volume_number = self._get_book_volume()
 
         # subtitle
-        subtitle = self.__get_book_subtitle()
+        subtitle = self._get_book_subtitle()
 
         # authors
-        authors = self.__get_book_authors(response.content)
+        authors = self._get_book_authors(response.content)
 
         # book_url
         book_url = url
 
         # site_slug
-        site_slug = self.__get_book_site_slug()
+        site_slug = self._get_book_site_slug()
 
         # book_id
-        book_id = self.__get_book_id(response.url)
+        book_id = self._get_book_id(response.url)
 
         # format
-        format = self.__get_book_format()
+        format = self._get_book_format()
 
         # content
         content = response.content
 
         # ready_for_sale
-        ready_for_sale = self.__get_book_sale_status(response.content)
+        ready_for_sale = self._get_book_sale_status(response.content)
 
         # parse_status
         parse_status = Par_Scrape.parse_status([format, book_title, book_image, book_image_url, description, authors, book_id, site_slug, url, content, ready_for_sale])
@@ -134,22 +134,23 @@ class book_site_audiobooks():
             and then sort them in order of how related they are to
             the book_data object.
         """
+        site_book_data_total = []
 
-        if book_data[0].upper() != "AUDIOBOOK" and book_data[0] != None:
-            return None
+
+        if book_data[0] != None and book_data[0].upper() != "AUDIOBOOK":
+            return site_book_data_total
 
         # getting the search pages for the book data we pass in.    
-        url_gotten_from_form = self.__get_search_link_from_book_data_form(book_data)
+        url_gotten_from_form = self._get_search_link_from_book_data_form(book_data)
 
         # check to ensure search page exists
         if not url_gotten_from_form:
-            return None
+            return site_book_data_total
 
-        site_book_data_total = []
 
         for url in url_gotten_from_form:
 
-            relevant_book_links = self.__get_book_links_from_Search_site(url)
+            relevant_book_links = self._get_book_links_from_Search_site(url)
             if relevant_book_links != None:
                 site_book_data_list = []
 
@@ -185,7 +186,7 @@ class book_site_audiobooks():
 
 
 
-    def __get_book_title(self, content):
+    def _get_book_title(self, content):
         """
         args:
             content (requests.get)
@@ -205,7 +206,7 @@ class book_site_audiobooks():
             return None
 
 
-    def __get_book_image_url(self, content):
+    def _get_book_image_url(self, content):
         """
         args:
             content (requests.get):
@@ -228,7 +229,7 @@ class book_site_audiobooks():
         except:
             return None
 
-    def __get_book_isbn_13(self):
+    def _get_book_isbn_13(self):
         """
         WARNING:
             Audiobooks.com does not offer book_isbn_13 for their books.
@@ -237,7 +238,7 @@ class book_site_audiobooks():
 
         return None
 
-    def __get_book_description(self, content):
+    def _get_book_description(self, content):
         """
         args:
             content (requests.get):
@@ -271,7 +272,7 @@ class book_site_audiobooks():
         except:
             return None
 
-    def __get_book_series(self):
+    def _get_book_series(self):
         """
         WARNING:
             The programmer was unable to determine a way to acquire,
@@ -281,7 +282,7 @@ class book_site_audiobooks():
 
         return None
     
-    def __get_book_volume(self):
+    def _get_book_volume(self):
         """
         WARNING:
             The programmer was unable to determine a way to acquire,
@@ -291,7 +292,7 @@ class book_site_audiobooks():
 
         return None
     
-    def __get_book_subtitle(self):
+    def _get_book_subtitle(self):
         """
         WARNING:
             Audiobooks.com does not offer a subtitle attribute for an audiobook.
@@ -300,7 +301,7 @@ class book_site_audiobooks():
 
         return None
 
-    def __get_book_authors(self, content):
+    def _get_book_authors(self, content):
         """
         args:
             content (requests.get):
@@ -332,7 +333,7 @@ class book_site_audiobooks():
         except:
             return None
 
-    def __get_book_url(self, bigger_url):
+    def _get_book_url(self, bigger_url):
         """
         args:
             bigger_url (String):
@@ -353,7 +354,7 @@ class book_site_audiobooks():
         final_url = "https://www.audiobooks.com/audiobook/" + fragmented[-1]
         return final_url
 
-    def __get_book_site_slug(self):
+    def _get_book_site_slug(self):
         """
         args:
         returns:
@@ -369,7 +370,7 @@ class book_site_audiobooks():
 
         return "AU"
 
-    def __get_book_id(self, url):
+    def _get_book_id(self, url):
         """
         args:
             url (String):
@@ -390,7 +391,7 @@ class book_site_audiobooks():
         except:
             return None
 
-    def __get_book_format(self):
+    def _get_book_format(self):
         """
         args:
         returns:
@@ -405,7 +406,7 @@ class book_site_audiobooks():
 
         return "AUDIOBOOK"
 
-    def __get_book_sale_status(self, content):
+    def _get_book_sale_status(self, content):
         """
         args:
             content (requests.get):
@@ -427,7 +428,7 @@ class book_site_audiobooks():
         except:
             return None
 
-    def __get_book_sale_price(self, content):
+    def _get_book_sale_price(self, content):
         """
         args:
             content (Request.get):
@@ -449,21 +450,21 @@ class book_site_audiobooks():
 
     # optionals functions that can be implemented based on audiobooks.com data
     ########################################    
-    def __get_book_narrators(self, content):
+    def _get_book_narrators(self, content):
         pass
 
-    def __get_book_duration(self, content):
+    def _get_book_duration(self, content):
         pass
 
-    def __get_book_publisher(self, content):
+    def _get_book_publisher(self, content):
         pass
 
-    def __get_book_genre(self, content):
+    def _get_book_genre(self, content):
         pass
     ########################################
 
 
-    def __get_book_links_from_Search_site(self, url):
+    def _get_book_links_from_Search_site(self, url):
         """
         args:
             url (String):
@@ -503,7 +504,7 @@ class book_site_audiobooks():
 
             
     
-    def __site_search_url(self, search):
+    def _site_search_url(self, search):
         """
         args:
             search (String):
@@ -527,7 +528,7 @@ class book_site_audiobooks():
 
 
 
-    def __get_search_link_from_book_data_form(self, book_data):
+    def _get_search_link_from_book_data_form(self, book_data):
         """
         args:
             book_data (List[]):
@@ -552,12 +553,12 @@ class book_site_audiobooks():
         if(book_title != None) or (book_author != None):
 
             if book_title != None:
-                resultZero = self.__site_search_url(book_title)
+                resultZero = self._site_search_url(book_title)
                 if resultZero != None:
                     links.append(resultZero)
 
             if book_author != None:
-                resultOne = self.__site_search_url(book_author)
+                resultOne = self._site_search_url(book_author)
                 if resultOne != None:
                     links.append(resultOne)
         return links
