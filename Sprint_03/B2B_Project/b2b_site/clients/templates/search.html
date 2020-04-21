@@ -58,7 +58,9 @@
 </div>
 <script>
     function show_loading() {
-        $('<div id="loading"><div id="loading-items"><p class="loading-top">Gathering Information...</p><i class= "fa fa-spinner fa-pulse fa-3x"></i><p class="loading-bottom">Please Wait.</p></div></div>').appendTo("#columnMiddle").hide().fadeIn(500);
+        setTimeout(function() {
+            $('<div id="loading"><div id="loading-items"><p class="loading-top">Gathering Information...</p><i class= "fa fa-spinner fa-pulse fa-3x"></i><p class="loading-bottom">Please Wait.</p></div></div>').appendTo("#columnMiddle").hide().fadeIn(500);
+        },1000)
     }
 </script>
 
