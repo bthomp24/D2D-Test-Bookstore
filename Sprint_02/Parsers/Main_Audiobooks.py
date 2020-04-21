@@ -134,18 +134,19 @@ class book_site_audiobooks():
             and then sort them in order of how related they are to
             the book_data object.
         """
+        site_book_data_total = []
 
-        if book_data[0].upper() != "AUDIOBOOK" and book_data[0] != None:
-            return None
+
+        if book_data[0] != None and book_data[0].upper() != "AUDIOBOOK":
+            return site_book_data_total
 
         # getting the search pages for the book data we pass in.    
         url_gotten_from_form = self._get_search_link_from_book_data_form(book_data)
 
         # check to ensure search page exists
         if not url_gotten_from_form:
-            return None
+            return site_book_data_total
 
-        site_book_data_total = []
 
         for url in url_gotten_from_form:
 
