@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div id="columnMiddle" class="column middle" style="background-color:white;">
+<div id="columnMiddleResult" class="column middle" style="background-color:white;">
     <h2>Results Found In:</h2>
     {% for site in site_list %}
         <h3 class="site-name">{{ site.name }}:</h3>
@@ -81,17 +81,5 @@
         {% endif %}
     {% endfor %}
 </div>
-<script>
-    $("#columnMiddle").append('<div id="loading"><div id="loading-items"><p class="loading-top">Gathering Information...</p><i class= "fa fa-spinner fa-pulse fa-3x"></i><p class="loading-bottom">Please Wait.</p></div></div>');
-    $(window).on('load', function () {
-      setTimeout(removeLoader, 1000); //wait for page load PLUS two seconds.
-    });
-    function removeLoader() {
-      $("#loading").fadeOut(500, function () {
-        // fadeOut complete. Remove the loading div
-        $("#loading").remove(); //makes page more lightweight 
-      });
-    }
-</script>
 
 {% endblock %}
