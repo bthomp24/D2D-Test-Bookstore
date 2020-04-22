@@ -308,15 +308,48 @@ class CheckmateView(APIView):
 
     
     def post(self, request, *args, **kwargs):
+        current_month = datetime.now().month
+        current_year = datetime.now().year
+        queries = QueryInfo.objects.all()
+        query_found = 0
         slug_list = []
         current_user = User.objects.get(user=request.user)
+
         for slug in current_user.company.slugs.all():
             slug_list.append(slug.name.lower())
 
         serializer = CheckmateSerializer(data=request.data)
+
         if serializer.is_valid():
             json = serializer.data
             results = search_checkmate(json, slug_list)
+            
+            for query in queries:
+                if str(query.user) == str(current_user) and query.month==current_month and query.year==current_year:
+                    query.querynum = query.querynum + 1
+                    query.save()
+                    query_found = 1
+                    print("hello")
+                
+            if query_found ==0:
+                new_query = QueryInfo()
+                new_query.month = current_month
+                new_query.year = current_year
+                new_query.user = current_user
+                new_query.querynum = 1
+                new_query.save()
+
+            # try:
+            #     query = QueryInfo.objects.get(user=request.query.user)
+            #     query.querynum = query.querynum + 1
+            #     query.save()
+            # except:
+            #     new_query = QueryInfo()
+            #     new_query.month = datetime.now().month
+            #     new_query.year = datetime.now().year
+            #     new_query.user = current_user
+            #     new_query.querynum = 1
+            #     new_query.save()
             
             return Response(results, status=status.HTTP_201_CREATED)
         else:
@@ -373,7 +406,7 @@ def results(request):
 
             book_data['bookdata']['authors'] = ','.join(author_names)
 
-    site_book_data = search_checkmate(book_data)
+    site_book_data = search_checkmate(book_data, slug_list)
 
     site_list = []
     for site in site_book_data:
