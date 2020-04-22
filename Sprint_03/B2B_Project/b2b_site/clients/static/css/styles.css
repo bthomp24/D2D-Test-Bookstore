@@ -347,12 +347,29 @@ table {
   margin: 0;
 }
 
+<<<<<<< HEAD
+.loadingInfo {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loadingInfo i{
+  font-size: 100px;
+}
+
+=======
+>>>>>>> e632eba80dd2c6b757f1704e7d034a378e590908
 .accordion {
   background-color: #333;
   color: #eee;
   cursor: pointer;
   padding: 16px 16px 16px 16px;
+<<<<<<< HEAD
+  width: 20%;
+  border: none;
+=======
   width: fit-content;
+>>>>>>> e632eba80dd2c6b757f1704e7d034a378e590908
   text-align: left;
   outline: none;
   font-size: 25px;
@@ -368,6 +385,13 @@ table {
 }
 
 .panel {
+<<<<<<< HEAD
+  padding: 0 18px;
+  display: none;
+  background-color: #ccc;
+  overflow: hidden;
+  width: 50%;
+=======
   display: none;
   padding: 0 18px;
   overflow: hidden;
@@ -474,6 +498,7 @@ table {
 
 .loading-bottom {
   transform: translate(0%, -80%);
+>>>>>>> e632eba80dd2c6b757f1704e7d034a378e590908
 }
 
 .query_report{

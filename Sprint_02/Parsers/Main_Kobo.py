@@ -51,25 +51,9 @@ class book_site_kobo():
             for the following function to work.  This function works with
             both digital books and audio books.
         """
-
         response = requests.get(url)
-        format = None
-        book_title = None
-        book_image = None
-        book_image_url = None
-        isbn_13 = None
-        description = None
-        series = None
-        volume_number = None
-        subtitle = None
-        authors = None
-        book_id = None
-        site_slug = None
-        parse_status = None
-        url = None
-        content = None
-        ready_for_sale = None
-        extra = None
+
+        extra = {}
 
         # book_title
         book_title = self._get_book_title(response.content)
@@ -139,6 +123,7 @@ class book_site_kobo():
             sorted using the relevancy rating.
         """
 
+    def find_book_matches_at_site(self, book_data):
         site_book_data_list = []
 
         url = self.get_search_link_from_book_data_form(book_data)
@@ -192,7 +177,6 @@ class book_site_kobo():
             The purpose of this function is to use the passed
             book_id in order to create a final book url.
         """
-
         primary_url = "https://www.kobo.com/us/en/"
         return primary_url + book_id
 
@@ -215,7 +199,6 @@ class book_site_kobo():
             of a specific month that it is passed, so that it
             may be used for comparison purposes.
         """
-
         try:
             if (month == "January") or (month == "Jan"):
                 return 1
@@ -260,18 +243,13 @@ class book_site_kobo():
         """
 
         try:
-            parser = etree.HTMLParser(remove_pis=True)
-            tree = etree.parse(io.BytesIO(content), parser)
-            root = tree.getroot()
-            xpath = ".//div[@class = 'bookitem-secondary-metadata']/ul/li[2]/span"
-            publish_date_element = root.xpath(xpath)[0]
+            publish_date_element = _parse(content, ".//div[@class = 'bookitem-secondary-metadata']/ul/li[2]/span")
             publish_date = publish_date_element.text
             soup = BeautifulSoup(publish_date, features='lxml')
             text = soup.get_text()
             text = text.strip()
 
             converted_date = text.replace(",", "").replace(" ", "-")
-
             today = date.today().strftime("%b-%d-%Y")
             today_string = str(today)
 
@@ -401,13 +379,8 @@ class book_site_kobo():
             The purpose of this function is to determine the
             book's isbn_13.
         """
-
         try:
-            parser = etree.HTMLParser(remove_pis=True)
-            tree = etree.parse(io.BytesIO(content), parser)
-            root = tree.getroot()
-            xpath = ".//div[@class = 'bookitem-secondary-metadata']/ul/li[4]/span"
-            isbn_element = root.xpath(xpath)[0]
+            isbn_element = _parse(content, ".//div[@class = 'bookitem-secondary-metadata']/ul/li[4]/span")
             isbn13 = isbn_element.text
             return isbn13
         except:
@@ -571,7 +544,6 @@ class book_site_kobo():
             book's id that is being scraped, using the already
             scraped site_slug
         """
-
         try:
             url = self._get_book_url(content)
             first = "en/"
@@ -614,7 +586,7 @@ class book_site_kobo():
 
             return book_format
         except:
-            return None
+           return None
 
     def _get_book_links_from_search_site(self, content):
         """
