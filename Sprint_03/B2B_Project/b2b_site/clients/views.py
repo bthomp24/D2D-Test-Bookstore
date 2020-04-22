@@ -329,7 +329,6 @@ class CheckmateView(APIView):
                     query.querynum = query.querynum + 1
                     query.save()
                     query_found = 1
-                    print("hello")
                 
             if query_found ==0:
                 new_query = QueryInfo()
@@ -338,18 +337,6 @@ class CheckmateView(APIView):
                 new_query.user = current_user
                 new_query.querynum = 1
                 new_query.save()
-
-            # try:
-            #     query = QueryInfo.objects.get(user=request.query.user)
-            #     query.querynum = query.querynum + 1
-            #     query.save()
-            # except:
-            #     new_query = QueryInfo()
-            #     new_query.month = datetime.now().month
-            #     new_query.year = datetime.now().year
-            #     new_query.user = current_user
-            #     new_query.querynum = 1
-            #     new_query.save()
             
             return Response(results, status=status.HTTP_201_CREATED)
         else:
