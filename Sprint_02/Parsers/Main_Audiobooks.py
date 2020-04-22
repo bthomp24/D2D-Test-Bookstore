@@ -11,7 +11,7 @@ import concurrent.futures
 
 class book_site_audiobooks():
     def __init__(self, *args, **kwargs):
-        pass
+        self.content_table = "//*[@id='content']"
 
 
     def get_book_data_from_site(self, url):
