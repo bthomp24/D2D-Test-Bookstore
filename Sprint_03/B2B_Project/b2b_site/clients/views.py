@@ -28,16 +28,35 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CheckmateSerializer
 from .search_checkmate import search_checkmate
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 
 # Create your views here.
 
+
 def myFirstChart(request):
+    """
+    args:
+       request:
+            All the information from the server.
+    returns:
+        Returns a bar chart using the fusion chart library based based if the user is a superuser or not.
+         - if the current useris admin, then the chart shall have information regarding all the companies in the database and 
+            the page will also have a form to search the past data.
+         - if the current user is end user, then the chart shall have information only about his/her company for the current month.  
+    synopsis:
+        The purpose of this function is to create a bar chart with information regarding the query total of user and company and
+        a form to search past records if user is an admin.
+    """
     current_month = datetime.now().month
     current_year = datetime.now().year
 
     queries = QueryInfo.objects.all()
     current_user = request.user
     temp_total = 0
+
+    #Only update the query total if the current user is an end-user.
 
     if current_user.is_superuser == False:
         current_company = current_user.user.company
@@ -64,6 +83,7 @@ def myFirstChart(request):
         # Insert the data into the `dataSource['data']` list.
 
         for query in queries:
+            # Collect the information regarding the company of the current user.
             if current_company == query.user.company and current_month == query.month and current_year == query.year:
                 dataSource["data"].append(
                     {"label": query.user.name, "value": query.querynum})
@@ -83,11 +103,14 @@ def myFirstChart(request):
         })
 
     else:
+        # This holds all the information required for the bar chart.
         dataSource = OrderedDict()
         dataSource["data"] = []
         dataSource["linkeddata"] = []
         companies = Company.objects.all()
         num = 0
+
+        #Chart Configuration.
 
         linkedchartConfig = OrderedDict()
         linkedchartConfig["caption"] = "Total Number of Queries Made in " + \
@@ -100,11 +123,15 @@ def myFirstChart(request):
         linkedchartConfig["labelDisplay"] = "auto"
         linkedchartConfig["palettecolors"] = "#5D62B5,#29C3BE,#F2726F,#FFC532,#67CDF2"
 
+        #Collect the query total of all the companies and users for the current month in a list, 
+        # dataSource[linkeddata] holds information of individual users of each comapny
         for company in companies:
             temp_total = 0
             num = num + 1
             data = []
+            #put the name of the comapny int chart title 
             linkedchartConfig["subCaption"] = "Company: " + str(company)
+            
             for query in queries:
                 if company == query.user.company and current_month == query.month and current_year == query.year:
                     temp_total = temp_total + query.querynum
@@ -134,6 +161,8 @@ def myFirstChart(request):
     column2D = FusionCharts("column2d", "myFirstChart", "800",
                             "400", "myFirstchart-container", "json", dataSource)
 
+    # Handle the form request and send it to querychart page via request.session 
+
     if request.method == 'POST':
         form = QueryForm(request.POST)
         if form.is_valid():
@@ -155,7 +184,20 @@ def myFirstChart(request):
         "form": form,
     })
 
+
+
 class MainView(LoginRequiredMixin, TemplateView):
+    """
+    args:
+       request:
+            LoginRequiredMixin: For authentication of the user
+            TemplateView: Django default view
+    returns:
+        Sends the form data to the search results page. 
+    synopsis:
+        The purpose of this form class is to handle two forms in the same view i.e. maunual search form and json form
+        and if the form is valid send it to search results page via request.session
+    """
     template_name = "search.html"
 
     def get(self, request, *args, **kwargs):
@@ -175,6 +217,7 @@ class MainView(LoginRequiredMixin, TemplateView):
         current_user_name = request.user
         users = User.objects.all()
 
+        # Get the current user
         for user in users:
             if user.user == current_user_name:
                 current_user = user
@@ -193,6 +236,7 @@ class MainView(LoginRequiredMixin, TemplateView):
 
         if json_form.is_valid():
             if current_user_name.is_superuser == False:
+                # update the query total of the current user
                 for query in queries:
                     if str(query.user.user) == str(current_user_name) and query.month==current_month and query.year==current_year:
                         query.querynum = query.querynum + 1
@@ -221,12 +265,14 @@ class MainView(LoginRequiredMixin, TemplateView):
 
         elif manual_form.is_valid():
             if current_user_name.is_superuser == False:
+                # Update the query total of the current user.
                 for query in queries:
                     if str(query.user.user) == str(current_user_name) and query.month==current_month and query.year==current_year:
                         query.querynum = query.querynum + 1
                         query.save()
                         query_found = 1
-                
+
+                #Create new instance of QueryInfo if one does not exist for current month for the current user
                 if query_found ==0:
                     new_query = QueryInfo()
                     new_query.month = current_month
@@ -253,58 +299,45 @@ class MainView(LoginRequiredMixin, TemplateView):
 
         return self.render_to_response(context)
 
-class ManualFormView(FormView):
-    form_class = SearchManualForm
-    template_name = 'search.html'
-    success_url = '/loading_page/'
 
-    def post(self, request, *args, **kwargs):
-        manual_form = self.form_class(request.POST)
-        json_form = JsonForm()
-
-        if manual_form.is_valid():
-            book_title = manual_form.cleaned_data['book_title']
-            book_author = manual_form.cleaned_data['book_author']
-            book_isbn = manual_form.cleaned_data['book_isbn']
-            book_image_url = manual_form.cleaned_data['book_image_url']
-
-            book = {"title": book_title, "author": book_author,
-                    "isbn": book_isbn, "image_url": book_image_url, "json": None}
-            context = {
-                'manual_form': manual_form,
-                'json_form': json_form
-            }
-
-            return self.render_to_response(context)
-        else:
-            return self.render_to_response(self.get_context_data(manual_form=manual_form, json_form=json_form))
-
-class JsonFormView(FormView):
-    form_class = JsonForm
-    template_name = 'search.html'
-    success_url = '/loading_page/'
-
-    def post(self, request, *args, **kwargs):
-        json_form = self.form_class(request.POST)
-        manual_form = SearchManualForm()
-
-        if json_form.is_valid():
-            json_code = json_form.cleaned_data['json_code']
-
-            return self.render_to_response(self.get_context_data(manual_form=manual_form, json_form=json_form))
-
-        else:
-            return self.render_to_response(self.get_context_data(json_form=json_form, manual_form=manual_form))
 
 class CheckmateView(APIView):
     parser_classes = (JSONParser, FormParser)
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
     
     def post(self, request, *args, **kwargs):
+        current_month = datetime.now().month
+        current_year = datetime.now().year
+        queries = QueryInfo.objects.all()
+        query_found = 0
+        slug_list = []
+        current_user = User.objects.get(user=request.user)
+
+        for slug in current_user.company.slugs.all():
+            slug_list.append(slug.name.lower())
 
         serializer = CheckmateSerializer(data=request.data)
+
         if serializer.is_valid():
             json = serializer.data
-            results = search_checkmate(json)
+            results = search_checkmate(json, slug_list)
+            
+            for query in queries:
+                if str(query.user) == str(current_user) and query.month==current_month and query.year==current_year:
+                    query.querynum = query.querynum + 1
+                    query.save()
+                    query_found = 1
+                
+            if query_found ==0:
+                new_query = QueryInfo()
+                new_query.month = current_month
+                new_query.year = current_year
+                new_query.user = current_user
+                new_query.querynum = 1
+                new_query.save()
+            
             return Response(results, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -360,7 +393,7 @@ def results(request):
 
             book_data['bookdata']['authors'] = ','.join(author_names)
 
-    site_book_data = search_checkmate(book_data)
+    site_book_data = search_checkmate(book_data, slug_list)
 
     site_list = []
     for site in site_book_data:
@@ -391,6 +424,15 @@ def results(request):
     return render(request,'results.html',context=context)
 
 def login(request):
+    """
+    args:
+        request:
+            All the information from the server.
+    returns:
+        
+    synopsis:
+        The purpose of this function is to create the login page using Django default template setup for user authentication.
+    """
     form = AuthenticationForm
     context = {
         "form": form
@@ -399,42 +441,51 @@ def login(request):
 
 @login_required
 def manage_account(request):
+    """
+    args:
+        request:
+            All the information from the server.
+    returns:
+        
+    synopsis:
+        The purpose of this function is to create the login page using Django default template setup for user authentication.
+    """
     context = {
     }
     return render(request, 'manage_account.html', context=context)
 
-def loading(request):
-    book_title = request.session.get('book_title')
-    book_isbn = request.session.get('book_isbn')
-    book_author = request.session.get('book_author')
-    book_image_url = request.session.get('book_image_url')
-    json_code = request.session.get('json_code')
-
-    print(book_author)
-    print(book_image_url)
-    print(book_isbn)
-    print(book_title)
-    print(json_code)
-    context = {
-
-    }
-    return render(request, 'loading.html', context=context)
 
 @login_required
 def historicalChart(request):
+    """
+    args:
+        request:
+            All the information from the server.
+    returns:
+        A bar chart with information regarding all the companies and their users in the database for a specific month and year 
+        defined by the admin user in the query report page.
+        
+    synopsis:
+        The purpose of this function is to create the login page using Django default template setup for user authentication.
+    """
     selected_month = int(request.session.get('month'))
     selected_year = int(request.session.get('year'))
     selected_company = request.session.get('company')
     queries = QueryInfo.objects.all()
     companies = Company.objects.all()
 
-    dataSource = OrderedDict()
-    dataSource["data"] = []
-    dataSource["linkeddata"] = []
+    # This dictionary contains all the information required for the barchart
 
+    dataSource = OrderedDict()
+    # This will have information about the total of each company in the database.
+    dataSource["data"] = []
+    # This will have informations about individual users of each comapny in seperate list.
+    dataSource["linkeddata"] = []
+    #id number for the chart of individual company id= q+ num
     num = 0
 
     linkedchartConfig = OrderedDict()
+    # Add the name of current month in the chart
     linkedchartConfig["caption"] = "Total Number of Queries Made in " + \
         calendar.month_name[selected_month] + " "+str(selected_year)
     linkedchartConfig["xAxisName"] = "Users"
@@ -445,6 +496,7 @@ def historicalChart(request):
     linkedchartConfig["labelDisplay"] = "auto"
     linkedchartConfig["palettecolors"] = "#5D62B5,#29C3BE,#F2726F,#FFC532,#67CDF2"
 
+    # if "None" was selected on form of the query report page then generate data for all the companies in the database else just for specific company.
     if selected_company == "None":
         for company in companies:
             temp_total = 0

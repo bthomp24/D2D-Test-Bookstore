@@ -7,7 +7,7 @@ import Scrapers
 import json
 
 
-def search_checkmate(book_data):
+def search_checkmate(book_data, site_list):
     list_data = book_data["bookdata"]
 
     try:
@@ -77,25 +77,71 @@ def search_checkmate(book_data):
 
     results = []
     
-    # print("Searching Google Books")
-    # google_books = Scrapers.get_book_site('gb')
-    # gb_list = google_books.find_book_matches_at_site(site_book_data)
-    # results.append(['gb', return_list(gb_list)])
+    if "gb" in site_list:
+        try:
+            print("Searching Google Books")
+            google_books = Scrapers.get_book_site('gb')
+            gb_list = google_books.find_book_matches_at_site(site_book_data)
+            results.append(['gb', return_list(gb_list)])
+        except Exception as e:
+            print("Exception: ", e)
+            temp_list = []
+            results.append(['gb', temp_list])
 
-    print("Searching Kobo")
-    kobo = Scrapers.get_book_site('kb')
-    kb_list = kobo.find_book_matches_at_site(site_book_data)
-    results.append(['kb', return_list(kb_list)])
+    if "kb" in site_list:
+        try:
+            print("Searching Kobo")
+            kobo = Scrapers.get_book_site('kb')
+            kb_list = kobo.find_book_matches_at_site(site_book_data)
+            results.append(['kb', return_list(kb_list)])
+        except Exception as e:
+            print("Exception: ", e)
+            temp_list = []
+            results.append(['kb', temp_list])
     
-    print("Searching Livraria Cultura")
-    livraria_cultura = Scrapers.get_book_site('lc')
-    lc_list = livraria_cultura.find_book_matches_at_site(site_book_data)
-    results.append(['lc', return_list(lc_list)])
+    if "lc" in site_list:
+        try:
+            print("Searching Livraria Cultura")
+            livraria_cultura = Scrapers.get_book_site('lc')
+            lc_list = livraria_cultura.find_book_matches_at_site(site_book_data)
+            results.append(['lc', return_list(lc_list)])
+        except Exception as e:
+            print("Exception: ", e)
+            temp_list = []
+            results.append(['lc', temp_list])
     
-    print("Searching Scribd")
-    scribd = Scrapers.get_book_site('sd')
-    sd_list = scribd.find_book_matches_at_site(site_book_data)
-    results.append(['sd', return_list(sd_list)])
+    if "sd" in site_list:
+        try:
+            print("Searching Scribd")
+            scribd = Scrapers.get_book_site('sd')
+            sd_list = scribd.find_book_matches_at_site(site_book_data)
+            results.append(['sd', return_list(sd_list)])
+        except Exception as e:
+            print("Exception: ", e)
+            temp_list = []
+            results.append(['sd', temp_list])
+
+    if "au" in site_list:
+        try:
+            print("Audiobooks")
+            audiobooks = Scrapers.get_book_site('au')
+            audiobooks_list = audiobooks.find_book_matches_at_site(site_book_data)
+            results.append(['au', return_list(audiobooks_list)])
+        except Exception as e:
+            print("Exception: ", e)
+            temp_list = []
+            results.append(['au', temp_list])
+
+    if "tb" in site_list:
+        try:
+            print("Test Bookstore")
+            test_bookstore = Scrapers.get_book_site('tb')
+            test_bookstore_list = audiobooks.find_book_matches_at_site(site_book_data)
+            results.append(['tb', return_list(test_bookstore_list)])
+        except Exception as e:
+            print("Exception: ", e)
+            temp_list = []
+            results.append(['tb', temp_list])
 
     return results
 

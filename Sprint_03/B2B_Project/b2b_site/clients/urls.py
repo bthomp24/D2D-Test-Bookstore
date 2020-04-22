@@ -16,5 +16,4 @@ urlpatterns = [
     path('results/', views.results, name='results'),
     path('query_report/', views.myFirstChart, name= 'query_report'),
     path('query_chart/', views.historicalChart, name= 'query_chart'),
-    path('loading_page/', views.loading, name= 'loading_page'),
 ]

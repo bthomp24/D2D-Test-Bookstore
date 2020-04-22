@@ -152,7 +152,7 @@ class book_site_scribd():
         url_gotten_from_from = self.__get_search_link_from_book_data_form(book_data)
         
         if not url_gotten_from_from:
-            return None
+            return []
         
         ''' \/\/ the following should not change \/\/ '''
         
