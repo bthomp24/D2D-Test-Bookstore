@@ -4,7 +4,7 @@ defusedxml==0.6.0
 Django==3.0.3
 django-tables2==2.2.1
 djangorestframework==3.11.0
-lxml==4.5.0
+lxml==4.9.1
 pytz==2019.3
 soupsieve==1.9.5
 sqlparse==0.3.0
